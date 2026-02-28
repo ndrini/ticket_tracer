@@ -1208,6 +1208,7 @@ dependencies = [
     { name = "paddleocr" },
     { name = "paddlepaddle" },
     { name = "pandas" },
+    { name = "pyyaml" },
 ]
 
 [package.dev-dependencies]
@@ -1222,6 +1223,7 @@ requires-dist = [
     { name = "paddleocr" },
     { name = "paddlepaddle" },
     { name = "pandas" },
+    { name = "pyyaml" },
 ]
 
 [package.metadata.requires-dev]

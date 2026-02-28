@@ -5,32 +5,32 @@ import sqlite3
 
 import pytest
 
-from app.db.database import init_db, insert_product
+from app.db.db_manager import init_db, insert_product, seed_db, update_product_aka_value
 
 
 def test_database_creation():
     db_path = "data/test_spese.db"
-    # Assicuriamoci che la directory esista
+    # Ensure the directory exists
     os.makedirs(os.path.dirname(db_path), exist_ok=True)
 
-    # Rimuoviamo il db di test se esiste già
+    # Remove the test db if it already exists
     if os.path.exists(db_path):
         os.remove(db_path)
 
-    # Inizializziamo il database
+    # Initialize the database
     init_db(db_path)
     assert os.path.exists(db_path)
 
 
 def test_insert_and_map_product():
     db_path = "data/test_spese.db"
-    # Assicuriamoci che il DB sia inizializzato
+    # Ensure the DB is initialized
     init_db(db_path)
 
-    # Testiamo se il sistema salva correttamente un alias multilingua
+    # Test if the system correctly saves a multilingual alias
     insert_product(db_path, "Joghurt", "Yogurt", "Alimentari", "DE")
 
-    # Verifica
+    # Verification
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     cursor.execute(
@@ -45,31 +45,28 @@ def test_insert_and_map_product():
 
 def test_db_schema_integrity():
     db_path = "data/test_spese.db"
-    # Inizializziamo il DB per assicurarci che le tabelle esistano
+    # Initialize the DB to ensure tables exist
     init_db(db_path)
 
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
-    # Verifichiamo la tabella 'purchases'
-    cursor.execute("PRAGMA table_info(purchases)")
-    columns = [column[1] for column in cursor.fetchall()]
-
-    expected_columns = [
-        "id",
-        "date",
-        "store",
-        "raw_name",
-        "standard_name",
-        "category",
-        "price",
-        "language",
+    # Verify the presence of new tables
+    tables_to_check = [
+        "shop_type",
+        "shops",
+        "products",
+        "tickets",
+        "ticket_lines",
     ]
 
-    for col in expected_columns:
-        assert col in columns, f"Colonna mancante nella tabella purchases: {col}"
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+    existing_tables = [row[0] for row in cursor.fetchall()]
 
-    # Verifichiamo la tabella 'product_dictionary'
+    for table in tables_to_check:
+        assert table in existing_tables, f"Missing table: {table}"
+
+    # Verify the 'product_dictionary' table
     cursor.execute("PRAGMA table_info(product_dictionary)")
     dict_columns = [column[1] for column in cursor.fetchall()]
 
@@ -77,3 +74,44 @@ def test_db_schema_integrity():
     assert "standard_name" in dict_columns
 
     conn.close()
+
+
+def test_seed_db():
+    db_path = "data/test_spese.db"
+    yaml_path = "data/test_data.yaml"
+
+    init_db(db_path)
+    seed_db(db_path, yaml_path)
+
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT count(*) FROM shops")
+    count = cursor.fetchone()[0]
+    assert count > 0, "Seeding did not insert data into the shops table"
+
+    conn.close()
+    conn.close()
+
+
+def test_update_product_aka_value():
+    db_path = "data/test_spese.db"
+    yaml_path = "data/test_data.yaml"
+
+    init_db(db_path)
+    seed_db(db_path, yaml_path)
+
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    # Update the product alias
+    update_product_aka_value(db_path, "Joghurt", "Yogurt", "Alimentari", "DE")
+
+    # Verify the update
+    cursor.execute(
+        "SELECT standard_name FROM product_dictionary WHERE raw_text = ?", ("Joghurt",)
+    )
+    result = cursor.fetchone()
+    conn.close()
+
+    assert result == ("Yogurt",), "Product alias update failed"
+    assert result == ("Yogurt",), "Product alias update failed"

@@ -13,3 +13,5 @@ wheels/
 # private files
 .env
 private
+
+data 

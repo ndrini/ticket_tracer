@@ -2,15 +2,14 @@
 
 import pytest
 
-from app.ocr.ocr_engine import process_receipt
+from app.etl.etl_engine import process_receipt
 
 
 def test_process_simple_receipt():
-    # Prepara uno scontrino d'esempio (anche una piccola immagine ritagliata)
+    # Prepare a sample receipt (even a small cropped image)
     image_path = "tests/fixtures/sample_receipt.jpg"
 
-    # Questo fallirà sicuramente perché process_receipt non esiste ancora!
-    # E fallirà anche l'import sopra se il modulo non esiste.
+    # This will definitely fail because process_receipt does not exist yet!
     data = process_receipt(image_path)
 
     assert "store" in data

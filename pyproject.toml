@@ -9,7 +9,8 @@ dependencies = [
     "paddleocr",
     "ollama",
     "pandas",
-    "opencv-python-headless"
+    "opencv-python-headless",
+    "PyYAML"
 ]
 author = "ndrini"
 author-email = "aless@ndrini.eu"
