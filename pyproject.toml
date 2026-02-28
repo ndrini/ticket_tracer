@@ -1,0 +1,9 @@
+[project]
+name = "ticket-tracer"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+author = "ndrini"
+author-email = "aless@ndrini.eu"
