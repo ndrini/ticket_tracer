@@ -4,6 +4,20 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "paddlepaddle",
+    "paddleocr",
+    "ollama",
+    "pandas",
+    "opencv-python-headless"
+]
 author = "ndrini"
 author-email = "aless@ndrini.eu"
+
+[dependency-groups]
+dev = [
+    "pytest",
+]
+
+[tool.pytest.ini_options]
+pythonpath = "."

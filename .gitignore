@@ -8,3 +8,8 @@ wheels/
 
 # Virtual environments
 .venv
+
+
+# private files
+.env
+private
