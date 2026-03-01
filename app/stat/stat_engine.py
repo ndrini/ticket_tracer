@@ -10,8 +10,8 @@ def calculate_statistics(db_path):
         """
         SELECT c.name, SUM(tl.total_price) as total_spent
         FROM commerces c
-        JOIN tickets t ON c.id = t.id_commerce
-        JOIN ticket_lines tl ON t.id = tl.id_scontrino
+        JOIN receipts t ON c.id = t.id_commerce
+        JOIN receipt_lines tl ON t.id = tl.receipt_id
         GROUP BY c.name
     """
     )
@@ -22,7 +22,7 @@ def calculate_statistics(db_path):
         """
         SELECT p.name, SUM(tl.total_price) as total_spent
         FROM products p
-        JOIN ticket_lines tl ON p.id = tl.id_prodotto
+        JOIN receipt_lines tl ON p.id = tl.product_id
         GROUP BY p.name
     """
     )
@@ -32,8 +32,8 @@ def calculate_statistics(db_path):
     cursor.execute(
         """
         SELECT strftime('%Y-%m', t.data_ora) as month, SUM(tl.total_price) as total_spent
-        FROM tickets t
-        JOIN ticket_lines tl ON t.id = tl.id_scontrino
+        FROM receipts t
+        JOIN receipt_lines tl ON t.id = tl.receipt_id
         GROUP BY month
     """
     )

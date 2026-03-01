@@ -46,7 +46,7 @@ def init_db(db_path):
 
     cursor.execute(
         """
-        CREATE TABLE IF NOT EXISTS tickets (
+        CREATE TABLE IF NOT EXISTS receipts (
             id INTEGER PRIMARY KEY,
             id_commerce INTEGER,
             data_ora TEXT,
@@ -58,16 +58,16 @@ def init_db(db_path):
 
     cursor.execute(
         """
-        CREATE TABLE IF NOT EXISTS ticket_lines (
+        CREATE TABLE IF NOT EXISTS receipt_lines (
             id INTEGER PRIMARY KEY,
-            id_scontrino INTEGER,
-            id_prodotto INTEGER,
+            receipt_id INTEGER,
+            product_id INTEGER,
             quantity INTEGER,
             unity_price REAL,
             unit char,
             total_price REAL,
-            FOREIGN KEY(id_scontrino) REFERENCES tickets(id),
-            FOREIGN KEY(id_prodotto) REFERENCES products(id)
+            FOREIGN KEY(receipt_id) REFERENCES receipts(id),
+            FOREIGN KEY(product_id) REFERENCES products(id)
         )
     """
     )
@@ -101,8 +101,8 @@ def seed_db(db_path, yaml_path):
         "commerce_type",
         "commerces",
         "products",
-        "tickets",
-        "ticket_lines",
+        "receipts",
+        "receipt_lines",
     ]
 
     for table in tables:

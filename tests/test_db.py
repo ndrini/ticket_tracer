@@ -89,8 +89,8 @@ def test_db_schema_integrity():
         "commerce_type",
         "commerces",
         "products",
-        "tickets",
-        "ticket_lines",
+        "receipts",
+        "receipt_lines",
     ]
 
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
