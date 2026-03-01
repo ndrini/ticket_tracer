@@ -50,6 +50,8 @@ def test_insert_and_map_product():
 def test_insert_new_alias_for_existing_product():
     db_path = "data/test_spese.db"
     # Ensure the DB is initialized
+    if os.path.exists(db_path):
+        os.remove(db_path)
     init_db(db_path)
 
     # Insert a product with initial aliases
@@ -104,6 +106,8 @@ def test_seed_db():
     db_path = "data/test_spese.db"
     yaml_path = "data/test_data.yaml"
 
+    if os.path.exists(db_path):
+        os.remove(db_path)
     init_db(db_path)
     seed_db(db_path, yaml_path)
 

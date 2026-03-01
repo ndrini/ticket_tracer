@@ -38,7 +38,7 @@ def init_db(db_path):
         """
         CREATE TABLE IF NOT EXISTS products (
             id INTEGER PRIMARY KEY,
-            name TEXT,
+            name TEXT UNIQUE,
             aka ARRAY
         )
     """
@@ -158,7 +158,6 @@ def insert_product(db_path, standard_name, aka_list: list[str]):
     )
 
     conn.commit()
-    conn.close()
     conn.close()
 
 

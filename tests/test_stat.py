@@ -1,118 +1,51 @@
-# tests/test_db.py
-
-import json
 import os
-import sqlite3
 
 import pytest
 
-from app.db.db_manager import init_db, insert_product, seed_db
+from app.db.db_manager import init_db, seed_db
+from app.stat.stat_engine import calculate_statistics
 
 
-def test_database_creation():
-    db_path = "data/test_spese.db"
-    # Ensure the directory exists
-    os.makedirs(os.path.dirname(db_path), exist_ok=True)
+@pytest.fixture
+def populated_db():
+    """
+    Fixture that creates a temporary database, populates it with test data from a YAML file,
+    and yields the path. After the test, it cleans up by removing the file.
+    """
 
-    # Remove the test db if it already exists
+    db_path = "data/test_stat.db"
+    yaml_path = "data/test_data.yaml"
+
+    # Setup: pulizia preventiva e inizializzazione
     if os.path.exists(db_path):
         os.remove(db_path)
-
-    # Initialize the database
-    init_db(db_path)
-    assert os.path.exists(db_path)
-
-
-def test_insert_and_map_product():
-    db_path = "data/test_spese.db"
-    # Ensure the DB is initialized
-    init_db(db_path)
-
-    # Test if the system correctly saves a product with aliases
-    insert_product(db_path, "Yogurt", ["Joghurt", "Jogurt"])
-
-    # Verification
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-    cursor.execute(
-        "SELECT name, aka FROM products WHERE name = ?",
-        ("Yogurt",),
-    )
-    result = cursor.fetchone()
-    conn.close()
-
-    assert result == (
-        "Yogurt",
-        json.dumps(["Joghurt", "Jogurt"]),
-    ), "Product alias mapping failed"
-
-
-def test_db_schema_integrity():
-    db_path = "data/test_spese.db"
-    # Initialize the DB to ensure tables exist
-    init_db(db_path)
-
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-
-    # Verify the presence of new tables
-    tables_to_check = [
-        "shop_type",
-        "shops",
-        "products",
-        "tickets",
-        "ticket_lines",
-    ]
-
-    cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
-    existing_tables = [row[0] for row in cursor.fetchall()]
-
-    for table in tables_to_check:
-        assert table in existing_tables, f"Missing table: {table}"
-
-    conn.close()
-
-
-def test_seed_db():
-    db_path = "data/test_spese.db"
-    yaml_path = "data/test_data.yaml"
 
     init_db(db_path)
     seed_db(db_path, yaml_path)
 
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+    yield db_path
 
-    cursor.execute("SELECT count(*) FROM shops")
-    count = cursor.fetchone()[0]
-    assert count > 0, "Seeding did not insert data into the shops table"
-
-
-#     conn.close()
-#     conn.close()
+    # Teardown: pulizia finale
+    if os.path.exists(db_path):
+        os.remove(db_path)
 
 
-# def test_update_product_aka_value():
-#     db_path = "data/test_spese.db"
-#     yaml_path = "data/test_data.yaml"
+def test_calculate_statistics(populated_db):
+    # Eseguiamo il calcolo delle statistiche sul DB popolato dalla fixture
+    stats = calculate_statistics(populated_db)
 
-#     init_db(db_path)
-#     seed_db(db_path, yaml_path)
+    # Verifiche basate sui dati in data/test_data.yaml:
+    # Ticket 1: Esselunga. Prodotti: Milk (3.00) + Orange (3.99) = 6.99 Totale
 
-#     conn = sqlite3.connect(db_path)
-#     cursor = conn.cursor()
-#     # Update the product alias
-#     update_product_aka_value(db_path, "Joghurt", "Yogurt", "Alimentari", "DE")
+    # 1. Verifica Spesa per Commercio
+    commerces = dict(stats["total_spent_per_commerce"])
+    assert commerces["Esselunga"] == 6.99
 
-#     # Verify the update
-#     cursor.execute(
-#         "SELECT standard_name FROM product_dictionary WHERE raw_text = ?", ("Joghurt",)
-#     )
-#     result = cursor.fetchone()
-#     conn.close()
+    # 2. Verifica Spesa per Prodotto
+    products = dict(stats["total_spent_per_product"])
+    assert products["milk"] == 3.00
+    assert products["orange"] == 3.99
 
-#     assert result == ("Yogurt",), "Product alias update failed"
-#     assert result == ("Yogurt",), "Product alias update failed"
-#     assert result == ("Yogurt",), "Product alias update failed"
-#     assert result == ("Yogurt",), "Product alias update failed"
-#     assert result == ("Yogurt",), "Product alias update failed"
+    # 3. Verifica Trend Mensile
+    months = dict(stats["monthly_spending_trends"])
+    assert months["2023-10"] == 6.99
