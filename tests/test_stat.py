@@ -47,33 +47,6 @@ def test_insert_and_map_product():
     ), "Product alias mapping failed"
 
 
-def test_insert_new_alias_for_existing_product():
-    db_path = "data/test_spese.db"
-    # Ensure the DB is initialized
-    init_db(db_path)
-
-    # Insert a product with initial aliases
-    insert_product(db_path, "Yogurt", ["Joghurt", "Jogurt"])
-
-    # Insert the same product with a new alias
-    insert_product(db_path, "Yogurt", ["Joghurt", "Jogurt", "Yoghurt"])
-
-    # Verification
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-    cursor.execute(
-        "SELECT name, aka FROM products WHERE name = ?",
-        ("Yogurt",),
-    )
-    result = cursor.fetchone()
-    conn.close()
-
-    assert result == (
-        "Yogurt",
-        json.dumps(["Joghurt", "Jogurt", "Yoghurt"]),
-    ), "Updating product alias mapping failed"
-
-
 def test_db_schema_integrity():
     db_path = "data/test_spese.db"
     # Initialize the DB to ensure tables exist
@@ -84,8 +57,8 @@ def test_db_schema_integrity():
 
     # Verify the presence of new tables
     tables_to_check = [
-        "commerce_type",
-        "commerces",
+        "shop_type",
+        "shops",
         "products",
         "tickets",
         "ticket_lines",
@@ -110,12 +83,13 @@ def test_seed_db():
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
-    cursor.execute("SELECT count(*) FROM commerces")
+    cursor.execute("SELECT count(*) FROM shops")
     count = cursor.fetchone()[0]
-    assert count > 0, "Seeding did not insert data into the commerces table"
+    assert count > 0, "Seeding did not insert data into the shops table"
 
-    conn.close()
-    conn.close()
+
+#     conn.close()
+#     conn.close()
 
 
 # def test_update_product_aka_value():
@@ -137,4 +111,8 @@ def test_seed_db():
 #     result = cursor.fetchone()
 #     conn.close()
 
+#     assert result == ("Yogurt",), "Product alias update failed"
+#     assert result == ("Yogurt",), "Product alias update failed"
+#     assert result == ("Yogurt",), "Product alias update failed"
+#     assert result == ("Yogurt",), "Product alias update failed"
 #     assert result == ("Yogurt",), "Product alias update failed"

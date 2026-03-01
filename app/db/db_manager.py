@@ -14,21 +14,22 @@ def init_db(db_path):
 
     cursor.execute(
         """
-        CREATE TABLE IF NOT EXISTS shop_type (
+        CREATE TABLE IF NOT EXISTS commerce_type (
             id INTEGER PRIMARY KEY,
-            nome TEXT
+            name TEXT,
+            gender TEXT
         )
     """
     )
 
     cursor.execute(
         """
-        CREATE TABLE IF NOT EXISTS shops (
+        CREATE TABLE IF NOT EXISTS commerces (
             id INTEGER PRIMARY KEY,
-            nome TEXT,
-            indirizzo TEXT,
-            id_tipo_punto_vendita INTEGER,
-            FOREIGN KEY(id_tipo_punto_vendita) REFERENCES shop_type(id)
+            name  TEXT,
+            address TEXT,
+            commerce_type INTEGER,
+            FOREIGN KEY(commerce_type) REFERENCES commerce_type(id)
         )
     """
     )
@@ -37,8 +38,8 @@ def init_db(db_path):
         """
         CREATE TABLE IF NOT EXISTS products (
             id INTEGER PRIMARY KEY,
-            nome_base TEXT,
-            varianti TEXT
+            name TEXT,
+            aka ARRAY
         )
     """
     )
@@ -47,10 +48,10 @@ def init_db(db_path):
         """
         CREATE TABLE IF NOT EXISTS tickets (
             id INTEGER PRIMARY KEY,
-            id_punto_vendita INTEGER,
+            id_commerce INTEGER,
             data_ora TEXT,
             immagine BLOB,
-            FOREIGN KEY(id_punto_vendita) REFERENCES shops(id)
+            FOREIGN KEY(id_commerce) REFERENCES commerces(id)
         )
     """
     )
@@ -71,17 +72,17 @@ def init_db(db_path):
     """
     )
 
-    # Dictionary Table for multilingual support and aliases
-    cursor.execute(
-        """
-        CREATE TABLE IF NOT EXISTS product_dictionary (
-            raw_text TEXT PRIMARY KEY,
-            standard_name TEXT,
-            category TEXT,
-            language TEXT
-        )
-    """
-    )
+    # # Dictionary Table for multilingual support and aliases
+    # cursor.execute(
+    #     """
+    #     CREATE TABLE IF NOT EXISTS product_dictionary (
+    #         raw_text TEXT PRIMARY KEY,
+    #         standard_name TEXT,
+    #         category TEXT,
+    #         language TEXT
+    #     )
+    # """
+    # )
 
     conn.commit()
     conn.close()
@@ -97,8 +98,8 @@ def seed_db(db_path, yaml_path):
 
     # Insertion order to respect Foreign Keys
     tables = [
-        "shop_type",
-        "shops",
+        "commerce_type",
+        "commerces",
         "products",
         "tickets",
         "ticket_lines",
@@ -121,16 +122,39 @@ def seed_db(db_path, yaml_path):
     conn.close()
 
 
-def insert_product(db_path, raw_text, standard_name, category, language):
+def insert_product(db_path, standard_name, aka_list: list[str]):
+    """Inserts a new product into the products table. The aka_list allows us to store multiple aliases for the same product.
+    For example, "Joghurt" and "Jogurt" can both be stored as aliases for "Yogurt".
+
+    If the product already exists (based on standard_name), we can update the aka_list to include any new aliases without creating duplicate entries.
+    """
+
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
 
+    # search for existing product by standard_name
     cursor.execute(
         """
-        INSERT OR REPLACE INTO product_dictionary (raw_text, standard_name, category, language)
-        VALUES (?, ?, ?, ?)
+        SELECT aka FROM products WHERE name = ?
     """,
-        (raw_text, standard_name, category, language),
+        (standard_name,),
+    )
+    existing_aka = cursor.fetchone()
+    if existing_aka:
+        existing_aka_list = json.loads(existing_aka[0])
+        for item in aka_list:
+            if item not in existing_aka_list:
+                existing_aka_list.append(item)
+        aka_list = existing_aka_list
+
+    # insert or update product
+
+    cursor.execute(
+        """
+        INSERT OR REPLACE INTO products (name, aka)
+        VALUES (?, ?)
+    """,
+        (standard_name, json.dumps(aka_list)),
     )
 
     conn.commit()
@@ -138,22 +162,22 @@ def insert_product(db_path, raw_text, standard_name, category, language):
     conn.close()
 
 
-def update_product_aka_value(db_path, raw_text, standard_name, category, language):
-    """
-    Add another alias for the same product in the dictionary. This allows us to have multiple raw_text entries mapping to the same standard_name.
-    For example, "Joghurt" and "Jogurt" can both map to "Yogurt".
-    """
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
+# def update_product_aka_value(db_path, standard_name, new_alias):
+#     """
+#     Add another alias for the same product in the dictionary. This allows us to have multiple raw_text entries mapping to the same standard_name.
+#     For example, "Joghurt" and "Jogurt" can both map to "Yogurt".
+#     """
+#     conn = sqlite3.connect(db_path)
+#     cursor = conn.cursor()
 
-    cursor.execute(
-        """
-        INSERT OR REPLACE INTO product_dictionary (raw_text, standard_name, category, language)
-        VALUES (?, ?, ?, ?)
-    """,
-        (raw_text, standard_name, category, language),
-    )
+#     cursor.execute(
+#         """
+#         INSERT OR REPLACE INTO products (standard_name, aka)
+#         VALUES (?, ?, ?, ?)
+#     """,
+#         (standard_name, aka_list),
+#     )
 
-    conn.commit()
-    conn.close()
-    conn.close()
+#     conn.commit()
+#     conn.close()
+#     conn.close()
