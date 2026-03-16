@@ -155,32 +155,31 @@ class ReceiptPipeline:
         Args:
             image_input: path string o numpy array
         """
-        # `predict` con la v3 di paddleocr restituisce una lista di dizionari.
-        # Poiché passiamo una sola immagine, avremo una lista con un solo dizionario.
+        # `predict` con le versioni recenti di paddleocr restituisce una lista di risultati,
+        # uno per ogni immagine. Poiché passiamo una sola immagine, avremo una
+        # lista con un solo elemento, che a sua volta è una lista di linee.
+        # Formato: [ [ [box, (text, score)], ... ] ]
         result = self.ocr.predict(image_input)
+
+        # Estrai il risultato per la prima (e unica) immagine.
+        ocr_lines = result[0] if result and result[0] else None
 
         # Fallback: Se non trova testo, prova a ruotare l'immagine di 180 gradi.
         # A volte il classificatore automatico fallisce su testi sparsi come gli scontrini.
-        if not result or not result[0].get("rec_text"):
+        if not ocr_lines:
             rotated = cv2.rotate(image_input, cv2.ROTATE_180)
-            result = self.ocr.predict(rotated)
+            result_rotated = self.ocr.predict(rotated)
+            ocr_lines = (
+                result_rotated[0] if result_rotated and result_rotated[0] else None
+            )
 
         # Se ancora non trova testo, ritorna una lista vuota.
-        if not result or not result[0].get("rec_text"):
+        if not ocr_lines:
             return []
 
-        # Estraiamo il dizionario dei risultati
-        res_dict = result[0]
-
-        # Ricostruiamo il formato atteso dai test: [ [box, (text, score)], ... ]
-        boxes = res_dict.get("dt_polys", [])
-        texts = res_dict.get("rec_text", [])
-        scores = res_dict.get("rec_score", [])
-
-        return [
-            [box.tolist(), (text, score)]
-            for box, text, score in zip(boxes, texts, scores)
-        ]
+        # Il formato è già [ [box, (text, score)], ... ], che è quello che
+        # si aspetta il resto del codice.
+        return ocr_lines
 
     def parse_raw_data(self, raw_ocr_output):
         """

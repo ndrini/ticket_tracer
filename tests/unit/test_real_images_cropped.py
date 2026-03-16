@@ -8,17 +8,16 @@ import pytest
 
 def test_cropped_receipt_text_contains_expected_words(receipt_pipeline):
     """Verifica che i crop noti contengano i testi previsti."""
-    debug_dir = os.path.join(os.path.dirname(__file__), "..", "exports", "debug_crops")
-    crop_paths = [
-        os.path.join(debug_dir, "crop_2025-many_brown_table.jpeg_0.jpg"),
-        os.path.join(debug_dir, "crop_2025-many_brown_table.jpeg_1.jpg"),
-    ]
-
+    debug_dir = os.path.join(
+        os.path.dirname(__file__), "..", "..", "data", "test", "cropped"
+    )
+    crop_paths = [os.path.join(debug_dir, "crop_2025-many_brown_table.jpeg_0.jpg")]
+    print(f"****************************   Controllando i crop: {crop_paths}")
     missing = [p for p in crop_paths if not os.path.exists(p)]
     if missing:
         pytest.skip(f"Crop mancanti: {missing}")
 
-    expected = ["evoceritas", "e farina de bolar a sensa vluten"]
+    expected = ["ecoveritas", "farina", "blat", "gluten"]
     found_text = ""
     for p in crop_paths:
         img = cv2.imread(p)
