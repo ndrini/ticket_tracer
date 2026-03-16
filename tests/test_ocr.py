@@ -4,16 +4,13 @@ import os
 
 import pytest
 
-from app.etl.etl_engine import ReceiptPipeline
 
-
-def test_pipeline_structure():
+def test_pipeline_structure(receipt_pipeline):
     """
     Testa che la pipeline sia inizializzata correttamente e che
     la struttura dei dati in uscita sia compatibile con il database.
     Non esegue vero OCR per velocità, ma verifica il contratto dell'interfaccia.
     """
-    pipeline = ReceiptPipeline()
 
     # Simuliamo un output grezzo dell'OCR (lista di box e testi)
     # Formato PaddleOCR tipico: [[[x,y], [x,y]...], ("testo", confidenza)]
@@ -27,7 +24,7 @@ def test_pipeline_structure():
 
     # Simuliamo il passaggio di parsing (che normalmente farebbe l'LLM)
     # Qui testiamo la logica di assemblaggio finale
-    parsed_data = pipeline.parse_raw_data(mock_ocr_result)
+    parsed_data = receipt_pipeline.parse_raw_data(mock_ocr_result)
 
     # Asserzioni sulla struttura
     assert "shop_name" in parsed_data
