@@ -45,31 +45,65 @@ class ReceiptPipeline:
 
         orig = image.copy()
         img_h, img_w = image.shape[:2]
-        min_area = (
-            img_w * img_h
-        ) * 0.02  # Un'area minima per non escludere scontrini piccoli
+        min_area = max(50000, (img_w * img_h) * 0.03)
 
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         blurred = cv2.GaussianBlur(gray, (5, 5), 0)
-        # Usiamo una soglia adattiva che funziona meglio con illuminazione non uniforme
-        edged = cv2.adaptiveThreshold(
-            blurred, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 4
-        )
+        edges = cv2.Canny(blurred, 40, 130)
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (9, 9))
+        closed = cv2.morphologyEx(edges, cv2.MORPH_CLOSE, kernel, iterations=2)
 
-        # Trova i contorni
         contours, _ = cv2.findContours(
-            edged.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
+            closed.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
         )
 
-        receipt_contours = []
+        def score_quad(pts):
+            rect = cv2.minAreaRect(pts)
+            (w, h) = rect[1]
+            if w <= 0 or h <= 0:
+                return 0.0
+            area = abs(cv2.contourArea(pts))
+            ratio = max(w / h, h / w)
+            if ratio > 5.0:
+                return 0.0
+            aspect_score = 1.0 - abs((ratio - 1.5) / 4.0)
+            aspect_score = max(aspect_score, 0.0)
+            size_score = min(area / (img_w * img_h), 1.0)
+            return aspect_score * size_score
+
+        candidates = []
         for c in contours:
+            area = cv2.contourArea(c)
+            if area < min_area or area > img_w * img_h * 0.98:
+                continue
             peri = cv2.arcLength(c, True)
             approx = cv2.approxPolyDP(c, 0.02 * peri, True)
-            if len(approx) == 4 and cv2.contourArea(c) > min_area:
-                receipt_contours.append(approx)
+            if len(approx) == 4 and cv2.isContourConvex(approx):
+                candidates.append((score_quad(approx), approx))
 
-        if not receipt_contours:
-            return [orig]
+        if not candidates:
+            # fallback con minAreaRect sui contorni grandi
+            for c in sorted(contours, key=cv2.contourArea, reverse=True)[:30]:
+                area = cv2.contourArea(c)
+                if area < min_area or area > img_w * img_h * 0.98:
+                    continue
+                rect = cv2.minAreaRect(c)
+                (w, h) = rect[1]
+                if min(w, h) < 80 or max(w, h) < 120:
+                    continue
+                ratio = max(w / h, h / w)
+                if ratio > 5.0:
+                    continue
+                box = cv2.boxPoints(rect).astype("float32")
+                score = score_quad(box)
+                if score > 0:
+                    candidates.append((score, box.reshape(4, 1, 2)))
+                if len(candidates) >= 2:
+                    break
+
+        receipt_contours = [
+            x[1] for x in sorted(candidates, key=lambda s: s[0], reverse=True)[:2]
+        ]
 
         def order_points(pts):
             rect = np.zeros((4, 2), dtype="float32")
@@ -84,13 +118,13 @@ class ReceiptPipeline:
         def four_point_transform(image, pts):
             rect = order_points(pts)
             (tl, tr, br, bl) = rect
-            widthA = np.sqrt(((br[0] - bl[0]) ** 2) + ((br[1] - bl[1]) ** 2))
-            widthB = np.sqrt(((tr[0] - tl[0]) ** 2) + ((tr[1] - tl[1]) ** 2))
+            widthA = np.linalg.norm(br - bl)
+            widthB = np.linalg.norm(tr - tl)
+            heightA = np.linalg.norm(tr - br)
+            heightB = np.linalg.norm(tl - bl)
             maxWidth = max(int(widthA), int(widthB))
-            heightA = np.sqrt(((tr[0] - br[0]) ** 2) + ((tr[1] - br[1]) ** 2))
-            heightB = np.sqrt(((tl[0] - bl[0]) ** 2) + ((tl[1] - bl[1]) ** 2))
             maxHeight = max(int(heightA), int(heightB))
-            if maxWidth == 0 or maxHeight == 0:
+            if maxWidth <= 0 or maxHeight <= 0:
                 return None
             dst = np.array(
                 [
@@ -110,7 +144,10 @@ class ReceiptPipeline:
         ]
         warped_images = [img for img in warped_images if img is not None]
 
-        return warped_images if warped_images else [orig]
+        if not warped_images:
+            return [orig]
+
+        return warped_images
 
     def _run_ocr(self, image_input):
         """

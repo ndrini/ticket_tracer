@@ -12,8 +12,8 @@ def test_process_real_images_and_debug_crops(receipt_pipeline):
     1. Esegue il ritaglio (cropping).
     2. Salva i ritagli in exports/debug_crops per verifica visiva.
     """
-    base_dir = "data/test"
-    debug_dir = "exports/debug_crops"
+    base_dir = os.path.join(os.path.dirname(__file__), "..", "data", "test")
+    debug_dir = os.path.join(os.path.dirname(__file__), "..", "exports", "debug_crops")
     os.makedirs(debug_dir, exist_ok=True)
 
     # Trova tutte le immagini jpg/jpeg nella cartella di test
@@ -32,9 +32,11 @@ def test_process_real_images_and_debug_crops(receipt_pipeline):
         crops = receipt_pipeline._detect_and_crop_receipts(full_path)
 
         assert len(crops) > 0, f"Nessuno scontrino rilevato in {img_file}"
-
         for i, crop in enumerate(crops):
             # Salva il ritaglio su disco
             output_filename = f"crop_{img_file}_{i}.jpg"
             output_path = os.path.join(debug_dir, output_filename)
-            cv2.imwrite(output_path, crop)
+            written = cv2.imwrite(output_path, crop)
+            assert written, f"Impossibile salvare il crop {output_filename}"
+
+        # TODO testiamo che leggendo i ritagli salvati, si estragga il testo atteso
