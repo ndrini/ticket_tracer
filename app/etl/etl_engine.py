@@ -11,6 +11,7 @@ class ReceiptPipeline:
         # Rimosso show_log=False che causa crash nella versione 3.x
         # use_textline_orientation=True sostituisce use_angle_cls (deprecato).
         # Questo gestisce la classificazione dell'orientamento.
+        # PaddleOCR supporta lingue come 'it' o 'en'.
         self.ocr = PaddleOCR(
             use_textline_orientation=True, lang="it", enable_mkldnn=False
         )
@@ -177,9 +178,22 @@ class ReceiptPipeline:
         if not ocr_lines:
             return []
 
-        # Il formato è già [ [box, (text, score)], ... ], che è quello che
-        # si aspetta il resto del codice.
-        return ocr_lines
+        # Normalizzazione dell'output. A seconda della configurazione, paddleocr
+        # potrebbe restituire solo il testo invece di (testo, score).
+        # Garantiamo che l'output sia sempre nel formato [box, (text, score)].
+        normalized_lines = []
+        for line in ocr_lines:
+            if len(line) != 2:
+                continue  # Ignora linee malformate
+
+            box, text_part = line
+            if isinstance(text_part, tuple):
+                # Formato corretto: [box, (text, score)]
+                normalized_lines.append(line)
+            elif isinstance(text_part, str):
+                # Formato alternativo: [box, "text"] -> Normalizziamo
+                normalized_lines.append([box, (text_part, 1.0)])
+        return normalized_lines
 
     def parse_raw_data(self, raw_ocr_output):
         """
