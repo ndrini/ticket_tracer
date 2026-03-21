@@ -156,43 +156,51 @@ class ReceiptPipeline:
         Args:
             image_input: path string o numpy array
         """
-        # `predict` con le versioni recenti di paddleocr restituisce una lista di risultati,
-        # uno per ogni immagine. Poiché passiamo una sola immagine, avremo una
-        # lista con un solo elemento, che a sua volta è una lista di linee.
-        # Formato: [ [ [box, (text, score)], ... ] ]
-        result = self.ocr.predict(image_input)
+        # Le versioni recenti di paddleocr (v3+) restituiscono una lista di oggetti dict-like (OCRResult)
+        try:
+            result = self.ocr.predict(image_input)
+        except Exception:
+            try:
+                result = self.ocr.ocr(image_input)
+            except Exception:
+                return []
 
-        # Estrai il risultato per la prima (e unica) immagine.
-        ocr_lines = result[0] if result and result[0] else None
-
-        # Fallback: Se non trova testo, prova a ruotare l'immagine di 180 gradi.
-        # A volte il classificatore automatico fallisce su testi sparsi come gli scontrini.
-        if not ocr_lines:
-            rotated = cv2.rotate(image_input, cv2.ROTATE_180)
-            result_rotated = self.ocr.predict(rotated)
-            ocr_lines = (
-                result_rotated[0] if result_rotated and result_rotated[0] else None
-            )
-
-        # Se ancora non trova testo, ritorna una lista vuota.
-        if not ocr_lines:
+        if not result or not result[0]:
             return []
 
-        # Normalizzazione dell'output. A seconda della configurazione, paddleocr
-        # potrebbe restituire solo il testo invece di (testo, score).
-        # Garantiamo che l'output sia sempre nel formato [box, (text, score)].
-        normalized_lines = []
-        for line in ocr_lines:
-            if len(line) != 2:
-                continue  # Ignora linee malformate
+        def extract_lines(res_obj):
+            if isinstance(res_obj, list):
+                # Gestione caso legacy: res_obj è già una lista di linee [ [box, (text, score)], ... ]
+                # Controlliamo il primo elemento per sicurezza
+                if len(res_obj) > 0 and isinstance(res_obj[0], list):
+                    return res_obj
+            elif hasattr(res_obj, 'keys') or isinstance(res_obj, dict):
+                # Caso PaddleX OCRResult
+                rec_texts = res_obj.get('rec_texts', [])
+                rec_scores = res_obj.get('rec_scores', [])
+                dt_polys = res_obj.get('dt_polys', [])
+                
+                lines = []
+                for i in range(len(rec_texts)):
+                    box = dt_polys[i].tolist() if i < len(dt_polys) and hasattr(dt_polys[i], 'tolist') else []
+                    text = rec_texts[i]
+                    score = rec_scores[i] if i < len(rec_scores) else 1.0
+                    lines.append([box, (text, score)])
+                return lines
+            return []
 
-            box, text_part = line
-            if isinstance(text_part, tuple):
-                # Formato corretto: [box, (text, score)]
-                normalized_lines.append(line)
-            elif isinstance(text_part, str):
-                # Formato alternativo: [box, "text"] -> Normalizziamo
-                normalized_lines.append([box, (text_part, 1.0)])
+        normalized_lines = extract_lines(result[0])
+
+        # Fallback: Se non trova testo, prova a ruotare l'immagine di 180 gradi.
+        if not normalized_lines:
+            rotated = cv2.rotate(image_input, cv2.ROTATE_180)
+            try:
+                result_rotated = self.ocr.predict(rotated)
+            except Exception:
+                result_rotated = self.ocr.ocr(rotated)
+            if result_rotated and result_rotated[0]:
+                normalized_lines = extract_lines(result_rotated[0])
+
         return normalized_lines
 
     def parse_raw_data(self, raw_ocr_output):
