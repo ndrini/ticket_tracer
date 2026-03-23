@@ -17,3 +17,9 @@ private
 data/private
 data/raw
 data/interim
+
+data/input_scontrini
+data/ocr_cache
+
+data/archived_scontrini
+exports/debug_crops/

@@ -8,12 +8,14 @@ from paddleocr import PaddleOCR
 class ReceiptPipeline:
     def __init__(self):
         # Inizializziamo PaddleOCR.
-        # Rimosso show_log=False che causa crash nella versione 3.x
-        # use_textline_orientation=True sostituisce use_angle_cls (deprecato).
-        # Questo gestisce la classificazione dell'orientamento.
-        # PaddleOCR supporta lingue come 'it' o 'en'.
+        # Disabilitiamo i modelli accessori (UVDoc, textline, doc_ori, angle_cls)
+        # che saturano i gigabyte di RAM caricando 3-4 reti neurali aggiuntive.
         self.ocr = PaddleOCR(
-            use_textline_orientation=True, lang="it", enable_mkldnn=False
+            lang="es", # Spagnolo, copre perfettamente anche catalano, italiano e inglese
+            enable_mkldnn=False,
+            cpu_threads=3,
+            use_doc_orientation_classify=False,
+            use_textline_orientation=False
         )
 
     def process_image(self, image_path):
@@ -34,6 +36,19 @@ class ReceiptPipeline:
 
         return results
 
+    def extract_raw_ocr(self, image_path):
+        """
+        Rileva e ritaglia gli scontrini dall'immagine, esegue l'OCR e restituisce
+        solo l'output grezzo (le righe estratte). Utile per la pipeline in 2 fasi.
+        """
+        cropped_images = self._detect_and_crop_receipts(image_path)
+        all_raw_data = []
+        for img in cropped_images:
+            raw_ocr_data = self._run_ocr(img)
+            all_raw_data.append(raw_ocr_data)
+        return all_raw_data
+
+
     def _detect_and_crop_receipts(self, image_path):
         """
         Analizza l'immagine per trovare uno o più scontrini, li raddrizza
@@ -43,6 +58,15 @@ class ReceiptPipeline:
         image = cv2.imread(image_path)
         if image is None:
             raise FileNotFoundError(f"Impossibile leggere l'immagine: {image_path}")
+
+        # --- NOVITA' ANTI-FREEZING: Ridimensioniamo preventivamente ---
+        # Molte fotocamere (12-50 MPixel) creano immagini gigantesche in RAM. 
+        # Canny e findContours possono superare i 15 GB su una singola immagine!
+        img_h, img_w = image.shape[:2]
+        max_dim = 1600 # Massima dimensione consigliata per uno scontrino
+        if max(img_h, img_w) > max_dim:
+            scale = max_dim / float(max(img_h, img_w))
+            image = cv2.resize(image, (int(img_w * scale), int(img_h * scale)), interpolation=cv2.INTER_AREA)
 
         orig = image.copy()
         img_h, img_w = image.shape[:2]
