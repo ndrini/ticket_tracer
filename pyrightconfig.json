@@ -1,3 +1,14 @@
 {
-    "reportGeneralTypeIssues": true
+    "reportGeneralTypeIssues": true,
+    "venvPath": ".",
+    "venv": ".venv/bin/python3.12",
+    "include": [
+        "app",
+        "tests"
+    ],
+    "executionEnvironments": [
+        {
+            "root": "."
+        }
+    ]
 }
