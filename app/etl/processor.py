@@ -25,12 +25,15 @@ class OllamaProcessor:
         
         prompt = f"""
         Sei un assistente specializzato nel leggere gli scontrini. 
-        Di seguito troverai il testo grezzo estratto da uno scontrino.
+        Di seguito troverai il testo grezzo estratto da uno scontrino. Gli scontrini sono principalmente in lingua spagnola o catalana, occasionalmente in italiano.
         Estrai le seguenti informazioni e restituisci SOLO un oggetto JSON anonimo valido (niente markdown o commenti):
         - shop_name: nome del supermercato o negozio principale (es. Ecoveritas, Conad)
         - date: data dello scontrino se presente, in formato YYYY-MM-DD
         - total: l'importo totale espresso come float (es. 12.50)
-        - items: una lista di oggetti (array), dove ogni oggetto ha "name" (stringa) e "price" (float).
+        - items: una lista di oggetti (array), dove ogni oggetto rappresenta un prodotto e ha:
+            - "name": stringa normalizzata e tradotta genericamente in ITALIANO (es. se leggi "Pan" o "Pa" scrivi "Pane", se leggi "Llet" scrivi "Latte").
+            - "original_name": stringa esatta originale letta sullo scontrino (es. "Pan", "Llet" o "Farina de blat").
+            - "price": float.
 
         TESTO DELLO SCONTRINO:
         {raw_text}

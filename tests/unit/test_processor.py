@@ -14,7 +14,7 @@ def test_process_receipt_text_success():
     ]
     
     # Mocking ollama.chat to return a predefined JSON string
-    mock_json = '{"shop_name": "Ecoveritas", "date": "2023-11-20", "total": 2.70, "items": [{"name": "Farina di grano tenero", "price": 1.50}, {"name": "Latte parz. scremato", "price": 1.20}]}'
+    mock_json = '{"shop_name": "Ecoveritas", "date": "2023-11-20", "total": 2.70, "items": [{"name": "Farina di grano tenero", "original_name": "Farina de blat", "price": 1.50}, {"name": "Latte", "original_name": "Llet semidesnatada", "price": 1.20}]}'
     
     with patch("app.etl.processor.ollama.chat") as mock_chat:
         mock_chat.return_value = {
@@ -30,6 +30,7 @@ def test_process_receipt_text_success():
         assert result["total"] == 2.70
         assert len(result["items"]) == 2
         assert result["items"][0]["name"] == "Farina di grano tenero"
+        assert result["items"][0]["original_name"] == "Farina de blat"
         assert result["items"][0]["price"] == 1.50
 
 def test_process_receipt_text_failure_fallback():
