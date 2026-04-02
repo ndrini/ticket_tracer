@@ -1,11 +1,12 @@
 import json
 import logging
+import re
 import ollama
 
 logger = logging.getLogger(__name__)
 
 class OllamaProcessor:
-    def __init__(self, model_name="llama3.2"):
+    def __init__(self, model_name="qwen2:1.5b"):
         self.model_name = model_name
 
     def process_receipt_text(self, ocr_lines: list) -> dict:
@@ -49,14 +50,20 @@ class OllamaProcessor:
             
             content = response.get('message', {}).get('content', '')
             
-            # Pulizia markdown json
-            content = content.strip()
-            if content.startswith("```json"):
-                content = content[7:]
-            elif content.startswith("```"):
-                content = content[3:]
-            if content.endswith("```"):
-                content = content[:-3]
+            # --- Robust JSON Extraction ---
+            # Trova la prima occorrenza di '{' e l'ultima di '}'
+            match = re.search(r"(\{.*\})", content, re.DOTALL)
+            if match:
+                content = match.group(1)
+            else:
+                # Fallback: pulizia markdown manuale se regex fallisce
+                content = content.strip()
+                if content.startswith("```json"):
+                    content = content[7:]
+                elif content.startswith("```"):
+                    content = content[3:]
+                if content.endswith("```"):
+                    content = content[:-3]
             
             data = json.loads(content.strip())
             return data

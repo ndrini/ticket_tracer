@@ -22,4 +22,6 @@ data/input_scontrini
 data/ocr_cache
 
 data/archived_scontrini
-exports/debug_crops/
+data/archived_ocr
+
+exports/debug_crops

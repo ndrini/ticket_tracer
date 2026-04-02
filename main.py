@@ -3,6 +3,7 @@ import glob
 import json
 import shutil
 import time
+from datetime import datetime
 from pathlib import Path
 
 # Limita il numero di thread usati dalle librerie C/C++ sottostanti (Numpy, OpenCV, Paddle)
@@ -93,8 +94,8 @@ def step_2_run_llm_and_db():
         init_db(str(DB_PATH))
         print(f"Database {DB_PATH.name} creato/inizializzato.")
         
-    print("Inizializzazione Ollama (Llama3.2)...")
-    processor = OllamaProcessor(model_name="llama3.2")
+    print("Inizializzazione Ollama (Qwen2:1.5b)...")
+    processor = OllamaProcessor(model_name="qwen2:1.5b")
 
     for json_file in json_files:
         filename = os.path.basename(json_file)
@@ -118,7 +119,8 @@ def step_2_run_llm_and_db():
                     
                     shop_name = structured_data.get('shop_name', 'Sconosciuto')
                     total = structured_data.get('total', 0.0)
-                    print(f"✓ Inserito nel DB: {shop_name} - Totale: {total}€ ({len(structured_data['items'])} prodotti)")
+                    now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    print(f"[{now_str}] ✓ Inserito nel DB: {shop_name} - Totale: {total}€ ({len(structured_data['items'])} prodotti)")
                 else:
                     print(f"⚠️ LLM non ha restituito dati validi per {filename} (Scontrino {index+1}).")
                     
