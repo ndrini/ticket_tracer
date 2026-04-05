@@ -31,7 +31,7 @@ def test_process_real_images_and_debug_crops(receipt_pipeline):
         print(f"\nProcessing: {img_file}")
 
         # 1. Testiamo il metodo interno di ritaglio per salvare le immagini di debug
-        crops = receipt_pipeline._detect_and_crop_receipts(full_path)
+        _, crops = receipt_pipeline.extract_raw_ocr(full_path)
 
         assert len(crops) > 0, f"Nessuno scontrino rilevato in {img_file}"
         for i, crop in enumerate(crops):

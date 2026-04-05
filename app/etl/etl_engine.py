@@ -1,17 +1,14 @@
-# app/etl/etl_engine.py
-
 import cv2
 import numpy as np
+import ollama
 from paddleocr import PaddleOCR
 
 
 class ReceiptPipeline:
     def __init__(self):
         # Inizializziamo PaddleOCR.
-        # Disabilitiamo i modelli accessori (UVDoc, textline, doc_ori, angle_cls)
-        # che saturano i gigabyte di RAM caricando 3-4 reti neurali aggiuntive.
         self.ocr = PaddleOCR(
-            lang="es", # Spagnolo, copre perfettamente anche catalano, italiano e inglese
+            lang="es", 
             enable_mkldnn=False,
             cpu_threads=3,
             use_doc_orientation_classify=False,
@@ -23,28 +20,53 @@ class ReceiptPipeline:
         receipts_lines, _ = self.extract_raw_ocr(image_path)
         return [self.parse_raw_data(lines) for lines in receipts_lines]
 
+    def _get_vision_guidance(self, image_path: str) -> dict:
+        """
+        Phase 0: Sopralluogo Visivo con Moondream.
+        Chiediamo al VLM quanti scontrini vede realmente.
+        """
+        try:
+            with open(image_path, 'rb') as f:
+                img_bytes = f.read()
+            
+            prompt = "Identify the separate physical receipts or pieces of paper in this image. They might be stacked vertically or overlapping. Answer ONLY with the total count (e.g. 1, 2, 3)."
+            res = ollama.chat(model='moondream:1.8b', messages=[
+                {'role': 'user', 'content': prompt, 'images': [img_bytes]}
+            ])
+
+
+            count_str = res['message']['content'].strip()
+            # Estraiamo il primo numero trovato
+            import re
+            match = re.search(r'\d+', count_str)
+            target_count = int(match.group()) if match else 1
+            return {"target_count": target_count}
+        except Exception as e:
+            print(f"Vision Guard Error: {e}")
+            return {"target_count": 1}
+
     def extract_raw_ocr(self, image_path):
         """
+        0. Phase 0: Vision Guard (moondream)
         1. Ridimensiona l'immagine se gigantesca.
-        2. OCR a 4 rotazioni sull'immagine intera → sceglie la migliore.
-        3. Separa i ricevute tramite clustering dei bounding box (Gap Y e Gap X).
-        Restituisce (list[list[line]], list[np.ndarray])
+        2. OCR a 4 rotazioni sull'immagine intera.
+        3. Separa i ricevute tramite clustering guidato.
         """
+        # PHASE 0: VISION GUARD
+        vision_info = self._get_vision_guidance(image_path)
+        
         image = cv2.imread(image_path)
         if image is None:
             raise FileNotFoundError(f"Impossibile leggere: {image_path}")
 
-        # Ridimensionamento anti-freeze
         image = self._resize_safe(image, max_dim=2000)
-
-        # 4-ROTATION OCR
         best_lines, best_image = self._best_rotation_ocr(image)
 
         if not best_lines:
             return [[]], [best_image]
 
-        # Separa i ricevute in base ai gap tra i bounding box
-        return self._split_by_gaps(best_lines, best_image)
+        return self._split_by_gaps(best_lines, best_image, target_count=vision_info["target_count"])
+
 
     def _resize_safe(self, image: np.ndarray, max_dim: int = 2000) -> np.ndarray:
         h, w = image.shape[:2]
@@ -111,12 +133,12 @@ class ReceiptPipeline:
             return lines
         return []
 
-    def _split_by_gaps(self, lines: list, full_image: np.ndarray) -> tuple:
+    def _split_by_gaps(self, lines: list, full_image: np.ndarray, target_count: int = 1) -> tuple:
         """
         Separa i ricevute clusterizzando i bounding box.
         1. Gap Y (stack verticale)
         2. Gap X (side-by-side) per ogni cluster Y
-        3. Merge dei frammenti piccoli (es. loghi o totali staccati)
+        3. Smart-Merging guidato dal Target Count del VLM
         """
         if not lines: return [[]], [full_image]
 
@@ -129,7 +151,6 @@ class ReceiptPipeline:
         if lines_sorted_y:
             current_cluster = [lines_sorted_y[0]]
             for line in lines_sorted_y[1:]:
-                # SOGLIA_Y: 120px è perfetto per separare scontrini impilati
                 if get_y_center(line) - get_y_center(current_cluster[-1]) > 120:
                     y_clusters.append(current_cluster)
                     current_cluster = [line]
@@ -137,14 +158,13 @@ class ReceiptPipeline:
                     current_cluster.append(line)
             y_clusters.append(current_cluster)
 
-        # 2. Clustering ORIZZONTALE (X) su ogni cluster Y
+        # 2. Clustering ORIZZONTALE (X)
         y_x_clusters = []
         for cluster in y_clusters:
             cluster_sorted_x = sorted(cluster, key=get_x_center)
             current_x_sub = [cluster_sorted_x[0]]
             temp_sub_clusters = []
             for line in cluster_sorted_x[1:]:
-                # SOGLIA_X: 100px separa scontrini affiancati
                 if get_x_center(line) - get_x_center(current_x_sub[-1]) > 100:
                     temp_sub_clusters.append(current_x_sub)
                     current_x_sub = [line]
@@ -153,41 +173,36 @@ class ReceiptPipeline:
             temp_sub_clusters.append(current_x_sub)
             y_x_clusters.extend(temp_sub_clusters)
 
-        # 3. MERGE DEI FRAMMENTI (HEALER)
-        # Se un cluster ha pochissime linee (es. < 5), lo uniamo se è molto vicino (< 150px)
-        final_receipt_lines = []
-        fragments = []
-        
-        for c in y_x_clusters:
-            if len(c) > 5: final_receipt_lines.append(c)
-            else: fragments.append(c)
-        
-        if not final_receipt_lines and fragments:
-            final_receipt_lines = fragments
-        else:
-            for frag in fragments:
-                fx = sum([get_x_center(l) for l in frag])/len(frag)
-                fy = sum([get_y_center(l) for l in frag])/len(frag)
-                
-                best_body_idx = -1
-                min_dist = 10000
-                for i, body in enumerate(final_receipt_lines):
-                    bx = sum([get_x_center(l) for l in body])/len(body)
-                    by = sum([get_y_center(l) for l in body])/len(body)
-                    dist = np.sqrt((fx-bx)**2 + (fy-by)**2)
+        # 3. SMART-MERGING (Vision Guided)
+        # Se abbiamo più cluster di quanti ne ha visti il VLM, fondiamo i più vicini.
+        final_clusters = y_x_clusters
+        while len(final_clusters) > target_count and len(final_clusters) > 1:
+            # Trova la coppia di cluster con la distanza minima tra i centroidi
+            min_dist = float('inf')
+            pair_to_merge = (0, 1)
+            
+            centroids = []
+            for c in final_clusters:
+                cx = sum([get_x_center(l) for l in c]) / len(c)
+                cy = sum([get_y_center(l) for l in c]) / len(c)
+                centroids.append((cx, cy))
+            
+            for i in range(len(centroids)):
+                for j in range(i + 1, len(centroids)):
+                    dist = np.sqrt((centroids[i][0]-centroids[j][0])**2 + 
+                                   (centroids[i][1]-centroids[j][1])**2)
                     if dist < min_dist:
                         min_dist = dist
-                        best_body_idx = i
-                
-                # Soglia merge ridotta a 150px per massima precisione di separazione
-                if best_body_idx != -1 and min_dist < 150:
-                    final_receipt_lines[best_body_idx].extend(frag)
-                else:
-                    final_receipt_lines.append(frag)
+                        pair_to_merge = (i, j)
+            
+            # Fondi j in i e rimuovi j
+            i, j = pair_to_merge
+            final_clusters[i].extend(final_clusters[j])
+            final_clusters.pop(j)
 
         # Generiamo le immagini ritagliate
         crops = []
-        for receipt in final_receipt_lines:
+        for receipt in final_clusters:
             all_pts = []
             for l in receipt: all_pts.extend(l[0])
             if all_pts:
@@ -199,7 +214,8 @@ class ReceiptPipeline:
             else:
                 crops.append(full_image)
 
-        return final_receipt_lines, crops
+        return final_clusters, crops
+
 
 
 

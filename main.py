@@ -106,8 +106,8 @@ def step_2_run_llm_and_db():
         init_db(str(DB_PATH))
         print(f"Database {DB_PATH.name} creato/inizializzato.")
         
-    print("Inizializzazione Ollama (Qwen2:1.5b)...")
-    processor = OllamaProcessor(model_name="qwen2:1.5b")
+    print("Inizializzazione Ollama (Llama 3.1 8B)...")
+    processor = OllamaProcessor()
 
     for json_file in json_files:
         filename = os.path.basename(json_file)

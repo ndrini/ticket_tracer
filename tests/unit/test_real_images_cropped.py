@@ -22,7 +22,7 @@ def test_cropped_receipt_text_contains_expected_words(receipt_pipeline):
     for p in crop_paths:
         img = cv2.imread(p)
         assert img is not None, f"Impossibile leggere {p}"
-        ocr_data, _ = receipt_pipeline._run_ocr(img)
+        ocr_data = receipt_pipeline._run_single_ocr(img)
         # Estrai solo i testi
         texts = [tup[1][0] for tup in ocr_data if len(tup) > 1 and len(tup[1]) > 0]
         found_text += " ".join(texts).lower()
