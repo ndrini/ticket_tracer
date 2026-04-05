@@ -18,10 +18,15 @@ data/private
 data/raw
 data/interim
 
-data/input_scontrini
-data/ocr_cache
+data/pictures_input
+data/pictures_archived
 
-data/archived_scontrini
-data/archived_ocr
+data/receipts_input
+data/receipts_archived
+
+
+data/cache_ocr
+data/cache_ocr_archived
+data/ocr_archived
 
 exports/debug_crops

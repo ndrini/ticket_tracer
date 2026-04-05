@@ -5,6 +5,8 @@ import shutil
 import time
 from datetime import datetime
 from pathlib import Path
+import cv2
+
 
 # Limita il numero di thread usati dalle librerie C/C++ sottostanti (Numpy, OpenCV, Paddle)
 # per evitare di saturare tutte le CPU e bloccare il computer. (Uso: 3 thread)
@@ -18,16 +20,19 @@ os.environ["NUMEXPR_NUM_THREADS"] = "3"
 BASE_DIR = Path(__file__).parent.resolve()
 DATA_DIR = BASE_DIR / "data"
 
-INPUT_DIR = DATA_DIR / "input_scontrini"
-OCR_CACHE_DIR = DATA_DIR / "ocr_cache"
-ARCHIVED_IMG_DIR = DATA_DIR / "archived_scontrini"
-ARCHIVED_OCR_DIR = DATA_DIR / "archived_ocr"
+INPUT_DIR = DATA_DIR / "pictures_input"
+CROPPED_DIR = DATA_DIR / "receipts_input"
+OCR_CACHE_DIR = DATA_DIR / "cache_ocr"
+ARCHIVED_IMG_DIR = DATA_DIR / "pictures_archived"
+ARCHIVED_OCR_DIR = DATA_DIR / "cache_ocr_archived"
+
 DB_DIR = DATA_DIR / "db"
 DB_PATH = DB_DIR / "produzione.db"
 
 # Crea le cartelle se non esistono
-for d in [INPUT_DIR, OCR_CACHE_DIR, ARCHIVED_IMG_DIR, ARCHIVED_OCR_DIR, DB_DIR]:
+for d in [INPUT_DIR, CROPPED_DIR, OCR_CACHE_DIR, ARCHIVED_IMG_DIR, ARCHIVED_OCR_DIR, DB_DIR]:
     os.makedirs(d, exist_ok=True)
+
 
 try:
     from app.etl.etl_engine import ReceiptPipeline
@@ -57,8 +62,15 @@ def step_1_run_ocr():
         filename = os.path.basename(img_path)
         print(f"Elaborazione OCR per {filename}...")
         try:
-            # Estraziamo il testo raw (senza usare Ollama)
-            raw_data = pipeline.extract_raw_ocr(img_path)
+            # Estraziamo il testo raw e le immagini ritagliate
+            raw_data, cropped_images = pipeline.extract_raw_ocr(img_path)
+            
+            base_name = os.path.splitext(filename)[0]
+            
+            # Salvataggio ritagli fisici per debug/ispezione
+            for i, crop in enumerate(cropped_images):
+                crop_filename = f"{base_name}_crop_{i}.jpg"
+                cv2.imwrite(str(CROPPED_DIR / crop_filename), crop)
             
             # Salvataggio nella cartella di cache come JSON
             base_name = os.path.splitext(filename)[0]
