@@ -116,42 +116,76 @@ class ReceiptPipeline:
         Separa i ricevute clusterizzando i bounding box.
         1. Gap Y (stack verticale)
         2. Gap X (side-by-side) per ogni cluster Y
+        3. Merge dei frammenti piccoli (es. loghi o totali staccati)
         """
         if not lines: return [[]], [full_image]
 
-        def get_y_center(line):
-            return sum([p[1] for p in line[0]]) / 4
-        def get_x_center(line):
-            return sum([p[0] for p in line[0]]) / 4
+        def get_y_center(line): return sum([p[1] for p in line[0]]) / 4
+        def get_x_center(line): return sum([p[0] for p in line[0]]) / 4
 
-        # Ordina per Y e raggruppa
+        # 1. Clustering VERTICALE (Y)
         lines_sorted_y = sorted(lines, key=get_y_center)
         y_clusters = []
-        current_cluster = [lines_sorted_y[0]]
-        for line in lines_sorted_y[1:]:
-            if get_y_center(line) - get_y_center(current_cluster[-1]) > 100: # Gap Y di 100px
-                y_clusters.append(current_cluster)
-                current_cluster = [line]
-            else:
-                current_cluster.append(line)
-        y_clusters.append(current_cluster)
+        if lines_sorted_y:
+            current_cluster = [lines_sorted_y[0]]
+            for line in lines_sorted_y[1:]:
+                # SOGLIA_Y: 120px è perfetto per separare scontrini impilati
+                if get_y_center(line) - get_y_center(current_cluster[-1]) > 120:
+                    y_clusters.append(current_cluster)
+                    current_cluster = [line]
+                else:
+                    current_cluster.append(line)
+            y_clusters.append(current_cluster)
 
-        # Per ogni cluster Y, controlliamo se ci sono gap X (affiancati)
-        final_receipt_lines = []
+        # 2. Clustering ORIZZONTALE (X) su ogni cluster Y
+        y_x_clusters = []
         for cluster in y_clusters:
-            # Ordina per X e raggruppa
             cluster_sorted_x = sorted(cluster, key=get_x_center)
             current_x_sub = [cluster_sorted_x[0]]
+            temp_sub_clusters = []
             for line in cluster_sorted_x[1:]:
-                # Gap X di 50 pixel è solitamente sufficiente
-                if get_x_center(line) - get_x_center(current_x_sub[-1]) > 50:
-                    final_receipt_lines.append(current_x_sub)
+                # SOGLIA_X: 100px separa scontrini affiancati
+                if get_x_center(line) - get_x_center(current_x_sub[-1]) > 100:
+                    temp_sub_clusters.append(current_x_sub)
                     current_x_sub = [line]
                 else:
                     current_x_sub.append(line)
-            final_receipt_lines.append(current_x_sub)
+            temp_sub_clusters.append(current_x_sub)
+            y_x_clusters.extend(temp_sub_clusters)
+
+        # 3. MERGE DEI FRAMMENTI (HEALER)
+        # Se un cluster ha pochissime linee (es. < 5), lo uniamo se è molto vicino (< 150px)
+        final_receipt_lines = []
+        fragments = []
         
-        # Generiamo le immagini ritagliate per coerenza (opzionale, usiamo pezzi del best_image)
+        for c in y_x_clusters:
+            if len(c) > 5: final_receipt_lines.append(c)
+            else: fragments.append(c)
+        
+        if not final_receipt_lines and fragments:
+            final_receipt_lines = fragments
+        else:
+            for frag in fragments:
+                fx = sum([get_x_center(l) for l in frag])/len(frag)
+                fy = sum([get_y_center(l) for l in frag])/len(frag)
+                
+                best_body_idx = -1
+                min_dist = 10000
+                for i, body in enumerate(final_receipt_lines):
+                    bx = sum([get_x_center(l) for l in body])/len(body)
+                    by = sum([get_y_center(l) for l in body])/len(body)
+                    dist = np.sqrt((fx-bx)**2 + (fy-by)**2)
+                    if dist < min_dist:
+                        min_dist = dist
+                        best_body_idx = i
+                
+                # Soglia merge ridotta a 150px per massima precisione di separazione
+                if best_body_idx != -1 and min_dist < 150:
+                    final_receipt_lines[best_body_idx].extend(frag)
+                else:
+                    final_receipt_lines.append(frag)
+
+        # Generiamo le immagini ritagliate
         crops = []
         for receipt in final_receipt_lines:
             all_pts = []
@@ -159,14 +193,16 @@ class ReceiptPipeline:
             if all_pts:
                 all_pts = np.array(all_pts)
                 x, y, w, h = cv2.boundingRect(all_pts)
-                # Padding
-                x, y = max(0, x-10), max(0, y-10)
-                w, h = min(full_image.shape[1]-x, w+20), min(full_image.shape[0]-y, h+20)
+                x, y = max(0, x-30), max(0, y-30)
+                w, h = min(full_image.shape[1]-x, w+60), min(full_image.shape[0]-y, h+60)
                 crops.append(full_image[y:y+h, x:x+w])
             else:
                 crops.append(full_image)
 
         return final_receipt_lines, crops
+
+
+
 
     def parse_raw_data(self, raw_ocr_output):
         """Ricostruisce le righe di testo."""
