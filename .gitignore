@@ -20,6 +20,7 @@ data/interim
 
 data/pictures_input
 data/pictures_archived
+data/pictures_not_yet_used
 
 data/receipts_input
 data/receipts_archived
