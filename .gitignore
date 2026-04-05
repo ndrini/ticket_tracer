@@ -25,6 +25,8 @@ data/pictures_not_yet_used
 data/receipts_input
 data/receipts_archived
 data/db
+data/db/produzione.db
+
 
 data/cache_ocr
 data/cache_ocr_archived

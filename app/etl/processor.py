@@ -72,8 +72,8 @@ class OllamaProcessor:
             try:
                 data = json.loads(content)
             except json.JSONDecodeError:
-                # Se fallisce, proviamo a estrarre solo il primo oggetto valido (per casi con testo dopo)
-                # Questo è un approccio più "brute force"
+                # Se fallisce, proviamo a estrarre solo il primo oggetto valido
+                # Questo è un approccio più "brute force" per bilanciare le parentesi
                 bracket_count = 0
                 for i, char in enumerate(content):
                     if char == '{':
@@ -83,14 +83,27 @@ class OllamaProcessor:
                         if bracket_count == 0:
                             content = content[:i+1]
                             break
-                data = json.loads(content)
+                
+                # --- AUTO-HEALER (per case con single quotes o chiavi non quotate) ---
+                try:
+                    data = json.loads(content)
+                except json.JSONDecodeError:
+                    # Prova a sostituire ' con " (rischioso se nel testo ci sono apostrofi, ma meglio di nulla)
+                    # Solo se non è già circondato da lettere
+                    content_fixed = re.sub(r"(?<!\w)'(?! \w)", '"', content)
+                    # Prova a mettere virgolette alle chiavi non quotate (es. shop_name: -> "shop_name":)
+                    content_fixed = re.sub(r'(\w+):', r'"\1":', content_fixed)
+                    try:
+                        data = json.loads(content_fixed)
+                    except:
+                        raise # Rilancia per il catch esterno
             
             return data
 
-            
         except json.JSONDecodeError as e:
-            logger.error(f"Failed to parse JSON from Ollama: {e}")
+            logger.error(f"Failed to parse JSON from Ollama: {content[:200]}... Error: {e}")
             return {"shop_name": "Unknown", "date": None, "total": 0.0, "items": []}
         except Exception as e:
             logger.error(f"Error calling Ollama: {e}")
             return {"shop_name": "Unknown", "date": None, "total": 0.0, "items": []}
+
