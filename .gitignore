@@ -23,7 +23,7 @@ data/pictures_archived
 
 data/receipts_input
 data/receipts_archived
-
+data/db
 
 data/cache_ocr
 data/cache_ocr_archived
