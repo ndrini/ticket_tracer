@@ -2,8 +2,21 @@ import json
 import logging
 import re
 import ollama
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
 logger = logging.getLogger(__name__)
+
+class ReceiptItem(BaseModel):
+    name: str = Field(description="Nome del prodotto tradotto in ITALIANO")
+    original_name: str = Field(description="Nome originale dello scontrino")
+    price: float = Field(description="Prezzo dell'articolo")
+
+class Receipt(BaseModel):
+    shop_name: str = Field(description="Nome del negozio (es. DIA, Mercadona)")
+    date: Optional[str] = Field(description="Data scontrino ISO (YYYY-MM-DD)", default=None)
+    total: float = Field(description="Totale complessivo")
+    items: List[ReceiptItem] = Field(description="Elenco prodotti")
 
 class OllamaProcessor:
     def __init__(self, model_name="llama3.1:latest"):
@@ -46,39 +59,17 @@ class OllamaProcessor:
         """
 
         try:
-            response = ollama.chat(model=self.model_name, messages=[
-                {
-                    'role': 'user',
-                    'content': prompt
-                }
-            ], options={"format": "json"})
+            response = ollama.chat(
+                model=self.model_name, 
+                messages=[{'role': 'user', 'content': prompt}],
+                format=Receipt.model_json_schema()
+            )
             
             content = response.get('message', {}).get('content', '').strip()
-            
-            if not content or ('{' not in content):
-                if retry_count > 0:
-                    logger.warning(f"Ollama provided no JSON. Retrying...")
-                    return self.process_receipt_text(ocr_lines, retry_count=retry_count-1)
-                raise ValueError("Ollama output does not contain JSON structure.")
+            if not content:
+                raise ValueError("Ollama returned empty content.")
 
-            # --- Robust JSON Extraction ---
-            content = re.sub(r"```json\s*", "", content)
-            content = re.sub(r"```\s*", "", content)
-            
-            start_idx = content.find('{')
-            end_idx = content.rfind('}')
-            if start_idx != -1 and end_idx != -1:
-                content = content[start_idx:end_idx+1]
-            
-            try:
-                data = json.loads(content)
-            except json.JSONDecodeError:
-                # --- AUTO-HEALER ---
-                content_fixed = re.sub(r"(?<!\w)'(?! \w)", '"', content)
-                content_fixed = re.sub(r'(\w+):', r'"\1":', content_fixed)
-                data = json.loads(content_fixed)
-            
-            return data
+            return json.loads(content)
 
         except Exception as e:
             logger.error(f"Error calling Ollama/Parsing JSON: {e}")

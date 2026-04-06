@@ -133,14 +133,21 @@ class ReceiptPipeline:
             return lines
         return []
 
+    def _calculate_thresholds(self, shape):
+        h, w = shape[:2]
+        return h * 0.08, w * 0.08, h * 0.20 # y_gap, x_gap, sanity_limit
+
     def _split_by_gaps(self, lines: list, full_image: np.ndarray, target_count: int = 1) -> tuple:
         """
         Separa i ricevute clusterizzando i bounding box.
         1. Gap Y (stack verticale)
         2. Gap X (side-by-side) per ogni cluster Y
-        3. Smart-Merging guidato dal Target Count del VLM
+        3. Smart-Merging guidato dal Target Count del VLM + Sanity Check
         """
         if not lines: return [[]], [full_image]
+
+        h, w = full_image.shape[:2]
+        y_thresh, x_thresh, sanity_limit = self._calculate_thresholds(full_image.shape)
 
         def get_y_center(line): return sum([p[1] for p in line[0]]) / 4
         def get_x_center(line): return sum([p[0] for p in line[0]]) / 4
@@ -151,7 +158,7 @@ class ReceiptPipeline:
         if lines_sorted_y:
             current_cluster = [lines_sorted_y[0]]
             for line in lines_sorted_y[1:]:
-                if get_y_center(line) - get_y_center(current_cluster[-1]) > 120:
+                if get_y_center(line) - get_y_center(current_cluster[-1]) > y_thresh:
                     y_clusters.append(current_cluster)
                     current_cluster = [line]
                 else:
@@ -165,7 +172,7 @@ class ReceiptPipeline:
             current_x_sub = [cluster_sorted_x[0]]
             temp_sub_clusters = []
             for line in cluster_sorted_x[1:]:
-                if get_x_center(line) - get_x_center(current_x_sub[-1]) > 100:
+                if get_x_center(line) - get_x_center(current_x_sub[-1]) > x_thresh:
                     temp_sub_clusters.append(current_x_sub)
                     current_x_sub = [line]
                 else:
@@ -173,13 +180,13 @@ class ReceiptPipeline:
             temp_sub_clusters.append(current_x_sub)
             y_x_clusters.extend(temp_sub_clusters)
 
-        # 3. SMART-MERGING (Vision Guided)
-        # Se abbiamo più cluster di quanti ne ha visti il VLM, fondiamo i più vicini.
+        # 3. SMART-MERGING (Vision Guided + Sanity Check)
         final_clusters = y_x_clusters
+        
         while len(final_clusters) > target_count and len(final_clusters) > 1:
             # Trova la coppia di cluster con la distanza minima tra i centroidi
             min_dist = float('inf')
-            pair_to_merge = (0, 1)
+            pair_to_merge = None
             
             centroids = []
             for c in final_clusters:
@@ -194,6 +201,10 @@ class ReceiptPipeline:
                     if dist < min_dist:
                         min_dist = dist
                         pair_to_merge = (i, j)
+            
+            # Sanity Check: Se la distanza minima è comunque troppo grande, fermati.
+            if pair_to_merge is None or min_dist > sanity_limit:
+                break
             
             # Fondi j in i e rimuovi j
             i, j = pair_to_merge
