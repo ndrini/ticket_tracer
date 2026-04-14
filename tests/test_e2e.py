@@ -33,7 +33,7 @@ def test_full_pipeline_e2e(temp_db):
         pytest.skip(f"Immagine mancante {img_path}")
         
     img = cv2.imread(img_path)
-    ocr_lines = pipeline._run_ocr(img)
+    ocr_lines = pipeline._run_single_ocr(img)
     
     assert len(ocr_lines) > 0, "OCR fallito, nessuna linea trovata"
     

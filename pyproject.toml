@@ -10,7 +10,8 @@ dependencies = [
     "ollama",
     "pandas",
     "opencv-python-headless",
-    "PyYAML"
+    "PyYAML",
+    "scikit-learn"
 ]
 author = "ndrini"
 author-email = "aless@ndrini.eu"

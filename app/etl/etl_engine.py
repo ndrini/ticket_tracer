@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import ollama
 from paddleocr import PaddleOCR
+from sklearn.cluster import DBSCAN
 
 
 class ReceiptPipeline:
@@ -20,52 +21,402 @@ class ReceiptPipeline:
         receipts_lines, _ = self.extract_raw_ocr(image_path)
         return [self.parse_raw_data(lines) for lines in receipts_lines]
 
-    def _get_vision_guidance(self, image_path: str) -> dict:
+    def _get_vision_count(self, image_path: str) -> int:
         """
-        Phase 0: Sopralluogo Visivo con Moondream.
-        Chiediamo al VLM quanti scontrini vede realmente.
+        Use Moondream VLM to count the number of separate receipts in the image.
+        Returns: number of receipts (int), or 1 if detection fails.
         """
         try:
             with open(image_path, 'rb') as f:
                 img_bytes = f.read()
-            
+
             prompt = "Identify the separate physical receipts or pieces of paper in this image. They might be stacked vertically or overlapping. Answer ONLY with the total count (e.g. 1, 2, 3)."
             res = ollama.chat(model='moondream:1.8b', messages=[
                 {'role': 'user', 'content': prompt, 'images': [img_bytes]}
             ])
 
-
             count_str = res['message']['content'].strip()
-            # Estraiamo il primo numero trovato
             import re
             match = re.search(r'\d+', count_str)
-            target_count = int(match.group()) if match else 1
-            return {"target_count": target_count}
+            return int(match.group()) if match else 1
         except Exception as e:
-            print(f"Vision Guard Error: {e}")
-            return {"target_count": 1}
+            print(f"Vision count error: {e}")
+            return 1
+
+    def _orient_whole_image(self, img: np.ndarray, max_orient_dim: int = 800) -> np.ndarray:
+        """
+        Correct the orientation of the full image (containing one or more receipts)
+        by testing all 4 rotations on a downsampled copy, then applying the winner
+        to the full-resolution image.
+
+        All receipts in a single photo are assumed to share the same orientation.
+        Downsampling is used for speed; the scoring rotation is applied to the original.
+
+        Args:
+            img: input image (BGR)
+            max_orient_dim: max dimension for OCR proxy (default 800px)
+
+        Returns: image rotated to the best orientation
+        """
+        # Create a downsampled proxy for fast OCR scoring
+        proxy = self._resize_safe(img, max_dim=max_orient_dim)
+
+        rotations = {
+            0: None,
+            90: cv2.ROTATE_90_CLOCKWISE,
+            180: cv2.ROTATE_180,
+            270: cv2.ROTATE_90_COUNTERCLOCKWISE,
+        }
+
+        best_score = -1
+        best_rotation_code = None
+
+        # Score each rotation on the proxy
+        for deg, code in rotations.items():
+            rotated_proxy = proxy if code is None else cv2.rotate(proxy, code)
+            lines = self._run_single_ocr(rotated_proxy)
+            score = self._ocr_score(lines)
+            if score > best_score:
+                best_score = score
+                best_rotation_code = code
+
+        # Apply the best rotation to the full-resolution image
+        if best_rotation_code is None:
+            return img
+        else:
+            return cv2.rotate(img, best_rotation_code)
+
+    def _segment_by_color_islands(self, img: np.ndarray, min_area_frac: float = 0.05) -> list:
+        """
+        Segment image into individual receipts by detecting low-saturation islands.
+
+        Algorithm:
+        1. Convert to HSV color space
+        2. Create mask: pixels with LOW saturation (white/light receipts)
+        3. Apply morphological cleanup
+        4. Find connected components (islands)
+        5. Extract bounding box for each island
+
+        Args:
+            img: input image (BGR)
+            min_area_frac: minimum island size as fraction of total image area
+
+        Returns: list of cropped receipt images
+        """
+        h, w = img.shape[:2]
+        total_area = h * w
+        min_area = int(total_area * min_area_frac)
+
+        # Step 1: Convert to HSV
+        hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+
+        # Step 2: Create mask for low-saturation pixels (white/light receipts)
+        # Receipts are white/light (low saturation), background is brown (high saturation)
+        saturation = hsv[:, :, 1]
+
+        # Keep only pixels with saturation < 80 (low saturation = receipts, more selective)
+        fg_mask = (saturation < 80).astype(np.uint8) * 255
+
+        # Also exclude very dark pixels (shadows, text)
+        value = hsv[:, :, 2]
+        fg_mask = cv2.bitwise_and(fg_mask, (value > 40).astype(np.uint8) * 255)
+
+        # Step 3: Morphological cleanup to merge nearby components (smaller kernel)
+        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (8, 8))
+        fg_mask = cv2.morphologyEx(fg_mask, cv2.MORPH_CLOSE, kernel)
+        fg_mask = cv2.morphologyEx(fg_mask, cv2.MORPH_OPEN, kernel)
+
+        # Step 4: Find connected components (islands)
+        num_labels, labels = cv2.connectedComponents(fg_mask)
+
+        # Step 5: Extract crops for each island
+        crops = []
+        for label in range(1, num_labels):  # 0 is background
+            # Get mask for this component
+            component_mask = (labels == label).astype(np.uint8) * 255
+
+            # Check minimum area
+            area = cv2.countNonZero(component_mask)
+            if area < min_area:
+                continue
+
+            # Get bounding box
+            contours, _ = cv2.findContours(component_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            if not contours:
+                continue
+
+            x, y, w_box, h_box = cv2.boundingRect(contours[0])
+
+            # Add small padding
+            pad = 10
+            x1 = max(0, x - pad)
+            y1 = max(0, y - pad)
+            x2 = min(w, x + w_box + pad)
+            y2 = min(h, y + h_box + pad)
+
+            crop = img[y1:y2, x1:x2]
+            if crop.shape[0] > 0 and crop.shape[1] > 0:
+                crops.append(crop)
+
+        return crops if crops else [img]
+
+    def _find_dominant_color(self, img: np.ndarray) -> tuple:
+        """
+        Find the dominant background color (excluding dark text pixels).
+        Uses K-means on bright pixels only (brightness > 50).
+
+        Returns: BGR color tuple (B, G, R)
+        """
+        # Convert to grayscale to filter out dark pixels
+        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+        # Filter: keep only bright pixels (background is typically light)
+        bright_mask = gray > 50
+        bright_pixels_img = img[bright_mask]
+
+        # If no bright pixels, fall back to corners
+        if len(bright_pixels_img) == 0:
+            h, w = img.shape[:2]
+            sample_size = int(max(h, w) * 0.1)
+            corners = np.vstack([
+                img[:sample_size, :sample_size].reshape(-1, 3),
+                img[:sample_size, -sample_size:].reshape(-1, 3),
+                img[-sample_size:, :sample_size].reshape(-1, 3),
+                img[-sample_size:, -sample_size:].reshape(-1, 3),
+            ])
+            return tuple(np.median(corners, axis=0).astype(np.uint8))
+
+        # K-means on bright pixels only
+        pixels_float = bright_pixels_img.astype(np.float32)
+        criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
+        _, labels, centers = cv2.kmeans(pixels_float, 3, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS)
+
+        # Flatten labels and count frequency
+        labels = labels.flatten()
+        unique, counts = np.unique(labels, return_counts=True)
+        most_frequent_label = unique[np.argmax(counts)]
+
+        # Return the most frequent bright color
+        centers = centers.astype(np.uint8)
+        return tuple(centers[most_frequent_label])
+
+    def _split_by_projection_axis(self, img: np.ndarray, binary: np.ndarray,
+                                   projection: np.ndarray, axis: int,
+                                   min_gap_frac: float, min_region_frac: float) -> list:
+        """
+        Helper for _segment_by_projection. Splits image along a given axis
+        based on projection profile gaps.
+
+        Args:
+            img: original image
+            binary: binarized image
+            projection: 1D projection profile (row or column sums)
+            axis: 0 for horizontal split (rows), 1 for vertical split (cols)
+            min_gap_frac, min_region_frac: thresholds
+
+        Returns: list of cropped images
+        """
+        h, w = img.shape[:2]
+        img_len = h if axis == 0 else w
+        min_gap_size = max(int(img_len * min_gap_frac), 1)
+        min_region_size = max(int(img_len * min_region_frac), 1)
+
+        # Find gap rows/cols: foreground < 1% of opposite dimension
+        gap_threshold = 0.01
+        gap_mask = projection < gap_threshold
+
+        # Morphological cleanup: suppress isolated gaps within content
+        kernel_size = max(5, int(img_len * 0.01))
+        kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (kernel_size, 1) if axis == 0 else (1, kernel_size))
+        gap_mask = cv2.morphologyEx(gap_mask.astype(np.uint8), cv2.MORPH_OPEN, kernel).astype(bool)
+
+        # Find contiguous gap bands
+        gap_indices = np.where(gap_mask)[0]
+        if len(gap_indices) == 0:
+            return []
+
+        gap_bands = []
+        band_start = gap_indices[0]
+        for i in range(1, len(gap_indices)):
+            if gap_indices[i] - gap_indices[i-1] > 1:
+                band_end = gap_indices[i-1]
+                if band_end - band_start + 1 >= min_gap_size:
+                    gap_bands.append((band_start, band_end))
+                band_start = gap_indices[i]
+        # Add last band
+        if gap_indices[-1] - band_start + 1 >= min_gap_size:
+            gap_bands.append((band_start, gap_indices[-1]))
+
+        if not gap_bands:
+            return []
+
+        # Create crops by splitting at gap midpoints
+        crops = []
+        prev_end = 0
+
+        for gap_start, gap_end in gap_bands:
+            crop_end = (gap_start + gap_end) // 2
+            crop_size = crop_end - prev_end
+
+            if crop_size >= min_region_size:
+                if axis == 0:
+                    crop = img[prev_end:crop_end, :]
+                else:
+                    crop = img[:, prev_end:crop_end]
+                crops.append(crop)
+
+            prev_end = gap_end + 1
+
+        # Add final region
+        final_size = img_len - prev_end
+        if final_size >= min_region_size:
+            if axis == 0:
+                crop = img[prev_end:, :]
+            else:
+                crop = img[:, prev_end:]
+            crops.append(crop)
+
+        return crops
+
+    def _segment_receipts_ocr_guided(self, img: np.ndarray, eps: float = 80) -> list:
+        """
+        Segment receipts using OCR-guided clustering (Plan B).
+
+        Strategy:
+        1. Run OCR on full image to extract text bounding boxes
+        2. Cluster OCR box centers using DBSCAN
+        3. Group lines by cluster
+        4. Extract bounding box crop for each cluster
+
+        Args:
+            img: input image (already oriented)
+            eps: DBSCAN epsilon (distance threshold for clustering)
+
+        Returns: list of cropped receipt images
+        """
+        # Run OCR on full image
+        lines = self._run_single_ocr(img)
+
+        if not lines or len(lines) < 5:
+            return [img]  # Fallback if insufficient text detected
+
+        # Extract centers of OCR bounding boxes
+        points = []
+        for line in lines:
+            if line[0]:  # if box exists
+                box = np.array(line[0])
+                cx = box[:, 0].mean()
+                cy = box[:, 1].mean()
+                points.append([cx, cy])
+
+        if len(points) < 5:
+            return [img]
+
+        points = np.array(points)
+
+        # Cluster text centers using DBSCAN
+        clustering = DBSCAN(eps=eps, min_samples=5).fit(points)
+        labels = clustering.labels_
+
+        # Group lines by cluster label
+        clusters = {}
+        for idx, label in enumerate(labels):
+            if label >= 0:  # Ignore noise points (label == -1)
+                if label not in clusters:
+                    clusters[label] = []
+                clusters[label].append(lines[idx])
+
+        if not clusters:
+            return [img]
+
+        # Extract bounding box crop for each cluster
+        crops = []
+        for cluster_idx in sorted(clusters.keys()):
+            cluster_lines = clusters[cluster_idx]
+            crop = self._crop_from_ocr_lines(img, cluster_lines)
+            if crop is not None:
+                crops.append(crop)
+
+        return crops if crops else [img]
+
+    def _segment_receipts(self, img: np.ndarray, image_path: str) -> list:
+        """
+        Segment the image into individual receipts using color-based island detection.
+
+        Strategy:
+        1. Use color-based island detection (robust to textured backgrounds)
+        2. Trust CV result when it finds > 1 receipt (good saturation discrimination)
+        3. Use VLM count only as validation for 1 receipt case
+
+        Args:
+            img: already oriented image
+            image_path: path to original image (for VLM validation)
+
+        Returns: list of receipt crop images
+        """
+        # Primary method: color-based island detection
+        crops = self._segment_by_color_islands(img, min_area_frac=0.05)
+
+        # If color-based segmentation found multiple receipts, trust it
+        if len(crops) > 1:
+            return crops
+
+        # If only 1 found, try to validate with VLM or fallback methods
+        if len(crops) == 1:
+            expected_n = self._get_vision_count(image_path)
+
+            if expected_n == 1:
+                # VLM agrees: 1 receipt is likely correct
+                return crops
+            else:
+                # VLM says multiple, CV found 1 - retry with aggressive params
+                crops_retry = self._segment_by_color_islands(img, min_area_frac=0.02)
+                if len(crops_retry) > 1:
+                    return crops_retry
+
+                # Try OCR-guided as last resort
+                crops_ocr = self._segment_receipts_ocr_guided(img, eps=40)
+                if len(crops_ocr) > 1:
+                    return crops_ocr
+
+        return crops if crops else [img]
 
     def extract_raw_ocr(self, image_path):
         """
-        0. Phase 0: Vision Guard (moondream)
-        1. Ridimensiona l'immagine se gigantesca.
-        2. OCR a 4 rotazioni sull'immagine intera.
-        3. Separa i ricevute tramite clustering guidato.
+        Four-stage pipeline for receipt extraction and OCR:
+        1. Load and resize image
+        2. Whole-image orientation correction (all receipts have the same orientation)
+        3. Segmentation into individual receipts via projection profiles
+        4. OCR on each receipt
+
+        Returns: (list of OCR line clusters, list of cropped receipt images)
         """
-        # PHASE 0: VISION GUARD
-        vision_info = self._get_vision_guidance(image_path)
-        
         image = cv2.imread(image_path)
         if image is None:
             raise FileNotFoundError(f"Impossibile leggere: {image_path}")
 
+        # Stage 1: Resize to working resolution
         image = self._resize_safe(image, max_dim=2000)
-        best_lines, best_image = self._best_rotation_ocr(image)
 
-        if not best_lines:
-            return [[]], [best_image]
+        # Stage 2: Whole-image orientation correction (ONCE, not per-crop)
+        image = self._orient_whole_image(image, max_orient_dim=800)
 
-        return self._split_by_gaps(best_lines, best_image, target_count=vision_info["target_count"])
+        # Stage 3: Segment into individual receipts
+        crops = self._segment_receipts(image, image_path)
+
+        # Stage 4: OCR each crop (orientation already correct from Stage 2)
+        all_clusters = []
+        all_crops = []
+        for crop in crops:
+            lines = self._run_single_ocr(crop)
+            if len(lines) >= 5:  # Minimum content threshold
+                all_clusters.append(lines)
+                all_crops.append(crop)
+
+        if not all_clusters:
+            return [[]], [image]
+
+        return all_clusters, all_crops
 
 
     def _resize_safe(self, image: np.ndarray, max_dim: int = 2000) -> np.ndarray:
@@ -75,32 +426,67 @@ class ReceiptPipeline:
         scale = max_dim / float(max(h, w))
         return cv2.resize(image, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
 
-    def _best_rotation_ocr(self, image: np.ndarray):
+
+    def _crop_from_ocr_lines(self, img: np.ndarray, lines: list) -> np.ndarray:
         """
-        Esegue OCR per 0°, 90°, 180°, 270°.
-        Sceglie la rotazione con score più alto (n_linee x confidenza_media).
+        Extract a crop from an image based on OCR line bounding boxes.
+        Returns the smallest rectangle containing all lines in the cluster.
         """
-        best_score = -1
-        best_lines = []
-        best_img = image
-        
+        if not lines or not lines[0]:
+            return None
+
+        try:
+            # Collect all points from all lines
+            all_pts = []
+            for line in lines:
+                if line and line[0]:
+                    all_pts.extend(line[0])
+
+            if not all_pts:
+                return None
+
+            all_pts = np.array(all_pts)
+            x, y, w, h = cv2.boundingRect(all_pts)
+
+            # Add padding
+            pad = 10
+            x1 = max(0, x - pad)
+            y1 = max(0, y - pad)
+            x2 = min(img.shape[1], x + w + pad)
+            y2 = min(img.shape[0], y + h + pad)
+
+            crop = img[y1:y2, x1:x2]
+            if crop.shape[0] > 0 and crop.shape[1] > 0:
+                return crop
+        except Exception:
+            pass
+
+        return None
+
+    def _orient_receipt(self, img: np.ndarray) -> np.ndarray:
+        """
+        Correct orientation of a single receipt by testing 4 rotations.
+        Uses OCR score to pick the best rotation (0°, 90°, 180°, 270°).
+        Returns the image rotated to the best orientation.
+        """
         rotations = {
             0: None,
             90: cv2.ROTATE_90_CLOCKWISE,
             180: cv2.ROTATE_180,
             270: cv2.ROTATE_90_COUNTERCLOCKWISE,
         }
+        best_score = -1
+        best_img = img
 
-        for dg, code in rotations.items():
-            rotated = image if code is None else cv2.rotate(image, code)
+        for deg, code in rotations.items():
+            rotated = img if code is None else cv2.rotate(img, code)
             lines = self._run_single_ocr(rotated)
             score = self._ocr_score(lines)
             if score > best_score:
                 best_score = score
-                best_lines = lines
                 best_img = rotated
-        
-        return best_lines, best_img
+
+        return best_img
 
     def _ocr_score(self, lines: list) -> float:
         if not lines: return 0.0
@@ -133,99 +519,6 @@ class ReceiptPipeline:
             return lines
         return []
 
-    def _calculate_thresholds(self, shape):
-        h, w = shape[:2]
-        return h * 0.08, w * 0.08, h * 0.20 # y_gap, x_gap, sanity_limit
-
-    def _split_by_gaps(self, lines: list, full_image: np.ndarray, target_count: int = 1) -> tuple:
-        """
-        Separa i ricevute clusterizzando i bounding box.
-        1. Gap Y (stack verticale)
-        2. Gap X (side-by-side) per ogni cluster Y
-        3. Smart-Merging guidato dal Target Count del VLM + Sanity Check
-        """
-        if not lines: return [[]], [full_image]
-
-        h, w = full_image.shape[:2]
-        y_thresh, x_thresh, sanity_limit = self._calculate_thresholds(full_image.shape)
-
-        def get_y_center(line): return sum([p[1] for p in line[0]]) / 4
-        def get_x_center(line): return sum([p[0] for p in line[0]]) / 4
-
-        # 1. Clustering VERTICALE (Y)
-        lines_sorted_y = sorted(lines, key=get_y_center)
-        y_clusters = []
-        if lines_sorted_y:
-            current_cluster = [lines_sorted_y[0]]
-            for line in lines_sorted_y[1:]:
-                if get_y_center(line) - get_y_center(current_cluster[-1]) > y_thresh:
-                    y_clusters.append(current_cluster)
-                    current_cluster = [line]
-                else:
-                    current_cluster.append(line)
-            y_clusters.append(current_cluster)
-
-        # 2. Clustering ORIZZONTALE (X)
-        y_x_clusters = []
-        for cluster in y_clusters:
-            cluster_sorted_x = sorted(cluster, key=get_x_center)
-            current_x_sub = [cluster_sorted_x[0]]
-            temp_sub_clusters = []
-            for line in cluster_sorted_x[1:]:
-                if get_x_center(line) - get_x_center(current_x_sub[-1]) > x_thresh:
-                    temp_sub_clusters.append(current_x_sub)
-                    current_x_sub = [line]
-                else:
-                    current_x_sub.append(line)
-            temp_sub_clusters.append(current_x_sub)
-            y_x_clusters.extend(temp_sub_clusters)
-
-        # 3. SMART-MERGING (Vision Guided + Sanity Check)
-        final_clusters = y_x_clusters
-        
-        while len(final_clusters) > target_count and len(final_clusters) > 1:
-            # Trova la coppia di cluster con la distanza minima tra i centroidi
-            min_dist = float('inf')
-            pair_to_merge = None
-            
-            centroids = []
-            for c in final_clusters:
-                cx = sum([get_x_center(l) for l in c]) / len(c)
-                cy = sum([get_y_center(l) for l in c]) / len(c)
-                centroids.append((cx, cy))
-            
-            for i in range(len(centroids)):
-                for j in range(i + 1, len(centroids)):
-                    dist = np.sqrt((centroids[i][0]-centroids[j][0])**2 + 
-                                   (centroids[i][1]-centroids[j][1])**2)
-                    if dist < min_dist:
-                        min_dist = dist
-                        pair_to_merge = (i, j)
-            
-            # Sanity Check: Se la distanza minima è comunque troppo grande, fermati.
-            if pair_to_merge is None or min_dist > sanity_limit:
-                break
-            
-            # Fondi j in i e rimuovi j
-            i, j = pair_to_merge
-            final_clusters[i].extend(final_clusters[j])
-            final_clusters.pop(j)
-
-        # Generiamo le immagini ritagliate
-        crops = []
-        for receipt in final_clusters:
-            all_pts = []
-            for l in receipt: all_pts.extend(l[0])
-            if all_pts:
-                all_pts = np.array(all_pts)
-                x, y, w, h = cv2.boundingRect(all_pts)
-                x, y = max(0, x-30), max(0, y-30)
-                w, h = min(full_image.shape[1]-x, w+60), min(full_image.shape[0]-y, h+60)
-                crops.append(full_image[y:y+h, x:x+w])
-            else:
-                crops.append(full_image)
-
-        return final_clusters, crops
 
 
 
