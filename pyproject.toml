@@ -11,10 +11,12 @@ dependencies = [
     "pandas",
     "opencv-python-headless",
     "PyYAML",
-    "scikit-learn"
+    "scikit-learn",
+    "pydantic"
 ]
-author = "ndrini"
-author-email = "aless@ndrini.eu"
+authors = [
+    { name = "ndrini", email = "aless@ndrini.eu" },
+]
 
 [dependency-groups]
 dev = [
@@ -23,3 +25,6 @@ dev = [
 
 [tool.pytest.ini_options]
 pythonpath = "."
+markers = [
+    "integration: richiede servizi esterni (Ollama, modelli locali) o immagini reali",
+]

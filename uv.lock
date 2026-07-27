@@ -1331,6 +1331,7 @@ dependencies = [
     { name = "paddleocr" },
     { name = "paddlepaddle" },
     { name = "pandas" },
+    { name = "pydantic" },
     { name = "pyyaml" },
     { name = "scikit-learn" },
 ]
@@ -1347,6 +1348,7 @@ requires-dist = [
     { name = "paddleocr" },
     { name = "paddlepaddle" },
     { name = "pandas" },
+    { name = "pydantic" },
     { name = "pyyaml" },
     { name = "scikit-learn" },
 ]

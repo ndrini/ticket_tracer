@@ -1,12 +1,65 @@
+import logging
+from dataclasses import dataclass, field
+from typing import Optional
+
 import cv2
 import numpy as np
 import ollama
 from paddleocr import PaddleOCR
 from sklearn.cluster import DBSCAN
 
+logger = logging.getLogger(__name__)
+
+# A crop covering more than this fraction of the frame is not a segmentation:
+# it is the input handed back unchanged. Measured on the DIA reference image,
+# where the failing HSV mask produced a single island covering 92% of the frame.
+WHOLE_FRAME_AREA_FRAC = 0.85
+
+
+@dataclass
+class SegmentationResult:
+    """
+    Outcome of a segmentation attempt.
+
+    The point of this type is to make failure visible. Previously a failed
+    segmentation returned `[img]`, which is indistinguishable from the legitimate
+    "there is exactly one receipt, here it is". Callers could not tell a crop
+    from a surrender, so three successive rewrites of the algorithm were judged
+    blind. `confident` now carries that distinction explicitly.
+    """
+
+    crops: list
+    method: str
+    confident: bool
+    reason: str = ""
+    vision_count: Optional[int] = None
+    warnings: list = field(default_factory=list)
+
+    def __len__(self):
+        # Backwards compatibility: callers still treat the result as a crop list.
+        return len(self.crops)
+
+    def __iter__(self):
+        return iter(self.crops)
+
+    def __getitem__(self, idx):
+        return self.crops[idx]
+
 
 class ReceiptPipeline:
-    def __init__(self):
+    def __init__(self, vision_model: str = "moondream:1.8b",
+                 quarantine_dir: str = "exports/quarantine"):
+        # Vision model used only to count receipts (see _get_vision_count).
+        # Kept as a constructor argument so the model name lives in one place
+        # instead of being buried in the call site.
+        self.vision_model = vision_model
+
+        # Where images the pipeline could not segment are recorded.
+        self.quarantine_dir = quarantine_dir
+
+        # Outcome of the most recent segmentation, for callers and tests.
+        self.last_segmentation: Optional[SegmentationResult] = None
+
         # Inizializziamo PaddleOCR.
         self.ocr = PaddleOCR(
             lang="es", 
@@ -21,27 +74,38 @@ class ReceiptPipeline:
         receipts_lines, _ = self.extract_raw_ocr(image_path)
         return [self.parse_raw_data(lines) for lines in receipts_lines]
 
-    def _get_vision_count(self, image_path: str) -> int:
+    def _get_vision_count(self, image_path: str) -> Optional[int]:
         """
-        Use Moondream VLM to count the number of separate receipts in the image.
-        Returns: number of receipts (int), or 1 if detection fails.
+        Use a VLM to count the separate receipts in the image.
+
+        Returns the count, or None when the VLM could not answer (model missing,
+        Ollama unreachable, unparseable reply).
+
+        None is not 1. The previous version collapsed both into 1, which meant
+        that with no model installed the "arbiter" silently agreed with whatever
+        the CV found — a plausible-looking answer that made the recovery branch
+        in _segment_receipts unreachable dead code.
         """
         try:
             with open(image_path, 'rb') as f:
                 img_bytes = f.read()
 
             prompt = "Identify the separate physical receipts or pieces of paper in this image. They might be stacked vertically or overlapping. Answer ONLY with the total count (e.g. 1, 2, 3)."
-            res = ollama.chat(model='moondream:1.8b', messages=[
+            res = ollama.chat(model=self.vision_model, messages=[
                 {'role': 'user', 'content': prompt, 'images': [img_bytes]}
             ])
 
             count_str = res['message']['content'].strip()
             import re
             match = re.search(r'\d+', count_str)
-            return int(match.group()) if match else 1
+            if not match:
+                logger.warning("VLM reply not parseable as a count: %r", count_str)
+                return None
+            return int(match.group())
         except Exception as e:
-            print(f"Vision count error: {e}")
-            return 1
+            # Environment failure, not a receipt-count of 1.
+            logger.warning("VLM unavailable (%s): %s", self.vision_model, e)
+            return None
 
     def _orient_whole_image(self, img: np.ndarray, max_orient_dim: int = 800) -> np.ndarray:
         """
@@ -158,7 +222,36 @@ class ReceiptPipeline:
             if crop.shape[0] > 0 and crop.shape[1] > 0:
                 crops.append(crop)
 
-        return crops if crops else [img]
+        # No island survived: the mask told us nothing about where receipts are.
+        if not crops:
+            return SegmentationResult(
+                crops=[img],
+                method="color_islands",
+                confident=False,
+                reason=(
+                    f"no island above {min_area_frac:.0%} of the frame "
+                    f"({num_labels - 1} components found); returning the whole image"
+                ),
+            )
+
+        # A single island covering nearly the whole frame is the failure mode
+        # documented in private/2026-07-26_PIANO_ESTRAZIONE.md (F1): the mask
+        # swallowed background and receipt alike, so the "crop" is the input.
+        if len(crops) == 1:
+            covered = (crops[0].shape[0] * crops[0].shape[1]) / float(total_area)
+            if covered > WHOLE_FRAME_AREA_FRAC:
+                return SegmentationResult(
+                    crops=crops,
+                    method="color_islands",
+                    confident=False,
+                    reason=(
+                        f"single island covers {covered:.0%} of the frame "
+                        f"(> {WHOLE_FRAME_AREA_FRAC:.0%}): saturation threshold did "
+                        f"not separate receipt from background"
+                    ),
+                )
+
+        return SegmentationResult(crops=crops, method="color_islands", confident=True)
 
     def _find_dominant_color(self, img: np.ndarray) -> tuple:
         """
@@ -352,34 +445,66 @@ class ReceiptPipeline:
             img: already oriented image
             image_path: path to original image (for VLM validation)
 
-        Returns: list of receipt crop images
+        Returns: SegmentationResult (iterable as a list of crops)
         """
         # Primary method: color-based island detection
-        crops = self._segment_by_color_islands(img, min_area_frac=0.05)
+        result = self._segment_by_color_islands(img, min_area_frac=0.05)
 
-        # If color-based segmentation found multiple receipts, trust it
-        if len(crops) > 1:
-            return crops
+        # Multiple distinct islands: the mask discriminated, trust it.
+        if len(result) > 1:
+            return result
 
-        # If only 1 found, try to validate with VLM or fallback methods
-        if len(crops) == 1:
-            expected_n = self._get_vision_count(image_path)
+        expected_n = self._get_vision_count(image_path)
+        result.vision_count = expected_n
 
-            if expected_n == 1:
-                # VLM agrees: 1 receipt is likely correct
-                return crops
-            else:
-                # VLM says multiple, CV found 1 - retry with aggressive params
-                crops_retry = self._segment_by_color_islands(img, min_area_frac=0.02)
-                if len(crops_retry) > 1:
-                    return crops_retry
+        # A confident single crop that the VLM also calls 1: genuine single receipt.
+        if result.confident and expected_n == 1:
+            return result
 
-                # Try OCR-guided as last resort
-                crops_ocr = self._segment_receipts_ocr_guided(img, eps=40)
-                if len(crops_ocr) > 1:
-                    return crops_ocr
+        # The VLM could not answer. Do not read that as agreement.
+        if expected_n is None:
+            result.warnings.append(
+                "VLM unavailable: single-receipt result is unverified"
+            )
+            if not result.confident:
+                result.reason += "; VLM unavailable, cannot cross-check"
+            return result
 
-        return crops if crops else [img]
+        # CV found one region but the VLM sees several, or CV is not confident:
+        # this is the recovery path. It was previously unreachable whenever
+        # Ollama was missing, because the VLM always claimed to see 1.
+        if expected_n > 1 or not result.confident:
+            retry = self._segment_by_color_islands(img, min_area_frac=0.02)
+            if len(retry) > 1:
+                retry.vision_count = expected_n
+                retry.reason = "recovered with aggressive min_area_frac=0.02"
+                return retry
+
+            ocr_crops = self._segment_receipts_ocr_guided(img, eps=40)
+            if len(ocr_crops) > 1:
+                return SegmentationResult(
+                    crops=ocr_crops,
+                    method="ocr_guided",
+                    confident=True,
+                    reason="recovered via OCR-guided clustering",
+                    vision_count=expected_n,
+                )
+
+            # Every strategy failed to split. Say so rather than returning a
+            # bare list that looks like success.
+            return SegmentationResult(
+                crops=result.crops,
+                method=result.method,
+                confident=False,
+                reason=(
+                    f"VLM expected {expected_n} receipts, no strategy could split "
+                    f"the image; falling back to a single region"
+                ),
+                vision_count=expected_n,
+                warnings=result.warnings,
+            )
+
+        return result
 
     def extract_raw_ocr(self, image_path):
         """
@@ -402,21 +527,52 @@ class ReceiptPipeline:
         image = self._orient_whole_image(image, max_orient_dim=800)
 
         # Stage 3: Segment into individual receipts
-        crops = self._segment_receipts(image, image_path)
+        segmentation = self._segment_receipts(image, image_path)
+        self.last_segmentation = segmentation
+
+        # Announce a failed segmentation instead of letting it pass as success.
+        if not segmentation.confident:
+            logger.warning(
+                "Segmentation not confident for %s [%s]: %s",
+                image_path, segmentation.method, segmentation.reason,
+            )
+            self._quarantine(image_path, segmentation.reason)
+        for warning in segmentation.warnings:
+            logger.warning("Segmentation warning for %s: %s", image_path, warning)
 
         # Stage 4: OCR each crop (orientation already correct from Stage 2)
         all_clusters = []
         all_crops = []
-        for crop in crops:
+        for crop in segmentation.crops:
             lines = self._run_single_ocr(crop)
             if len(lines) >= 5:  # Minimum content threshold
                 all_clusters.append(lines)
                 all_crops.append(crop)
 
         if not all_clusters:
+            logger.warning("No crop reached the minimum OCR content threshold: %s", image_path)
+            self._quarantine(image_path, "no crop produced at least 5 OCR lines")
             return [[]], [image]
 
         return all_clusters, all_crops
+
+    def _quarantine(self, image_path: str, reason: str) -> None:
+        """
+        Record an image the pipeline could not handle, so failures accumulate
+        somewhere visible instead of vanishing. Never raises: quarantine is
+        diagnostics, and must not take down a running batch.
+        """
+        try:
+            import datetime
+            import os
+
+            os.makedirs(self.quarantine_dir, exist_ok=True)
+            log_path = os.path.join(self.quarantine_dir, "quarantine.log")
+            stamp = datetime.datetime.now().isoformat(timespec="seconds")
+            with open(log_path, "a", encoding="utf-8") as fh:
+                fh.write(f"{stamp}\t{image_path}\t{reason}\n")
+        except Exception as e:  # pragma: no cover - diagnostics must not break the run
+            logger.debug("Could not write quarantine record: %s", e)
 
 
     def _resize_safe(self, image: np.ndarray, max_dim: int = 2000) -> np.ndarray:
