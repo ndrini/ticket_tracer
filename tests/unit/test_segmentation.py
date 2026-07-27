@@ -108,6 +108,97 @@ class TestSegmentByColorIslands:
         assert not strict.confident  # nothing survives a 90% area threshold
 
 
+def _receipt_with_text(img, x0, y0, x1, y1, line_step=14):
+    """Paint a light receipt carrying dark horizontal text lines."""
+    img[y0:y1, x0:x1] = (245, 245, 245)
+    for y in range(y0 + 10, y1 - 8, line_step):
+        img[y:y + 4, x0 + 12:x1 - 12] = (30, 30, 30)
+    return img
+
+
+class TestSegmentByTextDensity:
+    """
+    Tests for _segment_by_text_density, the method that replaced colour as the
+    primary signal. See section 5 of the plan for the measurements behind it.
+    """
+
+    def test_finds_receipt_on_light_background(self, pipeline):
+        """
+        The case colour could not handle: a light receipt on a LIGHT background.
+        Saturation cannot separate them; text density can.
+        """
+        img = np.full((600, 400, 3), 235, dtype=np.uint8)  # light background
+        _receipt_with_text(img, 80, 60, 320, 520)
+
+        result = pipeline._segment_by_text_density(img)
+
+        assert result.confident
+        assert len(result) >= 1
+        biggest = result[0]
+        coverage = (biggest.shape[0] * biggest.shape[1]) / float(600 * 400)
+        assert coverage < WHOLE_FRAME_AREA_FRAC, (
+            f"text block covers {coverage:.0%} of the frame: morphology glued "
+            "everything together, the defect this method exists to avoid"
+        )
+
+    def test_separates_two_receipts(self, pipeline):
+        img = np.full((700, 400, 3), 235, dtype=np.uint8)
+        _receipt_with_text(img, 60, 40, 340, 290)
+        _receipt_with_text(img, 60, 420, 340, 660)
+
+        result = pipeline._segment_by_text_density(img)
+
+        assert result.confident
+        assert len(result) >= 2
+
+    def test_blank_image_is_not_confident(self, pipeline):
+        """No text at all: a failure, and it must say so."""
+        img = np.full((400, 300, 3), 200, dtype=np.uint8)
+
+        result = pipeline._segment_by_text_density(img)
+
+        assert not result.confident
+        assert result.reason
+        assert result.method == "text_density"
+
+    def test_result_is_a_segmentation_result(self, pipeline):
+        img = np.full((400, 300, 3), 235, dtype=np.uint8)
+        _receipt_with_text(img, 50, 40, 250, 360)
+
+        result = pipeline._segment_by_text_density(img)
+
+        assert isinstance(result, SegmentationResult)
+        assert result.method == "text_density"
+
+
+class TestSegmentReceiptsUsesTextDensity:
+    """_segment_receipts must prefer text density and keep colour as fallback."""
+
+    def test_text_density_is_the_primary_method(self, pipeline):
+        img = np.full((600, 400, 3), 235, dtype=np.uint8)
+        _receipt_with_text(img, 80, 60, 320, 520)
+
+        with patch.object(pipeline, '_get_vision_count', return_value=1):
+            result = pipeline._segment_receipts(img, "dummy.jpg")
+
+        assert result.method == "text_density"
+
+    def test_falls_back_to_colour_when_text_density_fails(self, pipeline):
+        """A blank image defeats text density; colour is then attempted."""
+        img = _two_receipts_on_saturated_background()
+
+        with patch.object(
+            pipeline, '_segment_by_text_density',
+            return_value=SegmentationResult(
+                crops=[img], method="text_density", confident=False, reason="forced"
+            ),
+        ):
+            with patch.object(pipeline, '_get_vision_count', return_value=2):
+                result = pipeline._segment_receipts(img, "dummy.jpg")
+
+        assert result.method == "color_islands"
+
+
 class TestGetVisionCount:
     """The VLM must not answer '1' when it cannot answer at all."""
 
