@@ -32,8 +32,12 @@ data/cache_ocr
 data/cache_ocr_archived
 data/ocr_archived
 
+# Oriented images, regenerated on demand: orientation costs 4 OCR passes each
+data/cache_oriented
+
 exports/debug_crops
 exports/quarantine
+exports/bottomup
 
 
 CLAUDE.md
