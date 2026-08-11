@@ -54,6 +54,11 @@ sys.path.insert(0, os.getcwd())
 CACHE = "data/cache_oriented"
 OUT_DIR = "exports/detector"
 
+# How many times a suspect box may be straightened and split again. A stack of
+# receipts gives up one seam per pass, so a few passes are needed; the cap stops
+# a box that keeps looking suspect from recursing forever.
+_MAX_RETRY = 3
+
 CASES = [
     ("07.47.51", 5), ("07.53.17", 4), ("07.57.06", 2),
     ("10.33.47", 2), ("21.12.47", 1), ("21.25.11", 1),
@@ -144,13 +149,10 @@ def drop_contained(boxes, frac=0.80):
     return keep
 
 
-def segment(img, pad_frac=0.02):
-    """One box per receipt: the bounding box of each text-line cluster."""
-    h, w = img.shape[:2]
-    polys = [np.asarray(p) for p in detect_lines(img)]
+def boxes_from_lines(polys, w, h, pad_frac=0.02, x_off=0, y_off=0):
+    """Cut the text lines into groups on empty columns, one box per group."""
     if not polys:
         return []
-
     cuts = [r[0] + r[1] // 2 for r in separators(x_coverage(polys, w))]
     bounds = [0] + cuts + [w]
 
@@ -165,9 +167,110 @@ def segment(img, pad_frac=0.02):
         y2 = max(p[:, 1].max() for p in group)
         # Pad outwards: the paper extends a little past its printing.
         px, py = pad_frac * (x2 - x1), pad_frac * (y2 - y1)
-        boxes.append([int(max(0, x1 - px)), int(max(0, y1 - py)),
-                      int(min(w, x2 + px) - max(0, x1 - px)),
-                      int(min(h, y2 + py) - max(0, y1 - py))])
+        bx, by = max(0, x1 - px), max(0, y1 - py)
+        boxes.append([int(bx) + x_off, int(by) + y_off,
+                      int(min(w, x2 + px) - bx), int(min(h, y2 + py) - by)])
+    return boxes
+
+
+def is_suspect(box, frame_w, n_lines, max_w_frac=0.45, max_lines=120):
+    """
+    Does this box look like several receipts caught in one?
+
+    Two independent signs, either one enough. On the thirty boxes measured over
+    ten photos, the single box known to hold three receipts is the only one
+    past either line, and neither is a close call:
+
+        width / frame    others 0.15 .. 0.37     the merged box 0.56
+        text lines       others 10 .. 95         the merged box 206
+
+    A receipt is narrow, and one receipt carries only so much print.
+    """
+    return box[2] / float(frame_w) > max_w_frac or n_lines > max_lines
+
+
+def retry_rotated(img, box, pad_frac=0.02):
+    """
+    Second pass over a suspect region, straightened on its own.
+
+    Receipts lying at an angle defeat the column projection: text that slants by
+    a few degrees smears sideways and fills the gaps that separate one sheet
+    from the next, so neighbours end up in a single box. Straightening the whole
+    photo does not help — it was measured making things worse, because rotating
+    about the frame centre slides the outer receipts across each other.
+
+    Rotating only the suspect crop avoids that: nothing else in the photo moves.
+    The angle comes from the text itself, as the median tilt of its lines.
+    """
+    x, y, w, h = box
+    crop = img[y:y + h, x:x + w]
+    if crop.size == 0:
+        return None
+
+    polys = [np.asarray(p) for p in detect_lines(crop)]
+    if len(polys) < 4:
+        return None
+
+    angles = []
+    for p in polys:
+        (bw, bh), a = cv2.minAreaRect(p.astype(np.float32))[1:]
+        angles.append(a - 90 if bw < bh else a)
+    angles = np.array(angles)
+    angles = angles[np.abs(angles) < 45]
+    if angles.size == 0:
+        return None
+    tilt = float(np.median(angles))
+    if abs(tilt) < 1.0:
+        return None  # already straight: a second look would find the same thing
+
+    m = cv2.getRotationMatrix2D((w / 2.0, h / 2.0), tilt, 1.0)
+    straight = cv2.warpAffine(crop, m, (w, h), flags=cv2.INTER_LINEAR,
+                              borderMode=cv2.BORDER_REPLICATE)
+    polys = [np.asarray(p) for p in detect_lines(straight)]
+    found = boxes_from_lines(polys, w, h, pad_frac)
+    if len(found) < 2:
+        return None  # no new split: keep the original box
+
+    # Map back to the full photo. The boxes were found on a rotated crop, so
+    # their corners are rotated back before taking the enclosing rectangle.
+    inv = cv2.getRotationMatrix2D((w / 2.0, h / 2.0), -tilt, 1.0)
+    out = []
+    for bx, by, bw, bh in found:
+        pts = np.array([[bx, by], [bx + bw, by],
+                        [bx + bw, by + bh], [bx, by + bh]], dtype=np.float32)
+        back = (inv[:, :2] @ pts.T).T + inv[:, 2]
+        x1, y1 = back[:, 0].min(), back[:, 1].min()
+        x2, y2 = back[:, 0].max(), back[:, 1].max()
+        out.append([int(max(0, x1)) + x, int(max(0, y1)) + y,
+                    int(min(w, x2) - max(0, x1)), int(min(h, y2) - max(0, y1))])
+    return out
+
+
+def segment(img, pad_frac=0.02):
+    """One box per receipt: the bounding box of each text-line cluster."""
+    h, w = img.shape[:2]
+    polys = [np.asarray(p) for p in detect_lines(img)]
+    if not polys:
+        return []
+
+    def resolve(box, depth=0):
+        """Split a box that still looks like several receipts, until it stops."""
+        bx, by, bw, bh = box
+        n = sum(1 for p in polys
+                if bx <= p[:, 0].mean() < bx + bw and by <= p[:, 1].mean() < by + bh)
+        if depth >= _MAX_RETRY or not is_suspect(box, w, n):
+            return [box]
+        split = retry_rotated(img, box, pad_frac)
+        if not split:
+            return [box]
+        # Straightening exposes one seam at a time when receipts are stacked at
+        # different angles: the first pass over three merged Decathlon/Mercadona
+        # slips freed the Mercadona and left the other two together, still
+        # holding 195 text lines. Recursing separates those too.
+        return [out for piece in split for out in resolve(piece, depth + 1)]
+
+    boxes = [b for box in boxes_from_lines(polys, w, h, pad_frac)
+             for b in resolve(box)]
     return drop_contained(boxes)
 
 

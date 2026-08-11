@@ -176,6 +176,37 @@ dal 5% al 25%, di nuovo un altopiano.
 
 ---
 
+## Gli scontrini sbiechi: raddrizzare il ritaglio, non la foto
+
+Su `2025-09-06 10.43.15` tre scontrini accatastati e inclinati finivano in un
+box solo. La causa e' geometrica: un testo inclinato di pochi gradi si spalma
+lateralmente nella proiezione e riempie le valli che separano i fogli vicini.
+
+Il deskew **globale** e' stato provato e **misurato peggiore** (4→3, 3→2, 4→2
+gruppi): ruotando attorno al centro del fotogramma, gli scontrini ai bordi
+scorrono lateralmente e le loro colonne si sovrappongono.
+
+Funziona invece raddrizzare **solo il ritaglio sospetto**, trattandolo come una
+foto a se': nient'altro nell'immagine si muove. L'angolo si ricava dal testo
+stesso, come inclinazione mediana delle sue righe.
+
+Un box e' "sospetto" per due segni indipendenti, e su trenta box misurati
+l'unico difettoso e' il solo a superarli, senza casi al limite:
+
+| | altri box | il box fuso |
+|---|---|---|
+| larghezza / fotogramma | 0.15 – 0.37 | **0.56** |
+| righe di testo | 10 – 95 | **206** |
+
+La procedura e' **ricorsiva**, e la misura ha mostrato perche' serve: quando
+gli scontrini sono accatastati ad angoli diversi, ogni passata libera una
+giuntura sola. La prima ha isolato il Mercadona lasciando insieme i due
+Decathlon, ancora con 195 righe; la seconda li ha separati. Il tetto e' tre
+passate.
+
+Risultato su quella foto: da 3 box (di cui uno con tre scontrini) a **5 box,
+uno per scontrino**. Le altre nove foto restano invariate.
+
 ## Limiti noti
 
 - **I box aderiscono al testo, non alla carta.** Con `pad_frac=0.02` resta
@@ -189,6 +220,10 @@ dal 5% al 25%, di nuovo un altopiano.
 - **Solo split verticale.** Gli scontrini sono affiancati orizzontalmente in
   tutte e sei le foto. Scontrini impilati in verticale richiederebbero la stessa
   logica sull'asse y.
+- **I ritagli ottenuti per rotazione sono piu' stretti.** I due Decathlon
+  separati al secondo giro perdono un margine sul lato destro: restano
+  leggibili (intestazione, articoli, totale) ma sono meno puliti dei box
+  ottenuti al primo colpo. E' il prezzo del taglio su testo inclinato.
 - **Sei foto restano poche.** 6/6 su un altopiano è un buon segnale, non una
   garanzia. La metrica IoU (sotto) va introdotta prima di dichiarare chiuso.
 
