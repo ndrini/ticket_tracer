@@ -12,6 +12,7 @@ wheels/
 
 # private files
 .env
+.env*
 private
 
 data/private
@@ -41,3 +42,7 @@ exports/bottomup
 
 
 CLAUDE.md
+data/2025_scontrini/
+data/cache_oriented_test10
+exports/detector
+exports/verifica10
