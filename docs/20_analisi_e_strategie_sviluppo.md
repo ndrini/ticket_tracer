@@ -29,6 +29,44 @@ catalogo di poche centinaia di voci vale piu' di qualunque euristica.
 
 ---
 
+## 1-bis. Nota terminologica: quale LLM, e a che serve
+
+Nel progetto "LLM" indica **due cose diverse**, e confonderle fa sembrare aperta
+una decisione che invece e' chiusa.
+
+| | cosa riceve in ingresso | ruolo nel progetto |
+|---|---|---|
+| **LLM multimodale** (GPT-4o, Llava, Qwen-VL) | l'**immagine** | **nessuno: scartato** |
+| **LLM testuale** (llama3.1, gia' in uso) | il **testo** prodotto dall'OCR | interpretare quel testo |
+
+**Il multimodale e' fuori.** Serviva a sostituire segmentazione e OCR quando la
+segmentazione non funzionava. Ora la segmentazione da' 16/16 e l'OCR legge il
+testo, quindi non ha piu' ragione di esistere: costerebbe API a pagamento o una
+GPU di fascia alta per rifare un lavoro gia' fatto.
+
+**Il testuale resta indispensabile**, e la ragione e' che *l'OCR non dice quali
+prodotti ci sono*: restituisce frammenti con delle coordinate. Un esempio reale:
+
+```
+"2 PATATES XURRE. CONS"   "1,10"   "2,20"
+"4 XOC.70% CACAU LINDT"   "4,49"   "17,96"
+"Total factura:"          "20,16"
+```
+
+Per arrivare da qui a una riga di database servono decisioni che l'OCR non
+prende:
+
+- il `2` iniziale e' una quantita' o parte del nome? E il `70` in `XOC.70%`?
+- dei due numeri, quale e' il prezzo unitario e quale il totale di riga?
+- `PATATES XURRE. CONS` e' catalano troncato: quale prodotto e', in italiano?
+- `Total factura` e' una riga prodotto o il totale dello scontrino?
+- delle ~200 righe rilevate, quali sono prodotti e quali IVA, codici fiscali,
+  ringraziamenti?
+
+E' **interpretazione semantica di testo**. Nessuna immagine coinvolta.
+
+---
+
 ## 2. Stato attuale, verificato
 
 ### Funziona
