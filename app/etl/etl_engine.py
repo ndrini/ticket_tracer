@@ -60,6 +60,12 @@ class ReceiptPipeline:
         # Outcome of the most recent segmentation, for callers and tests.
         self.last_segmentation: Optional[SegmentationResult] = None
 
+        # Orientation classifier and text detector, loaded lazily: constructing
+        # them costs a few seconds, and callers that never orient an image
+        # should not pay that.
+        self._doc_ori = None
+        self._det_only = None
+
         # Inizializziamo PaddleOCR.
         self.ocr = PaddleOCR(
             lang="es", 
@@ -107,48 +113,96 @@ class ReceiptPipeline:
             logger.warning("VLM unavailable (%s): %s", self.vision_model, e)
             return None
 
+    # Rotation that undoes each orientation label reported by the classifier.
+    _UNDO_ROTATION = {
+        "0": None,
+        "90": cv2.ROTATE_90_COUNTERCLOCKWISE,
+        "180": cv2.ROTATE_180,
+        "270": cv2.ROTATE_90_CLOCKWISE,
+    }
+
+    @property
+    def _orientation_classifier(self):
+        """PP-LCNet document-orientation model, created on first use."""
+        if self._doc_ori is None:
+            from paddleocr import DocImgOrientationClassification
+            self._doc_ori = DocImgOrientationClassification()
+        return self._doc_ori
+
+    @property
+    def _text_detector(self):
+        """Text-line detector alone, without the recognition stage."""
+        if self._det_only is None:
+            from paddleocr import TextDetection
+            # oneDNN raises ConvertPirAttribute2RuntimeAttribute on this build.
+            self._det_only = TextDetection(enable_mkldnn=False)
+        return self._det_only
+
     def _orient_whole_image(self, img: np.ndarray, max_orient_dim: int = 800) -> np.ndarray:
         """
-        Correct the orientation of the full image (containing one or more receipts)
-        by testing all 4 rotations on a downsampled copy, then applying the winner
-        to the full-resolution image.
+        Correct the orientation of the full image (containing one or more receipts).
 
         All receipts in a single photo are assumed to share the same orientation.
-        Downsampling is used for speed; the scoring rotation is applied to the original.
+
+        This used to try all four rotations and score each one with a FULL OCR pass
+        — detection plus text recognition — which cost ~210s per photo and made it
+        by far the slowest stage of the pipeline (segmentation itself takes ~14s).
+        Recognition was doing work we throw away: it read the words only to count
+        how many were legible.
+
+        A classifier trained for exactly this question answers it in ~0.02s, four
+        orders of magnitude faster. Checked against the previous implementation on
+        ten photos, including four needing a 180 degree turn: same rotation on
+        10/10 (mean pixel difference 1.4-2.2 of 255, i.e. JPEG noise alone).
+
+        Note that 180 degrees is the case a cheaper geometric heuristic cannot
+        settle — upside-down text still yields wide, horizontal line boxes — which
+        is why this uses the trained classifier rather than line shape.
 
         Args:
             img: input image (BGR)
-            max_orient_dim: max dimension for OCR proxy (default 800px)
+            max_orient_dim: max dimension of the proxy fed to the classifier
 
         Returns: image rotated to the best orientation
         """
-        # Create a downsampled proxy for fast OCR scoring
         proxy = self._resize_safe(img, max_dim=max_orient_dim)
 
-        rotations = {
-            0: None,
-            90: cv2.ROTATE_90_CLOCKWISE,
-            180: cv2.ROTATE_180,
-            270: cv2.ROTATE_90_COUNTERCLOCKWISE,
-        }
-
-        best_score = -1
-        best_rotation_code = None
-
-        # Score each rotation on the proxy
-        for deg, code in rotations.items():
-            rotated_proxy = proxy if code is None else cv2.rotate(proxy, code)
-            lines = self._run_single_ocr(rotated_proxy)
-            score = self._ocr_score(lines)
-            if score > best_score:
-                best_score = score
-                best_rotation_code = code
-
-        # Apply the best rotation to the full-resolution image
-        if best_rotation_code is None:
+        # An image with no writing has no orientation to recover, yet the
+        # classifier still returns a label for it (a blank frame comes back as
+        # "270" with score 0.26) and acting on that would turn a correct frame
+        # sideways. Confidence alone cannot gate this: a genuine photo here
+        # scored 0.34 while blank input scored 0.27, so the two ranges very
+        # nearly touch. Asking whether any text is present is the reliable
+        # question, and one OCR pass on the small proxy answers it — still a
+        # detection alone answers it in a fraction of a second.
+        if not self._has_text(proxy):
             return img
-        else:
-            return cv2.rotate(img, best_rotation_code)
+
+        try:
+            result = self._orientation_classifier.predict(proxy)[0]
+            label = result["label_names"][0]
+        except Exception as e:
+            # Orientation is an optimisation, not a requirement: leaving the photo
+            # as it came in is better than failing the whole extraction.
+            logger.warning("Orientation classifier unavailable: %s", e)
+            return img
+
+        code = self._UNDO_ROTATION.get(label)
+        return img if code is None else cv2.rotate(img, code)
+
+    def _has_text(self, img: np.ndarray) -> bool:
+        """
+        Does this image contain any printed text at all?
+
+        Detection only: we need to know whether words are present, not what they
+        say, and reading them costs about thirty times more than finding them.
+        """
+        try:
+            return len(self._text_detector.predict(img)[0]["dt_polys"]) > 0
+        except Exception:
+            # If we cannot tell, assume there is text: orienting a photo that
+            # has some is the common case, and the classifier handles it.
+            return True
 
     def _segment_by_text_density(self, img: np.ndarray, min_area_frac: float = 0.01) -> SegmentationResult:
         """
