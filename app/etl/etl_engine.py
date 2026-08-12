@@ -188,7 +188,58 @@ class ReceiptPipeline:
             return img
 
         code = self._UNDO_ROTATION.get(label)
-        return img if code is None else cv2.rotate(img, code)
+        oriented = img if code is None else cv2.rotate(img, code)
+        return self._fix_upside_down(oriented, max_orient_dim)
+
+    # How much better the flipped reading must be before we turn the photo.
+    _UPSIDE_DOWN_MARGIN = 0.15
+
+    def _fix_upside_down(self, img: np.ndarray, max_dim: int) -> np.ndarray:
+        """
+        Catch the 180-degree mistakes the orientation classifier still makes.
+
+        Measured on a full run over 96 real photos: 13 of them came out upside
+        down, 13% of all receipts. The signature in the OCR text is unmistakable
+        — "60'1" is "1,09" read from below — and it is not an edge case the
+        classifier is unsure about: on one of those photos it answered "0" (no
+        rotation needed) with confidence 0.826. Its own score cannot separate
+        these errors, so a second opinion is needed.
+
+        OCR confidence provides it, because a recogniser reading upside-down
+        text is guessing and says so:
+
+            photo already correct     0.873 upright vs 0.532 flipped
+            photo upside down         0.549 upright vs 0.896 flipped
+
+        Cheap enough to be worth it: the comparison runs on a small proxy, and
+        it only decides between two candidates rather than four.
+        """
+        proxy = self._resize_safe(img, max_dim=max_dim)
+        try:
+            upright = self._mean_ocr_confidence(proxy)
+            flipped = self._mean_ocr_confidence(cv2.rotate(proxy, cv2.ROTATE_180))
+        except Exception as e:
+            logger.warning("Upside-down check failed: %s", e)
+            return img
+
+        # The margin keeps a near-tie from flipping a correct photo. Measured
+        # over 22 crops, the two orientations are never close: the smallest
+        # separation is 0.276 and nothing at all falls below 0.25, so the
+        # threshold sits inside an empty gap rather than among the data. That
+        # gap is why a plain margin suffices here and a relative or
+        # letters-versus-digits criterion would only add moving parts.
+        if flipped > upright + self._UPSIDE_DOWN_MARGIN:
+            logger.info("Photo was upside down (%.2f -> %.2f), rotated 180",
+                        upright, flipped)
+            return cv2.rotate(img, cv2.ROTATE_180)
+        return img
+
+    def _mean_ocr_confidence(self, img: np.ndarray) -> float:
+        """How sure the recogniser is about what it read. Low means garbage."""
+        lines = self._run_single_ocr(img) or []
+        if not lines:
+            return 0.0
+        return float(np.mean([line[1][1] for line in lines]))
 
     def _has_text(self, img: np.ndarray) -> bool:
         """
