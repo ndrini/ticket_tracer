@@ -144,6 +144,20 @@ def elabora_foto(path, pipeline, segmenter, registro, rifai=False):
     # La stessa foto puo' arrivare da fonti diverse (backup, WhatsApp, un altro
     # telefono) con una ricompressione che ne cambia i byte ma non il contenuto.
     # L'hash percettivo la riconosce comunque.
+    # Foto gia' completata: si esce PRIMA di orientare e segmentare.
+    #
+    # Saltare per singolo scontrino non basta a rendere economico un rilancio:
+    # evita l'OCR, che e' la parte cara, ma orientamento e segmentazione girano
+    # comunque, circa 26s per foto spesi per non produrre nulla. Su 96 foto sono
+    # tre quarti d'ora. Il registro sa gia' quali scontrini ha dato ogni foto,
+    # quindi basta verificare che i loro file esistano ancora.
+    voce = registro.get(nome)
+    if voce and not rifai:
+        attesi = voce.get("scontrini") or []
+        if attesi and all(os.path.exists(os.path.join(DIR_ESTRATTI, d + ".json"))
+                          for d in attesi):
+            return 0, len(attesi), len(attesi)
+
     phash = dhash(raw)
     if not rifai:
         originale = gia_vista(registro, phash)
