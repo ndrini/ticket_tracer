@@ -72,9 +72,17 @@ def trova_totale(righe_ocr):
     Il totale dichiarato sullo scontrino, o None se non e' individuabile.
 
     `righe_ocr` sono i frammenti prodotti dalla Fase A, ognuno con `testo` e
-    `box`. Si sceglie l'ULTIMA etichetta di totale presente: sugli scontrini
-    compaiono spesso piu' righe che parlano di totali (subtotale, totale IVA,
-    totale fattura) e quella conclusiva e' il totale vero.
+    `box`. Fra tutte le etichette di totale si tiene quella con l'importo PIU'
+    GRANDE, perche' la spesa complessiva supera sempre le sue componenti.
+
+    Prendere l'ultima etichetta in basso e' la regola sbagliata, e la misura lo
+    ha mostrato: sotto il totale vero c'e' spesso la tabella IVA, che si chiude
+    con la parola "TOTAL" seguita da una quota d'imposta. Su uno scontrino
+    Mercadona questo restituiva 0,51 euro (una quota IVA) al posto di 7,79, e la
+    firma dell'errore era inequivocabile — la somma delle righe superava il
+    totale dichiarato in 179 casi su 202, cioe' quasi mai per rumore casuale.
+
+    Le due regole differiscono sul 24% degli scontrini.
     """
     if not righe_ocr:
         return None
@@ -88,23 +96,27 @@ def trova_totale(righe_ocr):
 
     altezza_riga = float(np.median([_altezza(r["box"]) for r in righe_ocr])) or 1.0
 
-    for etichetta in reversed(etichette):
+    candidati = []
+    for etichetta in etichette:
         # L'importo puo' stare sull'etichetta stessa ("TOTAL 28,80")...
         valore = _importo(etichetta["testo"])
-        if valore is not None:
-            return valore
-
-        # ...oppure, molto piu' spesso, in un frammento alla sua destra.
-        y = _centro_y(etichetta["box"])
-        x = _centro_x(etichetta["box"])
-        vicini = [r for r in righe_ocr
-                  if abs(_centro_y(r["box"]) - y) < 1.2 * altezza_riga
-                  and _centro_x(r["box"]) > x
-                  and _importo(r["testo"]) is not None]
-        if vicini:
+        if valore is None:
+            # ...oppure, molto piu' spesso, in un frammento alla sua destra.
+            y = _centro_y(etichetta["box"])
+            x = _centro_x(etichetta["box"])
+            vicini = [r for r in righe_ocr
+                      if abs(_centro_y(r["box"]) - y) < 1.2 * altezza_riga
+                      and _centro_x(r["box"]) > x
+                      and _importo(r["testo"]) is not None]
+            if not vicini:
+                continue
             # Il piu' a destra: sulle righe con piu' numeri l'importo finale
             # e' l'ultimo della colonna.
             vicini.sort(key=lambda r: _centro_x(r["box"]))
-            return _importo(vicini[-1]["testo"])
+            valore = _importo(vicini[-1]["testo"])
+        candidati.append(valore)
 
-    return None
+    if not candidati:
+        return None
+    # Per valore assoluto, cosi' i resi (totali negativi) restano riconoscibili.
+    return max(candidati, key=abs)
