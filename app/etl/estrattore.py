@@ -75,13 +75,24 @@ def _e_riga_prodotto(riga):
 class EstrattoreScontrino:
     """Interroga il modello una domanda per volta."""
 
-    def __init__(self, modello=MODELLO_PREDEFINITO, url=OLLAMA_URL, timeout=300):
+    def __init__(self, modello=MODELLO_PREDEFINITO, url=OLLAMA_URL, timeout=120):
         self.modello = modello
         self.url = url
         self.timeout = timeout
 
     def _chiedi(self, prompt, max_token):
-        """Una domanda al modello. Restituisce il testo della risposta."""
+        """
+        Una domanda al modello. Restituisce il testo della risposta, o "" se il
+        modello non risponde in tempo.
+
+        Il limite di tempo serve davvero: su uno scontrino il modello ha
+        generato per QUATTRO ORE prima di fermarsi, contro i 70 secondi tipici.
+        Su una passata di 314 scontrini un solo caso simile blocca tutto, quindi
+        e' meglio perdere quello scontrino che l'intera esecuzione.
+
+        `num_predict` limita i token generati, ma non basta: un modello che
+        ripete se stesso li consuma lentissimamente.
+        """
         try:
             risposta = requests.post(
                 self.url,
@@ -89,6 +100,9 @@ class EstrattoreScontrino:
                       "options": {"num_predict": max_token, "temperature": 0}},
                 timeout=self.timeout)
             return risposta.json().get("response", "")
+        except requests.Timeout:
+            logger.warning("Modello oltre %ds, scontrino saltato", self.timeout)
+            return ""
         except Exception as e:
             logger.warning("Modello non raggiungibile: %s", e)
             return ""

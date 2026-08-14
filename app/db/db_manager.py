@@ -39,7 +39,13 @@ def init_db(db_path):
         CREATE TABLE IF NOT EXISTS products (
             id INTEGER PRIMARY KEY,
             name TEXT UNIQUE,
-            aka ARRAY
+            aka ARRAY,
+            -- Senza questa colonna il report per tipologia e' impossibile.
+            -- Si popola in una fase successiva, sul catalogo dei prodotti
+            -- distinti e non riga per riga: chiedendo la categoria a ogni
+            -- riga, lo stesso pane finirebbe in "Pane" su uno scontrino e in
+            -- "Alimentari" su un altro.
+            category TEXT
         )
     """
     )
@@ -51,6 +57,16 @@ def init_db(db_path):
             id_commerce INTEGER,
             data_ora TEXT,
             immagine BLOB,
+            -- Identita' dello scontrino: l'hash del suo ritaglio. UNIQUE rende
+            -- il caricamento idempotente, cosi' rilanciarlo non duplica nulla.
+            image_sha256 TEXT UNIQUE,
+            -- Il totale stampato sulla carta e quello ricavato dalle righe: la
+            -- loro differenza dice quanto ci si puo' fidare di questo record.
+            total_declared REAL,
+            total_computed REAL,
+            validation_status TEXT,
+            validation_delta REAL,
+            foto_origine TEXT,
             FOREIGN KEY(id_commerce) REFERENCES commerces(id)
         )
     """
