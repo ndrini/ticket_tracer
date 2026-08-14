@@ -10,9 +10,15 @@ soluzione adottata non e' nessuna delle due, per una ragione documentata piu'
 avanti: non ha richiesto ne' API a pagamento (Strategia A) ne' l'addestramento
 di YOLO su un dataset etichettato (Strategia B).
 
-Implementazione: [`scripts/segmenta_detector.py`](../scripts/segmenta_detector.py).
+Implementazione: [`app/etl/segmenter.py`](../app/etl/segmenter.py), dentro la
+pipeline. Lo script [`scripts/segmenta_detector.py`](../scripts/segmenta_detector.py)
+resta come banco di prova sulle sei foto di riferimento.
+
 Il diario tecnico con tutte le strade chiuse e le misure che le hanno chiuse e'
 in [`scripts/segmenta_detector.md`](../scripts/segmenta_detector.md).
+
+Il seguito — dal testo OCR ai dati strutturati — e' in
+[40_dal_testo_ai_dati.md](40_dal_testo_ai_dati.md).
 
 ---
 
@@ -263,13 +269,13 @@ altopiano e' la firma di un criterio che regge.
 
 ## 8. Prossimi passi
 
-1. **Implementare la metrica IoU** della sezione 5: etichettare a mano i box
-   veri e misurare IoU medio, precision/recall e i due tassi di errore. E'
-   l'unica difesa contro il ripetersi dell'overfitting, e avrebbe smascherato
-   subito i due falsi successi citati sopra.
-2. **Integrare la segmentazione in `app/`**: oggi
-   `scripts/segmenta_detector.py` e' ancora uno script sperimentale, fuori dalla
-   pipeline ETL.
-3. **Ritirare `scripts/segmenta_bottomup.py`** una volta completato il punto 2.
-4. **Estrazione e omogeneizzazione dei dati** per il database: e' la fase
-   successiva, da pianificare a parte.
+1. **Completare la metrica IoU** della sezione 5. Lo strumento esiste
+   ([`scripts/metrica_iou.py`](../scripts/metrica_iou.py)) ma la verita' di
+   riferimento e' ancora una bozza generata dall'algoritmo stesso: misurarla
+   da' 1.000 ovunque, perche' confronta l'algoritmo con se stesso. Va corretta
+   a mano sui fogli in `exports/verita/` prima di avere valore.
+2. ~~**Integrare la segmentazione in `app/`**~~ — fatto:
+   [`app/etl/segmenter.py`](../app/etl/segmenter.py).
+3. **Ritirare `scripts/segmenta_bottomup.py`**, ora superato.
+4. ~~**Estrazione dei dati**~~ — in corso, vedi
+   [40_dal_testo_ai_dati.md](40_dal_testo_ai_dati.md).

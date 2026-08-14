@@ -75,29 +75,45 @@ E' **interpretazione semantica di testo**. Nessuna immagine coinvolta.
   sviluppo, 10/10 su dieci foto mai viste. Ritagli verificati a occhio.
 - **Orientamento automatico** della foto: 8.9 s/foto.
 - **Metrica IoU** per misurare la qualita' dei ritagli.
+- **Ingestione idempotente (Fase A).** 317 scontrini estratti dalle 96 foto,
+  ognuno identificato dall'hash del proprio ritaglio. Rilanciare e' sicuro:
+  cio' che esiste viene saltato. Le foto duplicate arrivate da fonti diverse
+  (backup, WhatsApp) sono riconosciute con un hash percettivo.
+- **Verifica sul totale (Fase B).** Ogni scontrino dichiara il proprio totale,
+  e la somma delle righe viene confrontata con quel numero. Vedi
+  [40_dal_testo_ai_dati.md](40_dal_testo_ai_dati.md).
+- **Controllo di verosimiglianza dei prezzi.** Le soglie vengono da 615 prezzi
+  misurati su scontrini che quadrano al centesimo.
 
 ### Esiste ma e' grezzo
-- **OCR**: PaddleOCR con `lang="es"`.
-- **Estrazione dati**: LLM locale (Ollama, llama3.1) con schema Pydantic che
-  estrae `shop_name`, `date`, `total`, `items[{name, original_name, price}]`.
+- **OCR**: PaddleOCR con `lang="es"`. 314 scontrini su 317 leggibili.
+- **Estrazione dati**: LLM locale con schema Pydantic che estrae `shop_name`,
+  `date`, `total`, `items[{name, original_name, price}]`. Da rifare secondo la
+  Fase 3 del documento 40.
 - **Database** SQLite: `commerce_type`, `commerces`, `products`, `receipts`,
-  `receipt_lines`.
+  `receipt_lines`. Contiene solo dati di test.
 - **Statistiche**: tre query fisse (totale per commercio, totale per prodotto,
-  trend mensile).
+  trend mensile). Nessun report, nessuna tipologia.
 
-### Le cinque lacune che bloccano l'obiettivo
+### Le lacune che bloccano l'obiettivo
+
+Restano aperte:
+
 1. **La categoria di prodotto non esiste da nessuna parte** — ne' nello schema
    estratto dall'LLM, ne' nella tabella `products` (che ha solo `name` e `aka`).
    Eppure il report per tipologia e' un requisito esplicito.
 2. **Nessuna omogeneizzazione dei nomi.** Lo stesso pane compare come
    `PA DE PAGES`, `BARRA DE PA 3 U`, `PANET 11 UN`. Il campo `aka` esiste ma
    nessuna logica lo popola.
-3. **Nessuna idempotenza.** Rilanciando la pipeline sulle stesse foto si
-   inseriscono duplicati: non c'e' hash dell'immagine ne' vincolo di unicita'.
-4. **Nessuna verifica di qualita'**, benche' ogni scontrino **contenga il
-   proprio totale stampato** — un'occasione di auto-verifica oggi sprecata.
-5. **Il database contiene solo dati di test** (1 scontrino, 2 prodotti).
-   Nessun dato reale e' mai stato caricato.
+3. **Il database non contiene dati reali.** I 317 scontrini vivono su file, come
+   previsto dalla strategia: entreranno nel database solo dopo normalizzazione e
+   categorizzazione.
+
+Risolte dopo la prima stesura di questo documento:
+
+- ~~Nessuna idempotenza~~ → hash del ritaglio piu' hash percettivo della foto.
+- ~~Nessuna verifica di qualita'~~ → il totale stampato e' ora il giudice della
+  pipeline, e i prezzi implausibili vengono segnalati.
 
 ---
 
@@ -241,20 +257,27 @@ Lo schema attuale rappresenta solo il dato finale. Servono:
 
 ## 6. Sequenza operativa consigliata
 
-1. **Integrare la segmentazione in `app/`** — oggi vive in
-   `scripts/segmenta_detector.py`, fuori dalla pipeline ETL.
-2. **Fase A**: hash, ritagli, OCR, estrazione su file. Nessun DB ancora.
-3. **Fase B**: verifica sui totali. Da qui si conosce il tasso di errore reale.
-4. **Migrazione dello schema** (sezione 5).
-5. **Fase C**: catalogo prodotti + revisione manuale.
-6. **Fase D**: categorizzazione + revisione manuale.
-7. **Caricamento nel DB** dei dati gia' normalizzati e categorizzati.
-8. **Fase E**: report.
+1. ~~**Integrare la segmentazione in `app/`**~~ — fatto: `app/etl/segmenter.py`.
+2. ~~**Fase A**: hash, ritagli, OCR su file. Nessun DB ancora.~~ — fatto: 317
+   scontrini in `data/estratti/`.
+3. ~~**Fase B**: verifica sui totali.~~ — fatto, e il tasso di errore reale
+   e' ora noto. Vedi [40_dal_testo_ai_dati.md](40_dal_testo_ai_dati.md).
+4. **Estrazione con l'LLM** (Fase 3 del documento 40) — il prossimo passo.
+5. **Migrazione dello schema** (sezione 5 di questo documento).
+6. **Fase C**: catalogo prodotti + revisione manuale.
+7. **Fase D**: categorizzazione + revisione manuale.
+8. **Caricamento nel DB** dei dati gia' normalizzati e categorizzati.
+9. **Fase E**: report.
 
-Il caricamento nel database avviene **al punto 7**, non prima: e' la scelta
+Il caricamento nel database avviene **al punto 8**, non prima: e' la scelta
 centrale di questa strategia. I dati entrano nelle tabelle relazionali solo
 quando sono gia' puliti, mentre tutto il lavoro sporco resta su file
 rifacibili.
+
+La scelta si e' gia' ripagata: i 317 scontrini sono stati rielaborati piu'
+volte — per correggere le foto capovolte, per ripulire i ritagli sbagliati —
+cancellando file e rilanciando. In un database sarebbero serviti UPDATE
+incrociati su tabelle collegate.
 
 ---
 
