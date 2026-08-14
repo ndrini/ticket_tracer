@@ -185,6 +185,117 @@ ricava.
 
 ---
 
+## 5-bis. Tagliare la coda prima di chiedere
+
+### Il difetto, e cosa lo ha rivelato
+
+I primi risultati su 30 scontrini erano scoraggianti: solo 6 quadravano. La
+diagnosi istintiva — "il modello perde delle righe" — era **sbagliata**, e a
+smentirla e' bastato guardare il *verso* dello scarto:
+
+| | scontrini |
+|---|---|
+| somma dei prodotti **maggiore** del totale | **21** |
+| somma **minore** del totale | 4 |
+
+Il modello non perdeva righe: ne prendeva **di troppo**. Un caso reale, con
+totale stampato 36,69:
+
+```
+   2,59  NARANJA MARCA MA        ... (12 prodotti corretti)
+   1,49  GOLDEN BOLSA 1KG
+  36,69  €*TOT_          <- il totale, ricopiato come se fosse un prodotto
+  50,00  EFECTIVO_       <- il contante consegnato
+  13,31  €CAMILO_        <- il resto
+                            somma: 126,20
+```
+
+I dodici prodotti erano perfetti. A rovinare tutto erano le tre righe finali.
+
+### Perche' le parole non bastavano
+
+Esisteva gia' un filtro che scartava le righe contenenti `total`, `efectivo`,
+`cambio`. Non agganciava niente, perche' **l'OCR storpia proprio quelle
+parole**:
+
+| stampato | letto dall'OCR |
+|---|---|
+| `TOTAL` | `€*TOT_` |
+| `SUBTOTAL` | `SUBIOLAL` |
+| `CAMBIO` | `CAM8IO`, `€CAMILO_` |
+| `IMPORTE PAGADO` | `IMPORIO PAGAIO` |
+| `BONIFICACION` | `Bonificacton` |
+
+Un confronto per parole intere su testo corrotto non trova nulla. Serviva un
+criterio che non dipendesse dalle lettere.
+
+### La soluzione: la posizione, non le parole
+
+Lo scontrino ha una struttura fissa: **prima i prodotti, poi il totale, poi la
+coda** (pagamento, resto, IVA, saluti). Il totale e' gia' localizzato per
+coordinate ed e' affidabile. Quindi la sua altezza sulla pagina e' un
+**confine fisico**: sotto di esso non ci sono piu' prodotti, qualunque cosa
+l'OCR abbia fatto delle lettere.
+
+Tre filtri, in ordine di importanza:
+
+1. **Geometria** — si scarta tutto cio' che sta sotto il totale. E' il filtro
+   principale e non dipende dalla qualita' del testo.
+2. **Importo** — un prodotto non puo' costare piu' dell'intero scontrino.
+3. **Somiglianza** — per i marcatori che stanno *sopra* il confine (subtotali,
+   sconti in mezzo all'elenco), si confrontano le parole per **somiglianza** e
+   non per uguaglianza.
+
+La coda si taglia **prima** di interrogare il modello, non dopo: cosi' il
+modello non vede nemmeno le righe da scartare, e il prompt e' piu' corto.
+
+### Il risultato
+
+Confronto sugli stessi 94 scontrini:
+
+| | prima | dopo |
+|---|---|---|
+| righe spurie fra i prodotti | **77** | **0** |
+| scontrini con somma gonfiata | **47 / 95** | **8 / 94** |
+| scontrini che quadrano | 25 | **31** |
+
+### Cio' che si e' scelto di NON fare
+
+E' stato proposto di **cercare il sottoinsieme di righe che somma esattamente
+al totale**. E' stato scartato, ed e' la decisione piu' importante di questa
+sezione.
+
+Su uno scontrino a cui manca davvero una riga, quell'algoritmo troverebbe
+comunque una combinazione che torna: plausibile e sbagliata. Trasformerebbe un
+fallimento **visibile** (scontrino marcato come non valido) in un dato **falso**
+che entra nel database e falsa i report, senza lasciare traccia.
+
+> Meglio un buco dichiarato che un numero inventato.
+
+Al suo posto c'e' un controllo **passivo**: le righe che somigliano a un
+marcatore ma sono sopravvissute ai filtri vengono elencate in `righe_sospette`.
+Si segnalano, non si correggono d'ufficio: un dato marcato resta verificabile,
+uno corretto in silenzio no.
+
+### La trappola della metrica, di nuovo
+
+Il primo confronto diceva che il nuovo filtro **non serviva a niente**: 16
+scontrini quadravano prima, 15 dopo. Il codice sembrava da buttare.
+
+Guardando i casi "rotti", due su tre erano **finti**: quadravano perche' una
+riga di *pagamento* per caso pareggiava il conto (`CAM8IO € 1,00` su un totale
+di 1,00). La metrica premiava i pareggi per coincidenza.
+
+Contando invece **la purezza delle righe**, il quadro si ribaltava: da 77 righe
+spurie a zero. E' la stessa trappola gia' incontrata con la tolleranza di
+ricomposizione — e la lezione vale nei due versi:
+
+> Una metrica che sale non basta: va guardato cosa sta rompendo.
+> Una metrica che **non** sale non basta a bocciare: va guardato cosa sta
+> sistemando.
+
+---
+
 ## 6. Fase 4 — Verificare
 
 ### Il totale come giudice

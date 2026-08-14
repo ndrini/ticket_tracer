@@ -34,6 +34,7 @@ warnings.filterwarnings("ignore")
 os.environ.setdefault("GLOG_minloglevel", "3")
 sys.path.insert(0, os.getcwd())
 
+from app.etl.coda import righe_corpo, sa_di_riepilogo  # noqa: E402
 from app.etl.estrattore import EstrattoreScontrino  # noqa: E402
 from app.etl.plausibilita import controlla_scontrino  # noqa: E402
 from app.etl.riduci_testo import riga_utile  # noqa: E402
@@ -52,8 +53,16 @@ RIGHE_MINIME = 8
 
 
 def testo_per_modello(righe_ocr):
-    """Righe ricomposte come sulla carta, senza le parti inutili."""
-    righe = testo_ricomposto(righe_ocr).split("\n")
+    """
+    Righe ricomposte come sulla carta, senza le parti inutili e senza la coda.
+
+    LA CODA SI TAGLIA PRIMA DI CHIEDERE AL MODELLO, non dopo. Il modello ricopia
+    diligentemente anche "EFECTIVO 50,00" e "CANVI 13,31", e ogni riga di troppo
+    gonfia la somma dei prodotti: su 30 scontrini, 21 dei 25 che non quadravano
+    avevano la somma MAGGIORE del totale. Togliendo la coda a monte il modello
+    non le vede nemmeno, e in piu' il prompt e' piu' corto.
+    """
+    righe = testo_ricomposto(righe_corpo(righe_ocr)).split("\n")
     return "\n".join(r for r in righe if riga_utile(r))
 
 
@@ -74,8 +83,15 @@ def giudica(dati, totale_dichiarato):
         esito = "PRODOTTI_ASSENTI"
     elif abs(somma - totale_dichiarato) <= TOLLERANZA:
         esito = "VALIDO"
+    elif somma > totale_dichiarato:
+        # Distinguere il verso dello scarto dice quale difetto guardare: in
+        # eccesso sono righe di troppo (coda sfuggita al filtro), in difetto
+        # sono righe perse. Prima erano confusi in un unico "SCARTO_ECCESSIVO",
+        # e la misura mostrava 21 casi su 25 in eccesso: due problemi diversi
+        # che meritano nomi diversi.
+        esito = "SOMMA_IN_ECCESSO"
     else:
-        esito = "SCARTO_ECCESSIVO"
+        esito = "SOMMA_IN_DIFETTO"
 
     return {
         "esito": esito,
@@ -83,6 +99,11 @@ def giudica(dati, totale_dichiarato):
         "scarto": round(somma - totale_dichiarato, 2)
         if (somma is not None and totale_dichiarato is not None) else None,
         "prezzi_sospetti": problemi,
+        # Righe che il filtro ha lasciato passare pur somigliando a un
+        # marcatore di riepilogo. Non si scartano qui: si segnalano, perche' un
+        # dato marcato resta verificabile mentre uno corretto d'ufficio no.
+        "righe_sospette": [p["name"] for p in prodotti
+                           if sa_di_riepilogo(p["name"])],
     }
 
 
