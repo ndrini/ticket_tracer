@@ -27,6 +27,11 @@ import numpy as np
 ETICHETTA_TOTALE = re.compile(
     r"\b(total|import\s+per\s+abonar|a\s+pagar|suma)\b", re.IGNORECASE)
 
+# Fra le etichette accettate, quella che indica il totale con piu' affidabilita'.
+# Le altre ("import per abonar", "suma") compaiono anche accanto al contante
+# consegnato.
+PAROLA_TOTALE = re.compile(r"\btotal\b", re.IGNORECASE)
+
 # Un importo: 1234,56 oppure 1234.56, eventualmente negativo.
 # Il segno va conservato: i resi esistono e sono dati validi, non errori. Su uno
 # scontrino IKEA di reso il totale e' -58,98 EUR, e leggerlo come positivo
@@ -114,9 +119,21 @@ def trova_totale(righe_ocr):
             # e' l'ultimo della colonna.
             vicini.sort(key=lambda r: _centro_x(r["box"]))
             valore = _importo(vicini[-1]["testo"])
-        candidati.append(valore)
+        candidati.append((etichetta["testo"], valore))
 
     if not candidati:
         return None
+
+    # A parita' di scelta si preferisce l'etichetta piu' affidabile, non
+    # l'importo piu' grande. Misurato confrontando ogni etichetta con la somma
+    # dei prodotti: "total" coincide nel 31% dei casi, "import per abonar" e
+    # "suma" solo nel 15%. Su uno scontrino Consum "IMPORT PER ABONAR 50,20"
+    # era il contante consegnato e vinceva su "Total factura: 10,18", che era
+    # il totale vero.
+    preferiti = [v for etichetta, v in candidati
+                 if PAROLA_TOTALE.search(etichetta)]
+    if preferiti:
+        return max(preferiti, key=abs)
+
     # Per valore assoluto, cosi' i resi (totali negativi) restano riconoscibili.
-    return max(candidati, key=abs)
+    return max((v for _, v in candidati), key=abs)

@@ -28,28 +28,38 @@ sinistra. Le inclinazioni di questo materiale vanno da 1,4 a 6,4 gradi: su uno
 scontrino largo 400 px, 6 gradi fanno oltre 40 px di dislivello, ben piu'
 dell'altezza di una riga.
 
-LA TOLLERANZA E' STATA SCELTA GUARDANDO CIO' CHE ROMPE, non massimizzando un
-punteggio. Misurando quanto spesso etichetta e importo del totale finiscono
-sulla stessa riga, il risultato cresce all'infinito con la tolleranza:
+LA TOLLERANZA E' STATA SCELTA GUARDANDO CIO' CHE ROMPE, e la misura giusta e'
+stata trovata al secondo tentativo. Ottimizzando su quanto spesso etichetta e
+importo del TOTALE finiscono sulla stessa riga, il punteggio cresce
+all'infinito con la tolleranza (73% a 0.8, 80% a 2.5) — ma e' un miraggio: le
+righe fisiche vengono fuse fra loro, da 4280 a 618, e l'etichetta finisce
+accanto a un numero qualsiasi.
 
-    tolleranza   0.8    1.0    1.4    2.0    2.5
-    "successo"   73%    76%    77%    79%    80%
-    righe totali 4280   2710   1804   789    618
-    con 3+ importi 16%  21%    31%    45%    53%
-
-Ma e' un miraggio: a tolleranza alta le righe fisiche vengono fuse fra loro (da
-4280 a 618), e l'etichetta finisce accanto a un numero qualsiasi. Il punteggio
-sale proprio perche' la ricomposizione ha smesso di funzionare.
-
-La tolleranza resta quindi bassa, dove le righe restano distinte.
+Anche fermarsi a 0.8 era sbagliato, e se ne e' accorto solo l'estrattore: a
+quella soglia il 74% degli scontrini aveva una riga che inghiottiva cinque o
+piu' prodotti. Il totale non ne soffriva, i prodotti si'. Vedi TOLLERANZA_RIGA.
 """
 import cv2
 import numpy as np
 
 # Quanto due frammenti possono distare in altezza restando sulla stessa riga,
-# in multipli dell'altezza di una riga di testo. Vedi la nota sopra: valori piu'
-# alti gonfiano il punteggio fondendo righe diverse.
-TOLLERANZA_RIGA = 0.8
+# in multipli dell'altezza di una riga di testo.
+#
+# Il valore e' scelto guardando le RIGHE PRODOTTO, non il totale. Tarandolo sul
+# totale si finiva a 0.8, che sembrava innocuo perche' etichetta e importo del
+# totale restano comunque vicini; ma a quella soglia il 74% degli scontrini
+# aveva almeno una riga che inghiottiva cinque o piu' prodotti, mescolando nomi
+# e prezzi in un unico blocco:
+#
+#   1 GUACAMOLE 1 PANET 11 UN 1 PORCIO LIGHT ... 2,50 1,75 2,35 1,14 1,68
+#
+# Da un testo cosi' nessun modello puo' ricostruire quale prezzo appartenga a
+# quale prodotto. Misurato su 120 scontrini, righe che contengono 5+ importi:
+#
+#   tolleranza   0.2    0.3    0.4    0.5    0.6    0.8
+#   righe fuse   0.1%   0.2%   0.3%   0.7%   1.3%   6.6%
+#   righe totali 4136   3805   3618   3400   3075   1863
+TOLLERANZA_RIGA = 0.3
 
 
 def _centro(box, asse):
