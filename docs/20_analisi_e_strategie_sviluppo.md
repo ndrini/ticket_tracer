@@ -567,3 +567,46 @@ porta un argomento nuovo" e' abbastanza operativa. Consenso a tre.
 misurare il **costo** di una modifica (un +1% di accuratezza che raddoppia il
 tempo e' un fallimento non rilevato) e un **confronto differenziale** sui JSON
 prima/dopo ogni modifica.
+
+### 2026-08-15 — Lettura della data dallo scontrino
+
+**Problema.** Il 66% degli scontrini risultava senza data pur avendola
+stampata, e senza data il report per mese — un obiettivo esplicito — non e'
+calcolabile. Alcune date erano inoltre impossibili (2004, 2020) su fotografie
+del 2025.
+
+**Metrica dichiarata prima del test.** Principale: scontrini con data valida,
+da 34% a oltre l'85%. Guardie: zero date fuori dal 2015-2026, gli scontrini
+`VALIDO` non devono calare, la somma dei totali non deve cambiare.
+
+**Tre difetti sovrapposti**, trovati misurando e non ipotizzando:
+
+1. la data e' stampata **in coda**, sotto il totale, e il filtro che toglie la
+   coda la portava via con se';
+2. ammettere lo spazio come separatore (necessario, l'OCR perde le barre)
+   creava date **a cavallo di due righe**: "0,56" + "20/05/2025" diventava
+   56/20/05;
+3. vinceva la **prima** data trovata: il codice "03/03/04" batteva la data vera
+   "06/06/2025".
+
+**Consultati.** Gemini e Perplexity. **Vibe non ha risposto** — timeout su
+entrambe le versioni della domanda, lunga e breve.
+
+**Disaccordo, risolto misurando.** Sullo spazio come separatore Gemini lo
+definiva "una bomba a orologeria", Perplexity lo dava per sicuro. La misura ha
+mostrato che avevano ragione entrambi in parte: `IVA 21 04 2026` produceva una
+data falsa (Gemini), ma i telefoni venivano gia' scartati dalla validazione
+(Perplexity). Il rimedio proposto da Gemini — legare lo spazio a una parola
+chiave — **non reggeva sui dati**: copriva 2 righe su 18. Nelle altre 16 la
+maggioranza erano numeri di telefono, e il segnale utile era un altro: lo
+spazio vale **solo con l'anno a quattro cifre**, perche' un telefono non
+contiene un gruppo di quattro cifre che valga come anno.
+
+**Esito.** 197/218 con data (90%), zero fuori intervallo, `VALIDO` fermo a 61,
+somma invariata. Il primo tentativo dava 35%: fallimento secondo la metrica
+dichiarata, ed e' stato quel fallimento a rivelare il difetto 2. Senza una
+soglia scritta prima, il 35% sarebbe sembrato un miglioramento.
+
+**Non applicato**, in attesa di misura: chiedere la data all'LLM per i 21
+scontrini che restano senza (proposto da entrambi, con la cautela di accettarla
+solo se cade nell'intervallo ammesso).

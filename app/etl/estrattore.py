@@ -34,8 +34,31 @@ MODELLO_PREDEFINITO = "qwen2.5:3b-instruct"
 # Un importo, eventualmente negativo (i resi esistono).
 IMPORTO = re.compile(r"-?\d{1,4}[.,]\d{2}")
 
-# Data in una delle forme che compaiono sugli scontrini spagnoli.
-DATA = re.compile(r"(\d{1,2})[/.\-](\d{1,2})[/.\-](\d{2,4})")
+# Data in una delle forme che compaiono sugli scontrini spagnoli. Il separatore
+# puo' anche essere uno SPAZIO singolo: l'OCR perde regolarmente punti e barre,
+# e restituisce "04 06 2025" o "12.07 2025" al posto di "04/06/2025".
+#
+# I CONFINI SONO ESSENZIALI. Senza `(?<!\d)` e `(?!\d)` la data si attacca ai
+# numeri vicini: su "...0,56\n20/05/2025" la regex leggeva ("56","20","05"),
+# cioe' una data inesistente costruita a cavallo di due righe. E' l'errore
+# introdotto proprio dall'aver ammesso lo spazio come separatore.
+DATA = re.compile(
+    r"(?<!\d)(\d{1,2})[/.\-](\d{1,2})[/.\-](\d{2,4})(?!\d)"      # 04/06/25
+    r"|(?<!\d)(\d{1,2})[/.\- ](\d{1,2})[/.\- ](\d{4})(?!\d)")    # 04 06 2025
+
+# Lo SPAZIO come separatore vale solo con l'anno a quattro cifre (seconda
+# alternativa). Misurato: nelle 18 righe dove compare, la maggioranza sono
+# numeri di telefono — "+34 933 56 06 32", "TEL: 931 22 76 64" — e con l'anno
+# corto verrebbero letti come date. L'anno esteso li esclude tutti, perche' un
+# telefono non contiene un gruppo di quattro cifre che valga come anno.
+# Legarlo invece a una parola chiave (fecha, ticket) non funzionava: copriva
+# solo 2 righe su 18.
+
+# Gli scontrini fotografati non sono anteriori al 2015: e' un dato di fatto
+# dichiarato, e serve a scartare i numeri che somigliano a una data senza
+# esserlo (partite IVA, numeri di licenza, codici di cassa).
+ANNO_MINIMO = 2015
+ANNO_MASSIMO = 2026
 
 
 # Righe che il modello ricopia ma che non sono prodotti. Il filtro sta qui, nel
@@ -161,15 +184,40 @@ class EstrattoreScontrino:
         """
         La data dell'acquisto, in formato ISO.
 
-        Si cerca prima con un'espressione regolare: una data e' un motivo
-        regolare, e chiederlo al modello costerebbe una domanda intera per un
-        risultato che il testo contiene gia' in chiaro.
+        Si cerca con un'espressione regolare: una data e' un motivo regolare, e
+        chiederlo al modello costerebbe una domanda intera per un risultato che
+        il testo contiene gia' in chiaro.
+
+        NON SI PRENDE LA PRIMA CHE CAPITA. Su uno scontrino reale "03/03/04"
+        (un codice) precedeva "06/06/2025" e vinceva, datando l'acquisto al
+        2004. Si preferisce quindi la data con l'ANNO A QUATTRO CIFRE, che e'
+        quasi sempre quella vera: le altre sono codici, numeri di cassa o
+        scadenze. Fra piu' candidate a quattro cifre vince la prima, perche' la
+        data dell'acquisto sta in testa allo scontrino.
+
+        L'anno deve stare fra ANNO_MINIMO e ANNO_MASSIMO. Le fotografie non
+        contengono scontrini anteriori al 2015, quindi tutto cio' che cade
+        fuori e' un numero che somigliava a una data senza esserlo.
         """
-        for giorno, mese, anno in DATA.findall(testo):
+        a_quattro, a_due = [], []
+        for trovato in DATA.finditer(testo or ""):
+            # Due alternative nella regex: quella coi separatori stretti e
+            # quella che ammette lo spazio. Si prende quella che ha agganciato.
+            gruppi = trovato.groups()
+            giorno, mese, anno = gruppi[:3] if gruppi[0] else gruppi[3:]
             g, m = int(giorno), int(mese)
+            # "25" e' il 2025, ma "04" non e' il 2004: un anno a due cifre vale
+            # solo se cade nell'intervallo possibile una volta esteso.
             a = int(anno) + (2000 if int(anno) < 100 else 0)
-            if 1 <= g <= 31 and 1 <= m <= 12 and 2000 <= a <= 2100:
-                return f"{a:04d}-{m:02d}-{g:02d}"
+            if not (1 <= g <= 31 and 1 <= m <= 12):
+                continue
+            if not (ANNO_MINIMO <= a <= ANNO_MASSIMO):
+                continue
+            (a_quattro if len(anno) == 4 else a_due).append(f"{a:04d}-{m:02d}-{g:02d}")
+
+        for candidate in (a_quattro, a_due):
+            if candidate:
+                return candidate[0]
         return None
 
     def prodotti(self, testo, totale=None):
@@ -217,7 +265,7 @@ class EstrattoreScontrino:
                 prodotti.append({"name": nome[:80], "price": prezzo})
         return prodotti
 
-    def estrai(self, testo, righe_ocr=None, con_prodotti=True):
+    def estrai(self, testo, righe_ocr=None, con_prodotti=True, testo_completo=None):
         """
         Tutti i campi di uno scontrino.
 
@@ -235,7 +283,11 @@ class EstrattoreScontrino:
         totale = self.totale(testo, righe_ocr)
         return {
             "shop_name": self.negozio(testo),
-            "date": self.data(testo),
+            # LA DATA SI CERCA SUL TESTO COMPLETO, non su quello ripulito. Sugli
+            # scontrini spagnoli la data e' stampata in coda, SOTTO il totale,
+            # e il filtro che toglie la coda la portava via con se': cosi' il
+            # 66% degli scontrini restava senza data pur avendola stampata.
+            "date": self.data(testo_completo or testo),
             "total": totale,
             "items": self.prodotti(testo, totale) if con_prodotti else [],
         }

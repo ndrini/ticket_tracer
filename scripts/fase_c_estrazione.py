@@ -125,7 +125,9 @@ def elabora(percorso, estrattore, rifai=False):
         return False, "ocr_inaffidabile"
 
     testo = testo_per_modello(righe)
-    dati = estrattore.estrai(testo, righe)
+    # Il testo intero serve alla data, che sta in coda e che il filtro toglie.
+    completo = testo_ricomposto(righe)
+    dati = estrattore.estrai(testo, righe, testo_completo=completo)
     giudizio = giudica(dati, dati.get("total"))
 
     with open(destinazione, "w") as fh:
