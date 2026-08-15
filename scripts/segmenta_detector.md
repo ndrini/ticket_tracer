@@ -235,6 +235,5 @@ uno per scontrino**. Le altre nove foto restano invariate.
    misurare IoU medio, precision/recall a IoU≥0.7 e tasso di
    sotto-segmentazione. È l'unica difesa contro il ripetersi dell'overfitting,
    e avrebbe smascherato subito i due falsi successi di `07.57.06` e `21.12.47`.
-2. **Integrazione in `app/`**: oggi `segmenta_detector.py` è ancora uno script
-   sperimentale, fuori dalla pipeline ETL.
-3. **Ritiro di `segmenta_bottomup.py`** una volta completato il punto 2.
+2. ~~**Integrazione in `app/`**~~ — fatto: [`app/etl/segmenter.py`](../app/etl/segmenter.py).
+3. ~~**Ritiro di `segmenta_bottomup.py`**~~ — fatto.

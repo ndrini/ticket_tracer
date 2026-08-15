@@ -276,6 +276,9 @@ altopiano e' la firma di un criterio che regge.
    a mano sui fogli in `exports/verita/` prima di avere valore.
 2. ~~**Integrare la segmentazione in `app/`**~~ — fatto:
    [`app/etl/segmenter.py`](../app/etl/segmenter.py).
-3. **Ritirare `scripts/segmenta_bottomup.py`**, ora superato.
+3. ~~**Ritirare `scripts/segmenta_bottomup.py`**~~ — fatto, insieme agli altri
+   ponteggi di esperimenti chiusi (`confronta_raggruppamento.py`,
+   `pulisci_capovolti.py`, `prepara_cache_orientamento.py`). Quel che avevano
+   insegnato e' scritto qui; il codice restava solo a confondere.
 4. ~~**Estrazione dei dati**~~ — in corso, vedi
    [40_dal_testo_ai_dati.md](40_dal_testo_ai_dati.md).

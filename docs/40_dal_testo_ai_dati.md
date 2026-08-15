@@ -388,8 +388,26 @@ ragionevoli sono state **smentite dai dati**:
 - correggere l'inclinazione sembrava ovviamente utile: con una stima sbagliata
   peggiorava (66% contro 72%)
 - una tolleranza piu' larga sembrava migliorare tutto: fondeva le righe
+- il modello sembrava perdere righe: ne prendeva di troppo (21 casi su 25)
 
 **Una metrica che sale non basta: va guardato cosa sta rompendo.** E' l'errore
 commesso all'inizio del progetto, quando si contavano gli scontrini senza
 guardare i ritagli, e due foto risultavano "corrette" mentre una aveva un box
 grande quanto l'intera fotografia.
+
+**Una metrica che non sale non basta a bocciare: va guardato cosa sta
+sistemando.** E' la stessa trappola dall'altro lato, incontrata sul filtro della
+coda: 16 scontrini quadravano prima, 15 dopo, e il codice sembrava da buttare.
+Ma due dei tre casi "rotti" quadravano solo perche' una riga di *resto*
+pareggiava il conto per caso. Contando la purezza delle righe invece del
+pareggio, le righe spurie passavano da 77 a zero.
+
+**La metrica si dichiara prima di misurare.** Le due regole sopra, prese
+insieme, permetterebbero di giustificare qualunque risultato a posteriori — se
+sale lo si accetta, se scende si racconta che stava sistemando altro. Su questo
+progetto e' gia' successo: la metrica e' stata cambiata *dopo* aver visto che la
+prima non premiava il filtro. La correzione non e' rinunciare a cambiare
+metrica, ma **dichiararla in anticipo** insieme a cosa non deve peggiorare, e se
+si cambia idea rifare il confronto per intero, dicendolo. Il metodo completo sta
+nella sezione 0 di
+[20_analisi_e_strategie_sviluppo.md](20_analisi_e_strategie_sviluppo.md).

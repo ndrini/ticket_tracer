@@ -5,7 +5,125 @@ e **tipologia** di prodotto.
 
 Questo e' il documento di indirizzo dell'intero progetto. Il dettaglio della
 sola segmentazione (foto con piu' scontrini -> ritagli singoli) sta in
-[30_estrazione_singole_immagini.md](30_estrazione_singole_immagini.md).
+[30_estrazione_singole_immagini.md](30_estrazione_singole_immagini.md); quello
+dal testo OCR ai dati strutturati in
+[40_dal_testo_ai_dati.md](40_dal_testo_ai_dati.md).
+
+---
+
+## 0. Come si lavora su questo progetto
+
+Questa sezione viene prima delle altre perche' vale per tutte, e perche' e'
+costata piu' errori di qualunque scelta tecnica.
+
+> **Si agisce su piani espliciti, fondati sui dati, recuperabili da qualsiasi
+> agente, chiari e criticabili.**
+
+### Il ciclo
+
+| passo | | |
+|---|---|---|
+| 1 | **Misura** | prima di diagnosticare. L'ipotesi istintiva e' spesso sbagliata |
+| 2 | **Scrivi il piano** | esplicito, con le alternative scartate e il perche' |
+| 3 | **Sottoponilo** | agli altri agenti, coi dati veri e non con un riassunto |
+| 4 | **Consenso?** | si': implementa |
+| 5 | | no: riformula la domanda coi dati mancanti, **oppure chiedi all'utente** |
+| 6 | **Verifica** | sui dati, anche cio' su cui gli agenti concordano |
+| 7 | **Documenta** | accanto alla costante nel codice, e nel documento della fase |
+
+Il punto 5 e' il piu' importante: **senza consenso non si decide da soli**. Il
+punto 6 lo bilancia: il consenso non e' una prova. Gli agenti si sono gia'
+sbagliati su questo progetto, e a correggerli e' stata una misura, non
+un'altra opinione.
+
+### Quando serve il consenso, e quando no
+
+Consultare tre agenti per ogni scelta e' insostenibile, e il metodo perderebbe
+credibilita' proprio per eccesso di zelo. La soglia:
+
+| serve il consenso | basta la misura e i test |
+|---|---|
+| decisioni **irreversibili** o che toccano la **semantica dei dati** | decisioni **locali e reversibili** |
+| schema del database, tassonomia delle categorie | una regex, una soglia, un refactoring |
+| regole di fusione o esclusione di record | un cambiamento coperto dai test |
+| cambi di strategia di una fase | correzioni di difetti evidenti |
+
+Il criterio non e' la difficolta' tecnica ma il **danno di un errore non
+scoperto**: quanto costa accorgersene tardi.
+
+### Come si esce dal disaccordo (evitare la paralisi)
+
+Il disaccordo fra agenti puo' essere **strutturale**, non un segnale di errore:
+aspettare una convergenza che non arrivera' e' immobilismo. Quindi:
+
+1. **Una sola riformulazione**, aggiungendo i dati che mancavano.
+2. Se il disaccordo resta, si **dichiara di che tipo e'** — dato mancante,
+   definizione ambigua, compromesso di costo, conflitto fra metriche — e si
+   porta all'utente come **bivio secco** (A contro B, con i numeri), non come
+   riassunto della discussione.
+
+Non si decide mai in silenzio, ma non ci si blocca nemmeno.
+
+### La metrica si dichiara PRIMA di misurare
+
+Le regole (a) e (b) piu' avanti dicono che nessuna metrica basta da sola. Preso
+alla lettera questo giustificherebbe qualunque scelta a posteriori: se il numero
+sale lo si accetta, se scende si racconta che stava sistemando altro. E' una
+scappatoia reale, ed e' gia' stata usata su questo progetto — sul filtro della
+coda la metrica e' stata cambiata **dopo** aver visto che la prima non premiava.
+
+Il rimedio e' scrivere **prima** del test:
+
+- la **metrica principale**, quella che deve migliorare;
+- le **metriche di guardia**, che non devono peggiorare, e di quanto al massimo;
+- cosa conta come **fallimento**.
+
+Se il risultato viola quanto dichiarato, l'ipotesi e' respinta, senza racconti.
+Se dopo il test si scopre che la metrica scelta era quella sbagliata, si puo'
+cambiarla — ma **dicendolo**, e rieseguendo il confronto con la nuova metrica
+dichiarata in anticipo per entrambe le versioni. Cambiare metro e' lecito;
+cambiarlo di nascosto no.
+
+### Quattro regole imparate sbagliando
+
+**Una metrica che sale non basta ad assolvere.** Va guardato cosa sta rompendo.
+Alzando la tolleranza di ricomposizione a 2,5 il punteggio saliva all'80%,
+mentre le righe si fondevano da 4280 a 618.
+
+**Una metrica che non sale non basta a bocciare.** Va guardato cosa sta
+sistemando. Il filtro sulla coda sembrava inutile (16 scontrini quadrati prima,
+15 dopo), ma due dei tre casi "rotti" quadravano solo perche' una riga di resto
+pareggiava il conto per caso.
+
+**Meglio un buco dichiarato che un numero inventato.** Un dato marcato come
+dubbio resta verificabile; uno corretto d'ufficio in silenzio no.
+
+**Segnalare, non correggere d'ufficio.** I controlli che non sono certi
+producono un avviso, non una modifica.
+
+### Un buco dichiarato va poi chiuso
+
+Marcare un dato come dubbio non e' il punto d'arrivo: senza un seguito, il
+database resta incompleto a tempo indeterminato e la marcatura diventa un alibi.
+Ogni stato di dubbio deve avere una via d'uscita dichiarata:
+
+| stato | come si chiude |
+|---|---|
+| `SOMMA_IN_ECCESSO` | migliorando il filtro sulla coda; il verso dice dove guardare |
+| `SOMMA_IN_DIFETTO` | recuperando le righe perse, o rileggendo il ritaglio |
+| `TOTALE_ASSENTE` | correzione manuale sul ritaglio, che e' conservato |
+| `righe_sospette` non vuoto | revisione umana, in blocco sul catalogo |
+
+I report devono poter dire **quanta spesa e' verificata e quanta indicativa**:
+e' questa distinzione a rendere accettabile il caricamento dei dati imperfetti.
+
+### Le prove vanno conservate
+
+Una misura senza il suo contesto non e' ripetibile, e un mese dopo nessuno sa se
+i numeri citati valgano ancora. Di ogni confronto si conserva: **su quali dati**
+e' stato fatto (quanti scontrini, quali), **con quale codice** (il commit) e
+**quali numeri** ha prodotto. I documenti di fase citano i numeri col loro
+campione ("misurato su 94 scontrini"), mai da soli.
 
 ---
 
@@ -84,14 +202,23 @@ E' **interpretazione semantica di testo**. Nessuna immagine coinvolta.
   [40_dal_testo_ai_dati.md](40_dal_testo_ai_dati.md).
 - **Controllo di verosimiglianza dei prezzi.** Le soglie vengono da 615 prezzi
   misurati su scontrini che quadrano al centesimo.
+- **Separazione fra corpo e coda dello scontrino.** Il totale e' localizzato per
+  coordinate, e la sua altezza sulla pagina fa da confine: sotto di esso non ci
+  sono prodotti. Misurato su 94 scontrini: righe spurie da 77 a 0, scontrini con
+  somma gonfiata da 47/95 a 8/94. Dettaglio nel documento 40, sezione 5-bis.
+- **Caricamento idempotente nel database (Fase D).** `receipts.image_sha256` e'
+  UNIQUE: rilanciare non duplica nulla, e aggiungere foto nuove carica solo le
+  novita'.
 
 ### Esiste ma e' grezzo
 - **OCR**: PaddleOCR con `lang="es"`. 314 scontrini su 317 leggibili.
-- **Estrazione dati**: LLM locale con schema Pydantic che estrae `shop_name`,
-  `date`, `total`, `items[{name, original_name, price}]`. Da rifare secondo la
-  Fase 3 del documento 40.
+- **Estrazione dati (Fase C)**: LLM testuale locale (`qwen2.5:3b-instruct`)
+  interrogato con domande brevi separate. Funziona, ma la resa e' ancora
+  modesta: circa un terzo degli scontrini quadra col totale stampato.
 - **Database** SQLite: `commerce_type`, `commerces`, `products`, `receipts`,
-  `receipt_lines`. Contiene solo dati di test.
+  `receipt_lines`. Ha ora i campi di verifica (`total_declared`,
+  `total_computed`, `validation_status`) e `products.category`, ancora da
+  popolare.
 - **Statistiche**: tre query fisse (totale per commercio, totale per prodotto,
   trend mensile). Nessun report, nessuna tipologia.
 
@@ -99,21 +226,30 @@ E' **interpretazione semantica di testo**. Nessuna immagine coinvolta.
 
 Restano aperte:
 
-1. **La categoria di prodotto non esiste da nessuna parte** — ne' nello schema
-   estratto dall'LLM, ne' nella tabella `products` (che ha solo `name` e `aka`).
-   Eppure il report per tipologia e' un requisito esplicito.
+1. **Nessuna categoria e' stata assegnata.** La colonna `products.category`
+   esiste ma e' vuota, e senza di essa il report per tipologia — un requisito
+   esplicito — non e' calcolabile. Si popola nella Fase F.
 2. **Nessuna omogeneizzazione dei nomi.** Lo stesso pane compare come
    `PA DE PAGES`, `BARRA DE PA 3 U`, `PANET 11 UN`. Il campo `aka` esiste ma
-   nessuna logica lo popola.
-3. **Il database non contiene dati reali.** I 317 scontrini vivono su file, come
-   previsto dalla strategia: entreranno nel database solo dopo normalizzazione e
-   categorizzazione.
+   nessuna logica lo popola. E' la Fase E, e va prima della F: categorizzare
+   nomi non ancora fusi significa rispondere piu' volte alla stessa domanda.
+3. **La resa dell'estrazione e' ancora bassa.** Circa un terzo degli scontrini
+   quadra col totale stampato. Gli altri entrano comunque nel database, marcati:
+   `SOMMA_IN_ECCESSO` (righe di troppo) o `SOMMA_IN_DIFETTO` (righe perse). I
+   due nomi distinti servono a sapere quale difetto aggredire, perche' sono
+   problemi diversi con cause diverse.
 
 Risolte dopo la prima stesura di questo documento:
 
 - ~~Nessuna idempotenza~~ → hash del ritaglio piu' hash percettivo della foto.
 - ~~Nessuna verifica di qualita'~~ → il totale stampato e' ora il giudice della
   pipeline, e i prezzi implausibili vengono segnalati.
+- ~~La categoria non esiste nello schema~~ → `products.category` esiste; resta da
+  popolare sul catalogo dei prodotti distinti.
+- ~~Il database non contiene dati reali~~ → la Fase D carica gli scontrini
+  estratti, col proprio giudizio di validita' accanto.
+- ~~Le righe di pagamento gonfiano le somme~~ → il confine geometrico taglia la
+  coda prima ancora di interrogare il modello.
 
 ---
 
@@ -151,35 +287,73 @@ sporchi finiscono in tabelle relazionali dove correggerli richiede UPDATE
 incrociati. Con i livelli 1-2 su file, invece, correggere significa cancellare
 un file e rilanciare un passo.
 
+**Le lettere corrispondono agli script**, cosi' il piano e il codice si leggono
+insieme:
+
+| fase | script | stato |
+|---|---|---|
+| A — ingestione (foto → testo OCR) | `scripts/fase_a_ingestione.py` | fatta |
+| B — verifica sul totale | `app/etl/verifica.py`, `app/etl/coda.py` | fatta |
+| C — estrazione dei dati (testo → campi) | `scripts/fase_c_estrazione.py` | fatta, resa da migliorare |
+| D — caricamento nel database | `scripts/fase_d_carica_db.py` | fatta |
+| E — catalogo e omogeneizzazione dei nomi | — | **da fare** |
+| F — categorizzazione | — | **da fare** |
+| G — report | — | **da fare** |
+
 ### Fase A — Ingestione idempotente (livelli 1-2)
 1. Per ogni foto: orienta, segmenta, ritaglia.
 2. Calcola l'**hash SHA-256 di ogni ritaglio**: e' l'identita' dello scontrino.
-3. OCR + LLM, salvando l'esito in `data/estratti/<hash>.json` insieme al testo
-   OCR grezzo.
+3. OCR, salvando testo e coordinate in `data/estratti/<hash>.json`.
 4. Un ritaglio gia' presente viene saltato. Rilanciare la pipeline diventa
    sicuro e incrementale.
 
 **Perche' prima di tutto:** produce il primo dato reale su cui misurare il vero
 tasso di errore su 288 scontrini, invece di stimarlo.
 
-### Fase B — Verifica automatica (il totale come quality gate)
+### Fase B — Verifica automatica (il totale come giudice)
 Ogni scontrino dichiara il proprio totale. Confrontarlo con la somma delle
 righe estratte e' il controllo di qualita' piu' forte disponibile, e **non
 costa nulla**: il dato c'e' gia'.
 
 ```
-delta = |somma(righe) - totale_dichiarato|
+delta = somma(righe) - totale_dichiarato
 ```
 
-Con una tolleranza (sconti, sacchetti, arrotondamenti) si assegna a ogni
-scontrino uno stato: `VALIDO`, `DELTA_ECCESSIVO`, `PARSING_FALLITO`. Gli
-scontrini non validi **vengono caricati comunque ma marcati**, cosi' i report
-possono escluderli e si sa sempre quanta parte del totale e' affidabile.
+**Il segno del delta conta quanto il suo valore**, e distinguerlo e' servito a
+correggere una diagnosi sbagliata:
 
-Questo trasforma una domanda vaga ("funziona bene?") in un numero: *quanti
-scontrini su 288 quadrano al centesimo*.
+| stato | significato | difetto da aggredire |
+|---|---|---|
+| `VALIDO` | delta entro tolleranza | — |
+| `SOMMA_IN_ECCESSO` | righe di **troppo** | coda sfuggita al filtro |
+| `SOMMA_IN_DIFETTO` | righe **perse** | estrazione incompleta |
+| `TOTALE_ASSENTE` / `PRODOTTI_ASSENTI` | manca un termine del confronto | lettura fallita |
 
-### Fase C — Catalogo prodotti e omogeneizzazione (livello 3)
+Gli scontrini non validi **vengono caricati comunque ma marcati**, cosi' i
+report possono escluderli e si sa sempre quanta parte del totale e' affidabile.
+
+Questo trasforma una domanda vaga ("funziona bene?") in un numero.
+
+### Fase C — Estrazione dei dati (testo → campi)
+
+Un LLM **testuale** locale legge il testo OCR e restituisce negozio, data,
+totale e prodotti. Tre scelte gia' misurate:
+
+- **Domande brevi separate**, non un unico JSON: 208 s contro 267 s, e il
+  modello da 3B azzeccava il totale su 1 scontrino su 4 con la richiesta unica.
+- **Il totale non si chiede al modello** ma si legge per coordinate: sa *dove*
+  guardare invece di indovinare.
+- **La coda si taglia prima di chiedere.** Il modello ricopia diligentemente
+  anche "EFECTIVO 50,00", e ogni riga di troppo gonfia la somma.
+
+Dettaglio in [40_dal_testo_ai_dati.md](40_dal_testo_ai_dati.md).
+
+### Fase D — Caricamento nel database
+
+`receipts.image_sha256` e' UNIQUE: uno scontrino gia' caricato viene
+riconosciuto e saltato. Aggiungere foto nuove carica solo le novita'.
+
+### Fase E — Catalogo prodotti e omogeneizzazione (livello 3)
 1. Estrai i nomi prodotto **distinti** da tutti i JSON.
 2. Mappa ciascuno su un **prodotto canonico** (nome italiano).
 3. Salva la corrispondenza in una tabella di alias.
@@ -199,7 +373,7 @@ hanno alcuna somiglianza sintattica. Il problema qui e' **semantico e
 multilingua**, non ortografico. Viceversa l'LLM da solo non e' affidabile per
 decidere le fusioni; propone bene, decide male. Da qui l'ibrido.
 
-### Fase D — Categorizzazione (livello 4)
+### Fase F — Categorizzazione (livello 4)
 **Sul catalogo dei prodotti canonici, non riga per riga durante l'estrazione.**
 
 La ragione e' la coerenza: chiedendo la categoria a ogni riga di ogni
@@ -224,55 +398,66 @@ negozi non alimentari presenti nel materiale):
 | 9 | Casa, arredo e bricolage |
 | 10 | Varie e animali |
 
-### Fase E — Report (livello 5)
+### Fase G — Report (livello 5)
 Aggregazioni per mese, anno e categoria, con l'indicazione della **quota di
 spesa proveniente da scontrini validi**: un totale senza quel dato non e'
 interpretabile.
 
 ---
 
-## 5. Modifiche necessarie al database
+## 5. Stato dello schema del database
 
-Lo schema attuale rappresenta solo il dato finale. Servono:
+**Gia' applicato.**
 
-**In `receipts`:**
-- `image_sha256 TEXT UNIQUE` — idempotenza
-- `total_declared REAL` — il totale stampato sullo scontrino
-- `total_computed REAL` — la somma delle righe
-- `validation_status TEXT` — `VALIDO` / `DELTA_ECCESSIVO` / `PARSING_FALLITO`
-- `validation_delta REAL`
+In `receipts`: `image_sha256 TEXT UNIQUE` (idempotenza), `total_declared`,
+`total_computed`, `validation_status`, `validation_delta`, `foto_origine`.
+In `products`: `category TEXT`.
 
-**In `products`:**
-- `category TEXT` — senza questo il report per tipologia e' impossibile
-- il campo `aka` va sostituito da una **tabella di alias** vera:
+**Ancora aperto.**
+
+- Il campo `aka` andrebbe sostituito da una **tabella di alias** vera:
   `product_aliases(raw_text, product_id, lingua)`. Un campo lista non
-  interrogabile non risolve nulla.
-
-**In `receipt_lines`:**
-- verificare che `quantity` e `unit` vengano effettivamente popolati: oggi lo
-  schema dell'LLM **non li estrae** (solo `name`, `original_name`, `price`),
-  quindi le colonne restano vuote.
+  interrogabile non risolve nulla. Serve alla Fase E.
+- In `receipt_lines`, `quantity` e `unit` restano vuoti: l'estrazione non li
+  ricava ancora, scrive quantita' 1 e il prezzo di riga. Sulle righe con
+  quantita' ("2 AMANIDA 0,86 1,72") il totale di riga e' comunque corretto,
+  quindi le somme tornano; si perde il dettaglio, non l'importo.
 
 ---
 
-## 6. Sequenza operativa consigliata
+## 6. Sequenza operativa
 
-1. ~~**Integrare la segmentazione in `app/`**~~ — fatto: `app/etl/segmenter.py`.
-2. ~~**Fase A**: hash, ritagli, OCR su file. Nessun DB ancora.~~ — fatto: 317
-   scontrini in `data/estratti/`.
-3. ~~**Fase B**: verifica sui totali.~~ — fatto, e il tasso di errore reale
-   e' ora noto. Vedi [40_dal_testo_ai_dati.md](40_dal_testo_ai_dati.md).
-4. **Estrazione con l'LLM** (Fase 3 del documento 40) — il prossimo passo.
-5. **Migrazione dello schema** (sezione 5 di questo documento).
-6. **Fase C**: catalogo prodotti + revisione manuale.
-7. **Fase D**: categorizzazione + revisione manuale.
-8. **Caricamento nel DB** dei dati gia' normalizzati e categorizzati.
-9. **Fase E**: report.
+Fatto:
 
-Il caricamento nel database avviene **al punto 8**, non prima: e' la scelta
-centrale di questa strategia. I dati entrano nelle tabelle relazionali solo
-quando sono gia' puliti, mentre tutto il lavoro sporco resta su file
-rifacibili.
+1. ~~Segmentazione integrata in `app/`~~ — `app/etl/segmenter.py`.
+2. ~~**Fase A**~~ — 317 scontrini in `data/estratti/`, con testo e coordinate.
+3. ~~**Fase B**~~ — verifica sui totali, con il verso dello scarto distinto.
+4. ~~**Fase C**~~ — estrazione con l'LLM testuale, coda tagliata a monte.
+5. ~~**Migrazione dello schema**~~ — campi di verifica e `category`.
+6. ~~**Fase D**~~ — caricamento idempotente nel database.
+
+Da fare:
+
+7. **Migliorare la resa dell'estrazione.** Circa un terzo quadra. Il verso dello
+   scarto dice dove intervenire: `SOMMA_IN_ECCESSO` e `SOMMA_IN_DIFETTO` sono
+   difetti diversi, e vanno contati prima di scegliere quale aggredire.
+8. **Fase E** — catalogo prodotti + revisione manuale.
+9. **Fase F** — categorizzazione + revisione manuale.
+10. **Fase G** — report per mese, anno, categoria.
+
+### Una correzione alla strategia originale
+
+Il documento prevedeva di caricare nel database **solo dopo** normalizzazione e
+categorizzazione. Nella pratica il caricamento e' stato anticipato, e la ragione
+regge: `image_sha256 UNIQUE` rende il caricamento **idempotente e ripetibile**,
+quindi il database non e' piu' un punto di non ritorno. Rilanciare non duplica;
+correggere significa cancellare il file e ricaricare.
+
+Resta valido il principio che lo motivava: **il lavoro sporco resta su file
+rifacibili**. La scelta si e' gia' ripagata due volte — i 317 scontrini sono
+stati rielaborati per le foto capovolte, per i ritagli sbagliati e infine per il
+filtro sulla coda, ogni volta cancellando file e rilanciando. In tabelle
+relazionali sarebbero serviti UPDATE incrociati.
 
 La scelta si e' gia' ripagata: i 317 scontrini sono stati rielaborati piu'
 volte — per correggere le foto capovolte, per ripulire i ritagli sbagliati —
@@ -288,7 +473,9 @@ incrociati su tabelle collegate.
 | L'LLM locale sbaglia l'estrazione su scontrini rovinati | La verifica sui totali (Fase B) li identifica invece di nasconderli |
 | La traduzione catalano/spagnolo -> italiano introduce errori | Revisione umana del catalogo, che e' piccolo |
 | I prodotti non alimentari (IKEA, Decathlon) inquinano le statistiche alimentari | Categorie 8-9 dedicate, separabili nei report |
-| Scontrini illeggibili o parziali | Stato `PARSING_FALLITO`: contati, non ignorati |
+| Scontrini illeggibili o parziali | Stati `TOTALE_ASSENTE` / `PRODOTTI_ASSENTI`: contati, non ignorati |
+| Un filtro troppo aggressivo scarta prodotti veri | Il verso dello scarto lo rivela: `SOMMA_IN_DIFETTO` significa righe perse |
+| Correggere d'ufficio un dato che non quadra | Vietato: si segnala (`righe_sospette`) e si lascia il record verificabile |
 | 288 scontrini restano un campione modesto | I report vanno letti come storia personale, non come statistica inferenziale |
 
 ---
