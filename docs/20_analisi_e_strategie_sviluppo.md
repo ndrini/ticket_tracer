@@ -56,13 +56,23 @@ scoperto**: quanto costa accorgersene tardi.
 Il disaccordo fra agenti puo' essere **strutturale**, non un segnale di errore:
 aspettare una convergenza che non arrivera' e' immobilismo. Quindi:
 
-1. **Una sola riformulazione**, aggiungendo i dati che mancavano.
-2. Se il disaccordo resta, si **dichiara di che tipo e'** — dato mancante,
+1. **Si riformula**, aggiungendo i dati che mancavano — al massimo **due volte**.
+   Una sola sarebbe troppo poco: il disaccordo spesso nasce da assunzioni
+   implicite che emergono solo al secondo giro, e portare all'utente un bivio
+   acerbo lo costringe a decidere su opzioni non ancora chiare.
+2. **Il criterio d'uscita non e' il numero di giri ma il progresso**: se una
+   riformulazione non sposta le posizioni ne' porta un argomento nuovo, la
+   successiva non lo fara'. Si passa al punto 3 anche prima delle due.
+3. Se il disaccordo resta, si **dichiara di che tipo e'** — dato mancante,
    definizione ambigua, compromesso di costo, conflitto fra metriche — e si
    porta all'utente come **bivio secco** (A contro B, con i numeri), non come
    riassunto della discussione.
 
 Non si decide mai in silenzio, ma non ci si blocca nemmeno.
+
+**Un agente che non risponde non blocca il lavoro.** Se uno dei tre va in
+timeout ripetutamente, si procede col parere degli altri **dichiarandolo**: il
+consenso registrato dice sempre chi ha risposto e chi no.
 
 ### La metrica si dichiara PRIMA di misurare
 
@@ -495,3 +505,65 @@ L'idea utile della Strategia A sopravvive nel punto giusto: un modello
 linguistico e' impiegato per l'**interpretazione del testo**, dove serve
 capacita' semantica, non per la geometria dell'immagine, dove serve precisione
 sui pixel.
+
+---
+
+## 9. Registro delle decisioni condivise
+
+Ogni decisione presa col metodo della sezione 0 lascia una riga qui: chi e'
+stato consultato, cosa ha detto, cosa si e' deciso e su quali dati. Serve a
+rendere le scelte **recuperabili**: senza questo, un mese dopo nessuno sa se un
+numero citato valga ancora, ne' perche' una strada e' stata scartata.
+
+### 2026-08-15 — Separazione fra corpo e coda dello scontrino
+
+**Problema.** Su 30 scontrini solo 6 quadravano. Diagnosi iniziale sbagliata
+("il modello perde righe"): la misura mostrava 21 casi su 25 con la somma
+*maggiore* del totale, cioe' righe di troppo.
+
+**Consultati.** Gemini, Vibe, Perplexity, con i dati veri e i quattro rimedi
+possibili (fuzzy matching, geometria, subset-sum, filtro sull'importo).
+
+**Consenso.** Tutti e tre: geometria come filtro principale, somiglianza come
+supporto. Il **subset-sum e' stato scartato**: proposto da Perplexity e messo da
+Vibe fra i residui, bocciato da Gemini come "pessimo" e infine **ritirato da
+Vibe** ("troppo creativo per dati fiscali") una volta sottoposta l'obiezione.
+
+**Corretto dopo il consenso, misurando.** Il confronto sull'importo doveva
+essere stretto (`>`), non `>=` come proposto: su uno scontrino di un solo
+prodotto il prodotto *e'* il totale. Con `>=` si risolveva 1 caso e se ne
+rompevano 2; con `>` se ne risolvono 2 e nessuno si rompe. Le soglie suggerite
+da Vibe (`> totale * 1.1`) non servivano.
+
+**Esito.** Su 94 scontrini: righe spurie da 77 a 0, scontrini con somma gonfiata
+da 47/95 a 8/94. Commit `780ba0e`.
+
+### 2026-08-15 — Il metodo di lavoro stesso (sezione 0)
+
+**Consultati.** Gemini e Perplexity hanno risposto; **Vibe e' andato in timeout
+due volte** sulla domanda lunga e ha risposto solo alla versione breve.
+
+**Consenso su tre difetti**, tutti accolti:
+
+| difetto | rimedio |
+|---|---|
+| paralisi da non-consenso | riformulare, poi bivio A/B all'utente |
+| costo di tre agenti per ogni scelta | soglia: solo decisioni irreversibili o semantiche |
+| auto-giustificazione a posteriori | metrica dichiarata **prima** del test |
+
+**Obiezione di Vibe, accolta.** Una sola riformulazione e' troppo rigida:
+il disaccordo nasce spesso da assunzioni implicite che emergono al secondo giro.
+Portate a due, con criterio d'uscita sul **progresso** e non sul conteggio —
+altrimenti il rimedio alla paralisi diventa esso stesso ping-pong infinito.
+
+**Approvazione finale.** Il testo di questa sezione 0 — non un riassunto — e'
+stato risottoposto a Vibe, che ha risposto "APPROVO senza riserve",
+confermando che la resa della sua obiezione era fedele e non annacquata dal
+criterio del progresso. Unica nota sua, registrata: il criterio del progresso
+puo' essere ambiguo nei casi limite, ma la formula "non sposta le posizioni ne'
+porta un argomento nuovo" e' abbastanza operativa. Consenso a tre.
+
+**Aggiunte da Gemini non ancora applicate**, da valutare quando serviranno:
+misurare il **costo** di una modifica (un +1% di accuratezza che raddoppia il
+tempo e' un fallimento non rilevato) e un **confronto differenziale** sui JSON
+prima/dopo ogni modifica.
