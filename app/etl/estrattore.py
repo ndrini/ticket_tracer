@@ -106,6 +106,54 @@ def _e_riga_prodotto(riga):
     return bool(re.search(r"[A-Za-zÀ-ÿ]{3}", riga))
 
 
+def prompt_prodotti(testo):
+    """La domanda sui prodotti.
+
+    Sta fuori dalla classe perche' serve anche a chi NON passa da Ollama: il
+    kernel Kaggle interroga vLLM in blocco, e deve porre la domanda IDENTICA a
+    quella locale — una formulazione diversa darebbe risposte diverse e
+    renderebbe i due percorsi non confrontabili.
+    """
+    return (
+        "Copia le righe di questo scontrino che descrivono un PRODOTTO "
+        "acquistato.\n"
+        "Copiale ESATTAMENTE come sono, una per riga.\n"
+        "Non riassumere, non calcolare, non aggiungere commenti.\n\n"
+        f"{testo}\n\nRighe prodotto:")
+
+
+def prodotti_dalla_risposta(risposta, totale=None):
+    """Le righe copiate dal modello, filtrate e convertite in {name, price}.
+
+    SEPARATO dalla domanda, e non per eleganza: `EstrattoreScontrino.prodotti`
+    chiama Ollama su localhost:11434, e su Kaggle Ollama non esiste. Il kernel
+    passava a quel metodo il testo gia' generato da vLLM, ma il metodo lo
+    ignorava e tentava comunque la connessione, fallendo con "Modello non
+    raggiungibile" e restituendo zero prodotti su OGNI scontrino.
+
+    Chi ha gia' la risposta usa questa funzione; chi deve chiederla usa il
+    metodo. Una sola implementazione del filtro, cosi' i due percorsi non
+    divergono.
+    """
+    prodotti = []
+    for riga in (risposta or "").split("\n"):
+        riga = riga.strip()
+        if not _e_riga_prodotto(riga):
+            continue
+        # L'ULTIMO importo della riga, non il primo: quando c'e' una quantita'
+        # la riga porta prima il prezzo unitario e poi il totale di riga
+        # ("2 AMANIDA 0,86 1,72"), ed e' il secondo che conta.
+        importi = IMPORTO.findall(riga)
+        prezzo = float(importi[-1].replace(",", "."))
+        if importo_impossibile(prezzo, totale):
+            continue
+        nome = IMPORTO.sub("", riga).strip(" |×x*-–=.,").strip()
+        nome = nome.lstrip("0123456789 ").strip()
+        if nome and len(nome) >= 3:
+            prodotti.append({"name": nome[:80], "price": prezzo})
+    return prodotti
+
+
 class EstrattoreScontrino:
     """Interroga il modello una domanda per volta."""
 
@@ -239,31 +287,8 @@ class EstrattoreScontrino:
         l'istruzione di saltarli: a scartarli pensa `_e_riga_prodotto`, che e'
         codice deterministico e non sbaglia.
         """
-        prompt = (
-            "Copia le righe di questo scontrino che descrivono un PRODOTTO "
-            "acquistato.\n"
-            "Copiale ESATTAMENTE come sono, una per riga.\n"
-            "Non riassumere, non calcolare, non aggiungere commenti.\n\n"
-            f"{testo}\n\nRighe prodotto:")
-        risposta = self._chiedi(prompt, 600)
-
-        prodotti = []
-        for riga in (risposta or "").split("\n"):
-            riga = riga.strip()
-            if not _e_riga_prodotto(riga):
-                continue
-            # L'ULTIMO importo della riga, non il primo: quando c'e' una
-            # quantita' la riga porta prima il prezzo unitario e poi il totale
-            # di riga ("2 AMANIDA 0,86 1,72"), ed e' il secondo che conta.
-            importi = IMPORTO.findall(riga)
-            prezzo = float(importi[-1].replace(",", "."))
-            if importo_impossibile(prezzo, totale):
-                continue
-            nome = IMPORTO.sub("", riga).strip(" |×x*-–=.,").strip()
-            nome = nome.lstrip("0123456789 ").strip()
-            if nome and len(nome) >= 3:
-                prodotti.append({"name": nome[:80], "price": prezzo})
-        return prodotti
+        risposta = self._chiedi(prompt_prodotti(testo), 600)
+        return prodotti_dalla_risposta(risposta, totale)
 
     def estrai(self, testo, righe_ocr=None, con_prodotti=True, testo_completo=None):
         """
