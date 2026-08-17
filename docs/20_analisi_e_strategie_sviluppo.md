@@ -148,12 +148,27 @@ come varia la spesa nel tempo.
 Alcampo) e negozi non alimentari (IKEA, Decathlon, Intimissimi). Testo in
 spagnolo e catalano.
 
-**Natura del progetto: storico e chiuso, non un flusso continuo.** Le foto
-esistono gia' e non aumenteranno. Questo ha una conseguenza precisa sulle
-scelte architetturali: conviene privilegiare la **correggibilita'** (poter
-tornare indietro e rifare un passo senza rifare tutto) rispetto alle
-prestazioni o all'automazione completa. Una revisione manuale di mezz'ora su un
-catalogo di poche centinaia di voci vale piu' di qualunque euristica.
+**Il materiale AUMENTERA'.** Le 96 fotografie sono solo una parte di quelle
+disponibili: ne esistono molte di piu', che arriveranno a lotti. Questa e' una
+**correzione a una premessa sbagliata** della prima stesura, che descriveva il
+progetto come "storico e chiuso" e ne traeva conseguenze architetturali.
+
+Cio' che cambia:
+
+| | prima stesura (sbagliata) | ora |
+|---|---|---|
+| revisione manuale del catalogo | una volta, mezz'ora | **ricorrente**, a ogni lotto |
+| idempotenza | comodita' | **essenziale** |
+| costo per scontrino | trascurabile | **conta**: ~70 s di LLM ciascuno |
+| soluzioni per singolo negozio | plausibili | **da diffidare**: la coda lunga cresce |
+
+Cio' che resta valido: privilegiare la **correggibilita'** — poter rifare un
+passo senza rifare tutto — rispetto all'automazione completa. Anzi vale di piu'
+di prima, perche' ogni correzione dovra' essere riapplicata a un materiale che
+cresce.
+
+La conseguenza pratica piu' importante: **ogni soluzione va valutata su come
+regge al volume**, non solo su quanto migliora i 218 scontrini attuali.
 
 ---
 

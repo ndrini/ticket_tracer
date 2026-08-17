@@ -12,7 +12,8 @@ dependencies = [
     "opencv-python-headless",
     "PyYAML",
     "scikit-learn",
-    "pydantic"
+    "pydantic",
+    "kaggle>=2.2.4",
 ]
 authors = [
     { name = "ndrini", email = "aless@ndrini.eu" },

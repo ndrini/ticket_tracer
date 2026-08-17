@@ -33,6 +33,12 @@ data/cache_ocr
 data/cache_ocr_archived
 data/ocr_archived
 
+# Artefatti di Kaggle: si rigenerano con gli script e contengono il testo OCR
+# di scontrini reali (negozi, date, importi). Fuori dal repository.
+data/kaggle_upload_*
+data/kaggle_kernel
+data/kaggle_output
+
 # Oriented images, regenerated on demand: orientation costs 4 OCR passes each
 data/cache_oriented
 
