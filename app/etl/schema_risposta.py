@@ -39,6 +39,11 @@ confrontare un numero con se' stesso, e il controllo quadrerebbe sempre. Una
 stima e' un dato diverso, con un nome diverso e un campo diverso.
 """
 
+import re
+
+# Un importo come lo stampa uno scontrino: due decimali, virgola o punto.
+IMPORTO_NEL_TESTO = re.compile(r"-?\d{1,5}[.,]\d{2}")
+
 # Nome del campo che porta il totale dichiarato dallo scontrino. Estratto in
 # una costante perche' lo usano lo schema, il kernel e i test.
 CAMPO_TOTALE = "total"
@@ -98,13 +103,105 @@ def prompt_scontrino(testo):
         f"{testo}\n\n"
         "Estrai i dati di questo scontrino.\n"
         "Copia i nomi dei prodotti ESATTAMENTE come sono scritti.\n"
+        # NON si spiega al modello quale importo prendere. Provato: "se una riga
+        # ha DUE importi prendi l'ULTIMO" ha peggiorato le cose, perche' il
+        # modello ha cominciato a prendere per prezzo i numeri dentro il NOME
+        # ("ESTAC.CONSUM 250" -> price 250.00, somma 258,46 su uno scontrino da
+        # 10,18). La distinzione fra prezzo unitario e importo di riga e'
+        # GEOMETRICA — sta nelle colonne — e si risolve nel codice, non nel
+        # prompt: vedi `prezzo_di_riga` sotto.
         "Non includere righe di riepilogo: totale, IVA, resto, contante.\n"
         "Il totale e' quello STAMPATO sullo scontrino: se non lo leggi, "
         "rispondi null. Non calcolarlo sommando i prodotti."
     )
 
 
-def normalizza(risposta):
+def _compare_nel_testo(prezzo, testo):
+    """L'importo e' STAMPATO da qualche parte sullo scontrino?
+
+    Un prezzo che nel testo non compare non e' stato letto: e' stato generato.
+    Misurato su una passata GPU di 316 scontrini, il 9% dei prezzi estratti non
+    esisteva nel testo — numeri di telefono presi per importi ("TELEFONO VIA
+    LAIETANA" -> 651.317.190), grammature ("PA LLESCAT 490GR" -> 490,00),
+    cifre inventate di sana pianta. Uno scontrino da 2,53 sommava 651 milioni.
+    """
+    if prezzo is None or not testo:
+        return False
+    for trovato in IMPORTO_NEL_TESTO.findall(testo):
+        if abs(prezzo - float(trovato.replace(",", "."))) < 0.005:
+            return True
+    return False
+
+
+def prezzo_di_riga(nome, prezzo, testo_scontrino):
+    """
+    Il prezzo che fa somma per questa riga, corretto se il modello ha preso
+    quello unitario.
+
+    PERCHE' NEL CODICE E NON NEL PROMPT. Una riga come
+
+        2 4 ESTAC.CONSUM 250 0,86 1,72
+
+    porta due importi: 0,86 e' quanto costa una unita', 1,72 e' quanto si paga
+    per la riga. E' il secondo che entra nel totale. Chiederlo al modello e'
+    stato provato e ha peggiorato: ha iniziato a scambiare per prezzi i numeri
+    contenuti nei nomi ("ESTAC.CONSUM 250" -> 250,00). Qui invece si guarda il
+    testo dello scontrino, che e' un dato, non una generazione.
+
+    Si corregge SOLO quando la riga e' identificabile senza ambiguita' e porta
+    davvero due importi dopo il nome. Negli altri casi si lascia quello che il
+    modello ha detto: meglio un dato dubbio dichiarato che una correzione
+    d'ufficio sbagliata.
+    """
+    if not nome or prezzo is None or not testo_scontrino:
+        return prezzo
+
+    ago = nome.strip().casefold()
+    candidate = [r for r in testo_scontrino.split("\n") if ago in r.casefold()]
+    if len(candidate) != 1:
+        # Il nome non individua una riga sola: non si sa quale riga guardare, e
+        # una correzione a caso sarebbe peggio del dato dubbio. Resta pero' un
+        # controllo che non richiede la riga: un prezzo che nello scontrino non
+        # compare AFFATTO non e' stato letto, e' stato generato.
+        if not _compare_nel_testo(prezzo, testo_scontrino):
+            return None
+        return prezzo
+    # Gli importi che seguono il nome sulla riga: solo quelli con due decimali,
+    # cosi' "250" dentro il nome non conta come prezzo.
+    coda = candidate[0].casefold().split(ago, 1)[1]
+    importi = re.findall(r"-?\d{1,4}[.,]\d{2}", coda)
+    if not importi:
+        # La riga non porta nessun importo: il numero viene dal nome (una
+        # grammatura, un numero di telefono). Se non e' stampato altrove nello
+        # scontrino non e' un prezzo.
+        if not _compare_nel_testo(prezzo, testo_scontrino):
+            return None
+        return prezzo
+    valori = [float(v.replace(",", ".")) for v in importi]
+    ultimo = valori[-1]
+    # Il prezzo di riga e' l'ULTIMO importo. Si sostituisce quando il modello
+    # ha preso un altro numero della riga (tipicamente il prezzo unitario) o un
+    # numero che sulla riga non e' un importo affatto: "ESTAC.CONSUM 250" gli ha
+    # fatto restituire 250,00, che e' parte del NOME. In entrambi i casi
+    # l'importo giusto e' misurato dal testo, non generato.
+    # Il prezzo deve essere uno degli importi STAMPATI sulla riga. Se non lo e',
+    # il modello l'ha preso altrove — tipicamente da un numero dentro il nome:
+    # "1 4 ESTAC.CONSUM 250 0,86" gli ha fatto restituire 250,00, e la somma di
+    # quello scontrino usciva 285,42 contro un totale di 38,50.
+    if not any(abs(prezzo - v) < 0.005 for v in valori):
+        # Il numero non e' un importo di questa riga: viene dal nome (una
+        # grammatura, un codice). La riga pero' e' individuata con certezza e
+        # un importo ce l'ha, quindi quello e' il prezzo — non si scarta il
+        # prodotto quando il dato giusto e' li' accanto, misurabile.
+        return ultimo
+    # Fra due importi vince l'ultimo: il primo e' il prezzo di UNA unita'
+    # ("2 4 ESTAC.CONSUM 250 0,86 1,72" sono due pezzi da 0,86 che fanno 1,72).
+    if any(abs(prezzo - v) < 0.005 for v in valori[:-1]):
+        return ultimo
+    return prezzo
+
+
+def normalizza(risposta, testo_scontrino=None):
     """
     La risposta del modello, ridotta alla forma che la pipeline si aspetta.
 
@@ -128,6 +225,12 @@ def normalizza(risposta):
         nome = (voce.get("name") or "").strip()
         prezzo = voce.get("price")
         if not nome or prezzo is None:
+            continue
+        prezzo = prezzo_di_riga(nome, float(prezzo), testo_scontrino)
+        if prezzo is None:
+            # Prezzo inventato: si scarta la riga invece di correggerla a caso.
+            # Lo scontrino risultera' SOMMA_IN_DIFETTO, cioe' un buco
+            # dichiarato, e non VALIDO per un numero che nessuno ha letto.
             continue
         chiave = (nome.casefold(), round(float(prezzo), 2))
         if chiave in viste:

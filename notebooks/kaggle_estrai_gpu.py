@@ -45,7 +45,7 @@ MODELLO = "Qwen/Qwen2.5-3B-Instruct"
 # Lo smoke test: la guida del progetto gemello dice di non spendere mai piu' di
 # un'ora di GPU per esperimento, e di provare su pochi elementi prima del lotto.
 # 0 = tutti.
-LIMITE = int(__import__("os").environ.get("LIMITE", "5"))  # SMOKE TEST: rimettere "0"
+LIMITE = int(__import__("os").environ.get("LIMITE", "0"))
 
 
 # %%
@@ -263,7 +263,8 @@ def main() -> int:
     for i, chiave in enumerate(sha):
         grezza = r_dati[i].outputs[0].text
         try:
-            dati_modello = normalizza(json.loads(grezza))
+            # Il testo serve a distinguere il prezzo unitario da quello di riga.
+            dati_modello = normalizza(json.loads(grezza), testi[i])
         except (ValueError, TypeError):
             # Lo schema rende questo caso improbabile, non impossibile: una
             # risposta troncata dal limite di token non e' JSON valido. Si
