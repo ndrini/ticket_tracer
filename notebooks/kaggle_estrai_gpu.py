@@ -45,7 +45,7 @@ MODELLO = "Qwen/Qwen2.5-3B-Instruct"
 # Lo smoke test: la guida del progetto gemello dice di non spendere mai piu' di
 # un'ora di GPU per esperimento, e di provare su pochi elementi prima del lotto.
 # 0 = tutti.
-LIMITE = int(__import__("os").environ.get("LIMITE", "0"))
+LIMITE = int(__import__("os").environ.get("LIMITE", "3"))  # SMOKE TEST: rimettere "0"
 
 
 # %%
