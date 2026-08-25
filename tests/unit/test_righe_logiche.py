@@ -78,3 +78,64 @@ class TestTestoRicomposto:
         righe = [frammento("1 PANET", 20, 100), frammento("1,14", 400, 100),
                  frammento("TOTAL", 20, 200), frammento("1,14", 400, 200)]
         assert righe_logiche.testo_ricomposto(righe) == "1 PANET 1,14\nTOTAL 1,14"
+
+
+def test_ricuce_nome_e_importo_su_righe_diverse():
+    """IKEA prints a product over two lines: name and price come back joined."""
+    righe_ocr = [
+        frammento("OVERMATT N campana", 20, 100),
+        frammento("4,00", 300, 130),
+        frammento("BLANDA BLANK bol", 20, 180),
+        frammento("8,00", 300, 210),
+        frammento("TOTAL", 20, 300),
+        frammento("12,00", 300, 300),
+    ]
+    righe = righe_logiche.testo_ricomposto(righe_ocr).splitlines()
+    assert any("OVERMATT N campana" in r and "4,00" in r for r in righe)
+    assert any("BLANDA BLANK bol" in r and "8,00" in r for r in righe)
+
+
+def test_non_ricuce_una_riga_gia_completa():
+    """A line that already carries its price must not swallow the next one."""
+    righe_ocr = [
+        frammento("3 CERVESA ESP LLAUNA", 20, 100),
+        frammento("1,02", 300, 100),
+        frammento("2 MOZZARELLA FRESCA", 20, 160),
+        frammento("1,94", 300, 160),
+        frammento("TOTAL", 20, 260),
+        frammento("2,96", 300, 260),
+    ]
+    righe = righe_logiche.testo_ricomposto(righe_ocr).splitlines()
+    assert any("CERVESA" in r and "1,02" in r and "MOZZARELLA" not in r
+               for r in righe)
+
+
+def test_non_ricuce_sotto_il_confine_del_riepilogo():
+    """Below TOTAL there are no products: the IVA table must stay apart."""
+    righe_ocr = [
+        frammento("PANET INTEGRAL", 20, 100),
+        frammento("1,10", 300, 100),
+        frammento("TOTAL", 20, 200),
+        frammento("1,10", 300, 200),
+        frammento("Base imposable", 20, 260),
+        frammento("1,00", 300, 290),
+    ]
+    righe = righe_logiche.testo_ricomposto(righe_ocr).splitlines()
+    assert not any("Base imposable" in r and "1,00" in r for r in righe)
+
+
+def test_non_ricuce_un_importo_fuori_dalla_colonna_dei_prezzi():
+    """A price from the receipt photographed alongside must not be stitched in."""
+    righe_ocr = [
+        frammento("BARRA DE PA", 20, 100),
+        frammento("0,45", 300, 100),
+        frammento("FORMATGE RATLLAT", 20, 160),
+        frammento("1,30", 300, 160),
+        frammento("GUACAMOLE", 20, 220),
+        # Far to the right: this belongs to the receipt photographed alongside.
+        frammento("9,99", 1200, 250),
+        frammento("TOTAL", 20, 320),
+        frammento("1,75", 300, 320),
+    ]
+    righe = righe_logiche.testo_ricomposto(righe_ocr).splitlines()
+    assert not any("GUACAMOLE" in r and "9,99" in r for r in righe)

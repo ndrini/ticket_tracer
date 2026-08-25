@@ -39,8 +39,18 @@ Anche fermarsi a 0.8 era sbagliato, e se ne e' accorto solo l'estrattore: a
 quella soglia il 74% degli scontrini aveva una riga che inghiottiva cinque o
 piu' prodotti. Il totale non ne soffriva, i prodotti si'. Vedi TOLLERANZA_RIGA.
 """
+import re
+
 import cv2
 import numpy as np
+
+from app.etl.geometria import (
+    INIZIO_RIEPILOGO,
+    SOLO_IMPORTO,
+    altezza_riga,
+    colonna_dei_prezzi,
+    confine_riepilogo,
+)
 
 # Quanto due frammenti possono distare in altezza restando sulla stessa riga,
 # in multipli dell'altezza di una riga di testo.
@@ -107,6 +117,103 @@ def inclinazione(righe_ocr):
     return float(np.tan(np.radians(np.median(angoli))))
 
 
+# Un frammento che porta un nome: almeno tre lettere di fila. Un codice
+# ("22195") o una quantita' non bastano a fare un prodotto.
+HA_NOME = re.compile(r"[A-Za-zÀ-ÿ]{3}")
+
+# Un importo ovunque nella riga, non necessariamente da solo.
+PORTA_IMPORTO = re.compile(r"-?\d{1,4}[.,]\d{2}")
+
+
+def _ricuci_righe_spezzate(gruppi, righe_ocr, altezza):
+    """
+    Riunisce il nome di un prodotto all'importo stampato su un'altra riga.
+
+    IL DIFETTO CHE RISOLVE. Molti negozi stampano un prodotto su piu' righe: non
+    e' un errore di lettura, e' come stampano.
+
+        Art/ EA 80417311    22195          <- IKEA, tre righe per articolo
+        OVERMATT N campana alim j3 silic
+                            4,00   0
+
+        Pastanaga Granel                   <- Cal Fruitos, merce a peso
+           1,204      1,78     2,14
+
+    Il consumatore a valle (`_e_riga_prodotto` in `estrattore.py`) pretende nome
+    e importo sulla STESSA riga, e cosi' le scarta entrambe: zero prodotti
+    estratti, esito PRODOTTI_ASSENTI. Misurato sui 218 scontrini, questo layout
+    domina il 28% dei PRODOTTI_ASSENTI contro il 5% dei VALIDO — quasi sei volte
+    piu' frequente dove l'estrazione fallisce. Su uno scontrino IKEA con 8
+    articoli e totale 52,00 ne veniva estratto UNO, scarto -50,50.
+
+    PERCHE' QUI E NON NEL FILTRO. Ricucire dopo, sul testo gia' appiattito,
+    sembrava piu' semplice ma non funziona: il modello riceve due righe mutilate
+    — una col solo nome, una coi soli numeri — e ne salta una, cosi' la coppia
+    da ricucire non arriva mai al filtro. E il testo appiattito ha perso le
+    coordinate, cioe' proprio l'informazione che distingue una ricucitura giusta
+    da una inventata. Deciso col consenso degli agenti (Vibe, Gemini,
+    Perplexity), con Copilot in dissenso.
+
+    LE TRE GUARDIE, e perche' ciascuna serve:
+
+    1. L'importo deve cadere nella COLONNA DEI PREZZI dello scontrino. E' la
+       guardia che vale di piu': senza, sui ritagli che contengono due scontrini
+       affiancati (18% dei PRODOTTI_ASSENTI) si accoppierebbe il nome di uno col
+       prezzo dell'altro, inventando un prodotto che puo' persino far quadrare i
+       conti per caso. Meglio un buco dichiarato che un numero inventato.
+    2. Le due righe devono essere ADIACENTI, e sopra il confine del riepilogo:
+       sotto ci sono IVA, resto e contante, che prodotti non sono.
+    3. La riga dell'importo non deve contenere lettere, e quella del nome non
+       deve contenere gia' un importo: si ricuce solo cio' che e' davvero
+       spezzato, mai due righe gia' complete.
+
+    Non si allarga TOLLERANZA_RIGA: quella strada e' gia' stata misurata e
+    fondeva le righe fra loro (a 0.8 il 74% degli scontrini aveva una riga che
+    ne inghiottiva cinque). Qui il vincolo e' su DUE assi, non su uno solo.
+    """
+    colonna = colonna_dei_prezzi(righe_ocr, altezza)
+    if colonna is None:
+        return gruppi
+    x_min, x_max = colonna
+    confine = confine_riepilogo(righe_ocr, altezza)
+
+    def _testo(gruppo):
+        return " ".join(v[2] for v in sorted(gruppo, key=lambda v: v[1]) if v[2])
+
+    fusi = []
+    saltare = False
+    for corrente, seguente in zip(gruppi, gruppi[1:] + [None]):
+        if saltare:
+            saltare = False
+            continue
+        if seguente is None:
+            fusi.append(corrente)
+            continue
+
+        nome, importo = _testo(corrente), _testo(seguente)
+        # La y GREZZA, non quella corretta dalla pendenza: il confine del
+        # riepilogo e' misurato sulle coordinate originali dell'OCR.
+        y = max(v[3] for v in corrente)
+
+        # Una riga che porta gia' un importo e' completa: fonderla con la
+        # successiva le farebbe inghiottire il prezzo di un altro prodotto.
+        # Misurato: senza questa guardia si perdevano 14 righe prodotto gia'
+        # buone, per esempio "3 CERVESA ESP LLAUNA 0,34 1,02" fusa con la riga
+        # sotto. `SOLO_IMPORTO` non bastava: aggancia solo i frammenti che sono
+        # UNICAMENTE un importo, non un nome seguito dal suo prezzo.
+        if (HA_NOME.search(nome) and not PORTA_IMPORTO.search(nome)
+                and not INIZIO_RIEPILOGO.search(nome)
+                and not HA_NOME.search(importo)
+                and y < confine
+                and any(SOLO_IMPORTO.match(v[2].strip()) and x_min <= v[1] <= x_max
+                        for v in seguente)):
+            fusi.append(corrente + seguente)
+            saltare = True
+        else:
+            fusi.append(corrente)
+    return fusi
+
+
 def ricomponi(righe_ocr):
     """
     Le righe fisiche dello scontrino, dall'alto in basso.
@@ -126,7 +233,7 @@ def ricomponi(righe_ocr):
     voci = []
     for r in righe_ocr:
         x, y = _centro(r["box"], 0), _centro(r["box"], 1)
-        voci.append((y - pendenza * x, x, r["testo"].strip()))
+        voci.append((y - pendenza * x, x, r["testo"].strip(), y))
     voci.sort()
 
     gruppi, corrente = [], [voci[0]]
@@ -137,7 +244,9 @@ def ricomponi(righe_ocr):
         corrente.append(voce)
     gruppi.append(corrente)
 
-    return [" ".join(t for _, _, t in sorted(g, key=lambda v: v[1]) if t)
+    gruppi = _ricuci_righe_spezzate(gruppi, righe_ocr, altezza)
+
+    return [" ".join(v[2] for v in sorted(g, key=lambda v: v[1]) if v[2])
             for g in gruppi]
 
 
