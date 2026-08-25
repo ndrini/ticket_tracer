@@ -45,7 +45,7 @@ MODELLO = "Qwen/Qwen2.5-3B-Instruct"
 # Lo smoke test: la guida del progetto gemello dice di non spendere mai piu' di
 # un'ora di GPU per esperimento, e di provare su pochi elementi prima del lotto.
 # 0 = tutti.
-LIMITE = int(__import__("os").environ.get("LIMITE", "3"))  # SMOKE TEST: rimettere "0"
+LIMITE = int(__import__("os").environ.get("LIMITE", "5"))  # SMOKE TEST: rimettere "0"
 
 
 # %%
@@ -165,8 +165,9 @@ def main() -> int:
     installa()
     from vllm import LLM, SamplingParams
 
-    from app.etl.estrattore import (EstrattoreScontrino, prodotti_dalla_risposta,
-                                    prompt_prodotti)
+    from app.etl.estrattore import EstrattoreScontrino
+    from app.etl.schema_risposta import (SCHEMA_SCONTRINO, normalizza,
+                                         prompt_scontrino)
 
     avvio = time.time()
     llm = LLM(model=MODELLO, max_model_len=4096, gpu_memory_utilization=0.90)
@@ -190,88 +191,95 @@ def main() -> int:
         sha.append(chiave)
         righe_per_sha[chiave] = righe
 
-    # Il totale si legge per COORDINATE. Riesce nel 97% dei casi sull'intero
-    # dataset, ma NON sempre: dove fallisce, la pipeline locale ripiega sul
-    # modello (`EstrattoreScontrino.totale`). Il kernel deve fare lo stesso,
-    # altrimenti perde i totali che in locale ci sono — misurato allo smoke
-    # test: 3 scontrini su 10 senza totale, e non era un difetto di trasporto
-    # ma questo ripiego mancante.
+    # Il totale si legge per COORDINATE, che e' deterministico e non costa
+    # inferenza. Dove le coordinate non lo trovano NON si ripiega piu' sul
+    # modello: si lascia il campo allo schema, che ammette `null`. Il ripiego
+    # produceva numeri inventati — 25 su 218, e il danno non restava li' perche'
+    # il totale filtra i prezzi impossibili. Meglio un buco dichiarato.
     from app.etl.totale import trova_totale
 
     totali = [trova_totale(righe_per_sha[s]) for s in sha]
-    da_chiedere = [i for i, t in enumerate(totali) if t is None]
 
-    # Tutte le domande in un colpo solo: vLLM le raggruppa da se'.
-    p_negozio = [
-        "Come si chiama il negozio di questo scontrino?\n"
-        "Rispondi SOLO col nome, senza indirizzo ne' partita IVA.\n\n"
-        + "\n".join(t.split("\n")[:6])
-        + "\n\nNegozio:"
-        for t in testi
-    ]
-    # La domanda arriva da `app.etl.estrattore`, non riscritta qui: una seconda
-    # formulazione darebbe risposte diverse e i due percorsi non sarebbero piu'
-    # confrontabili. (Era gia' duplicata, con "PRODOTTO acquistato" su una riga
-    # sola invece che spezzato: differenza minima, ma proprio per questo il tipo
-    # di divergenza che non si nota.)
-    p_prodotti = [prompt_prodotti(t) for t in testi]
+    # UNA domanda sola, con la risposta VINCOLATA dallo schema. Prima erano tre
+    # risposte libere (negozio, prodotti, totale) interpretate con regex: su
+    # questa GPU l'84% ripeteva la lista dei prodotti e molte riorganizzavano
+    # nomi e prezzi in elenchi separati, e gli scontrini che quadravano sono
+    # crollati dal 28% al 3%. Lo schema toglie il problema alla radice: il
+    # decoder non puo' emettere token che lo violino.
+    def parametri_schema():
+        """
+        Come si impone lo schema a QUESTA versione di vLLM.
+
+        Il nome del parametro e' cambiato nel tempo: `guided_json` nelle
+        versioni fino alla 0.8, poi `structured_outputs` con un oggetto
+        dedicato. Il kernel gira su un'immagine Kaggle che si aggiorna da se',
+        quindi si sceglie a runtime invece di fissare una versione. Se nessuna
+        delle due esiste il kernel si FERMA: proseguire senza vincolo darebbe
+        risposte libere, cioe' esattamente il difetto che questo schema esiste
+        per togliere, e i numeri sembrerebbero validi.
+        """
+        try:
+            from vllm.sampling_params import StructuredOutputsParams
+            return {
+                "structured_outputs": StructuredOutputsParams(json=SCHEMA_SCONTRINO)
+            }
+        except ImportError:
+            pass
+        import inspect
+        if "guided_json" in inspect.signature(SamplingParams).parameters:
+            return {"guided_json": SCHEMA_SCONTRINO}
+        raise SystemExit(
+            "⛔️ questa versione di vLLM non espone ne' `structured_outputs` ne' "
+            "`guided_json`: senza vincolo sul formato la risposta torna libera, "
+            "ed e' il difetto che ha fatto crollare la quadratura dal 28% al 3%."
+        )
+
+    prompt = [prompt_scontrino(t) for t in testi]
 
     t0 = time.time()
-    r_negozio = llm.generate(p_negozio, SamplingParams(temperature=0, max_tokens=16))
-    r_prodotti = llm.generate(p_prodotti, SamplingParams(temperature=0, max_tokens=600))
+    r_dati = llm.generate(
+        prompt,
+        SamplingParams(
+            temperature=0,
+            max_tokens=1200,
+            # Il nome del parametro e' cambiato fra le versioni di vLLM: si
+            # prova quello nuovo e si ricade sul vecchio, invece di fissare una
+            # versione che il kernel non controlla.
+            **parametri_schema(),
+        ),
+    )
     durata = time.time() - t0
 
     # vLLM restituisce le risposte nell'ordine dei prompt, ma se cosi' non fosse
     # i campi finirebbero sullo scontrino sbagliato — un errore silenzioso che
     # produce dati plausibili e falsi. Meglio fermarsi.
-    if not (len(r_negozio) == len(r_prodotti) == len(sha)):
+    if len(r_dati) != len(sha):
         raise SystemExit(
-            f"⛔️ risposte disallineate: {len(r_negozio)} negozi, "
-            f"{len(r_prodotti)} prodotti, {len(sha)} scontrini attesi."
+            f"⛔️ risposte disallineate: {len(r_dati)} risposte, "
+            f"{len(sha)} scontrini attesi."
         )
 
-    # Il ripiego: si chiede il totale SOLO dove le coordinate non l'hanno
-    # trovato. Stesso prompt della pipeline locale, per non introdurre una
-    # seconda formulazione che darebbe risposte diverse.
-    if da_chiedere:
-        from app.etl.estrattore import _numero
-
-        p_totale = [
-            "Questo e' uno scontrino di un negozio spagnolo o catalano.\n"
-            "Qual e' il TOTALE FINALE PAGATO?\n"
-            "Non e' il contante consegnato (Efectiu, Entregado) ne' il resto "
-            "(Canvi, Cambio) ne' una quota IVA.\n"
-            "Rispondi SOLO con il numero, senza simboli.\n\n"
-            f"{testi[i]}\n\nTotale:"
-            for i in da_chiedere
-        ]
-        r_totale = llm.generate(p_totale, SamplingParams(temperature=0, max_tokens=16))
-        for posizione, risposta in zip(da_chiedere, r_totale):
-            totali[posizione] = _numero(risposta.outputs[0].text)
-        print(f"totale chiesto al modello per {len(da_chiedere)} scontrini", flush=True)
-
-    # ⚠️ Si itera sugli SHA, non su `file_ocr`: gli scontrini senza `righe_ocr`
-    # sono stati saltati nel ciclo di preparazione, quindi gli indici delle
-    # risposte NON corrispondono piu' a quelli dei file. `righe_per_sha`
-    # conserva le righe gia' lette invece di rileggere il file sbagliato.
     risultati = []
     for i, chiave in enumerate(sha):
-        # Gia' calcolato sopra: coordinate, col ripiego al modello dove serve.
-        totale = totali[i]
-        nome = r_negozio[i].outputs[0].text.strip().strip('".').split("\n")[0][:60]
-        # ⛔️ NON `estrattore.prodotti()`: quel metodo CHIEDE la risposta a
-        # Ollama su localhost:11434, che su Kaggle non esiste. Ignorava il testo
-        # gia' generato da vLLM, falliva la connessione e restituiva zero
-        # prodotti su OGNI scontrino — misurato allo smoke test, 0 su 24.
-        # `prodotti_dalla_risposta` e' lo stesso filtro senza la chiamata.
-        prodotti = prodotti_dalla_risposta(r_prodotti[i].outputs[0].text, totale)
+        grezza = r_dati[i].outputs[0].text
+        try:
+            dati_modello = normalizza(json.loads(grezza))
+        except (ValueError, TypeError):
+            # Lo schema rende questo caso improbabile, non impossibile: una
+            # risposta troncata dal limite di token non e' JSON valido. Si
+            # perde lo scontrino, non l'esecuzione.
+            dati_modello = normalizza(None)
         risultati.append(
             {
                 "sha256": chiave,
-                "shop_name": nome or None,
+                # Il negozio dal modello; le coordinate non lo sanno leggere.
+                "shop_name": dati_modello["shop_name"],
                 "date": estrattore.data(completi[i]),
-                "total": totale,
-                "items": prodotti,
+                # Il totale letto per COORDINATE ha la precedenza: e' misurato,
+                # non generato. Quello del modello serve solo dove manca, ed e'
+                # `null` se nemmeno il modello lo legge.
+                "total": totali[i] if totali[i] is not None else dati_modello["total"],
+                "items": dati_modello["items"],
             }
         )
 
@@ -282,8 +290,8 @@ def main() -> int:
     (USCITA / "risposte_grezze.json").write_text(
         json.dumps(
             [
-                {"sha256": s, "negozio": rn.outputs[0].text, "prodotti": rp.outputs[0].text}
-                for s, rn, rp in zip(sha, r_negozio, r_prodotti)
+                {"sha256": s, "risposta": r.outputs[0].text}
+                for s, r in zip(sha, r_dati)
             ],
             ensure_ascii=False,
         )

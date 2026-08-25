@@ -136,10 +136,24 @@ def prodotti_dalla_risposta(risposta, totale=None):
     divergono.
     """
     prodotti = []
+    # Il modello RIPETE la lista. Dopo averla copiata correttamente aggiunge un
+    # commento ("Ho riportato le righe del scontrino come richiesto:") e la
+    # ricopia da capo: il filtro prendeva entrambe le copie e la somma usciva
+    # esattamente doppia. Misurato sulle risposte grezze di una passata GPU su
+    # 316 scontrini: 84% conteneva righe duplicate, 61% conteneva un commento.
+    # Su `01ff2296d9d4` la somma dava 20,36 contro un totale di 10,18.
+    #
+    # Non si chiede al modello di non farlo: e' gia' stato misurato che le
+    # istruzioni di esclusione non funzionano (vedi NON_PRODOTTO). Si scarta
+    # qui, dove il controllo e' deterministico.
+    viste = set()
     for riga in (risposta or "").split("\n"):
         riga = riga.strip()
         if not _e_riga_prodotto(riga):
             continue
+        if riga in viste:
+            continue
+        viste.add(riga)
         # L'ULTIMO importo della riga, non il primo: quando c'e' una quantita'
         # la riga porta prima il prezzo unitario e poi il totale di riga
         # ("2 AMANIDA 0,86 1,72"), ed e' il secondo che conta.

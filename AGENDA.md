@@ -118,7 +118,11 @@ I due versi dello scarto sono nomi distinti apposta: sono difetti diversi, con c
 
 **Gli script.** Quelli vivi: `fase_a_ingestione.py`, `fase_c_estrazione.py`, `fase_d_carica_db.py`, `kaggle_carica_dataset.py`, `kaggle_lancia_kernel.py`, `confronta_gpu_locale.py`, `metrica_iou.py`, `segmenta_detector.py`. Gli altri sono residui: si estende ciò che c'è, non si aggiunge accanto.
 
-**Il kernel.** `notebooks/kaggle_estrai_gpu.py` importa `app/etl/` dal dataset invece di riscrivere l'estrazione: un'unica implementazione, così locale e GPU restano confrontabili.
+**Il kernel.** `notebooks/kaggle_estrai_gpu.py` importa `app/etl/` dal dataset invece di riscrivere l'estrazione: un'unica implementazione dei parser.
+
+⚠️ **Ma locale e GPU NON danno gli stessi risultati, e il codice condiviso non basta a garantirlo.** Sotto girano due motori diversi — Ollama con il modello quantizzato Q4, vLLM con lo stesso modello in float16 — e rispondono in modo diverso alla stessa domanda. Misurato il 2026-08-25 su 316 scontrini: l'84% delle risposte GPU ripeteva l'intera lista dei prodotti dopo un commento («Ho riportato le righe come richiesto:»), e la somma usciva esattamente doppia; molte altre riorganizzavano nomi e prezzi in elenchi separati, e il filtro le scartava tutte. Gli scontrini che quadrano sono crollati **dal 28% al 3%**, senza che il codice avesse un difetto. La stessa passata rifatta in locale su un campione di 12 scontrini che quadravano: **12/12 quadrano ancora**.
+
+La lezione non riguarda la GPU ma il metodo: **chiedere a un modello di copiare del testo e interpretare la risposta con espressioni regolari è fragile**, perché il formato della risposta dipende dal motore. La cura è imporre lo schema al decoder invece di sperarci — vedi `app/etl/schema_risposta.py`. E una baseline prodotta con un motore non vale come termine di paragone per l'altro.
 
 ---
 
