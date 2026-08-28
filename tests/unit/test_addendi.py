@@ -136,3 +136,23 @@ def test_un_addendo_uguale_alla_somma_ma_non_ultimo_resta():
         {"testo": "TOTAL", "box": [[10, 120], [120, 120], [120, 138], [10, 138]]},
     ]
     assert [v for v, _ in addendi(righe)] == [2.00, 2.00, 5.00]
+
+
+def test_il_prezzo_unitario_non_si_somma_al_totale_di_riga():
+    """
+    Consum stampa "3 LLET 0.94 2,82": 2,82 e' il totale di riga, 0,94 l'unitario.
+    Sommarli conta due volte. E' il caso di `83b3fef9222c`, dove la somma
+    usciva 12,17 contro un totale stampato di 11,23, cioe' +0,94 esatti.
+    """
+    righe = [
+        {"testo": "1 MINESTRA", "box": [[10, 280], [150, 280], [150, 302], [10, 302]]},
+        {"testo": "1,43", "box": [[370, 285], [405, 285], [405, 307], [370, 307]]},
+        {"testo": "3 LLET SEN.CONSUM", "box": [[10, 320], [150, 320], [150, 342], [10, 342]]},
+        # unit price and line total on the same physical line, two columns
+        {"testo": "0.94", "box": [[300, 325], [335, 325], [335, 347], [300, 347]]},
+        {"testo": "2,82", "box": [[370, 327], [405, 327], [405, 349], [370, 349]]},
+        {"testo": "Total factura:", "box": [[10, 380], [150, 380], [150, 402], [10, 402]]},
+    ]
+    valori = [v for v, _ in addendi(righe)]
+    assert 0.94 not in valori
+    assert round(sum(valori), 2) == 4.25

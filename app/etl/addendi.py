@@ -134,12 +134,55 @@ def addendi(righe_ocr):
             continue
         x, y = centro_x(r["box"]), centro_y(r["box"])
         if x_min <= x <= x_max and y < confine:
-            trovati.append((v, y))
-    return _senza_ricapitolazione(sorted(trovati, key=lambda t: t[1]))
+            trovati.append((v, x, y))
+    trovati.sort(key=lambda t: t[2])
+    return _senza_ricapitolazione(_uno_per_riga(trovati, altezza))
 
 
 # Tolleranza del confronto fra somme, la stessa del giudice aritmetico.
 TOLLERANZA_SOMMA = 0.02
+
+
+def _uno_per_riga(trovati, altezza):
+    """
+    Di piu' importi sulla STESSA riga fisica tiene solo il piu' a destra.
+
+    PERCHE'. Consum e Charter stampano il prezzo unitario e il totale di riga
+    accanto: "3 LLET SEN.CONSUM 1L   0.94   2,82", dove 2,82 = 0,94 x 3.
+    Le due cifre stanno in colonne diverse ma sulla stessa riga, e
+    `colonna_dei_prezzi` — che tollera l'imprecisione dei riquadri allargandosi
+    di un'altezza per parte — le contiene entrambe. Sommandole si conta due
+    volte: su `83b3fef9222c` la somma usciva 12,17 contro un totale di 11,23,
+    ossia esattamente +0,94.
+
+    Che `addendi()` dovesse escludere i prezzi unitari era gia' scritto nel suo
+    docstring ("che sommati conterebbero due volte"): mancava il modo di
+    distinguerli, perche' la colonna da sola non basta.
+
+    Si tiene il piu' a DESTRA perche' e' li' che i negozi stampano il totale di
+    riga. Misurate tre regole — il piu' a destra, il piu' grande, il piu' a
+    destra solo se multiplo dell'altro — danno lo STESSO risultato su 218
+    scontrini (117 quadrati, 3 regressioni). Fra tre regole equivalenti si
+    sceglie quella che guarda solo la geometria e mai i valori: non puo'
+    essere ingannata da un prezzo che per caso e' multiplo di un altro.
+
+    Misurato:  quadrano 111 -> 117, regressioni 6 -> 3.
+    """
+    if not trovati:
+        return []
+    gruppi = [[trovati[0]]]
+    for t in trovati[1:]:
+        # Stessa riga fisica: l'OCR colloca a y leggermente diverse i frammenti
+        # che sulla carta sono allineati.
+        if abs(t[2] - gruppi[-1][-1][2]) < 0.5 * altezza:
+            gruppi[-1].append(t)
+        else:
+            gruppi.append([t])
+    scelti = []
+    for g in gruppi:
+        v, _, y = max(g, key=lambda t: t[1])
+        scelti.append((v, y))
+    return scelti
 
 
 def _senza_ricapitolazione(trovati):
