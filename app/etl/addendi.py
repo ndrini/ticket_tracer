@@ -104,6 +104,42 @@ def e_sconto(prezzo):
     return prezzo is not None and prezzo < 0
 
 
+# LIMITE NOTO, deciso il 2026-08-28 e non un difetto da riparare piu' tardi.
+#
+# Quando l'OCR unisce nome e prezzo in UN SOLO frammento la geometria non vede
+# il prodotto, perche' `valore()` accetta solo il frammento di sola cifra:
+#
+#     |1x 7,95 PISTOLA TERMOFUSIBLE 3OWA 7,95|
+#
+# Sono i 3 scontrini che oggi quadrano e che il metodo geometrico perderebbe
+# (`0fdeca7f2f69`, `518e5a72871c`, `7c95d4e4cf12`): Basar Juan e Casa Rambla.
+# E' il rovescio del layout IKEA — li' il prodotto e' spezzato su piu' righe,
+# qui e' compattato su una sola.
+#
+# PERCHE' NON SI RIPARA. Misurato prima di decidere:
+#
+#   - il fenomeno e' 35 righe su 18.070, e la maggioranza NON sono prodotti:
+#     "A IVA 21,00", "Total: 12.50 EUR", "0,590 kg x 1,83" (prezzo al chilo),
+#     "EFECTIVO: 50,70 CAMBIO: 40,00" (il resto);
+#   - estendere `valore()` vale +1 scontrino (117 -> 118) e NON risolve i 3:
+#     su `0fdeca7f2f69` legge 7,95 e 1,25 ma PERDE 1,50, perche' i nuovi
+#     importi ridisegnano la colonna dei prezzi, che da loro e' dedotta.
+#     Cambiare cosa e' un importo sposta il terreno sotto la geometria;
+#   - un lettore separato per i soli addendi, che lascia la colonna intatta,
+#     e' stato misurato e PEGGIORA: 116 contro 117.
+#
+# Distinguere il prodotto dal resto richiederebbe una lista di parole, cioe'
+# l'euristica sul nome gia' fallita tre volte con misura in questo progetto.
+#
+# Consultati Vibe, Perplexity e Groq: due su tre per non toccare niente. Groq
+# proponeva il lettore separato sostenendo che rendesse quanto l'estensione
+# senza regressioni; la misura sopra lo smentisce.
+#
+# La via d'uscita non e' qui: quando `prodotti()` sapra' associare un nome a
+# un addendo, avra' una nozione di riga-prodotto che oggi manca, e la
+# domanda si potra' rifare con lo strumento giusto.
+
+
 def addendi(righe_ocr):
     """
     Gli importi che entrano nella somma, dall'alto in basso.
