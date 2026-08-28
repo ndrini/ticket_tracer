@@ -135,7 +135,43 @@ def addendi(righe_ocr):
         x, y = centro_x(r["box"]), centro_y(r["box"])
         if x_min <= x <= x_max and y < confine:
             trovati.append((v, y))
-    return sorted(trovati, key=lambda t: t[1])
+    return _senza_ricapitolazione(sorted(trovati, key=lambda t: t[1]))
+
+
+# Tolleranza del confronto fra somme, la stessa del giudice aritmetico.
+TOLLERANZA_SOMMA = 0.02
+
+
+def _senza_ricapitolazione(trovati):
+    """
+    Toglie l'ultimo addendo quando vale la somma di tutti i precedenti.
+
+    PERCHE'. Molti scontrini stampano il totale DUE volte: una in fondo
+    all'elenco, prima del riepilogo, e una sotto, accanto alla parola. Il primo
+    esemplare cade sopra il confine, entra fra gli addendi, e la somma esce
+    ESATTAMENTE DOPPIA: su `8fbdc7a3f4e5` 18,44 contro un totale di 9,22, su
+    `a0b224079745` 37,58 contro 18,79. Il doppio esatto e' la firma del difetto.
+
+    Perche' non si guarda il totale. La regola ovvia sarebbe "togli l'ultimo
+    addendo se e' uguale al totale", e misurata fa 112 quadrati contro i 111 di
+    questa. Un caso in piu', pagato pero' con una CIRCOLARITA': il totale e' il
+    giudice della somma, e usarlo per decidere cosa sommare significa
+    aggiustare la risposta con la soluzione. Un giudice che sceglie gli imputati
+    non assolve nessuno.
+
+    Questa formulazione guarda solo la lista degli addendi: se l'ultimo vale la
+    somma dei precedenti e' una ricapitolazione, qualunque cosa dica il totale.
+    Vale anche quando il totale manca o e' sbagliato — cioe' proprio nei casi in
+    cui serve di piu'.
+
+    Misurato su 218 scontrini:  quadrano 104 -> 111, regressioni 9 -> 6.
+    """
+    if len(trovati) < 2:
+        return trovati
+    somma_precedenti = round(sum(v for v, _ in trovati[:-1]), 2)
+    if abs(trovati[-1][0] - somma_precedenti) <= TOLLERANZA_SOMMA:
+        return trovati[:-1]
+    return trovati
 
 
 def e_addendo(prezzo, righe_ocr, tolleranza=0.005):

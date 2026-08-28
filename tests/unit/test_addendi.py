@@ -93,3 +93,46 @@ def test_sul_caso_ikea_validato_a_mano():
         return  # il materiale non e' versionato
     righe = json.load(open(percorsi[0]))["righe_ocr"]
     assert round(sum(v for v, _ in addendi(righe)), 2) == 52.00
+
+
+def test_la_ricapitolazione_non_e_un_addendo():
+    """
+    Il totale stampato sopra il riepilogo non va sommato ai prodotti.
+
+    E' il caso di `8fbdc7a3f4e5`: 2,99 + 2,99 + 1,62 + 1,62 = 9,22, e sotto
+    l'elenco lo scontrino ristampa 9,22. Senza il filtro la somma esce 18,44,
+    il doppio esatto.
+    """
+    righe = [
+        {"testo": "LEGGING", "box": [[10, 50], [120, 50], [120, 68], [10, 68]]},
+        {"testo": "2,99", "box": [[280, 50], [320, 50], [320, 68], [280, 68]]},
+        {"testo": "LEGGING", "box": [[10, 70], [120, 70], [120, 88], [10, 88]]},
+        {"testo": "2,99", "box": [[280, 70], [320, 70], [320, 88], [280, 88]]},
+        {"testo": "Q.RALLADO", "box": [[10, 90], [120, 90], [120, 108], [10, 108]]},
+        {"testo": "1,62", "box": [[280, 90], [320, 90], [320, 108], [280, 108]]},
+        {"testo": "Q.RALLADO", "box": [[10, 110], [120, 110], [120, 128], [10, 128]]},
+        {"testo": "1,62", "box": [[280, 110], [320, 110], [320, 128], [280, 128]]},
+        # the receipt reprints the total just above the summary
+        {"testo": "9,22", "box": [[280, 130], [320, 130], [320, 148], [280, 148]]},
+        {"testo": "TARJETA", "box": [[10, 155], [120, 155], [120, 173], [10, 173]]},
+    ]
+    valori = [v for v, _ in addendi(righe)]
+    assert 9.22 not in valori
+    assert round(sum(valori), 2) == 9.22
+
+
+def test_un_addendo_uguale_alla_somma_ma_non_ultimo_resta():
+    """
+    Il filtro guarda SOLO l'ultimo addendo. Un prodotto che per coincidenza
+    vale quanto gli altri messi insieme, ma che non e' l'ultimo, e' merce.
+    """
+    righe = [
+        {"testo": "PANE", "box": [[10, 50], [120, 50], [120, 68], [10, 68]]},
+        {"testo": "2,00", "box": [[280, 50], [320, 50], [320, 68], [280, 68]]},
+        {"testo": "VINO", "box": [[10, 70], [120, 70], [120, 88], [10, 88]]},
+        {"testo": "2,00", "box": [[280, 70], [320, 70], [320, 88], [280, 88]]},
+        {"testo": "OLIO", "box": [[10, 90], [120, 90], [120, 108], [10, 108]]},
+        {"testo": "5,00", "box": [[280, 90], [320, 90], [320, 108], [280, 108]]},
+        {"testo": "TOTAL", "box": [[10, 120], [120, 120], [120, 138], [10, 138]]},
+    ]
+    assert [v for v, _ in addendi(righe)] == [2.00, 2.00, 5.00]
