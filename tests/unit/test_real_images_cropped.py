@@ -6,6 +6,12 @@ import cv2
 import pytest
 
 
+# Real images + a real PaddleOCR pipeline: this is an integration test living
+# in tests/unit/. Without the marker it blocks the whole suite, because
+# importing PaddleOCR reaches out to the model hosters and hangs offline.
+pytestmark = pytest.mark.integration
+
+
 def test_cropped_receipt_text_contains_expected_words(receipt_pipeline):
     """Verifica che i crop noti contengano i testi previsti."""
     debug_dir = os.path.join(

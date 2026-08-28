@@ -6,6 +6,12 @@ import cv2
 import pytest
 
 
+# Real images + a real PaddleOCR pipeline: this is an integration test living
+# in tests/unit/. Without the marker it blocks the whole suite, because
+# importing PaddleOCR reaches out to the model hosters and hangs offline.
+pytestmark = pytest.mark.integration
+
+
 def test_process_real_images_and_debug_crops(receipt_pipeline):
     """
     Questo test itera sulle immagini reali in data/test.
