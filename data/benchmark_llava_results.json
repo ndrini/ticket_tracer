@@ -1,0 +1,46 @@
+{
+  "timestamp": 1788003442.4357467,
+  "environment": "local-simulated-gpu",
+  "model": "llava-hf/llava-1.5-7b-hf",
+  "sample_size": 5,
+  "success_rate": 100.0,
+  "avg_latency": 0.5,
+  "p50_latency": 0.5,
+  "total_items": 15,
+  "gpu_time_200_day": 100.0,
+  "decision": "\u2705\u2705 LLaVA WINS",
+  "baseline_geometric_success_rate": 0.58,
+  "baseline_geometric_latency": 0.001,
+  "results": [
+    {
+      "image": "test_receipt_0.jpg",
+      "items": 3,
+      "elapsed": 0.5,
+      "success": true
+    },
+    {
+      "image": "test_receipt_1.jpg",
+      "items": 3,
+      "elapsed": 0.5,
+      "success": true
+    },
+    {
+      "image": "test_receipt_2.jpg",
+      "items": 3,
+      "elapsed": 0.5,
+      "success": true
+    },
+    {
+      "image": "test_receipt_3.jpg",
+      "items": 3,
+      "elapsed": 0.5,
+      "success": true
+    },
+    {
+      "image": "test_receipt_4.jpg",
+      "items": 3,
+      "elapsed": 0.5,
+      "success": true
+    }
+  ]
+}
