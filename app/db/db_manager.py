@@ -67,6 +67,7 @@ def init_db(db_path):
             validation_status TEXT,
             validation_delta REAL,
             foto_origine TEXT,
+            extraction_method TEXT DEFAULT 'llm',
             FOREIGN KEY(id_commerce) REFERENCES commerces(id)
         )
     """
@@ -82,6 +83,8 @@ def init_db(db_path):
             unity_price REAL,
             unit char,
             total_price REAL,
+            extraction_method TEXT DEFAULT 'llm',
+            name_quality TEXT DEFAULT NULL,
             FOREIGN KEY(receipt_id) REFERENCES receipts(id),
             FOREIGN KEY(product_id) REFERENCES products(id)
         )
