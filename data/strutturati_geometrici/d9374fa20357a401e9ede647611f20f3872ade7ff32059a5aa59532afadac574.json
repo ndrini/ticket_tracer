@@ -1,0 +1,108 @@
+{
+  "sha256": "d9374fa20357a401e9ede647611f20f3872ade7ff32059a5aa59532afadac574",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "BROCOLI 900 GR. CON",
+      "price": 1.72,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MONGETA PLANA IK CO 1 BROCOLI 900 GR. CON",
+      "price": 2.03,
+      "name_quality": "fused"
+    },
+    {
+      "name": "CORS DE LLU\u00c7 PESCA 1 MONGETA PLANA IK CO",
+      "price": 1.62,
+      "name_quality": "fused"
+    },
+    {
+      "name": "CORS DE LLU\u00c7 PESCA",
+      "price": 13.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PERNIL ROST NATURAL 2 MINI FUET CAMPOFRIO",
+      "price": 0.3,
+      "name_quality": "fused"
+    },
+    {
+      "name": "MINI FUET CAMPOFRIO",
+      "price": 2.6,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PERNIL G.RESER.FINS",
+      "price": 5.18,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MEDALLONS FORMATGE",
+      "price": 3.39,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PUNTA BRIE 200GR",
+      "price": 1.75,
+      "name_quality": "complete"
+    },
+    {
+      "name": "F.FRESC P-2 CONSUM",
+      "price": 1.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "SALMO FUMAT RED.SAL",
+      "price": 5.89,
+      "name_quality": "complete"
+    },
+    {
+      "name": "POSTRES SOIA I COCO",
+      "price": 2.29,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MANTEGA 250G.CONSUM",
+      "price": 2.3,
+      "name_quality": "complete"
+    },
+    {
+      "name": "OU PAGES 1/2 DOTZ",
+      "price": 2.09,
+      "name_quality": "complete"
+    },
+    {
+      "name": "AMET PELL CONS 200G",
+      "price": 2.39,
+      "name_quality": "complete"
+    },
+    {
+      "name": "COCTEL MIX CONSUM",
+      "price": 2.24,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BASTON.OLI QUELY225",
+      "price": 1.39,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LLET SEN.CONSUM TL",
+      "price": 2.82,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ESCOMBRA ESP.PE.MIK",
+      "price": 1.8,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 57.76,
+  "scarto": null,
+  "elaborato_il": null
+}

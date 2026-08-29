@@ -1,0 +1,68 @@
+{
+  "sha256": "07de5aed3c80165c3184432c9e725a0532757da91a422df78cec4bb1399c1a03",
+  "foto_origine": "2025-04-10 19.26.54.jpg",
+  "shop_name": "BONPREU",
+  "date": null,
+  "total": 35.58,
+  "items": [
+    {
+      "name": "PUR+ PATATES MOUSLIN",
+      "price": 3.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PASTA BONPREU ESPIRA",
+      "price": 0.79,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PRODUC, VEGETAL ALPR",
+      "price": 2.79,
+      "name_quality": "complete"
+    },
+    {
+      "name": "kg NET X 26.99/kg",
+      "price": 6.69,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MINI BURGER VEDELLA",
+      "price": 7.9,
+      "name_quality": "complete"
+    },
+    {
+      "name": "OUS ECOL-GICS BONPRE",
+      "price": 5.3,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BASTONETS DE PA QUEL",
+      "price": 1.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PASTA BONPREU FIDEUA",
+      "price": 0.79,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MADUIXOT LA COLLITA",
+      "price": 2.79,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PA OVALAT RUSTIK BAK",
+      "price": 2.83,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CAB+S COMPRA BP 450X",
+      "price": 1.0,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 35.58,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

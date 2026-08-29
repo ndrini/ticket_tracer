@@ -1,0 +1,33 @@
+{
+  "sha256": "52f74803fbc9a3f30e66e1a073788f7ff855d9e8bdbacff2ea3ead934b5fad6a",
+  "foto_origine": "2025-07-11 18.33.50.jpg",
+  "shop_name": "CONSUM, S.COOP.V",
+  "date": "2022-04-27",
+  "total": 12.69,
+  "items": [
+    {
+      "name": "ESTAC.CONSUM 250",
+      "price": 1.18,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PA LLESCAT 490GR",
+      "price": 0.84,
+      "name_quality": "complete"
+    },
+    {
+      "name": "SALMO FUM.NOR 2X100",
+      "price": 6.2,
+      "name_quality": "complete"
+    },
+    {
+      "name": "GNOCCHIS PAT.CONSUM",
+      "price": 4.47,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 12.69,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

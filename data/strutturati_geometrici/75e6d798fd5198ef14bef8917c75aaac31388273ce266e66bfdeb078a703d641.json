@@ -1,0 +1,18 @@
+{
+  "sha256": "75e6d798fd5198ef14bef8917c75aaac31388273ce266e66bfdeb078a703d641",
+  "foto_origine": "2025-07-11 18.35.37.jpg",
+  "shop_name": "CATELDYA S.A",
+  "date": "2022-05-15",
+  "total": 34.89,
+  "items": [
+    {
+      "name": "mport",
+      "price": 7.26,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 7.26,
+  "scarto": -27.63,
+  "elaborato_il": null
+}

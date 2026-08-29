@@ -1,0 +1,83 @@
+{
+  "sha256": "baa152188cf6d4c4133d69ba2cc2fd7465faf58d7bb2e52a8e099c83f59a6452",
+  "foto_origine": "2025-02-20 07.55.13.jpg",
+  "shop_name": "FRUIT\u00d3S",
+  "date": "2025-01-03",
+  "total": 43.68,
+  "items": [
+    {
+      "name": "ol-i-flor",
+      "price": 2.75,
+      "name_quality": "complete"
+    },
+    {
+      "name": "rocoli de Proximitat",
+      "price": 1.95,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ebrot Vermell",
+      "price": 0.52,
+      "name_quality": "complete"
+    },
+    {
+      "name": "astanaga Granel",
+      "price": 0.99,
+      "name_quality": "complete"
+    },
+    {
+      "name": "oma Fuji 1,658",
+      "price": 2.95,
+      "name_quality": "complete"
+    },
+    {
+      "name": "",
+      "price": 1.95,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 1.85,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 1.79,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 3.93,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.98,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.06,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.45,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 8.0,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "%",
+      "price": -2.3,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 31.87,
+  "scarto": -11.81,
+  "elaborato_il": null
+}

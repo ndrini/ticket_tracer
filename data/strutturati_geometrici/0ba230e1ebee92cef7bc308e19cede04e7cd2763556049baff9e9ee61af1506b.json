@@ -1,0 +1,63 @@
+{
+  "sha256": "0ba230e1ebee92cef7bc308e19cede04e7cd2763556049baff9e9ee61af1506b",
+  "foto_origine": "2025-06-03 09.14.11.jpg",
+  "shop_name": "Juntos es cooperativa",
+  "date": "2025-05-21",
+  "total": 38.5,
+  "items": [
+    {
+      "name": "ESTAC.CONSUM 250",
+      "price": 0.86,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PAG\u00c8S MUL/LLAV CARA",
+      "price": 2.22,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PERNIL ROST.NATURAL",
+      "price": 5.5,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MEDALLONS FORMATGE",
+      "price": 3.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "GASPATXO 1L.CONSUM",
+      "price": 1.6,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TONYIN.CONSUM P3 BF",
+      "price": 8.37,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CAFE NAT .MARCILL250",
+      "price": 4.79,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LLEVAT ROYAL 80G 6 LLET SEN.CONSUM 1L",
+      "price": 5.82,
+      "name_quality": "fused"
+    },
+    {
+      "name": "LLEVAT ROYAL 80G 1 MEGAROLLO SCOTTEX 6",
+      "price": 2.35,
+      "name_quality": "fused"
+    },
+    {
+      "name": "MEGAROLLO SCOTTEX 6 NIE Soci-Client",
+      "price": 3.99,
+      "name_quality": "fused"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 38.5,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

@@ -1,0 +1,28 @@
+{
+  "sha256": "a0b224079745d1f1ed819d59860eec2f4fd83641c02e3b330d425ef7b19c96bc",
+  "foto_origine": "2025-04-10 19.26.54.jpg",
+  "shop_name": "ALCAMPU",
+  "date": "2025-04-08",
+  "total": 18.79,
+  "items": [
+    {
+      "name": "SARTEN TOUCH 20C",
+      "price": 6.8,
+      "name_quality": "complete"
+    },
+    {
+      "name": "SARTEN TOUCH 26C",
+      "price": 9.5,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LOTE 5 CALCETINE",
+      "price": 2.49,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 18.79,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

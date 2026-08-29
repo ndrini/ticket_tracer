@@ -1,0 +1,18 @@
+{
+  "sha256": "465b4d4588e579bb1f84ca66ad6511f62fb372dbaeb85987b939dffb11e3a666",
+  "foto_origine": "2025-07-26 08.03.39.jpg",
+  "shop_name": "BAGUET",
+  "date": "2025-07-17",
+  "total": 0.59,
+  "items": [
+    {
+      "name": "BAGUET ENFARINADA",
+      "price": 0.59,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 0.59,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

@@ -1,0 +1,38 @@
+{
+  "sha256": "02242a22d6c00bc7156e6ab26a478209b69e4246dcb222483992c4e83830676a",
+  "foto_origine": "2025-09-06 10.40.00.jpg",
+  "shop_name": "Alessandrini Scalco Andrea",
+  "date": "2025-08-15",
+  "total": 123.48,
+  "items": [
+    {
+      "name": "Adulto 15/08/2025 18/08/2025 3 2",
+      "price": 51.0,
+      "name_quality": "fused"
+    },
+    {
+      "name": "Ni\u00f1o 15/08/2025 18/08/2025 3 2",
+      "price": 41.4,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Parcela+coche 15/08/2025 18/08/2025 3 1",
+      "price": 57.0,
+      "name_quality": "fused"
+    },
+    {
+      "name": "Impuesto tur\u00edstico 15/08/2025 1 6",
+      "price": 3.96,
+      "name_quality": "fused"
+    },
+    {
+      "name": "Ab. Entrega a Cuenta web #13652 11/08/2025 1",
+      "price": -29.88,
+      "name_quality": "fused"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 123.48,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

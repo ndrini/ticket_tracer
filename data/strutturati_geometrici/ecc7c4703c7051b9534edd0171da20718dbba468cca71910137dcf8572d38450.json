@@ -1,0 +1,38 @@
+{
+  "sha256": "ecc7c4703c7051b9534edd0171da20718dbba468cca71910137dcf8572d38450",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "LASANYA TONYINA",
+      "price": 3.66,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE RATLLAT PIZ",
+      "price": 1.62,
+      "name_quality": "complete"
+    },
+    {
+      "name": "IOGURT AMB FRUITES",
+      "price": 2.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORM. BURGOS NATURAL",
+      "price": 1.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE BRIE PORCI\u00d3",
+      "price": 1.75,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 11.01,
+  "scarto": null,
+  "elaborato_il": null
+}

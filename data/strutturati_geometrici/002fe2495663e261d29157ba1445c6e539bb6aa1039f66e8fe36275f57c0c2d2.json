@@ -1,0 +1,18 @@
+{
+  "sha256": "002fe2495663e261d29157ba1445c6e539bb6aa1039f66e8fe36275f57c0c2d2",
+  "foto_origine": "2025-07-11 18.36.08.jpg",
+  "shop_name": "Auto Shoping Center St Pere IV",
+  "date": "2022-04-13",
+  "total": 3.79,
+  "items": [
+    {
+      "name": "Cantidad",
+      "price": 18.93,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_ECCESSO",
+  "somma_prodotti": 18.93,
+  "scarto": 15.14,
+  "elaborato_il": null
+}

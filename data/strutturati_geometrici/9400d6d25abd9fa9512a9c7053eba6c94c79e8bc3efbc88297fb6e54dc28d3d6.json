@@ -1,0 +1,68 @@
+{
+  "sha256": "9400d6d25abd9fa9512a9c7053eba6c94c79e8bc3efbc88297fb6e54dc28d3d6",
+  "foto_origine": "2025-04-10 19.21.13.jpg",
+  "shop_name": "C/VENE\u00c7UELA",
+  "date": "2025-03-25",
+  "total": 30.99,
+  "items": [
+    {
+      "name": "AMANIDA QUATRE ESTAC",
+      "price": 0.86,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CAF\u00c9 G.AROMA NATURAL",
+      "price": 9.6,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PERNIL S. EXTRA FI",
+      "price": 2.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "COQUES BLAT D MORO",
+      "price": 1.1,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE RATLLAT PIZ",
+      "price": 1.62,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PANET 100% INTEGRAL",
+      "price": 1.13,
+      "name_quality": "complete"
+    },
+    {
+      "name": "REMOLATXA A TIRES",
+      "price": 1.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORM. BURGOS NATURAL",
+      "price": 1.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "OLI VERGE EXTRA",
+      "price": 5.85,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE BRIE PORCI\u00d3",
+      "price": 1.75,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MINI BOMBONS 12 U",
+      "price": 3.4,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 30.99,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

@@ -1,0 +1,18 @@
+{
+  "sha256": "0fdeca7f2f6931aae336ddf0e7b6900ff66eb361fc1b521d3885dfdde5448b0e",
+  "foto_origine": "2025-06-03 09.16.54.jpg",
+  "shop_name": "BASAR JUAN",
+  "date": "2025-05-19",
+  "total": 10.7,
+  "items": [
+    {
+      "name": "ARTICULO TEMPORAL",
+      "price": 1.5,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 1.5,
+  "scarto": -9.2,
+  "elaborato_il": null
+}

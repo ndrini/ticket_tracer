@@ -1,0 +1,73 @@
+{
+  "metadata": {
+    "phase": "F.4 \u2014 Report spesa per categoria",
+    "total_spent": 4168.65,
+    "currency": "EUR"
+  },
+  "categories": [
+    {
+      "category": "Altro",
+      "total_spent": 2894.37,
+      "percentage": 69.43183044870642,
+      "num_lines": 970,
+      "num_receipts": 247,
+      "avg_price": 2.9838865979381444
+    },
+    {
+      "category": "Latticini",
+      "total_spent": 389.75,
+      "percentage": 9.349549614383553,
+      "num_lines": 177,
+      "num_receipts": 98,
+      "avg_price": 2.2019774011299433
+    },
+    {
+      "category": "Bevande",
+      "total_spent": 263.7866666666667,
+      "percentage": 6.327867934863006,
+      "num_lines": 122,
+      "num_receipts": 78,
+      "avg_price": 2.162185792349727
+    },
+    {
+      "category": "Frutta",
+      "total_spent": 250.07,
+      "percentage": 5.998824559509674,
+      "num_lines": 76,
+      "num_receipts": 56,
+      "avg_price": 3.290394736842105
+    },
+    {
+      "category": "Verdure",
+      "total_spent": 159.46,
+      "percentage": 3.8252191956628647,
+      "num_lines": 85,
+      "num_receipts": 59,
+      "avg_price": 1.8760000000000001
+    },
+    {
+      "category": "Pane",
+      "total_spent": 130.79333333333332,
+      "percentage": 3.137546527852742,
+      "num_lines": 91,
+      "num_receipts": 63,
+      "avg_price": 1.4372893772893771
+    },
+    {
+      "category": "Carne",
+      "total_spent": 77.52,
+      "percentage": 1.859594832859559,
+      "num_lines": 34,
+      "num_receipts": 32,
+      "avg_price": 2.28
+    },
+    {
+      "category": "Igiene",
+      "total_spent": 2.9,
+      "percentage": 0.0695668861621868,
+      "num_lines": 1,
+      "num_receipts": 1,
+      "avg_price": 2.9
+    }
+  ]
+}

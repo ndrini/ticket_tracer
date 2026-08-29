@@ -1,0 +1,48 @@
+{
+  "sha256": "f9976f38c569111f7b7cb882f72a7db3f3e0ba486f4a1bf546cd3ee3f437baab",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "BANANA",
+      "price": 1.45,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TOMAQUET BRANCA",
+      "price": 1.05,
+      "name_quality": "complete"
+    },
+    {
+      "name": "COGOMBRE",
+      "price": 1.33,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CARABASS\u00d3 VERD",
+      "price": 1.28,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CARABASS\u00d3 VERD 1 PASTANAGA TAULA 1KG",
+      "price": 2.24,
+      "name_quality": "fused"
+    },
+    {
+      "name": "LLET SEN.CONSUM 1L 1 PASTANAGA TAULA 1KG",
+      "price": 1.15,
+      "name_quality": "fused"
+    },
+    {
+      "name": "LLET SEN.CONSUM 1L Soci-Client 2902521629013",
+      "price": 5.82,
+      "name_quality": "fused"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 14.32,
+  "scarto": null,
+  "elaborato_il": null
+}

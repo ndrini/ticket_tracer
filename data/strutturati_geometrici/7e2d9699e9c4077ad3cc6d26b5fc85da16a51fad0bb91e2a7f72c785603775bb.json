@@ -1,0 +1,18 @@
+{
+  "sha256": "7e2d9699e9c4077ad3cc6d26b5fc85da16a51fad0bb91e2a7f72c785603775bb",
+  "foto_origine": "2025-03-08 09.38.02.jpg",
+  "shop_name": "MERCADONA",
+  "date": "2025-03-06",
+  "total": 6.97,
+  "items": [
+    {
+      "name": "FORMATGE TALLS VACA",
+      "price": 2.45,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 2.45,
+  "scarto": -4.52,
+  "elaborato_il": null
+}

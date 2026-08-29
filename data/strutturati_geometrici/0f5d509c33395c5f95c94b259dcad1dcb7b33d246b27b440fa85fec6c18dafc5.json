@@ -1,0 +1,33 @@
+{
+  "sha256": "0f5d509c33395c5f95c94b259dcad1dcb7b33d246b27b440fa85fec6c18dafc5",
+  "foto_origine": "2025-11-21 19.40.19.jpg",
+  "shop_name": "Bazar Companys",
+  "date": "2025-11-11",
+  "total": 18.25,
+  "items": [
+    {
+      "name": "ARTICULO TEMPORAL",
+      "price": 14.95,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ARTICULO TEMPORAL",
+      "price": 1.7,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ARTICULO TEMPORAL",
+      "price": 0.8,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ARTICULO TEMPORAL",
+      "price": 0.8,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 18.25,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

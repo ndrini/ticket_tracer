@@ -1,0 +1,33 @@
+{
+  "sha256": "8fbdc7a3f4e536dc40e6bb57146cf0d0214ee98b99231a49104296aa827649b8",
+  "foto_origine": "2025-11-21 19.40.19.jpg",
+  "shop_name": "Simplificada Diagonal Mar",
+  "date": "2025-11-01",
+  "total": 9.22,
+  "items": [
+    {
+      "name": "LEGGING NI#A",
+      "price": 2.99,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LEGGING NIHA LEGGING NI#A",
+      "price": 2.99,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Q.RALLADO MOZ",
+      "price": 1.62,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Ca Q.RALLADO MOZ",
+      "price": 1.62,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 9.22,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

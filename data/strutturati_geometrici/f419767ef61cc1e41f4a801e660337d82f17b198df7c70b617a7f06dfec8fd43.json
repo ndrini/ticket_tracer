@@ -1,0 +1,58 @@
+{
+  "sha256": "f419767ef61cc1e41f4a801e660337d82f17b198df7c70b617a7f06dfec8fd43",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "MADUIXOT 500 GR",
+      "price": 1.53,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PESOLS FINS CONSUM",
+      "price": 2.25,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PA LLESCAT SEGOL 1 PESOLS FINS CONSUM",
+      "price": 1.78,
+      "name_quality": "fused"
+    },
+    {
+      "name": "PA LLESCAT SEGOL",
+      "price": 2.03,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LLOMS LLU\u00c7 360 PESC",
+      "price": 7.19,
+      "name_quality": "complete"
+    },
+    {
+      "name": "F. OVELLA LLET CRUA",
+      "price": 4.63,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORM.SEMI CONS.PORC",
+      "price": 3.49,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MOZZAR.RATLL.CONSUM",
+      "price": 3.24,
+      "name_quality": "complete"
+    },
+    {
+      "name": "SALMO FUMAT RED.SAL",
+      "price": 17.67,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 43.81,
+  "scarto": null,
+  "elaborato_il": null
+}

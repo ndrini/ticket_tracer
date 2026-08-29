@@ -1,0 +1,33 @@
+{
+  "sha256": "7c946b4a2dc9058ccea2d15bbba51310b3216fc526a861971de5dfc89d3cdae2",
+  "foto_origine": "2025-02-20 07.56.52.jpg",
+  "shop_name": "Magazzino",
+  "date": "2023-12-31",
+  "total": 2.07,
+  "items": [
+    {
+      "name": "%",
+      "price": 5.52,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "liquidaci\u00f3n neta",
+      "price": 23.55,
+      "name_quality": "complete"
+    },
+    {
+      "name": "%",
+      "price": 3.17,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "liquidaci\u00f3n neta",
+      "price": 13.49,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_ECCESSO",
+  "somma_prodotti": 45.73,
+  "scarto": 43.66,
+  "elaborato_il": null
+}

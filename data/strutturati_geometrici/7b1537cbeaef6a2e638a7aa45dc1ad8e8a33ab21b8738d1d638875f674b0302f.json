@@ -1,0 +1,58 @@
+{
+  "sha256": "7b1537cbeaef6a2e638a7aa45dc1ad8e8a33ab21b8738d1d638875f674b0302f",
+  "foto_origine": "IMG-20250103-WA0001.jpg",
+  "shop_name": "eMISFERO UNICOMM S.R.L",
+  "date": "2017-06-21",
+  "total": 21.31,
+  "items": [
+    {
+      "name": "BANANE SFUSE 4%",
+      "price": 1.49,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BANANE SFUSE PR.COTTO NOSTRANO 10%",
+      "price": 4.79,
+      "name_quality": "fused"
+    },
+    {
+      "name": "PR. COTTO NOSTRANO 10%",
+      "price": 4.79,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FRESCO CREMOSO CAPRA 4%",
+      "price": 1.45,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BIFFI PEST0100%VEG 10%",
+      "price": 2.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BIFFI PEST0100%VEG 10%",
+      "price": 2.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MELE RED DEL 4%",
+      "price": 1.52,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PANE FASCIA 1 4%",
+      "price": 1.18,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PANE FASCIA 2 4%",
+      "price": 1.37,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 21.29,
+  "scarto": -0.02,
+  "elaborato_il": null
+}

@@ -1,0 +1,78 @@
+{
+  "sha256": "23cfc4a6596980e34f1a081b76766665a7085818b1872a57b85454975634573b",
+  "foto_origine": "2025-04-10 19.22.50.jpg",
+  "shop_name": "CRCADU\u00d1A",
+  "date": "2025-03-29",
+  "total": 29.54,
+  "items": [
+    {
+      "name": "RAVIOLI MAT\u00d3 ESPINAC",
+      "price": 3.6,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PERNIL CUIT 92%",
+      "price": 2.41,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TALL PIT FI",
+      "price": 4.22,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TOMAQUET TRITURAT",
+      "price": 1.96,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CEBETES",
+      "price": 1.6,
+      "name_quality": "complete"
+    },
+    {
+      "name": "NYOQUIS DE PATATA",
+      "price": 2.08,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TOMAQUET TRITURAT",
+      "price": 2.6,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE BRIE PORCIO",
+      "price": 1.75,
+      "name_quality": "complete"
+    },
+    {
+      "name": "AMANIDA QUATRE ESTAC",
+      "price": 1.72,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE RATLLAT PIZ",
+      "price": 1.62,
+      "name_quality": "complete"
+    },
+    {
+      "name": "GUACAMOLE",
+      "price": 3.95,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MOZZARELLA FRESCA",
+      "price": 0.97,
+      "name_quality": "complete"
+    },
+    {
+      "name": "kg 2,30 \u20ac/kg",
+      "price": 1.06,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 29.54,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

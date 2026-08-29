@@ -1,0 +1,33 @@
+{
+  "sha256": "33e16b0978d6c4080cdf7ccfa0290a62528262796192460b7f09ce59cde3a05c",
+  "foto_origine": "2025-07-11 18.40.36.jpg",
+  "shop_name": "MERCADUNA",
+  "date": "2025-06-18",
+  "total": 17.41,
+  "items": [
+    {
+      "name": "PANET 11 UN",
+      "price": 1.14,
+      "name_quality": "complete"
+    },
+    {
+      "name": "AMANIDA QUATRE ESTAC",
+      "price": 0.86,
+      "name_quality": "complete"
+    },
+    {
+      "name": "SALSA PESTO",
+      "price": 1.95,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CAF\u00c9 G.AROMA NATURAL",
+      "price": 9.6,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 13.55,
+  "scarto": -3.86,
+  "elaborato_il": null
+}

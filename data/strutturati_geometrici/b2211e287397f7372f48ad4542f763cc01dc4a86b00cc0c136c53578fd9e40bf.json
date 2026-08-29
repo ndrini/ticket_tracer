@@ -1,0 +1,23 @@
+{
+  "sha256": "b2211e287397f7372f48ad4542f763cc01dc4a86b00cc0c136c53578fd9e40bf",
+  "foto_origine": "2025-09-06 10.43.44.jpg",
+  "shop_name": "DISCAM TEXTILES SL",
+  "date": "2025-07-06",
+  "total": 13.9,
+  "items": [
+    {
+      "name": "BLANCO - 10 ANOS 1 ARTISTIC CAT CAMISETA KIDS",
+      "price": 12.9,
+      "name_quality": "fused"
+    },
+    {
+      "name": "t0:7.751",
+      "price": -1.0,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 11.9,
+  "scarto": -2.0,
+  "elaborato_il": null
+}

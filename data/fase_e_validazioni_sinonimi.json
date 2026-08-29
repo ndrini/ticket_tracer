@@ -1,0 +1,693 @@
+{
+  "cluster_58": {
+    "cluster": 58,
+    "elements": [
+      "pza alvocat extra cal fruit\u00f3s",
+      "alivocat extra cal fruit\u00f3s",
+      "alvocat extra cal fruit\u00f3s",
+      "alvocat extra cal fruitde",
+      "alvocat extra calfruit\u00f3s",
+      "blvocat extra cal frut\u00e9s",
+      "wocat extra cal fruitos"
+    ],
+    "suggested_canonical": "pza alvocat extra cal fruit\u00f3s",
+    "decision": "MERGE_A_PZA ALVOCAT EXTRA CAL FRUIT\u00d3S",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_40": {
+    "cluster": 40,
+    "elements": [
+      "toinaquet verd extra",
+      "tornaquet verd extra",
+      "tomaquet verd extra",
+      "tom\u00e0quet verd extra"
+    ],
+    "suggested_canonical": "toinaquet verd extra",
+    "decision": "MERGE_A_TOINAQUET VERD EXTRA",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_1": {
+    "cluster": 1,
+    "elements": [
+      "fotal",
+      "total",
+      "otal"
+    ],
+    "suggested_canonical": "fotal",
+    "decision": "SKIP",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_2": {
+    "cluster": 2,
+    "elements": [
+      "subtotale",
+      "subtotal",
+      "suototal"
+    ],
+    "suggested_canonical": "subtotale",
+    "decision": "SKIP",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_4": {
+    "cluster": 4,
+    "elements": [
+      "cigr\u00d3 m.cuit",
+      "cigro m.cuit",
+      "cigr\u00d3 cuit"
+    ],
+    "suggested_canonical": "cigr\u00d3 m.cuit",
+    "decision": "MERGE_A_CIGR\u00d3 M.CUIT",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_6": {
+    "cluster": 6,
+    "elements": [
+      "pl\u00e0tan banana",
+      "platan banana",
+      "platan banane"
+    ],
+    "suggested_canonical": "pl\u00e0tan banana",
+    "decision": "MERGE_A_PL\u00c0TAN BANANA",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_8": {
+    "cluster": 8,
+    "elements": [
+      "cogombre 1,146",
+      "cogombre 1,296",
+      "ogombre 1,162"
+    ],
+    "suggested_canonical": "cogombre 1,146",
+    "decision": "SKIP",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_14": {
+    "cluster": 14,
+    "elements": [
+      "nectarina extra",
+      "dectarina extra",
+      "nactarna extra"
+    ],
+    "suggested_canonical": "nectarina extra",
+    "decision": "MERGE_A_NECTARINA EXTRA",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_23": {
+    "cluster": 23,
+    "elements": [
+      "kg net x 11.49/kg",
+      "kg net x 1.95/kg",
+      "kg net x 8.49/kg"
+    ],
+    "suggested_canonical": "kg net x 11.49/kg",
+    "decision": "SKIP",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_26": {
+    "cluster": 26,
+    "elements": [
+      "tomaquet triturat ex",
+      "tomaquet triturat ve",
+      "tomaquet triturat"
+    ],
+    "suggested_canonical": "tomaquet triturat ex",
+    "decision": "MERGE_A_TOMAQUET TRITURAT EX",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_30": {
+    "cluster": 30,
+    "elements": [
+      "mozzar.ratll.consum",
+      "mozzar.ratll gonsum",
+      "mozzar.ratll.cons"
+    ],
+    "suggested_canonical": "mozzar.ratll.consum",
+    "decision": "MERGE_A_MOZZAR.RATLL.CONSUM",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_34": {
+    "cluster": 34,
+    "elements": [
+      "tomaqu.trit.cons800",
+      "tomaqu.trit.cons400",
+      "tomaqu.trit.cons8o"
+    ],
+    "suggested_canonical": "tomaqu.trit.cons800",
+    "decision": "SKIP",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_52": {
+    "cluster": 52,
+    "elements": [
+      "br\u00f2coli de proximitat",
+      "brocoli de proximitat",
+      "rocoli de proximitat"
+    ],
+    "suggested_canonical": "br\u00f2coli de proximitat",
+    "decision": "MERGE_A_BR\u00d2COLI DE PROXIMITAT",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_56": {
+    "cluster": 56,
+    "elements": [
+      "melo extra cal fruitde",
+      "mel\u00f3 extra cal fruit\u00f3s",
+      "mol\u00f3 extra cal fruit\u00f3s"
+    ],
+    "suggested_canonical": "melo extra cal fruitde",
+    "decision": "MERGE_A_MELO EXTRA CAL FRUITDE",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_61": {
+    "cluster": 61,
+    "elements": [
+      "poma fuji extra cal fruit\u00f3s",
+      "poma fuji extra cal fruitas",
+      "poma fuji extra cat fruit\u00f3s"
+    ],
+    "suggested_canonical": "poma fuji extra cal fruit\u00f3s",
+    "decision": "MERGE_A_POMA FUJI EXTRA CAL FRUIT\u00d3S",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_3": {
+    "cluster": 3,
+    "elements": [
+      "col-i-flor",
+      "ol-i-flor"
+    ],
+    "suggested_canonical": "col-i-flor",
+    "decision": "MERGE_A_COL-I-FLOR",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_5": {
+    "cluster": 5,
+    "elements": [
+      "fonoll 1,022",
+      "fonoll 1,228"
+    ],
+    "suggested_canonical": "fonoll 1,022",
+    "decision": "MERGE_A_FONOLL 1,022",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_7": {
+    "cluster": 7,
+    "elements": [
+      "impor te engeur:\u2014",
+      "importe eneur"
+    ],
+    "suggested_canonical": "impor te engeur:\u2014",
+    "decision": "MERGE_A_IMPOR TE ENGEUR:\u2014",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_9": {
+    "cluster": 9,
+    "elements": [
+      "ca q.rallado moz",
+      "q.rallado moz"
+    ],
+    "suggested_canonical": "ca q.rallado moz",
+    "decision": "MERGE_A_CA Q.RALLADO MOZ",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_10": {
+    "cluster": 10,
+    "elements": [
+      "carbass\u00f3 extra",
+      "carbasso extra"
+    ],
+    "suggested_canonical": "carbass\u00f3 extra",
+    "decision": "MERGE_A_CARBASS\u00d3 EXTRA",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_11": {
+    "cluster": 11,
+    "elements": [
+      "h20 bar refill",
+      "h20 bar retill"
+    ],
+    "suggested_canonical": "h20 bar refill",
+    "decision": "MERGE_A_H20 BAR REFILL",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_12": {
+    "cluster": 12,
+    "elements": [
+      "iogurt natural x 6",
+      "iogurt natural"
+    ],
+    "suggested_canonical": "iogurt natural x 6",
+    "decision": "MERGE_A_IOGURT NATURAL X 6",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_13": {
+    "cluster": 13,
+    "elements": [
+      "cogombre 1,002",
+      "cogombre 1,228"
+    ],
+    "suggested_canonical": "cogombre 1,002",
+    "decision": "SKIP",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_15": {
+    "cluster": 15,
+    "elements": [
+      "t otal subtotal",
+      "total suttotal"
+    ],
+    "suggested_canonical": "t otal subtotal",
+    "decision": "SKIP",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_16": {
+    "cluster": 16,
+    "elements": [
+      "pastanaga granel",
+      "astanaga granel"
+    ],
+    "suggested_canonical": "pastanaga granel",
+    "decision": "MERGE_A_PASTANAGA GRANEL",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_17": {
+    "cluster": 17,
+    "elements": [
+      "coctel olivaria",
+      "c\u00d2ctel olivaria"
+    ],
+    "suggested_canonical": "coctel olivaria",
+    "decision": "MERGE_A_COCTEL OLIVARIA",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_18": {
+    "cluster": 18,
+    "elements": [
+      "deterg. colonia",
+      "deterg. col\u00d2nia"
+    ],
+    "suggested_canonical": "deterg. colonia",
+    "decision": "MERGE_A_DETERG. COLONIA",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_19": {
+    "cluster": 19,
+    "elements": [
+      "pebrot piquillo pot",
+      "pebrot piquillo"
+    ],
+    "suggested_canonical": "pebrot piquillo pot",
+    "decision": "MERGE_A_PEBROT PIQUILLO POT",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_20": {
+    "cluster": 20,
+    "elements": [
+      "s\u00c9samo/ajonjcli",
+      "s\u00c9samo/ajonjoli"
+    ],
+    "suggested_canonical": "s\u00c9samo/ajonjcli",
+    "decision": "MERGE_A_S\u00c9SAMO/AJONJCLI",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_21": {
+    "cluster": 21,
+    "elements": [
+      "pane fascia 1 4%",
+      "pane fascia 2 4%"
+    ],
+    "suggested_canonical": "pane fascia 1 4%",
+    "decision": "MERGE_A_PANE FASCIA 1 4%",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_22": {
+    "cluster": 22,
+    "elements": [
+      "alberginia 1,168",
+      "alberginia 1,396"
+    ],
+    "suggested_canonical": "alberginia 1,168",
+    "decision": "SKIP",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_24": {
+    "cluster": 24,
+    "elements": [
+      "sarten touch 20c",
+      "sarten touch 26c"
+    ],
+    "suggested_canonical": "sarten touch 20c",
+    "decision": "MERGE_A_SARTEN TOUCH 20C",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_25": {
+    "cluster": 25,
+    "elements": [
+      "blat de moro cuit",
+      "uat de moro cuit"
+    ],
+    "suggested_canonical": "blat de moro cuit",
+    "decision": "MERGE_A_BLAT DE MORO CUIT",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_27": {
+    "cluster": 27,
+    "elements": [
+      "f.mozzarella fresca",
+      "mozzarella fresca"
+    ],
+    "suggested_canonical": "f.mozzarella fresca",
+    "decision": "MERGE_A_F.MOZZARELLA FRESCA",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_28": {
+    "cluster": 28,
+    "elements": [
+      "coctel mix consum",
+      "c\u00d2ctel mix consum"
+    ],
+    "suggested_canonical": "coctel mix consum",
+    "decision": "MERGE_A_COCTEL MIX CONSUM",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_29": {
+    "cluster": 29,
+    "elements": [
+      "kiwi green zespri",
+      "kiwi green zespr\u0131"
+    ],
+    "suggested_canonical": "kiwi green zespri",
+    "decision": "MERGE_A_KIWI GREEN ZESPRI",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_31": {
+    "cluster": 31,
+    "elements": [
+      "samarreta-0483123",
+      "samarreta-0483145"
+    ],
+    "suggested_canonical": "samarreta-0483123",
+    "decision": "SKIP",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_32": {
+    "cluster": 32,
+    "elements": [
+      "iogurt amb fruites",
+      "idgurt amb fruites"
+    ],
+    "suggested_canonical": "iogurt amb fruites",
+    "decision": "MERGE_A_IOGURT AMB FRUITES",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_33": {
+    "cluster": 33,
+    "elements": [
+      "llet sen.consum 1l",
+      "llet sen.consum tl"
+    ],
+    "suggested_canonical": "llet sen.consum 1l",
+    "decision": "MERGE_A_LLET SEN.CONSUM 1L",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_35": {
+    "cluster": 35,
+    "elements": [
+      "truita fres. a/ceba",
+      "truita fres.s/ceba"
+    ],
+    "suggested_canonical": "truita fres. a/ceba",
+    "decision": "MERGE_A_TRUITA FRES. A/CEBA",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_36": {
+    "cluster": 36,
+    "elements": [
+      "panet 100% integral",
+      "panet 1o0n integral"
+    ],
+    "suggested_canonical": "panet 100% integral",
+    "decision": "SKIP",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_37": {
+    "cluster": 37,
+    "elements": [
+      "floc integ o% sucre",
+      "floc integ 0% sucre"
+    ],
+    "suggested_canonical": "floc integ o% sucre",
+    "decision": "MERGE_A_FLOC INTEG O% SUCRE",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_38": {
+    "cluster": 38,
+    "elements": [
+      "tom\u00e0quet pera extra",
+      "tomaquet pora extra"
+    ],
+    "suggested_canonical": "tom\u00e0quet pera extra",
+    "decision": "MERGE_A_TOM\u00c0QUET PERA EXTRA",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_39": {
+    "cluster": 39,
+    "elements": [
+      "mini fuets campofrio",
+      "mini fuet campofrio"
+    ],
+    "suggested_canonical": "mini fuets campofrio",
+    "decision": "MERGE_A_MINI FUETS CAMPOFRIO",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_41": {
+    "cluster": 41,
+    "elements": [
+      "tonyi.cl.consum p-6",
+      "tonyi.oli.consum p6"
+    ],
+    "suggested_canonical": "tonyi.cl.consum p-6",
+    "decision": "SKIP",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_42": {
+    "cluster": 42,
+    "elements": [
+      "formatge ratllat piz",
+      "fornatge ratllat piz"
+    ],
+    "suggested_canonical": "formatge ratllat piz",
+    "decision": "MERGE_A_FORMATGE RATLLAT PIZ",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_43": {
+    "cluster": 43,
+    "elements": [
+      "formatge brie porci\u00d3",
+      "formatge brie porcio"
+    ],
+    "suggested_canonical": "formatge brie porci\u00d3",
+    "decision": "MERGE_A_FORMATGE BRIE PORCI\u00d3",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_44": {
+    "cluster": 44,
+    "elements": [
+      "mortadel-la italiana",
+      "mortadel\u00b7la italiana"
+    ],
+    "suggested_canonical": "mortadel-la italiana",
+    "decision": "MERGE_A_MORTADEL-LA ITALIANA",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_45": {
+    "cluster": 45,
+    "elements": [
+      "ravioli mat\u00d3 espinac",
+      "ravioli mato espinac"
+    ],
+    "suggested_canonical": "ravioli mat\u00d3 espinac",
+    "decision": "MERGE_A_RAVIOLI MAT\u00d3 ESPINAC",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_46": {
+    "cluster": 46,
+    "elements": [
+      "caf\u00c9 g.aroma natural",
+      "cafe g.aroma natural"
+    ],
+    "suggested_canonical": "caf\u00c9 g.aroma natural",
+    "decision": "MERGE_A_CAF\u00c9 G.AROMA NATURAL",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_47": {
+    "cluster": 47,
+    "elements": [
+      "ous ecol-gics bonpre",
+      "ous ecolegics bonpre"
+    ],
+    "suggested_canonical": "ous ecol-gics bonpre",
+    "decision": "MERGE_A_OUS ECOL-GICS BONPRE",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_48": {
+    "cluster": 48,
+    "elements": [
+      "blat de moro dol\u00c7 ve",
+      "blat de moro dolc ve"
+    ],
+    "suggested_canonical": "blat de moro dol\u00c7 ve",
+    "decision": "MERGE_A_BLAT DE MORO DOL\u00c7 VE",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_49": {
+    "cluster": 49,
+    "elements": [
+      "higi\u00c8nic doble rotll",
+      "higienic doble rotll"
+    ],
+    "suggested_canonical": "higi\u00c8nic doble rotll",
+    "decision": "MERGE_A_HIGI\u00c8NIC DOBLE ROTLL",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_50": {
+    "cluster": 50,
+    "elements": [
+      "cabdell safala extra",
+      "cabdell safata estra"
+    ],
+    "suggested_canonical": "cabdell safala extra",
+    "decision": "MERGE_A_CABDELL SAFALA EXTRA",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_51": {
+    "cluster": 51,
+    "elements": [
+      "formatge brie france rsre",
+      "formatge brie france"
+    ],
+    "suggested_canonical": "formatge brie france rsre",
+    "decision": "MERGE_A_FORMATGE BRIE FRANCE RSRE",
+    "automatic": false,
+    "approved_by": "auto"
+  },
+  "cluster_53": {
+    "cluster": 53,
+    "elements": [
+      "poina royal gala extra",
+      "poma royal gala extra"
+    ],
+    "suggested_canonical": "poina royal gala extra",
+    "decision": "MERGE_A_POINA ROYAL GALA EXTRA",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_54": {
+    "cluster": 54,
+    "elements": [
+      "pr. cotto nostrano 10%",
+      "pr.cotto nostrano 10%"
+    ],
+    "suggested_canonical": "pr. cotto nostrano 10%",
+    "decision": "MERGE_A_PR. COTTO NOSTRANO 10%",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_55": {
+    "cluster": 55,
+    "elements": [
+      "biffi pest0100%veg 10%",
+      "biffi pesto100%veg 10%"
+    ],
+    "suggested_canonical": "biffi pest0100%veg 10%",
+    "decision": "MERGE_A_BIFFI PEST0100%VEG 10%",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_57": {
+    "cluster": 57,
+    "elements": [
+      "pr\u00e9ssec paraguaia extra",
+      "pr\u00e9ssec paraguai\u00e0 extra"
+    ],
+    "suggested_canonical": "pr\u00e9ssec paraguaia extra",
+    "decision": "MERGE_A_PR\u00c9SSEC PARAGUAIA EXTRA",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_59": {
+    "cluster": 59,
+    "elements": [
+      "s\u00edndria ratllada cal fruit\u00f3s",
+      "ndria ratllada cal fruitos"
+    ],
+    "suggested_canonical": "s\u00edndria ratllada cal fruit\u00f3s",
+    "decision": "MERGE_A_S\u00cdNDRIA RATLLADA CAL FRUIT\u00d3S",
+    "automatic": true,
+    "approved_by": "auto"
+  },
+  "cluster_60": {
+    "cluster": 60,
+    "elements": [
+      "taronje promocis cal fruit\u00f3s",
+      "ronja promocio cal fruitos"
+    ],
+    "suggested_canonical": "taronje promocis cal fruit\u00f3s",
+    "decision": "MERGE_A_TARONJE PROMOCIS CAL FRUIT\u00d3S",
+    "automatic": false,
+    "approved_by": "auto"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "sha256": "a8f67486876f6a5fccb2738ebff86e10d89ecbf33855a85474b540f62e5ff6a6",
+  "foto_origine": "2025-07-11 18.36.08.jpg",
+  "shop_name": "VENE\u00c7UELA",
+  "date": "2022-04-14",
+  "total": 10.4,
+  "items": [
+    {
+      "name": "OUS XOCOLATA GRAN",
+      "price": 10.4,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 10.4,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

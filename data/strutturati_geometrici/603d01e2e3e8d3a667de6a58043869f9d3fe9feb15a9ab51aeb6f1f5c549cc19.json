@@ -1,0 +1,23 @@
+{
+  "sha256": "603d01e2e3e8d3a667de6a58043869f9d3fe9feb15a9ab51aeb6f1f5c549cc19",
+  "foto_origine": "2025-04-28 17.13.34.jpg",
+  "shop_name": "Manolo Bakes",
+  "date": null,
+  "total": 2.0,
+  "items": [
+    {
+      "name": "Espresso Machiatto",
+      "price": 2.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Leche Entera",
+      "price": 0.0,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 2.0,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

@@ -1,0 +1,28 @@
+{
+  "sha256": "317c6d07a8b78a518aec60a093e0fba0013b76fa9a2e8e498f08b0d864b056ae",
+  "foto_origine": "2025-02-20 07.52.49.jpg",
+  "shop_name": "NINA BURGERS & COCKTAILS",
+  "date": null,
+  "total": 14.6,
+  "items": [
+    {
+      "name": "HEINEKEN 0'0 @",
+      "price": 2.4,
+      "name_quality": "complete"
+    },
+    {
+      "name": "VICHY @",
+      "price": 3.3,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CHEESEBURGER @",
+      "price": 8.9,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 14.6,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

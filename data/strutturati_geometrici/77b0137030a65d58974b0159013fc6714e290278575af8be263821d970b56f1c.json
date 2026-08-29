@@ -1,0 +1,18 @@
+{
+  "sha256": "77b0137030a65d58974b0159013fc6714e290278575af8be263821d970b56f1c",
+  "foto_origine": "2025-07-11 18.31.34.jpg",
+  "shop_name": "Ying Tiger",
+  "date": null,
+  "total": 3.0,
+  "items": [
+    {
+      "name": "BANDA DE RESISTENCT",
+      "price": 3.0,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 3.0,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

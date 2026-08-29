@@ -1,0 +1,123 @@
+{
+  "sha256": "dc7b0275ba012e7edbb5d0783c009ddebb1e5edb356ce44cbba1b8a0dd93b8a4",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "SCOTTONA-BOU.AD. HAMBURGER 10,0%",
+      "price": 3.75,
+      "name_quality": "fused"
+    },
+    {
+      "name": "%",
+      "price": 1.89,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "%",
+      "price": 1.75,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "SLX YOGURT FRUTTA ASS. 125X8",
+      "price": 2.99,
+      "name_quality": "complete"
+    },
+    {
+      "name": "M.B.SETTEMBRINI GR.300 10,0%",
+      "price": 2.59,
+      "name_quality": "complete"
+    },
+    {
+      "name": "NODI E NODINI DELIZIOSA 4,0%",
+      "price": 6.07,
+      "name_quality": "complete"
+    },
+    {
+      "name": "SLX TONICA LIMONE LT.1 22,0%",
+      "price": 0.9,
+      "name_quality": "complete"
+    },
+    {
+      "name": "NIVEA KIDS PeC SPRAY 50+ ML270 22,0%",
+      "price": 12.9,
+      "name_quality": "fused"
+    },
+    {
+      "name": "SCOTTONA-BOV.AD. HAMBURGER 10,0%",
+      "price": 3.72,
+      "name_quality": "fused"
+    },
+    {
+      "name": "RICOTTINA MONTRONELLA",
+      "price": 1.31,
+      "name_quality": "complete"
+    },
+    {
+      "name": "NETTARINE GIALLE KG 1 4,0%",
+      "price": 2.69,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LIBRI 3.90 NS",
+      "price": 3.9,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FAGIOLINI BOBIS 4,0%",
+      "price": 1.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BUSTA ECOLOGICA 22,0%",
+      "price": 0.02,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LEOCREMA FLUIDA NUTRIENTE M250 22,0%",
+      "price": 2.99,
+      "name_quality": "fused"
+    },
+    {
+      "name": "ZUCCHINE",
+      "price": 1.05,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BUSTA ECOLOGICA 22,0%",
+      "price": 0.02,
+      "name_quality": "complete"
+    },
+    {
+      "name": "SLX SALE MARINO IODATO FINO K1 22,0%",
+      "price": 0.55,
+      "name_quality": "fused"
+    },
+    {
+      "name": "ZESPRI KIWI GREEN 4,0%",
+      "price": 3.36,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BUSTA ECOLOGICA 22,0%",
+      "price": 0.02,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FINOCCHIO 4,0%",
+      "price": 2.37,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BUSTA ECOLOGICA 22,0%",
+      "price": 0.02,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 56.84,
+  "scarto": null,
+  "elaborato_il": null
+}

@@ -1,0 +1,18 @@
+{
+  "sha256": "19effe1a1ae09a15c91cb888141a81b1cbd73191a29ccc1126f454d239a9e0b8",
+  "foto_origine": "2025-09-06 10.40.50.jpg",
+  "shop_name": "LIDL",
+  "date": "2025-07-31",
+  "total": 1.85,
+  "items": [
+    {
+      "name": "Total ENTREGA",
+      "price": 12.99,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_ECCESSO",
+  "somma_prodotti": 12.99,
+  "scarto": 11.14,
+  "elaborato_il": null
+}

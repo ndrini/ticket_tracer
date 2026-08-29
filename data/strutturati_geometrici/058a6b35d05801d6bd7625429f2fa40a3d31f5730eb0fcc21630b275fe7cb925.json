@@ -1,0 +1,28 @@
+{
+  "sha256": "058a6b35d05801d6bd7625429f2fa40a3d31f5730eb0fcc21630b275fe7cb925",
+  "foto_origine": "2025-02-20 07.55.56.jpg",
+  "shop_name": "Cal",
+  "date": "2025-01-13",
+  "total": 6.19,
+  "items": [
+    {
+      "name": "",
+      "price": 3.56,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "Bossa de Nansa Pl\u00e0stic Cal Fruit\u00f3s",
+      "price": 0.15,
+      "name_quality": "fused"
+    },
+    {
+      "name": "",
+      "price": 2.48,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 6.19,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

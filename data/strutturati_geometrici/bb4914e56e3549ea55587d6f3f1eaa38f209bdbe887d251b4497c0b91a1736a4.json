@@ -1,0 +1,73 @@
+{
+  "sha256": "bb4914e56e3549ea55587d6f3f1eaa38f209bdbe887d251b4497c0b91a1736a4",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "GOLOSINAS MINI MIX",
+      "price": 2.3,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BARRA DE PA 3 U 1 GOLOSINAS MINI MIX",
+      "price": 1.6,
+      "name_quality": "fused"
+    },
+    {
+      "name": "LLOM EMBOTIT 4 P 2 AMANIDA QUATRE ESTAC",
+      "price": 1.72,
+      "name_quality": "fused"
+    },
+    {
+      "name": "PANET 11 UN 1 LLOM EMBOTIT 4 P",
+      "price": 2.3,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PANET 11 UN 1 PERNIL LLAUNA TALLS",
+      "price": 1.14,
+      "name_quality": "fused"
+    },
+    {
+      "name": "IOGURT CABRA",
+      "price": 2.08,
+      "name_quality": "complete"
+    },
+    {
+      "name": "NYOQUIS DE PATATA",
+      "price": 2.08,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MORTADEL\u00b7LA ITALIANA",
+      "price": 1.75,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PASTANAGA BOSSA",
+      "price": 1.1,
+      "name_quality": "complete"
+    },
+    {
+      "name": "GUACAMOLE",
+      "price": 3.85,
+      "name_quality": "complete"
+    },
+    {
+      "name": "kg 1,75 \u20ac/kg",
+      "price": 1.91,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "kg 1,89 \u20ac/kg",
+      "price": 1.5,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 23.33,
+  "scarto": null,
+  "elaborato_il": null
+}

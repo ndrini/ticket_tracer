@@ -1,0 +1,83 @@
+{
+  "sha256": "858cfe70df8713a58336414fdf0b39c81c672657a28b5d4c804f99a461adf887",
+  "foto_origine": "2025-06-03 09.14.48.jpg",
+  "shop_name": "Gelateria Venezia",
+  "date": "2025-05-24",
+  "total": 1.98,
+  "items": [
+    {
+      "name": "PANET 11 UN 1 GELAT VAINILLA",
+      "price": 2.4,
+      "name_quality": "complete"
+    },
+    {
+      "name": "IOGURT CABRA",
+      "price": 2.28,
+      "name_quality": "complete"
+    },
+    {
+      "name": "IOGURT CABRA 1 PERNIL CUIT BRASEJAT",
+      "price": 2.1,
+      "name_quality": "fused"
+    },
+    {
+      "name": "FORMATGE RATLLAT PIZ 1 PERNIL CUIT BRASEJAT",
+      "price": 2.25,
+      "name_quality": "fused"
+    },
+    {
+      "name": "IOGURT AMB FRUITES 1 FORMATGE RATLLAT PIZ",
+      "price": 1.62,
+      "name_quality": "fused"
+    },
+    {
+      "name": "IOGURT AMB FRUITES",
+      "price": 2.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "NYOQUIS DE PATATA 1 PRESERVATIU ON NATUR",
+      "price": 2.93,
+      "name_quality": "fused"
+    },
+    {
+      "name": "GUANT RESI.LLEIXIU G",
+      "price": 1.95,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PERNIL S. EXTRA FI",
+      "price": 2.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PESOLS",
+      "price": 0.9,
+      "name_quality": "complete"
+    },
+    {
+      "name": "AMANIDA QUATRE ESTAC",
+      "price": 0.69,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CIGR\u00d3 M.CUIT",
+      "price": 0.75,
+      "name_quality": "complete"
+    },
+    {
+      "name": "kg 1,99 \u20ac/kg",
+      "price": 1.92,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "kg 3,69 \u20ac/kg",
+      "price": 3.3,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "SOMMA_IN_ECCESSO",
+  "somma_prodotti": 27.44,
+  "scarto": 25.46,
+  "elaborato_il": null
+}

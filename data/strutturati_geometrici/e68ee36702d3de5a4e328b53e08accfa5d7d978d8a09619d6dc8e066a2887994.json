@@ -1,0 +1,18 @@
+{
+  "sha256": "e68ee36702d3de5a4e328b53e08accfa5d7d978d8a09619d6dc8e066a2887994",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "Fageda 350g",
+      "price": 3.89,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 3.89,
+  "scarto": null,
+  "elaborato_il": null
+}

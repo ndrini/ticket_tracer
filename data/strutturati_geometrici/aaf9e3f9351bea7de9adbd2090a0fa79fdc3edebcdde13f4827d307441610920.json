@@ -1,0 +1,18 @@
+{
+  "sha256": "aaf9e3f9351bea7de9adbd2090a0fa79fdc3edebcdde13f4827d307441610920",
+  "foto_origine": "2025-07-11 18.39.10.jpg",
+  "shop_name": "FERRETERIA BENAVIDES",
+  "date": "2025-06-06",
+  "total": 3.5,
+  "items": [
+    {
+      "name": "%",
+      "price": 3.5,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 3.5,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

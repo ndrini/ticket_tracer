@@ -1,0 +1,18 @@
+{
+  "sha256": "9202888cf3f6c15d548bd9ddd34885eadd9ebedf903970ccf70107df0a238855",
+  "foto_origine": "2025-07-11 18.33.15.jpg",
+  "shop_name": "LiDL",
+  "date": null,
+  "total": 1.08,
+  "items": [
+    {
+      "name": "fotal",
+      "price": 1.08,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 1.08,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

@@ -1,0 +1,33 @@
+{
+  "sha256": "7231640dc41f4cd03e04e34cb5c0482f96498d8b9d56d01d4b8ae8381e726a90",
+  "foto_origine": "2025-03-15 10.32.34.jpg",
+  "shop_name": "Av Alfon V El Magn\u00e0nim 5/7",
+  "date": "2025-02-22",
+  "total": 12.62,
+  "items": [
+    {
+      "name": "AMP\u00da SUAU I LLIS PA",
+      "price": 3.99,
+      "name_quality": "complete"
+    },
+    {
+      "name": "OUS ECOLOGICS DIA",
+      "price": 2.65,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TRUITA FUMADA MARI M",
+      "price": 3.69,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ARROS INFLAT XOC GRA",
+      "price": 2.29,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 12.62,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

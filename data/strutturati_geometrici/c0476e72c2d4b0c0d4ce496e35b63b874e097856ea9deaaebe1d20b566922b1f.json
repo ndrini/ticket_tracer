@@ -1,0 +1,58 @@
+{
+  "sha256": "c0476e72c2d4b0c0d4ce496e35b63b874e097856ea9deaaebe1d20b566922b1f",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "BANANE SFUSE 4%",
+      "price": 1.49,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PR.COTTO NOSTRANO 10%",
+      "price": 4.79,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PR. COTTO NOSTRANO 10%",
+      "price": 4.79,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FRESCO CREMOSO CAPRA 4%",
+      "price": 1.45,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BIFFI PEST0100%VEG 10%",
+      "price": 2.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BIFFI PESTO100%VEG 10%",
+      "price": 2.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MELE RED DEL 4%",
+      "price": 1.52,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PANE FASCIA 1 4%",
+      "price": 1.18,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PANE FASCIA 2 4%",
+      "price": 1.37,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 21.29,
+  "scarto": null,
+  "elaborato_il": null
+}

@@ -1,0 +1,48 @@
+{
+  "sha256": "152cf78ab94f74c2c2568c32cf51150ec53617a7d15b8ae7a3d0a0f91e451643",
+  "foto_origine": "2025-07-11 18.34.52.jpg",
+  "shop_name": "Overmatt N Campana",
+  "date": "2022-04-13",
+  "total": 52.0,
+  "items": [
+    {
+      "name": "",
+      "price": 4.0,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 8.0,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.0,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 1.5,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 20.0,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "Art/ EA 39151700",
+      "price": 1.5,
+      "name_quality": "complete"
+    },
+    {
+      "name": "",
+      "price": 15.0,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 52.0,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

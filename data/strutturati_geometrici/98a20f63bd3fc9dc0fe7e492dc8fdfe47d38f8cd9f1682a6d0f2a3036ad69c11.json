@@ -1,0 +1,18 @@
+{
+  "sha256": "98a20f63bd3fc9dc0fe7e492dc8fdfe47d38f8cd9f1682a6d0f2a3036ad69c11",
+  "foto_origine": "2025-07-11 18.35.37.jpg",
+  "shop_name": "Alicia Bertha Garcia Gallardo",
+  "date": null,
+  "total": 16.4,
+  "items": [
+    {
+      "name": "HUEVOS ROTOS",
+      "price": 10.5,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 10.5,
+  "scarto": -5.9,
+  "elaborato_il": null
+}

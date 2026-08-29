@@ -1,0 +1,18 @@
+{
+  "sha256": "208d9929bbe95a67e3de8e6fc6367a4e6a495e59e33ae2ce360e0f86800913a8",
+  "foto_origine": "2025-06-03 09.17.32.jpg",
+  "shop_name": "ABLOY",
+  "date": "2025-05-22",
+  "total": 16.5,
+  "items": [
+    {
+      "name": "",
+      "price": 16.5,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 16.5,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

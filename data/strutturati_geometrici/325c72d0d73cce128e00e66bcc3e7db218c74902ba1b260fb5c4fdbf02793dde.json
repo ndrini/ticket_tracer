@@ -1,0 +1,18 @@
+{
+  "sha256": "325c72d0d73cce128e00e66bcc3e7db218c74902ba1b260fb5c4fdbf02793dde",
+  "foto_origine": "2025-09-06 10.43.15.jpg",
+  "shop_name": "DECATHLON",
+  "date": "2025-08-03",
+  "total": 6.99,
+  "items": [
+    {
+      "name": "Ref::5356933 RFID: 000000023425 PINK Tal",
+      "price": -6.99,
+      "name_quality": "fused"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": -6.99,
+  "scarto": -13.98,
+  "elaborato_il": null
+}

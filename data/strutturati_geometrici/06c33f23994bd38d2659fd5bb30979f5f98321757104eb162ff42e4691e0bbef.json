@@ -1,0 +1,148 @@
+{
+  "sha256": "06c33f23994bd38d2659fd5bb30979f5f98321757104eb162ff42e4691e0bbef",
+  "foto_origine": "2025-06-26 10.27.40.jpg",
+  "shop_name": "CCCUS",
+  "date": null,
+  "total": 539.49,
+  "items": [
+    {
+      "name": "",
+      "price": 0.6,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 3.16,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 1.69,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 1.79,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 0.79,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.99,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 0.9,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 3.49,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 3.49,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.29,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 1.6,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 5.88,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 1.0,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.63,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.19,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 1.28,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.14,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.0,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.99,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 0.6,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 3.75,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 0.99,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 0.08,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 48.32,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.91,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 48.32,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 48.32,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 196.19,
+  "scarto": -343.3,
+  "elaborato_il": null
+}

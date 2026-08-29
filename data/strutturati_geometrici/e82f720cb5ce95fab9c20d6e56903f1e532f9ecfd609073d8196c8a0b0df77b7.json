@@ -1,0 +1,103 @@
+{
+  "sha256": "e82f720cb5ce95fab9c20d6e56903f1e532f9ecfd609073d8196c8a0b0df77b7",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "Carbass\u00f3 Extra",
+      "price": 1.93,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Carbassa Violina",
+      "price": 1.81,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Alberginia 0,978",
+      "price": 0.96,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Pastanaga Granel",
+      "price": 2.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Fonoll 1,022",
+      "price": 2.53,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Poina Royal Gala Extra",
+      "price": 3.54,
+      "name_quality": "complete"
+    },
+    {
+      "name": "",
+      "price": 2.55,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "Cogombre 1,146",
+      "price": 2.27,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Col",
+      "price": 1.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "",
+      "price": 3.01,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 3.03,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "Bossa Mix Amanides 200g Cal Fruit\u00f3s",
+      "price": 2.85,
+      "name_quality": "fused"
+    },
+    {
+      "name": "",
+      "price": 1.45,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "Carbassa Violina",
+      "price": 1.02,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Dus Ecol\u00f2gics \"M/L\" 1/2 Dotzena Viubio",
+      "price": 2.75,
+      "name_quality": "fused"
+    },
+    {
+      "name": "Ous Ecologics \"M/L\" 1/2 Dotzena Viubio",
+      "price": 2.75,
+      "name_quality": "fused"
+    },
+    {
+      "name": "Lientia Pardina Seca Llegums Safata 300g",
+      "price": 1.45,
+      "name_quality": "fused"
+    },
+    {
+      "name": "Gerds Safata 125g",
+      "price": 3.0,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 40.25,
+  "scarto": null,
+  "elaborato_il": null
+}

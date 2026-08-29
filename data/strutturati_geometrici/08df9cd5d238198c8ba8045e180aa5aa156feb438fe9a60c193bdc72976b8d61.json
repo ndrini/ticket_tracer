@@ -1,0 +1,18 @@
+{
+  "sha256": "08df9cd5d238198c8ba8045e180aa5aa156feb438fe9a60c193bdc72976b8d61",
+  "foto_origine": "2025-09-06 10.44.14.jpg",
+  "shop_name": "Juntos es cooperativa",
+  "date": "2025-08-13",
+  "total": 1.72,
+  "items": [
+    {
+      "name": "ESTAC.CONSUM 250",
+      "price": 1.72,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 1.72,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

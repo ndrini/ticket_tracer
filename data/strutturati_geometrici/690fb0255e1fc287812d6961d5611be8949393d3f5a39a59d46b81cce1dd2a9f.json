@@ -1,0 +1,38 @@
+{
+  "sha256": "690fb0255e1fc287812d6961d5611be8949393d3f5a39a59d46b81cce1dd2a9f",
+  "foto_origine": "2025-04-28 17.11.14.jpg",
+  "shop_name": "MERCADONA",
+  "date": "2025-04-17",
+  "total": 2.63,
+  "items": [
+    {
+      "name": "PERNIL S. EXTRA FI",
+      "price": 2.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FILET VERAT OLIVA P2",
+      "price": 1.95,
+      "name_quality": "complete"
+    },
+    {
+      "name": "AMANIDA QUATRE ESTAC",
+      "price": 0.69,
+      "name_quality": "complete"
+    },
+    {
+      "name": "NYOQUIS DE PATATA",
+      "price": 1.04,
+      "name_quality": "complete"
+    },
+    {
+      "name": "RAVIOLI MAT\u00d3 ESPINAC",
+      "price": 1.8,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_ECCESSO",
+  "somma_prodotti": 7.83,
+  "scarto": 5.2,
+  "elaborato_il": null
+}

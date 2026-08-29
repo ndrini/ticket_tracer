@@ -1,0 +1,63 @@
+{
+  "sha256": "111da6969519e262add259ce02da8b489173aeef6f9a36af5914026db166dd5d",
+  "foto_origine": "2025-04-10 19.22.50.jpg",
+  "shop_name": "Mortadel\u00e0 Italiana",
+  "date": "2025-04-08",
+  "total": 20.32,
+  "items": [
+    {
+      "name": "BARRA DE PA 3 U 1 MORTADEL\u00b7LA ITALIANA",
+      "price": 1.75,
+      "name_quality": "fused"
+    },
+    {
+      "name": "MOCADOR CAPSA 1 BARRA DE PA 3 U",
+      "price": 1.19,
+      "name_quality": "fused"
+    },
+    {
+      "name": "PANET 11 UN 3 MOCADOR CAPSA",
+      "price": 3.75,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PANET 11 UN",
+      "price": 1.14,
+      "name_quality": "complete"
+    },
+    {
+      "name": "AMANIDA QUATRE ESTAC",
+      "price": 1.72,
+      "name_quality": "complete"
+    },
+    {
+      "name": "DENTIFRICI HERBAL",
+      "price": 1.1,
+      "name_quality": "complete"
+    },
+    {
+      "name": "DESODORANT BOLA ALOE",
+      "price": 0.85,
+      "name_quality": "complete"
+    },
+    {
+      "name": "GUACAMOLE",
+      "price": 3.95,
+      "name_quality": "complete"
+    },
+    {
+      "name": "kg 1,89 \u20ac/kg",
+      "price": 3.35,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "kg 2,30 \u20ac/kg",
+      "price": 1.52,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 20.32,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

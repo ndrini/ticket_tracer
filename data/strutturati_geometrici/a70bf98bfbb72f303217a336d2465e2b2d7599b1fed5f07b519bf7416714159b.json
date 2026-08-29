@@ -1,0 +1,18 @@
+{
+  "sha256": "a70bf98bfbb72f303217a336d2465e2b2d7599b1fed5f07b519bf7416714159b",
+  "foto_origine": "2025-02-14 14.58.52.jpg",
+  "shop_name": "TENTO FORUM PANFERMASA",
+  "date": "2025-02-14",
+  "total": 13.45,
+  "items": [
+    {
+      "name": "",
+      "price": 13.45,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 13.45,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

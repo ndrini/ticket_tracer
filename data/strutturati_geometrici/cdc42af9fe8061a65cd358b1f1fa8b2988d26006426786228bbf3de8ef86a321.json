@@ -1,0 +1,18 @@
+{
+  "sha256": "cdc42af9fe8061a65cd358b1f1fa8b2988d26006426786228bbf3de8ef86a321",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "",
+      "price": 1.21,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 1.21,
+  "scarto": null,
+  "elaborato_il": null
+}

@@ -1,0 +1,701 @@
+{
+  "metadata": {
+    "total_clusters": 648,
+    "multi_element_clusters": 61,
+    "source": "data/fase_e_1_catalogo_grezzo.json",
+    "phase": "E.2 \u2014 Cluster di sinonimi"
+  },
+  "clusters": [
+    {
+      "id": 58,
+      "elements": [
+        "pza alvocat extra cal fruit\u00f3s",
+        "alivocat extra cal fruit\u00f3s",
+        "alvocat extra cal fruit\u00f3s",
+        "alvocat extra cal fruitde",
+        "alvocat extra calfruit\u00f3s",
+        "blvocat extra cal frut\u00e9s",
+        "wocat extra cal fruitos"
+      ],
+      "suggested_canonical": "pza alvocat extra cal fruit\u00f3s",
+      "min_similarity": 0.8076923076923077,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 40,
+      "elements": [
+        "toinaquet verd extra",
+        "tornaquet verd extra",
+        "tomaquet verd extra",
+        "tom\u00e0quet verd extra"
+      ],
+      "suggested_canonical": "toinaquet verd extra",
+      "min_similarity": 0.8717948717948718,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 1,
+      "elements": [
+        "fotal",
+        "total",
+        "otal"
+      ],
+      "suggested_canonical": "fotal",
+      "min_similarity": 0.8,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 2,
+      "elements": [
+        "subtotale",
+        "subtotal",
+        "suototal"
+      ],
+      "suggested_canonical": "subtotale",
+      "min_similarity": 0.8235294117647058,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 4,
+      "elements": [
+        "cigr\u00d3 m.cuit",
+        "cigro m.cuit",
+        "cigr\u00d3 cuit"
+      ],
+      "suggested_canonical": "cigr\u00d3 m.cuit",
+      "min_similarity": 0.8181818181818182,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 6,
+      "elements": [
+        "pl\u00e0tan banana",
+        "platan banana",
+        "platan banane"
+      ],
+      "suggested_canonical": "pl\u00e0tan banana",
+      "min_similarity": 0.8461538461538461,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 8,
+      "elements": [
+        "cogombre 1,146",
+        "cogombre 1,296",
+        "ogombre 1,162"
+      ],
+      "suggested_canonical": "cogombre 1,146",
+      "min_similarity": 0.8148148148148148,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 14,
+      "elements": [
+        "nectarina extra",
+        "dectarina extra",
+        "nactarna extra"
+      ],
+      "suggested_canonical": "nectarina extra",
+      "min_similarity": 0.8275862068965517,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 23,
+      "elements": [
+        "kg net x 11.49/kg",
+        "kg net x 1.95/kg",
+        "kg net x 8.49/kg"
+      ],
+      "suggested_canonical": "kg net x 11.49/kg",
+      "min_similarity": 0.875,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 26,
+      "elements": [
+        "tomaquet triturat ex",
+        "tomaquet triturat ve",
+        "tomaquet triturat"
+      ],
+      "suggested_canonical": "tomaquet triturat ex",
+      "min_similarity": 0.918918918918919,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 30,
+      "elements": [
+        "mozzar.ratll.consum",
+        "mozzar.ratll gonsum",
+        "mozzar.ratll.cons"
+      ],
+      "suggested_canonical": "mozzar.ratll.consum",
+      "min_similarity": 0.8333333333333334,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 34,
+      "elements": [
+        "tomaqu.trit.cons800",
+        "tomaqu.trit.cons400",
+        "tomaqu.trit.cons8o"
+      ],
+      "suggested_canonical": "tomaqu.trit.cons800",
+      "min_similarity": 0.8648648648648649,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 52,
+      "elements": [
+        "br\u00f2coli de proximitat",
+        "brocoli de proximitat",
+        "rocoli de proximitat"
+      ],
+      "suggested_canonical": "br\u00f2coli de proximitat",
+      "min_similarity": 0.926829268292683,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 56,
+      "elements": [
+        "melo extra cal fruitde",
+        "mel\u00f3 extra cal fruit\u00f3s",
+        "mol\u00f3 extra cal fruit\u00f3s"
+      ],
+      "suggested_canonical": "melo extra cal fruitde",
+      "min_similarity": 0.8181818181818182,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 61,
+      "elements": [
+        "poma fuji extra cal fruit\u00f3s",
+        "poma fuji extra cal fruitas",
+        "poma fuji extra cat fruit\u00f3s"
+      ],
+      "suggested_canonical": "poma fuji extra cal fruit\u00f3s",
+      "min_similarity": 0.9259259259259259,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 3,
+      "elements": [
+        "col-i-flor",
+        "ol-i-flor"
+      ],
+      "suggested_canonical": "col-i-flor",
+      "min_similarity": 0.9473684210526315,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 5,
+      "elements": [
+        "fonoll 1,022",
+        "fonoll 1,228"
+      ],
+      "suggested_canonical": "fonoll 1,022",
+      "min_similarity": 0.9166666666666666,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 7,
+      "elements": [
+        "impor te engeur:\u2014",
+        "importe eneur"
+      ],
+      "suggested_canonical": "impor te engeur:\u2014",
+      "min_similarity": 0.8666666666666667,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 9,
+      "elements": [
+        "ca q.rallado moz",
+        "q.rallado moz"
+      ],
+      "suggested_canonical": "ca q.rallado moz",
+      "min_similarity": 0.896551724137931,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 10,
+      "elements": [
+        "carbass\u00f3 extra",
+        "carbasso extra"
+      ],
+      "suggested_canonical": "carbass\u00f3 extra",
+      "min_similarity": 0.9285714285714286,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 11,
+      "elements": [
+        "h20 bar refill",
+        "h20 bar retill"
+      ],
+      "suggested_canonical": "h20 bar refill",
+      "min_similarity": 0.9285714285714286,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 12,
+      "elements": [
+        "iogurt natural x 6",
+        "iogurt natural"
+      ],
+      "suggested_canonical": "iogurt natural x 6",
+      "min_similarity": 0.875,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 13,
+      "elements": [
+        "cogombre 1,002",
+        "cogombre 1,228"
+      ],
+      "suggested_canonical": "cogombre 1,002",
+      "min_similarity": 0.8571428571428571,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 15,
+      "elements": [
+        "t otal subtotal",
+        "total suttotal"
+      ],
+      "suggested_canonical": "t otal subtotal",
+      "min_similarity": 0.896551724137931,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 16,
+      "elements": [
+        "pastanaga granel",
+        "astanaga granel"
+      ],
+      "suggested_canonical": "pastanaga granel",
+      "min_similarity": 0.967741935483871,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 17,
+      "elements": [
+        "coctel olivaria",
+        "c\u00d2ctel olivaria"
+      ],
+      "suggested_canonical": "coctel olivaria",
+      "min_similarity": 0.9333333333333333,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 18,
+      "elements": [
+        "deterg. colonia",
+        "deterg. col\u00d2nia"
+      ],
+      "suggested_canonical": "deterg. colonia",
+      "min_similarity": 0.9333333333333333,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 19,
+      "elements": [
+        "pebrot piquillo pot",
+        "pebrot piquillo"
+      ],
+      "suggested_canonical": "pebrot piquillo pot",
+      "min_similarity": 0.8823529411764706,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 20,
+      "elements": [
+        "s\u00c9samo/ajonjcli",
+        "s\u00c9samo/ajonjoli"
+      ],
+      "suggested_canonical": "s\u00c9samo/ajonjcli",
+      "min_similarity": 0.9333333333333333,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 21,
+      "elements": [
+        "pane fascia 1 4%",
+        "pane fascia 2 4%"
+      ],
+      "suggested_canonical": "pane fascia 1 4%",
+      "min_similarity": 0.9375,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 22,
+      "elements": [
+        "alberginia 1,168",
+        "alberginia 1,396"
+      ],
+      "suggested_canonical": "alberginia 1,168",
+      "min_similarity": 0.875,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 24,
+      "elements": [
+        "sarten touch 20c",
+        "sarten touch 26c"
+      ],
+      "suggested_canonical": "sarten touch 20c",
+      "min_similarity": 0.9375,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 25,
+      "elements": [
+        "blat de moro cuit",
+        "uat de moro cuit"
+      ],
+      "suggested_canonical": "blat de moro cuit",
+      "min_similarity": 0.9090909090909091,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 27,
+      "elements": [
+        "f.mozzarella fresca",
+        "mozzarella fresca"
+      ],
+      "suggested_canonical": "f.mozzarella fresca",
+      "min_similarity": 0.9444444444444444,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 28,
+      "elements": [
+        "coctel mix consum",
+        "c\u00d2ctel mix consum"
+      ],
+      "suggested_canonical": "coctel mix consum",
+      "min_similarity": 0.9411764705882353,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 29,
+      "elements": [
+        "kiwi green zespri",
+        "kiwi green zespr\u0131"
+      ],
+      "suggested_canonical": "kiwi green zespri",
+      "min_similarity": 0.9411764705882353,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 31,
+      "elements": [
+        "samarreta-0483123",
+        "samarreta-0483145"
+      ],
+      "suggested_canonical": "samarreta-0483123",
+      "min_similarity": 0.8823529411764706,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 32,
+      "elements": [
+        "iogurt amb fruites",
+        "idgurt amb fruites"
+      ],
+      "suggested_canonical": "iogurt amb fruites",
+      "min_similarity": 0.9444444444444444,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 33,
+      "elements": [
+        "llet sen.consum 1l",
+        "llet sen.consum tl"
+      ],
+      "suggested_canonical": "llet sen.consum 1l",
+      "min_similarity": 0.9444444444444444,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 35,
+      "elements": [
+        "truita fres. a/ceba",
+        "truita fres.s/ceba"
+      ],
+      "suggested_canonical": "truita fres. a/ceba",
+      "min_similarity": 0.918918918918919,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 36,
+      "elements": [
+        "panet 100% integral",
+        "panet 1o0n integral"
+      ],
+      "suggested_canonical": "panet 100% integral",
+      "min_similarity": 0.8947368421052632,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 37,
+      "elements": [
+        "floc integ o% sucre",
+        "floc integ 0% sucre"
+      ],
+      "suggested_canonical": "floc integ o% sucre",
+      "min_similarity": 0.9473684210526315,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 38,
+      "elements": [
+        "tom\u00e0quet pera extra",
+        "tomaquet pora extra"
+      ],
+      "suggested_canonical": "tom\u00e0quet pera extra",
+      "min_similarity": 0.8947368421052632,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 39,
+      "elements": [
+        "mini fuets campofrio",
+        "mini fuet campofrio"
+      ],
+      "suggested_canonical": "mini fuets campofrio",
+      "min_similarity": 0.9743589743589743,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 41,
+      "elements": [
+        "tonyi.cl.consum p-6",
+        "tonyi.oli.consum p6"
+      ],
+      "suggested_canonical": "tonyi.cl.consum p-6",
+      "min_similarity": 0.8947368421052632,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 42,
+      "elements": [
+        "formatge ratllat piz",
+        "fornatge ratllat piz"
+      ],
+      "suggested_canonical": "formatge ratllat piz",
+      "min_similarity": 0.95,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 43,
+      "elements": [
+        "formatge brie porci\u00d3",
+        "formatge brie porcio"
+      ],
+      "suggested_canonical": "formatge brie porci\u00d3",
+      "min_similarity": 0.95,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 44,
+      "elements": [
+        "mortadel-la italiana",
+        "mortadel\u00b7la italiana"
+      ],
+      "suggested_canonical": "mortadel-la italiana",
+      "min_similarity": 0.95,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 45,
+      "elements": [
+        "ravioli mat\u00d3 espinac",
+        "ravioli mato espinac"
+      ],
+      "suggested_canonical": "ravioli mat\u00d3 espinac",
+      "min_similarity": 0.95,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 46,
+      "elements": [
+        "caf\u00c9 g.aroma natural",
+        "cafe g.aroma natural"
+      ],
+      "suggested_canonical": "caf\u00c9 g.aroma natural",
+      "min_similarity": 0.95,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 47,
+      "elements": [
+        "ous ecol-gics bonpre",
+        "ous ecolegics bonpre"
+      ],
+      "suggested_canonical": "ous ecol-gics bonpre",
+      "min_similarity": 0.95,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 48,
+      "elements": [
+        "blat de moro dol\u00c7 ve",
+        "blat de moro dolc ve"
+      ],
+      "suggested_canonical": "blat de moro dol\u00c7 ve",
+      "min_similarity": 0.95,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 49,
+      "elements": [
+        "higi\u00c8nic doble rotll",
+        "higienic doble rotll"
+      ],
+      "suggested_canonical": "higi\u00c8nic doble rotll",
+      "min_similarity": 0.95,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 50,
+      "elements": [
+        "cabdell safala extra",
+        "cabdell safata estra"
+      ],
+      "suggested_canonical": "cabdell safala extra",
+      "min_similarity": 0.9,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 51,
+      "elements": [
+        "formatge brie france rsre",
+        "formatge brie france"
+      ],
+      "suggested_canonical": "formatge brie france rsre",
+      "min_similarity": 0.8888888888888888,
+      "automatic": false,
+      "decision": "REVIEW"
+    },
+    {
+      "id": 53,
+      "elements": [
+        "poina royal gala extra",
+        "poma royal gala extra"
+      ],
+      "suggested_canonical": "poina royal gala extra",
+      "min_similarity": 0.9302325581395349,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 54,
+      "elements": [
+        "pr. cotto nostrano 10%",
+        "pr.cotto nostrano 10%"
+      ],
+      "suggested_canonical": "pr. cotto nostrano 10%",
+      "min_similarity": 0.9767441860465116,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 55,
+      "elements": [
+        "biffi pest0100%veg 10%",
+        "biffi pesto100%veg 10%"
+      ],
+      "suggested_canonical": "biffi pest0100%veg 10%",
+      "min_similarity": 0.9545454545454546,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 57,
+      "elements": [
+        "pr\u00e9ssec paraguaia extra",
+        "pr\u00e9ssec paraguai\u00e0 extra"
+      ],
+      "suggested_canonical": "pr\u00e9ssec paraguaia extra",
+      "min_similarity": 0.9565217391304348,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 59,
+      "elements": [
+        "s\u00edndria ratllada cal fruit\u00f3s",
+        "ndria ratllada cal fruitos"
+      ],
+      "suggested_canonical": "s\u00edndria ratllada cal fruit\u00f3s",
+      "min_similarity": 0.9259259259259259,
+      "automatic": true,
+      "decision": "MERGE"
+    },
+    {
+      "id": 60,
+      "elements": [
+        "taronje promocis cal fruit\u00f3s",
+        "ronja promocio cal fruitos"
+      ],
+      "suggested_canonical": "taronje promocis cal fruit\u00f3s",
+      "min_similarity": 0.8518518518518519,
+      "automatic": false,
+      "decision": "REVIEW"
+    }
+  ]
+}

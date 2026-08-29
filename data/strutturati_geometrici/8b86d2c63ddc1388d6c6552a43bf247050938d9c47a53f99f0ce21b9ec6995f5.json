@@ -1,0 +1,28 @@
+{
+  "sha256": "8b86d2c63ddc1388d6c6552a43bf247050938d9c47a53f99f0ce21b9ec6995f5",
+  "foto_origine": "2025-07-11 18.36.08.jpg",
+  "shop_name": "Bos",
+  "date": "2022-04-28",
+  "total": 8.7,
+  "items": [
+    {
+      "name": "GUACAMOLE",
+      "price": 3.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CEREALS SOLUBLES",
+      "price": 3.6,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CRACKERS 30% INTEG",
+      "price": 1.75,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 8.7,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

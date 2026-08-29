@@ -1,0 +1,18 @@
+{
+  "sha256": "71d25519d71db3b817707c5a7a5a41db5127eba69e55814240a275f77c699ef2",
+  "foto_origine": "2025-09-06 10.44.58.jpg",
+  "shop_name": "Fenebcc",
+  "date": null,
+  "total": 9.75,
+  "items": [
+    {
+      "name": "fenebcc",
+      "price": 15.5,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_ECCESSO",
+  "somma_prodotti": 15.5,
+  "scarto": 5.75,
+  "elaborato_il": null
+}

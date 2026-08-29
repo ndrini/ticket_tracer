@@ -1,0 +1,18 @@
+{
+  "sha256": "e94327d170426716c6d38fd36fe136cfe0e9d01029ae542959d6ab3f7e745bab",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "W VESTIDO",
+      "price": -25.0,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": -25.0,
+  "scarto": null,
+  "elaborato_il": null
+}

@@ -1,0 +1,18 @@
+{
+  "sha256": "1d66c22f9174df916966e7dedd39743cbd3de36b90007ff3da1dd86421734f53",
+  "foto_origine": "2025-07-11 18.18.33.jpg",
+  "shop_name": "H&M",
+  "date": "2025-03-15",
+  "total": 8.99,
+  "items": [
+    {
+      "name": "Subtotal",
+      "price": 8.99,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 8.99,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

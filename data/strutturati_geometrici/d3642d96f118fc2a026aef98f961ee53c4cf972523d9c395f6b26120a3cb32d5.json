@@ -1,0 +1,83 @@
+{
+  "sha256": "d3642d96f118fc2a026aef98f961ee53c4cf972523d9c395f6b26120a3cb32d5",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "AMANIDA QUATRE ESTAC",
+      "price": 0.86,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LINGUINE",
+      "price": 1.6,
+      "name_quality": "complete"
+    },
+    {
+      "name": "B. MINI PAPERERA",
+      "price": 1.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ANTIARNES ESP. BOSSA",
+      "price": 1.2,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE RATLLAT PIZ",
+      "price": 1.62,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TORTELLONI CARN",
+      "price": 1.8,
+      "name_quality": "complete"
+    },
+    {
+      "name": "OLIVA S/PINYOL PAQ-3",
+      "price": 1.65,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ESTALVI GOT",
+      "price": 1.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "NYOQUIS DE PATATA",
+      "price": 1.04,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE BRIE PORCIO",
+      "price": 1.75,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PRESSEC EN ALMIVAR",
+      "price": 2.05,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CEREALS SOLUBLES",
+      "price": 2.15,
+      "name_quality": "complete"
+    },
+    {
+      "name": "RASPALL PAQUET 3 DUR",
+      "price": 1.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE ARZUA",
+      "price": 6.97,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 26.39,
+  "scarto": null,
+  "elaborato_il": null
+}

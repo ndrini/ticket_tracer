@@ -1,0 +1,18 @@
+{
+  "sha256": "8260e4f5bf364cc4bf17746c52ff0d00a3ce4914503ac7e59ca3efdd04f5349c",
+  "foto_origine": "2025-09-06 10.46.11.jpg",
+  "shop_name": "nea",
+  "date": null,
+  "total": 37.14,
+  "items": [
+    {
+      "name": "",
+      "price": 37.14,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 37.14,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

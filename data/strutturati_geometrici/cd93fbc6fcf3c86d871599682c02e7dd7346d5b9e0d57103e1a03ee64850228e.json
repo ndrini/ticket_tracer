@@ -1,0 +1,43 @@
+{
+  "sha256": "cd93fbc6fcf3c86d871599682c02e7dd7346d5b9e0d57103e1a03ee64850228e",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "PA MOTLLE 2 P.CUIT EXTRA 150GR INTEGRAL",
+      "price": 1.59,
+      "name_quality": "fused"
+    },
+    {
+      "name": "P.CUIT EXTRA 150GR 1 FORM.UNTAR S.MILLAN",
+      "price": 4.0,
+      "name_quality": "fused"
+    },
+    {
+      "name": "FORM.UNTAR S.MILLAN",
+      "price": 2.15,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ALPRO NABIU-F.VERMX",
+      "price": 2.59,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ESPAR.EX.CONSUM 5/8",
+      "price": 3.05,
+      "name_quality": "complete"
+    },
+    {
+      "name": "T.XO.BL.F.VE.BIC184",
+      "price": 2.99,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 16.37,
+  "scarto": null,
+  "elaborato_il": null
+}

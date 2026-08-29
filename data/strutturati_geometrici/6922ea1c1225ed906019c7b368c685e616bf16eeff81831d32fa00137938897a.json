@@ -1,0 +1,18 @@
+{
+  "sha256": "6922ea1c1225ed906019c7b368c685e616bf16eeff81831d32fa00137938897a",
+  "foto_origine": "2025-07-26 08.00.38.jpg",
+  "shop_name": "RUME SUPERMETCATS, SL",
+  "date": "2025-07-25",
+  "total": -2.58,
+  "items": [
+    {
+      "name": "COM CLAS.NIT KYREY",
+      "price": -1.29,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_ECCESSO",
+  "somma_prodotti": -1.29,
+  "scarto": 1.29,
+  "elaborato_il": null
+}

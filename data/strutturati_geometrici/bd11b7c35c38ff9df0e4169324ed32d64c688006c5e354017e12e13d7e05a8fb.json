@@ -1,0 +1,38 @@
+{
+  "sha256": "bd11b7c35c38ff9df0e4169324ed32d64c688006c5e354017e12e13d7e05a8fb",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "POMA ROYAL GALA 2 TOMAQU.TRIT.CONS400",
+      "price": 1.63,
+      "name_quality": "fused"
+    },
+    {
+      "name": "FARINA BLAT CONSUM 2 TOMAQU.TRIT.CONS400",
+      "price": 1.3,
+      "name_quality": "fused"
+    },
+    {
+      "name": "FARINA BLAT CONSUM",
+      "price": 0.72,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LLET SEN.CONSUM 1L",
+      "price": 5.82,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LLET FRESCA SENCERA",
+      "price": 1.15,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 10.62,
+  "scarto": null,
+  "elaborato_il": null
+}

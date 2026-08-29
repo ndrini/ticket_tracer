@@ -1,0 +1,83 @@
+{
+  "sha256": "fe703977bb3e22b5536bb81a2d5879c0af6c6bd2183074454283e6f3d311fd58",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "MONGETA PLANA IK CO",
+      "price": 0.86,
+      "name_quality": "complete"
+    },
+    {
+      "name": "F.GRANA PADANO 180",
+      "price": 1.5,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PUNTA BRIE 200GR",
+      "price": 3.06,
+      "name_quality": "complete"
+    },
+    {
+      "name": "F.FRESC P-2 CONSUM",
+      "price": 1.75,
+      "name_quality": "complete"
+    },
+    {
+      "name": "F.FRESC P-2 CONSUM 3 F.MOZZARELLA FRESCA",
+      "price": 1.98,
+      "name_quality": "fused"
+    },
+    {
+      "name": "F.MOZZARELLA FRESCA 2 MOZZAR.RATLL.CONSUM",
+      "price": 2.91,
+      "name_quality": "fused"
+    },
+    {
+      "name": "MOZZAR.RATLL.CONSUM 1 VARITA LLU\u00c7 EMP420G",
+      "price": 3.3,
+      "name_quality": "fused"
+    },
+    {
+      "name": "VARITA LLU\u00c7 EMP420G 1 SALMOREJO 1L CONSUM",
+      "price": 3.49,
+      "name_quality": "fused"
+    },
+    {
+      "name": "POSTRES SOIA NABIU 1 SALMOREJO 1L CONSUM",
+      "price": 2.2,
+      "name_quality": "fused"
+    },
+    {
+      "name": "POSTRES SOIA NABIU 1 MACARRO INT.CONSUM",
+      "price": 3.98,
+      "name_quality": "fused"
+    },
+    {
+      "name": "MACARRO INT.CONSUM 1 ESPAGUETI CONS.500",
+      "price": 1.21,
+      "name_quality": "fused"
+    },
+    {
+      "name": "ESPAGUETI CONS.500 1 TALLARINES CONS.500",
+      "price": 0.8,
+      "name_quality": "fused"
+    },
+    {
+      "name": "TALLARINES CONS.500 1 XAROP ATZAVARA WASS",
+      "price": 0.8,
+      "name_quality": "fused"
+    },
+    {
+      "name": "AROP ATZAVARA WASS",
+      "price": 2.7,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 30.54,
+  "scarto": null,
+  "elaborato_il": null
+}

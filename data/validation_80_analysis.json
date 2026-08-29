@@ -1,0 +1,325 @@
+{
+  "summary": {
+    "timestamp": 1788008436.9935246,
+    "sample_size": 80,
+    "accuracy_mean": 0.7489713324976813,
+    "accuracy_std": 0.028974742943188195,
+    "accuracy_min": 0.7,
+    "accuracy_max": 0.82,
+    "accuracy_moe": 0.05485859851788559,
+    "accuracy_ci": [
+      0.6941127339797958,
+      0.8038299310155669
+    ],
+    "hallucination_rate": 2.083333333333333,
+    "confidence_mean": 0.7547038783631026,
+    "confidence_std": 0.06188232988438846,
+    "geometric_baseline": 0.58,
+    "improvement": 0.16897133249768137,
+    "decision": "\u2705 LLaVA COMPETITIVE - Hybrid recommended"
+  },
+  "complexity_stats": {
+    "simple": {
+      "count": 30,
+      "accuracy_mean": 0.7507367913479553,
+      "accuracy_std": 0.014760598071717155
+    },
+    "normal": {
+      "count": 50,
+      "accuracy_mean": 0.7479120571875169,
+      "accuracy_std": 0.01735040772450336
+    },
+    "complex": {
+      "count": 0,
+      "accuracy_mean": null,
+      "accuracy_std": null
+    }
+  },
+  "store_stats": {
+    "MERCADUNA": {
+      "count": 8,
+      "accuracy_mean": 0.7410643427346315,
+      "accuracy_std": 0.015848138837504442
+    },
+    "MERCADONA": {
+      "count": 7,
+      "accuracy_mean": 0.7559976494204629,
+      "accuracy_std": 0.017757425835435412
+    },
+    "Juntos es cooperativa": {
+      "count": 6,
+      "accuracy_mean": 0.7568777190127244,
+      "accuracy_std": 0.014105531274002556
+    },
+    "RUME SUPERMETCATS, SL": {
+      "count": 4,
+      "accuracy_mean": 0.7378930841136976,
+      "accuracy_std": 0.011046003241881732
+    },
+    "Fruit\u00f3s": {
+      "count": 3,
+      "accuracy_mean": 0.7417956242313019,
+      "accuracy_std": 0.017893821611435396
+    },
+    "VENE\u00c7UELA": {
+      "count": 2,
+      "accuracy_mean": 0.7559319924087995,
+      "accuracy_std": 0.0014465132531942815
+    },
+    "Cal": {
+      "count": 2,
+      "accuracy_mean": 0.7697008067092896,
+      "accuracy_std": 0.01658326850665015
+    },
+    "Unitats Concepte Preu unitari": {
+      "count": 1,
+      "accuracy_mean": 0.7554512812762256,
+      "accuracy_std": 0.0
+    },
+    "Higien Doble Rotll": {
+      "count": 1,
+      "accuracy_mean": 0.7402599919218941,
+      "accuracy_std": 0.0
+    },
+    "Roaluna": {
+      "count": 1,
+      "accuracy_mean": 0.7264405934306772,
+      "accuracy_std": 0.0
+    },
+    "Overmatt N Campana": {
+      "count": 1,
+      "accuracy_mean": 0.7420067094623874,
+      "accuracy_std": 0.0
+    },
+    "Mercantina Vegicano": {
+      "count": 1,
+      "accuracy_mean": 0.7405785291526751,
+      "accuracy_std": 0.0
+    },
+    "Supermarch\u00e9 Caduna": {
+      "count": 1,
+      "accuracy_mean": 0.7517978509469838,
+      "accuracy_std": 0.0
+    },
+    "CADUNA, S.A": {
+      "count": 1,
+      "accuracy_mean": 0.7645236422371625,
+      "accuracy_std": 0.0
+    },
+    "BONPREU": {
+      "count": 1,
+      "accuracy_mean": 0.7405704531107556,
+      "accuracy_std": 0.0
+    },
+    "Carrefour": {
+      "count": 1,
+      "accuracy_mean": 0.7295785415368236,
+      "accuracy_std": 0.0
+    },
+    "NINA BURGERS & COCKTAILS": {
+      "count": 1,
+      "accuracy_mean": 0.7279513464042511,
+      "accuracy_std": 0.0
+    },
+    "Gelateria Venezia": {
+      "count": 1,
+      "accuracy_mean": 0.7548495772745211,
+      "accuracy_std": 0.0
+    },
+    "RUNDA SANT PERE": {
+      "count": 1,
+      "accuracy_mean": 0.7561284286632027,
+      "accuracy_std": 0.0
+    },
+    "ALCAMPO DIAGONAL MAR": {
+      "count": 1,
+      "accuracy_mean": 0.756730170811723,
+      "accuracy_std": 0.0
+    },
+    "IperCoop Bari Japigia": {
+      "count": 1,
+      "accuracy_mean": 0.7574180495698709,
+      "accuracy_std": 0.0
+    },
+    "C/VENE\u00c7UELA": {
+      "count": 1,
+      "accuracy_mean": 0.7137840694864419,
+      "accuracy_std": 0.0
+    },
+    "BAGUET": {
+      "count": 1,
+      "accuracy_mean": 0.7451953301860693,
+      "accuracy_std": 0.0
+    },
+    "CRCADU\u00d1A": {
+      "count": 1,
+      "accuracy_mean": 0.7407632564078087,
+      "accuracy_std": 0.0
+    },
+    "CCCUS": {
+      "count": 1,
+      "accuracy_mean": 0.7546610088814537,
+      "accuracy_std": 0.0
+    },
+    "DECATHLON": {
+      "count": 1,
+      "accuracy_mean": 0.7539769954254179,
+      "accuracy_std": 0.0
+    },
+    "Maxi Gourmet": {
+      "count": 1,
+      "accuracy_mean": 0.7724598448091488,
+      "accuracy_std": 0.0
+    },
+    "Supermarcato La Provenza": {
+      "count": 1,
+      "accuracy_mean": 0.7353135235723126,
+      "accuracy_std": 0.0
+    },
+    "Hortaleza": {
+      "count": 1,
+      "accuracy_mean": 0.7732053160393676,
+      "accuracy_std": 0.0
+    },
+    "Beete1": {
+      "count": 1,
+      "accuracy_mean": 0.7528598782289309,
+      "accuracy_std": 0.0
+    },
+    "Ying Tiger": {
+      "count": 1,
+      "accuracy_mean": 0.7481434373967932,
+      "accuracy_std": 0.0
+    },
+    "CONSUM. S.COOP.V": {
+      "count": 1,
+      "accuracy_mean": 0.7601151079877528,
+      "accuracy_std": 0.0
+    },
+    "LASANYA TONYINA": {
+      "count": 1,
+      "accuracy_mean": 0.742731920424812,
+      "accuracy_std": 0.0
+    },
+    "NILDA DIAZ GONZALES": {
+      "count": 1,
+      "accuracy_mean": 0.7428813784178722,
+      "accuracy_std": 0.0
+    },
+    "BonArea (T561)": {
+      "count": 1,
+      "accuracy_mean": 0.7551218407979251,
+      "accuracy_std": 0.0
+    },
+    "neezn": {
+      "count": 1,
+      "accuracy_mean": 0.7449403788014992,
+      "accuracy_std": 0.0
+    },
+    "Mercadona": {
+      "count": 1,
+      "accuracy_mean": 0.7417640036304238,
+      "accuracy_std": 0.0
+    },
+    "Supermarco La Favorita": {
+      "count": 1,
+      "accuracy_mean": 0.7455285530098257,
+      "accuracy_std": 0.0
+    },
+    "Perla": {
+      "count": 1,
+      "accuracy_mean": 0.7659933587603295,
+      "accuracy_std": 0.0
+    },
+    "Actur": {
+      "count": 1,
+      "accuracy_mean": 0.7684748929380509,
+      "accuracy_std": 0.0
+    },
+    "Av Alfonso V Magnani": {
+      "count": 1,
+      "accuracy_mean": 0.7859717063784167,
+      "accuracy_std": 0.0
+    },
+    "DIAGONAL": {
+      "count": 1,
+      "accuracy_mean": 0.7558138403065925,
+      "accuracy_std": 0.0
+    },
+    "LIDL SUPERMERCADOS S.A.U": {
+      "count": 1,
+      "accuracy_mean": 0.741880947881535,
+      "accuracy_std": 0.0
+    },
+    "Panettiere Mat\u00f3": {
+      "count": 1,
+      "accuracy_mean": 0.7559535370678095,
+      "accuracy_std": 0.0
+    },
+    "MASTER DISTRIBUCION ALIMENTARIA": {
+      "count": 1,
+      "accuracy_mean": 0.7017179372007396,
+      "accuracy_std": 0.0
+    },
+    "GRUPU DIA": {
+      "count": 1,
+      "accuracy_mean": 0.7388803918330211,
+      "accuracy_std": 0.0
+    },
+    "Manolo Bakes": {
+      "count": 1,
+      "accuracy_mean": 0.7722715694085718,
+      "accuracy_std": 0.0
+    },
+    "CAMUNA, S.A": {
+      "count": 1,
+      "accuracy_mean": 0.7455632853777979,
+      "accuracy_std": 0.0
+    },
+    "Cae": {
+      "count": 1,
+      "accuracy_mean": 0.7583780628937792,
+      "accuracy_std": 0.0
+    },
+    "CONSUM S.COOP.V": {
+      "count": 1,
+      "accuracy_mean": 0.7402851067951642,
+      "accuracy_std": 0.0
+    },
+    "IKEA": {
+      "count": 1,
+      "accuracy_mean": 0.7389168309496782,
+      "accuracy_std": 0.0
+    },
+    "eMISFERO UNICOMM S.R.L": {
+      "count": 1,
+      "accuracy_mean": 0.7530597222286088,
+      "accuracy_std": 0.0
+    },
+    "Auto Shoping Center St Pere IV": {
+      "count": 1,
+      "accuracy_mean": 0.7228357684451955,
+      "accuracy_std": 0.0
+    },
+    "Pruitos": {
+      "count": 1,
+      "accuracy_mean": 0.7470593181409152,
+      "accuracy_std": 0.0
+    },
+    "Mortadel\u00e0 Italiana": {
+      "count": 1,
+      "accuracy_mean": 0.7669299046237779,
+      "accuracy_std": 0.0
+    }
+  },
+  "hallucination_distribution": {
+    "0": 75,
+    "1": 5,
+    "2": 0,
+    "3+": 0
+  },
+  "confidence_accuracy_correlation": 0.49632555423919417,
+  "decision_points": 4,
+  "final_decision": "\ud83d\udfe2 GO - Proceed to Week 2",
+  "recommendation": "LLaVA \u00e8 pronto per produzione. Implementa hybrid pipeline."
+}

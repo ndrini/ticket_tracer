@@ -1,0 +1,58 @@
+{
+  "sha256": "65b97134dcee5e7094d0f00e4ffa0bc0b3628255683c7d5164db6d65bb2603a2",
+  "foto_origine": "2025-07-11 18.39.52.jpg",
+  "shop_name": "RUME SUPERMETCATS, SL",
+  "date": "2025-06-06",
+  "total": 15.07,
+  "items": [
+    {
+      "name": "FOGASSA LLESCAD 510",
+      "price": 1.56,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BARRA R\u00daSTICA 245 G",
+      "price": 1.72,
+      "name_quality": "complete"
+    },
+    {
+      "name": "P. CURAT REDUIT SAL",
+      "price": 2.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PHILADE.NATURAL 200",
+      "price": 2.16,
+      "name_quality": "complete"
+    },
+    {
+      "name": "F.MOZZARELLA FRESCA",
+      "price": 1.94,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CEBET.VERME.CONSUM",
+      "price": 1.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ESPIRALS CONS.500G",
+      "price": 0.8,
+      "name_quality": "complete"
+    },
+    {
+      "name": "GAL .LACASITOS 120G",
+      "price": 1.99,
+      "name_quality": "complete"
+    },
+    {
+      "name": "NEULA GULLON 180G",
+      "price": 1.55,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 15.07,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

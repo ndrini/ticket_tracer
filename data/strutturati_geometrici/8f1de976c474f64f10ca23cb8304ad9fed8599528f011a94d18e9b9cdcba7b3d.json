@@ -1,0 +1,33 @@
+{
+  "sha256": "8f1de976c474f64f10ca23cb8304ad9fed8599528f011a94d18e9b9cdcba7b3d",
+  "foto_origine": "2025-04-28 17.15.58.jpg",
+  "shop_name": "Bar Tapas",
+  "date": "2025-04-24",
+  "total": null,
+  "items": [
+    {
+      "name": "Sin Alcohol",
+      "price": 5.5,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ParriLlada de verduras",
+      "price": 11.9,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Calamares",
+      "price": 12.9,
+      "name_quality": "complete"
+    },
+    {
+      "name": "pizza TONO",
+      "price": 10.8,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 41.1,
+  "scarto": null,
+  "elaborato_il": null
+}

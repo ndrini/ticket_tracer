@@ -1,0 +1,63 @@
+{
+  "sha256": "c9809181929340b2f8ba76e4f82013486d3d91bcdbf7af588d19d9027ed36a52",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "",
+      "price": 2.48,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 1.78,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 3.48,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.98,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.98,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.78,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.98,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 1.78,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 5.98,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 1.48,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 28.7,
+  "scarto": null,
+  "elaborato_il": null
+}

@@ -1,0 +1,18 @@
+{
+  "sha256": "5e2d9f1ef09cf8699d0266d75b237fac82ab6d67f0431fd89004978f2014cb69",
+  "foto_origine": "2025-07-11 18.45.32.jpg",
+  "shop_name": "IKEA Glories",
+  "date": "2025-07-07",
+  "total": 25.0,
+  "items": [
+    {
+      "name": "",
+      "price": 25.0,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 25.0,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

@@ -1,0 +1,18 @@
+{
+  "sha256": "c3ca91e1a6ae2df37971f845b9bea4387fb45028eb751d53cd3b0065b10257cd",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "Ref :2892407",
+      "price": -9.99,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": -9.99,
+  "scarto": null,
+  "elaborato_il": null
+}

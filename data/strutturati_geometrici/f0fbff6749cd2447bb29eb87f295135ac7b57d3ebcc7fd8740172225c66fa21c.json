@@ -1,0 +1,18 @@
+{
+  "sha256": "f0fbff6749cd2447bb29eb87f295135ac7b57d3ebcc7fd8740172225c66fa21c",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "AMANIDA 4 ESTACIONS",
+      "price": 0.83,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 0.83,
+  "scarto": null,
+  "elaborato_il": null
+}

@@ -1,0 +1,23 @@
+{
+  "sha256": "23f66cb1b68c40338712e04dc758864e7fdfd98bf7b2bede69422aacc1f34d92",
+  "foto_origine": "2025-05-12 11.40.34.jpg",
+  "shop_name": "Juntos es cooperativa",
+  "date": "2025-04-26",
+  "total": 3.52,
+  "items": [
+    {
+      "name": "MOZZAR.RATLL.CONSUM",
+      "price": 1.62,
+      "name_quality": "complete"
+    },
+    {
+      "name": "OUS DE CORRAL",
+      "price": 1.9,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 3.52,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

@@ -1,0 +1,98 @@
+{
+  "sha256": "652ba1682cd04f241235ea7f6c7d750aba90166f0553dc5e96d3e1c683e70d8c",
+  "foto_origine": "2025-07-26 08.01.55.jpg",
+  "shop_name": "MERCADUNA",
+  "date": "2025-07-24",
+  "total": 29.18,
+  "items": [
+    {
+      "name": "PASTIS NATA-XOCOLATA",
+      "price": 2.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MORTADEL\u00b7LA ITALIANA",
+      "price": 1.75,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORM. BURGOS NATURAL",
+      "price": 1.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MUESLI FRUITES 1 KG",
+      "price": 2.4,
+      "name_quality": "complete"
+    },
+    {
+      "name": "P.PESSIC AMB OU",
+      "price": 3.3,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LINGUINE",
+      "price": 1.6,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PATATES ONDULADES",
+      "price": 1.1,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PATATES LLISES",
+      "price": 1.1,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LLEUGERA BOCA ABAJO",
+      "price": 1.4,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MASCARPONE",
+      "price": 2.65,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CRISPETES SAL PACK 3",
+      "price": 1.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MINIDAUETS PERNIL",
+      "price": 2.65,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PRESSEC I RAIM 1L",
+      "price": 1.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "COCKTAIL GAL.SALADES",
+      "price": 1.65,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PINYA I RAIM",
+      "price": 1.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "NATA ESPRAI",
+      "price": 1.65,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TARONJA NORMAL",
+      "price": 0.95,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 29.18,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

@@ -1,0 +1,18 @@
+{
+  "sha256": "9baa2a31839ba0cdffcb49157d7dda0c83a8abddd3af452bda200744f7d4d796",
+  "foto_origine": "2025-05-12 11.42.20.jpg",
+  "shop_name": "DIAZ GONZALES FRITS",
+  "date": "2025-05-05",
+  "total": 11.0,
+  "items": [
+    {
+      "name": "ID:ES-31119-03-01906542-20250505-173013 *******||*+***+**|**********|*||*** 3,63 5.73 BASE DESGLOSSAMENTS DE L'IVA GRUPO DIA",
+      "price": 5.73,
+      "name_quality": "fused"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 5.73,
+  "scarto": -5.27,
+  "elaborato_il": null
+}

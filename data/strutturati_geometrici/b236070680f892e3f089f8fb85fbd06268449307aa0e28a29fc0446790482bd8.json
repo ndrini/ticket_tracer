@@ -1,0 +1,18 @@
+{
+  "sha256": "b236070680f892e3f089f8fb85fbd06268449307aa0e28a29fc0446790482bd8",
+  "foto_origine": "2025-07-16 09.20.11.jpg",
+  "shop_name": "Mercadona",
+  "date": "2025-07-15",
+  "total": 2.95,
+  "items": [
+    {
+      "name": "GELAT SANDVITX NATA",
+      "price": 1.85,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 1.85,
+  "scarto": -1.1,
+  "elaborato_il": null
+}

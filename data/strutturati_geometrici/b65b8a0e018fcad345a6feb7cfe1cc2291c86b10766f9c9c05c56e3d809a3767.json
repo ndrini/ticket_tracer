@@ -1,0 +1,38 @@
+{
+  "sha256": "b65b8a0e018fcad345a6feb7cfe1cc2291c86b10766f9c9c05c56e3d809a3767",
+  "foto_origine": "2025-07-11 18.31.34.jpg",
+  "shop_name": "CONSUM, S.COOP.V",
+  "date": "2022-04-12",
+  "total": 6.12,
+  "items": [
+    {
+      "name": "F.MOZZARELLA FRESCA",
+      "price": 1.8,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MOZZAR.RATLL.CONSUM",
+      "price": 1.9,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PEBROT PIQUILLO POT",
+      "price": 1.1,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PA MOTLLE CONSUM820",
+      "price": 1.25,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BOSSA COMPRA RECICL",
+      "price": 0.07,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 6.12,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

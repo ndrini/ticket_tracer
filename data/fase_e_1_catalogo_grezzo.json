@@ -1,0 +1,4383 @@
+{
+  "metadata": {
+    "total_canonical_names": 729,
+    "source": "receipt_lines where name_quality='complete' and extraction_method='geometric'",
+    "phase": "E.1 \u2014 Catalogo grezzo"
+  },
+  "catalogo": [
+    {
+      "id": 1,
+      "canonical_name": "amanida quatre estac",
+      "original_name": "AMANIDA QUATRE ESTAC",
+      "frequency": 45
+    },
+    {
+      "id": 2,
+      "canonical_name": "panet 11 un",
+      "original_name": "PANET 11 UN",
+      "frequency": 31
+    },
+    {
+      "id": 3,
+      "canonical_name": "guacamole",
+      "original_name": "GUACAMOLE",
+      "frequency": 25
+    },
+    {
+      "id": 4,
+      "canonical_name": "form. burgos natural",
+      "original_name": "FORM. BURGOS NATURAL",
+      "frequency": 19
+    },
+    {
+      "id": 5,
+      "canonical_name": "formatge ratllat piz",
+      "original_name": "FORMATGE RATLLAT PIZ",
+      "frequency": 19
+    },
+    {
+      "id": 6,
+      "canonical_name": "estac.consum 250",
+      "original_name": "ESTAC.CONSUM 250",
+      "frequency": 17
+    },
+    {
+      "id": 7,
+      "canonical_name": "iogurt cabra",
+      "original_name": "IOGURT CABRA",
+      "frequency": 17
+    },
+    {
+      "id": 8,
+      "canonical_name": "pernil s. extra fi",
+      "original_name": "PERNIL S. EXTRA FI",
+      "frequency": 13
+    },
+    {
+      "id": 9,
+      "canonical_name": "mozzar.ratll.consum",
+      "original_name": "MOZZAR.RATLL.CONSUM",
+      "frequency": 12
+    },
+    {
+      "id": 10,
+      "canonical_name": "barra de pa 3 u",
+      "original_name": "BARRA DE PA 3 U",
+      "frequency": 11
+    },
+    {
+      "id": 11,
+      "canonical_name": "chocodays",
+      "original_name": "CHOCODAYS",
+      "frequency": 10
+    },
+    {
+      "id": 12,
+      "canonical_name": "iogurt amb fruites",
+      "original_name": "IOGURT AMB FRUITES",
+      "frequency": 10
+    },
+    {
+      "id": 13,
+      "canonical_name": "llet sen.consum 1l",
+      "original_name": "LLET SEN.CONSUM 1L",
+      "frequency": 10
+    },
+    {
+      "id": 14,
+      "canonical_name": "nyoquis de patata",
+      "original_name": "NYOQUIS DE PATATA",
+      "frequency": 10
+    },
+    {
+      "id": 15,
+      "canonical_name": "panet 100% integral",
+      "original_name": "PANET 100% INTEGRAL",
+      "frequency": 10
+    },
+    {
+      "id": 16,
+      "canonical_name": "formatge brie porci\u00d3",
+      "original_name": "FORMATGE BRIE PORCI\u00d3",
+      "frequency": 9
+    },
+    {
+      "id": 17,
+      "canonical_name": "formatge semi",
+      "original_name": "FORMATGE SEMI",
+      "frequency": 9
+    },
+    {
+      "id": 18,
+      "canonical_name": "pernil cuit 92%",
+      "original_name": "PERNIL CUIT 92%",
+      "frequency": 8
+    },
+    {
+      "id": 19,
+      "canonical_name": "coques blat d moro",
+      "original_name": "COQUES BLAT D MORO",
+      "frequency": 7
+    },
+    {
+      "id": 20,
+      "canonical_name": "f.fresc p-2 consum",
+      "original_name": "F.FRESC P-2 CONSUM",
+      "frequency": 7
+    },
+    {
+      "id": 21,
+      "canonical_name": "mortadel-la italiana",
+      "original_name": "MORTADEL-LA ITALIANA",
+      "frequency": 7
+    },
+    {
+      "id": 22,
+      "canonical_name": "muesli fruites 1 kg",
+      "original_name": "MUESLI FRUITES 1 KG",
+      "frequency": 7
+    },
+    {
+      "id": 23,
+      "canonical_name": "pastanaga bossa",
+      "original_name": "PASTANAGA BOSSA",
+      "frequency": 7
+    },
+    {
+      "id": 24,
+      "canonical_name": "ravioli mat\u00d3 espinac",
+      "original_name": "RAVIOLI MAT\u00d3 ESPINAC",
+      "frequency": 7
+    },
+    {
+      "id": 25,
+      "canonical_name": "tall pit fi",
+      "original_name": "TALL PIT FI",
+      "frequency": 7
+    },
+    {
+      "id": 26,
+      "canonical_name": "tomaquet triturat",
+      "original_name": "TOMAQUET TRITURAT",
+      "frequency": 7
+    },
+    {
+      "id": 27,
+      "canonical_name": "alvocat extra cal fruit\u00f3s",
+      "original_name": "Alvocat Extra Cal Fruit\u00f3s",
+      "frequency": 6
+    },
+    {
+      "id": 28,
+      "canonical_name": "cereals solubles",
+      "original_name": "CEREALS SOLUBLES",
+      "frequency": 6
+    },
+    {
+      "id": 29,
+      "canonical_name": "f.mozzarella fresca",
+      "original_name": "F.MOZZARELLA FRESCA",
+      "frequency": 6
+    },
+    {
+      "id": 30,
+      "canonical_name": "punta brie 200gr",
+      "original_name": "PUNTA BRIE 200GR",
+      "frequency": 6
+    },
+    {
+      "id": 31,
+      "canonical_name": "articulo temporal",
+      "original_name": "ARTICULO TEMPORAL",
+      "frequency": 5
+    },
+    {
+      "id": 32,
+      "canonical_name": "kg net x 26.99/kg",
+      "original_name": "kg NET X 26.99/kg",
+      "frequency": 5
+    },
+    {
+      "id": 33,
+      "canonical_name": "mortadel\u00b7la italiana",
+      "original_name": "MORTADEL\u00b7LA ITALIANA",
+      "frequency": 5
+    },
+    {
+      "id": 34,
+      "canonical_name": "nou closca consum",
+      "original_name": "NOU CLOSCA CONSUM",
+      "frequency": 5
+    },
+    {
+      "id": 35,
+      "canonical_name": "pastanaga granel",
+      "original_name": "Pastanaga Granel",
+      "frequency": 5
+    },
+    {
+      "id": 36,
+      "canonical_name": "pernil g.reser.fins",
+      "original_name": "PERNIL G.RESER.FINS",
+      "frequency": 5
+    },
+    {
+      "id": 37,
+      "canonical_name": "remolatxa a tires",
+      "original_name": "REMOLATXA A TIRES",
+      "frequency": 5
+    },
+    {
+      "id": 38,
+      "canonical_name": "t. 100% integrals",
+      "original_name": "T. 100% INTEGRALS",
+      "frequency": 5
+    },
+    {
+      "id": 39,
+      "canonical_name": "truita fres. a/ceba",
+      "original_name": "TRUITA FRES. A/CEBA",
+      "frequency": 5
+    },
+    {
+      "id": 40,
+      "canonical_name": "busta ecologica 22,0%",
+      "original_name": "BUSTA ECOLOGICA 22,0%",
+      "frequency": 4
+    },
+    {
+      "id": 41,
+      "canonical_name": "cebet.verme.consum",
+      "original_name": "CEBET.VERME.CONSUM",
+      "frequency": 4
+    },
+    {
+      "id": 42,
+      "canonical_name": "col",
+      "original_name": "Col",
+      "frequency": 4
+    },
+    {
+      "id": 43,
+      "canonical_name": "ensalada russa",
+      "original_name": "ENSALADA RUSSA",
+      "frequency": 4
+    },
+    {
+      "id": 44,
+      "canonical_name": "formatge brie porcio",
+      "original_name": "FORMATGE BRIE PORCIO",
+      "frequency": 4
+    },
+    {
+      "id": 45,
+      "canonical_name": "formatge grana padan",
+      "original_name": "FORMATGE GRANA PADAN",
+      "frequency": 4
+    },
+    {
+      "id": 46,
+      "canonical_name": "formatge talls vaca",
+      "original_name": "FORMATGE TALLS VACA",
+      "frequency": 4
+    },
+    {
+      "id": 47,
+      "canonical_name": "medallons formatge",
+      "original_name": "MEDALLONS FORMATGE",
+      "frequency": 4
+    },
+    {
+      "id": 48,
+      "canonical_name": "mocador capsa",
+      "original_name": "MOCADOR CAPSA",
+      "frequency": 4
+    },
+    {
+      "id": 49,
+      "canonical_name": "mozzarella fresca",
+      "original_name": "MOZZARELLA FRESCA",
+      "frequency": 4
+    },
+    {
+      "id": 50,
+      "canonical_name": "pastisset blat d mor",
+      "original_name": "PASTISSET BLAT D MOR",
+      "frequency": 4
+    },
+    {
+      "id": 51,
+      "canonical_name": "pernil dol\u00c7 qualitat",
+      "original_name": "PERNIL DOL\u00c7 QUALITAT",
+      "frequency": 4
+    },
+    {
+      "id": 52,
+      "canonical_name": "salmo fumat red.sal",
+      "original_name": "SALMO FUMAT RED.SAL",
+      "frequency": 4
+    },
+    {
+      "id": 53,
+      "canonical_name": "tomaqu.trit.cons800",
+      "original_name": "TOMAQU.TRIT.CONS800",
+      "frequency": 4
+    },
+    {
+      "id": 54,
+      "canonical_name": "tonyina clara oliv",
+      "original_name": "TONYINA CLARA OLIV",
+      "frequency": 4
+    },
+    {
+      "id": 55,
+      "canonical_name": "tot",
+      "original_name": "TOT",
+      "frequency": 4
+    },
+    {
+      "id": 56,
+      "canonical_name": "amet pell cons 200g",
+      "original_name": "AMET PELL CONS 200G",
+      "frequency": 3
+    },
+    {
+      "id": 57,
+      "canonical_name": "articulo",
+      "original_name": "ARTICULO",
+      "frequency": 3
+    },
+    {
+      "id": 58,
+      "canonical_name": "banana",
+      "original_name": "BANANA",
+      "frequency": 3
+    },
+    {
+      "id": 59,
+      "canonical_name": "barra de pan 2 uds",
+      "original_name": "BARRA DE PAN 2 UDS",
+      "frequency": 3
+    },
+    {
+      "id": 60,
+      "canonical_name": "biffi pest0100%veg 10%",
+      "original_name": "BIFFI PEST0100%VEG 10%",
+      "frequency": 3
+    },
+    {
+      "id": 61,
+      "canonical_name": "bossa compra recicl",
+      "original_name": "BOSSA COMPRA RECICL",
+      "frequency": 3
+    },
+    {
+      "id": 62,
+      "canonical_name": "br\u00f2coli de proximitat",
+      "original_name": "Br\u00f2coli de Proximitat",
+      "frequency": 3
+    },
+    {
+      "id": 63,
+      "canonical_name": "caf\u00c9 g.aroma natural",
+      "original_name": "CAF\u00c9 G.AROMA NATURAL",
+      "frequency": 3
+    },
+    {
+      "id": 64,
+      "canonical_name": "carabass\u00d3 verd",
+      "original_name": "CARABASS\u00d3 VERD",
+      "frequency": 3
+    },
+    {
+      "id": 65,
+      "canonical_name": "cogombre",
+      "original_name": "Cogombre",
+      "frequency": 3
+    },
+    {
+      "id": 66,
+      "canonical_name": "coquetes arros iogur",
+      "original_name": "COQUETES ARROS IOGUR",
+      "frequency": 3
+    },
+    {
+      "id": 67,
+      "canonical_name": "esp\u00e0rrec extra",
+      "original_name": "Esp\u00e0rrec Extra",
+      "frequency": 3
+    },
+    {
+      "id": 68,
+      "canonical_name": "filet verat oliva p2",
+      "original_name": "FILET VERAT OLIVA P2",
+      "frequency": 3
+    },
+    {
+      "id": 69,
+      "canonical_name": "floc integ o% sucre",
+      "original_name": "FLOC INTEG O% SUCRE",
+      "frequency": 3
+    },
+    {
+      "id": 70,
+      "canonical_name": "gaspatxo 1l.consum",
+      "original_name": "GASPATXO 1L.CONSUM",
+      "frequency": 3
+    },
+    {
+      "id": 71,
+      "canonical_name": "iog.nat.12x125 cons",
+      "original_name": "IOG.NAT.12X125 CONS",
+      "frequency": 3
+    },
+    {
+      "id": 72,
+      "canonical_name": "minestra",
+      "original_name": "MINESTRA",
+      "frequency": 3
+    },
+    {
+      "id": 73,
+      "canonical_name": "mongeta blanca cuita",
+      "original_name": "MONGETA BLANCA CUITA",
+      "frequency": 3
+    },
+    {
+      "id": 74,
+      "canonical_name": "mongeta plana ik co",
+      "original_name": "MONGETA PLANA IK CO",
+      "frequency": 3
+    },
+    {
+      "id": 75,
+      "canonical_name": "ous de corral",
+      "original_name": "OUS DE CORRAL",
+      "frequency": 3
+    },
+    {
+      "id": 76,
+      "canonical_name": "ous ecol-gics bonpre",
+      "original_name": "OUS ECOL-GICS BONPRE",
+      "frequency": 3
+    },
+    {
+      "id": 77,
+      "canonical_name": "pa llescat 490gr",
+      "original_name": "PA LLESCAT 490GR",
+      "frequency": 3
+    },
+    {
+      "id": 78,
+      "canonical_name": "penne integral",
+      "original_name": "PENNE INTEGRAL",
+      "frequency": 3
+    },
+    {
+      "id": 79,
+      "canonical_name": "pera conference",
+      "original_name": "Pera Conference",
+      "frequency": 3
+    },
+    {
+      "id": 80,
+      "canonical_name": "pl\u00e0tan banana",
+      "original_name": "Pl\u00e0tan Banana",
+      "frequency": 3
+    },
+    {
+      "id": 81,
+      "canonical_name": "salsa pesto",
+      "original_name": "SALSA PESTO",
+      "frequency": 3
+    },
+    {
+      "id": 82,
+      "canonical_name": "suc press-raim-poma",
+      "original_name": "SUC PRESS-RAIM-POMA",
+      "frequency": 3
+    },
+    {
+      "id": 83,
+      "canonical_name": "tomaqu.trit.cons400",
+      "original_name": "TOMAQU.TRIT.CONS400",
+      "frequency": 3
+    },
+    {
+      "id": 84,
+      "canonical_name": "tomaquet tamis cons",
+      "original_name": "TOMAQUET TAMIS CONS",
+      "frequency": 3
+    },
+    {
+      "id": 85,
+      "canonical_name": "tom\u00e0quet pera extra",
+      "original_name": "Tom\u00e0quet Pera Extra",
+      "frequency": 3
+    },
+    {
+      "id": 86,
+      "canonical_name": "total compra grupo dia",
+      "original_name": "TOTAL COMPRA GRUPO DIA",
+      "frequency": 3
+    },
+    {
+      "id": 87,
+      "canonical_name": "alpro nabiu-f.vermx",
+      "original_name": "ALPRO NABIU-F.VERMX",
+      "frequency": 2
+    },
+    {
+      "id": 88,
+      "canonical_name": "assort goma cons150",
+      "original_name": "ASSORT GOMA CONS150",
+      "frequency": 2
+    },
+    {
+      "id": 89,
+      "canonical_name": "baguet enfarinada",
+      "original_name": "BAGUET ENFARINADA",
+      "frequency": 2
+    },
+    {
+      "id": 90,
+      "canonical_name": "banane sfuse 4%",
+      "original_name": "BANANE SFUSE 4%",
+      "frequency": 2
+    },
+    {
+      "id": 91,
+      "canonical_name": "barra r\u00dastica 245 g",
+      "original_name": "BARRA R\u00daSTICA 245 G",
+      "frequency": 2
+    },
+    {
+      "id": 92,
+      "canonical_name": "blat de moro dol\u00c7 ve",
+      "original_name": "BLAT DE MORO DOL\u00c7 VE",
+      "frequency": 2
+    },
+    {
+      "id": 93,
+      "canonical_name": "bol.t5 consum 13-18",
+      "original_name": "BOL.T5 CONSUM 13-18",
+      "frequency": 2
+    },
+    {
+      "id": 94,
+      "canonical_name": "bossa plastic",
+      "original_name": "BOSSA PLASTIC",
+      "frequency": 2
+    },
+    {
+      "id": 95,
+      "canonical_name": "br\u00f2quil verd",
+      "original_name": "Br\u00f2quil Verd",
+      "frequency": 2
+    },
+    {
+      "id": 96,
+      "canonical_name": "carbassa violina",
+      "original_name": "Carbassa Violina",
+      "frequency": 2
+    },
+    {
+      "id": 97,
+      "canonical_name": "carbass\u00f3 extra",
+      "original_name": "Carbass\u00f3 Extra",
+      "frequency": 2
+    },
+    {
+      "id": 98,
+      "canonical_name": "cigr\u00d3 m.cuit",
+      "original_name": "CIGR\u00d3 M.CUIT",
+      "frequency": 2
+    },
+    {
+      "id": 99,
+      "canonical_name": "coliflo/broquil/ i p",
+      "original_name": "COLIFLO/BROQUIL/ I P",
+      "frequency": 2
+    },
+    {
+      "id": 100,
+      "canonical_name": "dentifrici herbal",
+      "original_name": "DENTIFRICI HERBAL",
+      "frequency": 2
+    },
+    {
+      "id": 101,
+      "canonical_name": "eba seca sencera pelada",
+      "original_name": "eba Seca Sencera Pelada",
+      "frequency": 2
+    },
+    {
+      "id": 102,
+      "canonical_name": "ensaladilla",
+      "original_name": "ENSALADILLA",
+      "frequency": 2
+    },
+    {
+      "id": 103,
+      "canonical_name": "f.curat porc.310 co",
+      "original_name": "F.CURAT PORC.310 CO",
+      "frequency": 2
+    },
+    {
+      "id": 104,
+      "canonical_name": "f.grana padano 180",
+      "original_name": "F.GRANA PADANO 180",
+      "frequency": 2
+    },
+    {
+      "id": 105,
+      "canonical_name": "farina blat consum",
+      "original_name": "FARINA BLAT CONSUM",
+      "frequency": 2
+    },
+    {
+      "id": 106,
+      "canonical_name": "farina de blat",
+      "original_name": "FARINA DE BLAT",
+      "frequency": 2
+    },
+    {
+      "id": 107,
+      "canonical_name": "filet arrebossat",
+      "original_name": "FILET ARREBOSSAT",
+      "frequency": 2
+    },
+    {
+      "id": 108,
+      "canonical_name": "flocs blat moro 0%",
+      "original_name": "FLOCS BLAT MORO 0%",
+      "frequency": 2
+    },
+    {
+      "id": 109,
+      "canonical_name": "form.untar s.millan",
+      "original_name": "FORM.UNTAR S.MILLAN",
+      "frequency": 2
+    },
+    {
+      "id": 110,
+      "canonical_name": "formatge feta",
+      "original_name": "FORMATGE FETA",
+      "frequency": 2
+    },
+    {
+      "id": 111,
+      "canonical_name": "formatge fresc monop",
+      "original_name": "FORMATGE FRESC MONOP",
+      "frequency": 2
+    },
+    {
+      "id": 112,
+      "canonical_name": "fresco cremoso capra 4%",
+      "original_name": "FRESCO CREMOSO CAPRA 4%",
+      "frequency": 2
+    },
+    {
+      "id": 113,
+      "canonical_name": "fuet extra tarradel",
+      "original_name": "FUET EXTRA TARRADEL",
+      "frequency": 2
+    },
+    {
+      "id": 114,
+      "canonical_name": "gal.maria integral-f",
+      "original_name": "GAL.MARIA INTEGRAL-F",
+      "frequency": 2
+    },
+    {
+      "id": 115,
+      "canonical_name": "gaspatxo",
+      "original_name": "GASPATXO",
+      "frequency": 2
+    },
+    {
+      "id": 116,
+      "canonical_name": "gel frescor azul",
+      "original_name": "GEL FRESCOR AZUL",
+      "frequency": 2
+    },
+    {
+      "id": 117,
+      "canonical_name": "gel rentav.con.36lv",
+      "original_name": "GEL RENTAV.CON.36LV",
+      "frequency": 2
+    },
+    {
+      "id": 118,
+      "canonical_name": "gelat sandvitx nata",
+      "original_name": "GELAT SANDVITX NATA",
+      "frequency": 2
+    },
+    {
+      "id": 119,
+      "canonical_name": "gelat vainilla",
+      "original_name": "GELAT VAINILLA",
+      "frequency": 2
+    },
+    {
+      "id": 120,
+      "canonical_name": "ghocchi patata",
+      "original_name": "GHOCCHI PATATA",
+      "frequency": 2
+    },
+    {
+      "id": 121,
+      "canonical_name": "h20 bar refill",
+      "original_name": "H20 Bar Refill",
+      "frequency": 2
+    },
+    {
+      "id": 122,
+      "canonical_name": "higi\u00c8nic doble rotll",
+      "original_name": "HIGI\u00c8NIC DOBLE ROTLL",
+      "frequency": 2
+    },
+    {
+      "id": 123,
+      "canonical_name": "hummus classic",
+      "original_name": "HUMMUS CLASSIC",
+      "frequency": 2
+    },
+    {
+      "id": 124,
+      "canonical_name": "importe",
+      "original_name": "IMPORTE",
+      "frequency": 2
+    },
+    {
+      "id": 125,
+      "canonical_name": "iogurt natural",
+      "original_name": "IOGURT NATURAL",
+      "frequency": 2
+    },
+    {
+      "id": 126,
+      "canonical_name": "lasanya tonyina",
+      "original_name": "LASANYA TONYINA",
+      "frequency": 2
+    },
+    {
+      "id": 127,
+      "canonical_name": "linguine",
+      "original_name": "LINGUINE",
+      "frequency": 2
+    },
+    {
+      "id": 128,
+      "canonical_name": "liquidaci\u00f3n neta",
+      "original_name": "liquidaci\u00f3n neta",
+      "frequency": 2
+    },
+    {
+      "id": 129,
+      "canonical_name": "lleixiu normal",
+      "original_name": "LLEIXIU NORMAL",
+      "frequency": 2
+    },
+    {
+      "id": 130,
+      "canonical_name": "llentia cui.cons570",
+      "original_name": "LLENTIA CUI.CONS570",
+      "frequency": 2
+    },
+    {
+      "id": 131,
+      "canonical_name": "llet sencera",
+      "original_name": "LLET SENCERA",
+      "frequency": 2
+    },
+    {
+      "id": 132,
+      "canonical_name": "llimona normal llaun",
+      "original_name": "LLIMONA NORMAL LLAUN",
+      "frequency": 2
+    },
+    {
+      "id": 133,
+      "canonical_name": "mango extra unitat - pack 2u",
+      "original_name": "Mango Extra Unitat - Pack 2u",
+      "frequency": 2
+    },
+    {
+      "id": 134,
+      "canonical_name": "mango unitat promoci\u00f3",
+      "original_name": "Mango Unitat Promoci\u00f3",
+      "frequency": 2
+    },
+    {
+      "id": 135,
+      "canonical_name": "mantega 250g.consum",
+      "original_name": "MANTEGA 250G.CONSUM",
+      "frequency": 2
+    },
+    {
+      "id": 136,
+      "canonical_name": "mele red del 4%",
+      "original_name": "MELE RED DEL 4%",
+      "frequency": 2
+    },
+    {
+      "id": 137,
+      "canonical_name": "melo cantalup",
+      "original_name": "Melo Cantalup",
+      "frequency": 2
+    },
+    {
+      "id": 138,
+      "canonical_name": "mini burger vedella",
+      "original_name": "MINI BURGER VEDELLA",
+      "frequency": 2
+    },
+    {
+      "id": 139,
+      "canonical_name": "mini fuet campofrio",
+      "original_name": "MINI FUET CAMPOFRIO",
+      "frequency": 2
+    },
+    {
+      "id": 140,
+      "canonical_name": "mortad.bol.100 ferr",
+      "original_name": "MORTAD.BOL.100 FERR",
+      "frequency": 2
+    },
+    {
+      "id": 141,
+      "canonical_name": "nectarina extra",
+      "original_name": "Nectarina Extra",
+      "frequency": 2
+    },
+    {
+      "id": 142,
+      "canonical_name": "nou closca natural",
+      "original_name": "NOU CLOSCA NATURAL",
+      "frequency": 2
+    },
+    {
+      "id": 143,
+      "canonical_name": "oli verge extra",
+      "original_name": "OLI VERGE EXTRA",
+      "frequency": 2
+    },
+    {
+      "id": 144,
+      "canonical_name": "oliva s/pinyol paq-3",
+      "original_name": "OLIVA S/PINYOL PAQ-3",
+      "frequency": 2
+    },
+    {
+      "id": 145,
+      "canonical_name": "ou pages 1/2 dotz",
+      "original_name": "OU PAGES 1/2 DOTZ",
+      "frequency": 2
+    },
+    {
+      "id": 146,
+      "canonical_name": "ous ecologics dia",
+      "original_name": "OUS ECOLOGICS DIA",
+      "frequency": 2
+    },
+    {
+      "id": 147,
+      "canonical_name": "p-4 salsitxa frankfu",
+      "original_name": "P-4 SALSITXA FRANKFU",
+      "frequency": 2
+    },
+    {
+      "id": 148,
+      "canonical_name": "pa motlle consum820",
+      "original_name": "PA MOTLLE CONSUM820",
+      "frequency": 2
+    },
+    {
+      "id": 149,
+      "canonical_name": "pane fascia 1 4%",
+      "original_name": "PANE FASCIA 1 4%",
+      "frequency": 2
+    },
+    {
+      "id": 150,
+      "canonical_name": "pane fascia 2 4%",
+      "original_name": "PANE FASCIA 2 4%",
+      "frequency": 2
+    },
+    {
+      "id": 151,
+      "canonical_name": "pernil rost.natural",
+      "original_name": "PERNIL ROST.NATURAL",
+      "frequency": 2
+    },
+    {
+      "id": 152,
+      "canonical_name": "pernil serra sobre",
+      "original_name": "PERNIL SERRA SOBRE",
+      "frequency": 2
+    },
+    {
+      "id": 153,
+      "canonical_name": "pesols",
+      "original_name": "PESOLS",
+      "frequency": 2
+    },
+    {
+      "id": 154,
+      "canonical_name": "platan banana",
+      "original_name": "Platan Banana",
+      "frequency": 2
+    },
+    {
+      "id": 155,
+      "canonical_name": "poma fuji extra cal fruit\u00f3s",
+      "original_name": "Poma Fuji Extra Cal Fruit\u00f3s",
+      "frequency": 2
+    },
+    {
+      "id": 156,
+      "canonical_name": "pr. cotto nostrano 10%",
+      "original_name": "PR. COTTO NOSTRANO 10%",
+      "frequency": 2
+    },
+    {
+      "id": 157,
+      "canonical_name": "provolone",
+      "original_name": "PROVOLONE",
+      "frequency": 2
+    },
+    {
+      "id": 158,
+      "canonical_name": "r.cui.suavecel 3=6",
+      "original_name": "R.CUI.SUAVECEL 3=6",
+      "frequency": 2
+    },
+    {
+      "id": 159,
+      "canonical_name": "ravioli mato espinac",
+      "original_name": "RAVIOLI MATO ESPINAC",
+      "frequency": 2
+    },
+    {
+      "id": 160,
+      "canonical_name": "safata 1.5 eur",
+      "original_name": "Safata 1.5 Eur",
+      "frequency": 2
+    },
+    {
+      "id": 161,
+      "canonical_name": "subtotal",
+      "original_name": "Subtotal",
+      "frequency": 2
+    },
+    {
+      "id": 162,
+      "canonical_name": "s\u00edndria ratllada cal fruit\u00f3s",
+      "original_name": "S\u00edndria Ratllada Cal Fruit\u00f3s",
+      "frequency": 2
+    },
+    {
+      "id": 163,
+      "canonical_name": "t.freg.oliv.cons.p3",
+      "original_name": "T.FREG.OLIV.CONS.P3",
+      "frequency": 2
+    },
+    {
+      "id": 164,
+      "canonical_name": "tallarines cons.500",
+      "original_name": "TALLARINES CONS.500",
+      "frequency": 2
+    },
+    {
+      "id": 165,
+      "canonical_name": "taronja extra cal fruit\u00f3s",
+      "original_name": "Taronja Extra Cal Fruit\u00f3s",
+      "frequency": 2
+    },
+    {
+      "id": 166,
+      "canonical_name": "taronja normal llaun",
+      "original_name": "TARONJA NORMAL LLAUN",
+      "frequency": 2
+    },
+    {
+      "id": 167,
+      "canonical_name": "tomaquet fregit oli",
+      "original_name": "TOMAQUET FREGIT OLI",
+      "frequency": 2
+    },
+    {
+      "id": 168,
+      "canonical_name": "tomaquet triturat ex",
+      "original_name": "TOMAQUET TRITURAT EX",
+      "frequency": 2
+    },
+    {
+      "id": 169,
+      "canonical_name": "tomaquet triturat ve",
+      "original_name": "TOMAQUET TRITURAT VE",
+      "frequency": 2
+    },
+    {
+      "id": 170,
+      "canonical_name": "tomaquet verd extra",
+      "original_name": "Tomaquet Verd Extra",
+      "frequency": 2
+    },
+    {
+      "id": 171,
+      "canonical_name": "tomate rosado",
+      "original_name": "TOMATE ROSADO",
+      "frequency": 2
+    },
+    {
+      "id": 172,
+      "canonical_name": "tonyi.cl.consum p-6",
+      "original_name": "TONYI.CL.CONSUM P-6",
+      "frequency": 2
+    },
+    {
+      "id": 173,
+      "canonical_name": "tortelloni carn",
+      "original_name": "TORTELLONI CARN",
+      "frequency": 2
+    },
+    {
+      "id": 174,
+      "canonical_name": "tortilla blat 6 u",
+      "original_name": "TORTILLA BLAT 6 U",
+      "frequency": 2
+    },
+    {
+      "id": 175,
+      "canonical_name": "truita patata/ceba",
+      "original_name": "TRUITA PATATA/CEBA",
+      "frequency": 2
+    },
+    {
+      "id": 176,
+      "canonical_name": "w vestido",
+      "original_name": "W VESTIDO",
+      "frequency": 2
+    },
+    {
+      "id": 177,
+      "canonical_name": "% amoniac",
+      "original_name": "% AMONIAC",
+      "frequency": 1
+    },
+    {
+      "id": 178,
+      "canonical_name": "% blusa n/b/p/ao/rs",
+      "original_name": "% BLUSA N/B/P/AO/RS",
+      "frequency": 1
+    },
+    {
+      "id": 179,
+      "canonical_name": "% integral",
+      "original_name": "% INTEGRAL",
+      "frequency": 1
+    },
+    {
+      "id": 180,
+      "canonical_name": "%-globo mylar oro n",
+      "original_name": "%-GLOBO MYLAR ORO N",
+      "frequency": 1
+    },
+    {
+      "id": 181,
+      "canonical_name": "%-portafoto blanco",
+      "original_name": "%-PORTAFOTO BLANCO",
+      "frequency": 1
+    },
+    {
+      "id": 182,
+      "canonical_name": "%-portafoto plastic",
+      "original_name": "%-PORTAFOTO PLASTIC",
+      "frequency": 1
+    },
+    {
+      "id": 183,
+      "canonical_name": "a iva",
+      "original_name": "A IVA",
+      "frequency": 1
+    },
+    {
+      "id": 184,
+      "canonical_name": "a.garbi consum 175",
+      "original_name": "A.GARBI CONSUM 175",
+      "frequency": 1
+    },
+    {
+      "id": 185,
+      "canonical_name": "ac oliva virgen",
+      "original_name": "AC OLIVA VIRGEN",
+      "frequency": 1
+    },
+    {
+      "id": 186,
+      "canonical_name": "agua del tiempo",
+      "original_name": "AGUA DEL TIEMPO",
+      "frequency": 1
+    },
+    {
+      "id": 187,
+      "canonical_name": "aigua aquabona 1,5l",
+      "original_name": "AIGUA AQUABONA 1,5L",
+      "frequency": 1
+    },
+    {
+      "id": 188,
+      "canonical_name": "albaricoque",
+      "original_name": "ALBARICOQUE",
+      "frequency": 1
+    },
+    {
+      "id": 189,
+      "canonical_name": "albercoc extra",
+      "original_name": "Albercoc Extra",
+      "frequency": 1
+    },
+    {
+      "id": 190,
+      "canonical_name": "albercoc granel",
+      "original_name": "ALBERCOC GRANEL",
+      "frequency": 1
+    },
+    {
+      "id": 191,
+      "canonical_name": "alberginia 0,978",
+      "original_name": "Alberginia 0,978",
+      "frequency": 1
+    },
+    {
+      "id": 192,
+      "canonical_name": "alberginia 1,168",
+      "original_name": "Alberginia 1,168",
+      "frequency": 1
+    },
+    {
+      "id": 193,
+      "canonical_name": "alberginia 1,396",
+      "original_name": "Alberginia 1,396",
+      "frequency": 1
+    },
+    {
+      "id": 194,
+      "canonical_name": "alhambra especial sin alc",
+      "original_name": "ALHAMBRA ESPECIAL sin alc",
+      "frequency": 1
+    },
+    {
+      "id": 195,
+      "canonical_name": "alivocat extra cal fruit\u00f3s",
+      "original_name": "Alivocat Extra Cal Fruit\u00f3s",
+      "frequency": 1
+    },
+    {
+      "id": 196,
+      "canonical_name": "alvacat extra cel fruitoe",
+      "original_name": "Alvacat Extra Cel Fruitoe",
+      "frequency": 1
+    },
+    {
+      "id": 197,
+      "canonical_name": "alvocat extra cal fruitde",
+      "original_name": "Alvocat Extra Cal Fruitde",
+      "frequency": 1
+    },
+    {
+      "id": 198,
+      "canonical_name": "alvocat extra calfruit\u00f3s",
+      "original_name": "Alvocat Extra CalFruit\u00f3s",
+      "frequency": 1
+    },
+    {
+      "id": 199,
+      "canonical_name": "alvocat la collita",
+      "original_name": "ALVOCAT LA COLLITA",
+      "frequency": 1
+    },
+    {
+      "id": 200,
+      "canonical_name": "amanida 1k consum",
+      "original_name": "AMANIDA 1K CONSUM",
+      "frequency": 1
+    },
+    {
+      "id": 201,
+      "canonical_name": "amanida 4 estacions",
+      "original_name": "AMANIDA 4 ESTACIONS",
+      "frequency": 1
+    },
+    {
+      "id": 202,
+      "canonical_name": "amanida la collita 4",
+      "original_name": "AMANIDA LA COLLITA 4",
+      "frequency": 1
+    },
+    {
+      "id": 203,
+      "canonical_name": "ampo familiar",
+      "original_name": "AMPO FAMILIAR",
+      "frequency": 1
+    },
+    {
+      "id": 204,
+      "canonical_name": "amp\u00da suau i llis pa",
+      "original_name": "AMP\u00da SUAU I LLIS PA",
+      "frequency": 1
+    },
+    {
+      "id": 205,
+      "canonical_name": "anarcards natural",
+      "original_name": "ANARCARDS NATURAL",
+      "frequency": 1
+    },
+    {
+      "id": 206,
+      "canonical_name": "anella pota illex",
+      "original_name": "ANELLA POTA ILLEX",
+      "frequency": 1
+    },
+    {
+      "id": 207,
+      "canonical_name": "antiarnes esp. bossa",
+      "original_name": "ANTIARNES ESP. BOSSA",
+      "frequency": 1
+    },
+    {
+      "id": 208,
+      "canonical_name": "antical\u00c7 pistola",
+      "original_name": "ANTICAL\u00c7 PISTOLA",
+      "frequency": 1
+    },
+    {
+      "id": 209,
+      "canonical_name": "anul.tomaquet cherry pera",
+      "original_name": "ANUL.TOMAQUET CHERRY PERA",
+      "frequency": 1
+    },
+    {
+      "id": 210,
+      "canonical_name": "anulaci\u00f3n",
+      "original_name": "Anulaci\u00f3n",
+      "frequency": 1
+    },
+    {
+      "id": 211,
+      "canonical_name": "arop atzavara wass",
+      "original_name": "AROP ATZAVARA WASS",
+      "frequency": 1
+    },
+    {
+      "id": 212,
+      "canonical_name": "arrel de regal\u00e8ssia 60g eco 1",
+      "original_name": "Arrel de regal\u00e8ssia 60g ECO 1",
+      "frequency": 1
+    },
+    {
+      "id": 213,
+      "canonical_name": "arros cat. primera",
+      "original_name": "ARROS CAT. PRIMERA",
+      "frequency": 1
+    },
+    {
+      "id": 214,
+      "canonical_name": "arros inflat xoc gra",
+      "original_name": "ARROS INFLAT XOC GRA",
+      "frequency": 1
+    },
+    {
+      "id": 215,
+      "canonical_name": "arros rod\u00d3 extra",
+      "original_name": "ARROS ROD\u00d3 EXTRA",
+      "frequency": 1
+    },
+    {
+      "id": 216,
+      "canonical_name": "art. total a pagar",
+      "original_name": "ART. TOTAL A PAGAR",
+      "frequency": 1
+    },
+    {
+      "id": 217,
+      "canonical_name": "art/ ea 39151700",
+      "original_name": "Art/ EA 39151700",
+      "frequency": 1
+    },
+    {
+      "id": 218,
+      "canonical_name": "article 00343885",
+      "original_name": "Article 00343885",
+      "frequency": 1
+    },
+    {
+      "id": 219,
+      "canonical_name": "ass coop ult sot x 10,00%",
+      "original_name": "ASS COOP ULT SOT X 10,00%",
+      "frequency": 1
+    },
+    {
+      "id": 220,
+      "canonical_name": "astanaga granel",
+      "original_name": "astanaga Granel",
+      "frequency": 1
+    },
+    {
+      "id": 221,
+      "canonical_name": "avellana consum 200",
+      "original_name": "AVELLANA CONSUM 200",
+      "frequency": 1
+    },
+    {
+      "id": 222,
+      "canonical_name": "avena crunchy cacau",
+      "original_name": "AVENA CRUNCHY CACAU",
+      "frequency": 1
+    },
+    {
+      "id": 223,
+      "canonical_name": "b. mini paperera",
+      "original_name": "B. MINI PAPERERA",
+      "frequency": 1
+    },
+    {
+      "id": 224,
+      "canonical_name": "b.escomb.g.consum40",
+      "original_name": "B.ESCOMB.G.CONSUM40",
+      "frequency": 1
+    },
+    {
+      "id": 225,
+      "canonical_name": "b.moro dol\u00c7 paquet-3",
+      "original_name": "B.MORO DOL\u00c7 PAQUET-3",
+      "frequency": 1
+    },
+    {
+      "id": 226,
+      "canonical_name": "b.tanca facil",
+      "original_name": "B.TANCA FACIL",
+      "frequency": 1
+    },
+    {
+      "id": 227,
+      "canonical_name": "baguet 1 caf\u00c9 g.aroma natural",
+      "original_name": "BAGUET 1 CAF\u00c9 G.AROMA NATURAL",
+      "frequency": 1
+    },
+    {
+      "id": 228,
+      "canonical_name": "baguet r\u00dastica",
+      "original_name": "BAGUET R\u00daSTICA",
+      "frequency": 1
+    },
+    {
+      "id": 229,
+      "canonical_name": "baguette elmol 250 g",
+      "original_name": "BAGUETTE ELMOL 250 G",
+      "frequency": 1
+    },
+    {
+      "id": 230,
+      "canonical_name": "banana 1,60 \u20ac/kg",
+      "original_name": "BANANA 1,60 \u20ac/kg",
+      "frequency": 1
+    },
+    {
+      "id": 231,
+      "canonical_name": "banda de resistenct",
+      "original_name": "BANDA DE RESISTENCT",
+      "frequency": 1
+    },
+    {
+      "id": 232,
+      "canonical_name": "barra 41% integral",
+      "original_name": "BARRA 41% INTEGRAL",
+      "frequency": 1
+    },
+    {
+      "id": 233,
+      "canonical_name": "barra de pa",
+      "original_name": "BARRA DE PA",
+      "frequency": 1
+    },
+    {
+      "id": 234,
+      "canonical_name": "barra. far.blat int",
+      "original_name": "BARRA. FAR.BLAT INT",
+      "frequency": 1
+    },
+    {
+      "id": 235,
+      "canonical_name": "baston.oli quely225",
+      "original_name": "BASTON.OLI QUELY225",
+      "frequency": 1
+    },
+    {
+      "id": 236,
+      "canonical_name": "bastonets de pa quel",
+      "original_name": "BASTONETS DE PA QUEL",
+      "frequency": 1
+    },
+    {
+      "id": 237,
+      "canonical_name": "beure maduixa 0%",
+      "original_name": "BEURE MADUIXA 0%",
+      "frequency": 1
+    },
+    {
+      "id": 238,
+      "canonical_name": "biffi pesto100%veg 10%",
+      "original_name": "BIFFI PESTO100%VEG 10%",
+      "frequency": 1
+    },
+    {
+      "id": 239,
+      "canonical_name": "blat de moro cuit",
+      "original_name": "Blat de Moro Cuit",
+      "frequency": 1
+    },
+    {
+      "id": 240,
+      "canonical_name": "blat de moro dolc ve",
+      "original_name": "BLAT DE MORO DOLC VE",
+      "frequency": 1
+    },
+    {
+      "id": 241,
+      "canonical_name": "blat moro bond.3x70",
+      "original_name": "BLAT MORO BOND.3X70",
+      "frequency": 1
+    },
+    {
+      "id": 242,
+      "canonical_name": "blvocat extra cal frut\u00e9s",
+      "original_name": "Blvocat Extra Cal Frut\u00e9s",
+      "frequency": 1
+    },
+    {
+      "id": 243,
+      "canonical_name": "boles blat a/xocola",
+      "original_name": "BOLES BLAT A/XOCOLA",
+      "frequency": 1
+    },
+    {
+      "id": 244,
+      "canonical_name": "bolsas de vacio 70*100cm",
+      "original_name": "BOLSAS DE VACIO 70*100CM",
+      "frequency": 1
+    },
+    {
+      "id": 245,
+      "canonical_name": "bonito cel norte",
+      "original_name": "BONITO CEL NORTE",
+      "frequency": 1
+    },
+    {
+      "id": 246,
+      "canonical_name": "bossa mix amanides caixa 1kg",
+      "original_name": "Bossa Mix Amanides Caixa 1kg",
+      "frequency": 1
+    },
+    {
+      "id": 247,
+      "canonical_name": "brocoli 900 gr. con",
+      "original_name": "BROCOLI 900 GR. CON",
+      "frequency": 1
+    },
+    {
+      "id": 248,
+      "canonical_name": "brocoli de proximitat",
+      "original_name": "Brocoli de Proximitat",
+      "frequency": 1
+    },
+    {
+      "id": 249,
+      "canonical_name": "brocoli envasat",
+      "original_name": "Brocoli Envasat",
+      "frequency": 1
+    },
+    {
+      "id": 250,
+      "canonical_name": "bronchales 50oml",
+      "original_name": "BRONCHALES 50OML",
+      "frequency": 1
+    },
+    {
+      "id": 251,
+      "canonical_name": "broquil manat",
+      "original_name": "BROQUIL MANAT",
+      "frequency": 1
+    },
+    {
+      "id": 252,
+      "canonical_name": "buffet mediodia",
+      "original_name": "BUFFET MEDIODIA",
+      "frequency": 1
+    },
+    {
+      "id": 253,
+      "canonical_name": "burger de bovi",
+      "original_name": "BURGER DE BOVI",
+      "frequency": 1
+    },
+    {
+      "id": 254,
+      "canonical_name": "c. clasica botellin",
+      "original_name": "C. CLASICA BOTELLIN",
+      "frequency": 1
+    },
+    {
+      "id": 255,
+      "canonical_name": "ca q.rallado moz",
+      "original_name": "Ca Q.RALLADO MOZ",
+      "frequency": 1
+    },
+    {
+      "id": 256,
+      "canonical_name": "cab+s compra bp 450x",
+      "original_name": "CAB+S COMPRA BP 450X",
+      "frequency": 1
+    },
+    {
+      "id": 257,
+      "canonical_name": "cabdell safala extra",
+      "original_name": "Cabdell Safala Extra",
+      "frequency": 1
+    },
+    {
+      "id": 258,
+      "canonical_name": "cabdell safata estra",
+      "original_name": "Cabdell Safata Estra",
+      "frequency": 1
+    },
+    {
+      "id": 259,
+      "canonical_name": "cafe con hielo 1.40 14",
+      "original_name": "CAFE CON HIELO 1.40 14",
+      "frequency": 1
+    },
+    {
+      "id": 260,
+      "canonical_name": "cafe g.aroma natural",
+      "original_name": "CAFE G.AROMA NATURAL",
+      "frequency": 1
+    },
+    {
+      "id": 261,
+      "canonical_name": "cafe nat .marcill250",
+      "original_name": "CAFE NAT .MARCILL250",
+      "frequency": 1
+    },
+    {
+      "id": 262,
+      "canonical_name": "calamares",
+      "original_name": "Calamares",
+      "frequency": 1
+    },
+    {
+      "id": 263,
+      "canonical_name": "calamares andal",
+      "original_name": "CALAMARES ANDAL",
+      "frequency": 1
+    },
+    {
+      "id": 264,
+      "canonical_name": "canelones de atun",
+      "original_name": "CANELONES DE ATUN",
+      "frequency": 1
+    },
+    {
+      "id": 265,
+      "canonical_name": "canelons casolns350",
+      "original_name": "CANELONS CASOLNS350",
+      "frequency": 1
+    },
+    {
+      "id": 266,
+      "canonical_name": "cantidad",
+      "original_name": "Cantidad",
+      "frequency": 1
+    },
+    {
+      "id": 267,
+      "canonical_name": "carbasso extra",
+      "original_name": "Carbasso Extra",
+      "frequency": 1
+    },
+    {
+      "id": 268,
+      "canonical_name": "ceba seca extra",
+      "original_name": "Ceba seca Extra",
+      "frequency": 1
+    },
+    {
+      "id": 269,
+      "canonical_name": "cebetes",
+      "original_name": "CEBETES",
+      "frequency": 1
+    },
+    {
+      "id": 270,
+      "canonical_name": "cebollitas anxova",
+      "original_name": "CEBOLLITAS ANXOVA",
+      "frequency": 1
+    },
+    {
+      "id": 271,
+      "canonical_name": "cerv free m",
+      "original_name": "CERV FREE M",
+      "frequency": 1
+    },
+    {
+      "id": 272,
+      "canonical_name": "cerv tostada 0,0",
+      "original_name": "CERV TOSTADA 0,0",
+      "frequency": 1
+    },
+    {
+      "id": 273,
+      "canonical_name": "cervesa 0,0%",
+      "original_name": "CERVESA 0,0%",
+      "frequency": 1
+    },
+    {
+      "id": 274,
+      "canonical_name": "cervesa esp llauna",
+      "original_name": "CERVESA ESP LLAUNA",
+      "frequency": 1
+    },
+    {
+      "id": 275,
+      "canonical_name": "cerveza mahou sin",
+      "original_name": "CERVEZA MAHOU SIN",
+      "frequency": 1
+    },
+    {
+      "id": 276,
+      "canonical_name": "cheeseburger @",
+      "original_name": "CHEESEBURGER @",
+      "frequency": 1
+    },
+    {
+      "id": 277,
+      "canonical_name": "cherry bja 5oogr =resca semide",
+      "original_name": "CHERRY BJA 5OOGR =RESCA SEMIDE",
+      "frequency": 1
+    },
+    {
+      "id": 278,
+      "canonical_name": "chocodays 1 pernil cuit 92%",
+      "original_name": "CHOCODAYS 1 PERNIL CUIT 92%",
+      "frequency": 1
+    },
+    {
+      "id": 279,
+      "canonical_name": "churrasco asado",
+      "original_name": "CHURRASCO ASADO",
+      "frequency": 1
+    },
+    {
+      "id": 280,
+      "canonical_name": "cigro m.cuit",
+      "original_name": "CIGRO M.CUIT",
+      "frequency": 1
+    },
+    {
+      "id": 281,
+      "canonical_name": "cigr\u00d3 cuit",
+      "original_name": "CIGR\u00d3 CUIT",
+      "frequency": 1
+    },
+    {
+      "id": 282,
+      "canonical_name": "cigr\u00d3 cuit #tonyna clar oliv",
+      "original_name": "CIGR\u00d3 CUIT #TONYNA CLAR OLIV",
+      "frequency": 1
+    },
+    {
+      "id": 283,
+      "canonical_name": "cigr\u00d3 cuit cons570",
+      "original_name": "CIGR\u00d3 CUIT CONS570",
+      "frequency": 1
+    },
+    {
+      "id": 284,
+      "canonical_name": "cigr\u00d3 llet\u00d3s nac",
+      "original_name": "CIGR\u00d3 LLET\u00d3S NAC",
+      "frequency": 1
+    },
+    {
+      "id": 285,
+      "canonical_name": "clementina extra cal fruit\u00f3s",
+      "original_name": "Clementina Extra Cal Fruit\u00f3s",
+      "frequency": 1
+    },
+    {
+      "id": 286,
+      "canonical_name": "coca-cola reg.1,25l",
+      "original_name": "COCA-COLA REG.1,25L",
+      "frequency": 1
+    },
+    {
+      "id": 287,
+      "canonical_name": "coca-cola s/caf. 2l",
+      "original_name": "COCA-COLA S/CAF. 2L",
+      "frequency": 1
+    },
+    {
+      "id": 288,
+      "canonical_name": "cocacola zero",
+      "original_name": "COCACOLA ZERO",
+      "frequency": 1
+    },
+    {
+      "id": 289,
+      "canonical_name": "cocktail gal.salades",
+      "original_name": "COCKTAIL GAL.SALADES",
+      "frequency": 1
+    },
+    {
+      "id": 290,
+      "canonical_name": "coctel mix consum",
+      "original_name": "COCTEL MIX CONSUM",
+      "frequency": 1
+    },
+    {
+      "id": 291,
+      "canonical_name": "coctel olivaria",
+      "original_name": "COCTEL OLIVARIA",
+      "frequency": 1
+    },
+    {
+      "id": 292,
+      "canonical_name": "cogombre 0,798",
+      "original_name": "Cogombre 0,798",
+      "frequency": 1
+    },
+    {
+      "id": 293,
+      "canonical_name": "cogombre 1,002",
+      "original_name": "Cogombre 1,002",
+      "frequency": 1
+    },
+    {
+      "id": 294,
+      "canonical_name": "cogombre 1,146",
+      "original_name": "Cogombre 1,146",
+      "frequency": 1
+    },
+    {
+      "id": 295,
+      "canonical_name": "cogombre 1,228",
+      "original_name": "Cogombre 1,228",
+      "frequency": 1
+    },
+    {
+      "id": 296,
+      "canonical_name": "cogombre 1,296",
+      "original_name": "Cogombre 1,296",
+      "frequency": 1
+    },
+    {
+      "id": 297,
+      "canonical_name": "cogurt cantero let e",
+      "original_name": "COGURT CANTERO LET E",
+      "frequency": 1
+    },
+    {
+      "id": 298,
+      "canonical_name": "col-i-flor",
+      "original_name": "Col-i-flor",
+      "frequency": 1
+    },
+    {
+      "id": 299,
+      "canonical_name": "col.infan",
+      "original_name": "COL.INFAN",
+      "frequency": 1
+    },
+    {
+      "id": 300,
+      "canonical_name": "coloraci\u00d3 5",
+      "original_name": "COLORACI\u00d3 5",
+      "frequency": 1
+    },
+    {
+      "id": 301,
+      "canonical_name": "com clas.nit kyrey",
+      "original_name": "COM CLAS.NIT KYREY",
+      "frequency": 1
+    },
+    {
+      "id": 302,
+      "canonical_name": "comp. s\u00daper a/a dry",
+      "original_name": "COMP. S\u00daPER A/A DRY",
+      "frequency": 1
+    },
+    {
+      "id": 303,
+      "canonical_name": "compresa s\u00daper a/ale",
+      "original_name": "COMPRESA S\u00daPER A/ALE",
+      "frequency": 1
+    },
+    {
+      "id": 304,
+      "canonical_name": "condicionador family",
+      "original_name": "CONDICIONADOR FAMILY",
+      "frequency": 1
+    },
+    {
+      "id": 305,
+      "canonical_name": "coquetes a. xocollet",
+      "original_name": "COQUETES A. XOCOLLET",
+      "frequency": 1
+    },
+    {
+      "id": 306,
+      "canonical_name": "cors de llu\u00c7 pesca",
+      "original_name": "CORS DE LLU\u00c7 PESCA",
+      "frequency": 1
+    },
+    {
+      "id": 307,
+      "canonical_name": "costilla.centro",
+      "original_name": "COSTILLA.CENTRO",
+      "frequency": 1
+    },
+    {
+      "id": 308,
+      "canonical_name": "crackers 30% integ",
+      "original_name": "CRACKERS 30% INTEG",
+      "frequency": 1
+    },
+    {
+      "id": 309,
+      "canonical_name": "crispetes sal pack 3",
+      "original_name": "CRISPETES SAL PACK 3",
+      "frequency": 1
+    },
+    {
+      "id": 310,
+      "canonical_name": "cuixa g.dindi boada",
+      "original_name": "CUIXA G.DINDI BOADA",
+      "frequency": 1
+    },
+    {
+      "id": 311,
+      "canonical_name": "c\u00d2ctel mix consum",
+      "original_name": "C\u00d2CTEL MIX CONSUM",
+      "frequency": 1
+    },
+    {
+      "id": 312,
+      "canonical_name": "c\u00d2ctel olivaria",
+      "original_name": "C\u00d2CTEL OLIVARIA",
+      "frequency": 1
+    },
+    {
+      "id": 313,
+      "canonical_name": "dectarina extra",
+      "original_name": "dectarina Extra",
+      "frequency": 1
+    },
+    {
+      "id": 314,
+      "canonical_name": "desc",
+      "original_name": "Desc",
+      "frequency": 1
+    },
+    {
+      "id": 315,
+      "canonical_name": "desconpte inth slip cona",
+      "original_name": "Desconpte INTH SLIP CONA",
+      "frequency": 1
+    },
+    {
+      "id": 316,
+      "canonical_name": "descrizione iva ns",
+      "original_name": "DESCRIZIONE IVA NS",
+      "frequency": 1
+    },
+    {
+      "id": 317,
+      "canonical_name": "desembussador gel",
+      "original_name": "DESEMBUSSADOR GEL",
+      "frequency": 1
+    },
+    {
+      "id": 318,
+      "canonical_name": "desembussador turbo",
+      "original_name": "DESEMBUSSADOR TURBO",
+      "frequency": 1
+    },
+    {
+      "id": 319,
+      "canonical_name": "desodorant bola aloe",
+      "original_name": "DESODORANT BOLA ALOE",
+      "frequency": 1
+    },
+    {
+      "id": 320,
+      "canonical_name": "deterg. colonia",
+      "original_name": "DETERG. COLONIA",
+      "frequency": 1
+    },
+    {
+      "id": 321,
+      "canonical_name": "deterg. col\u00d2nia",
+      "original_name": "DETERG. COL\u00d2NIA",
+      "frequency": 1
+    },
+    {
+      "id": 322,
+      "canonical_name": "devoluci 10399886",
+      "original_name": "Devoluci 10399886",
+      "frequency": 1
+    },
+    {
+      "id": 323,
+      "canonical_name": "devoluci 10430518",
+      "original_name": "Devoluci 10430518",
+      "frequency": 1
+    },
+    {
+      "id": 324,
+      "canonical_name": "diges.civad gull425",
+      "original_name": "DIGES.CIVAD GULL425",
+      "frequency": 1
+    },
+    {
+      "id": 325,
+      "canonical_name": "dissolvent acetona",
+      "original_name": "DISSOLVENT ACETONA",
+      "frequency": 1
+    },
+    {
+      "id": 326,
+      "canonical_name": "d\u00e0til branca safata de 250gr",
+      "original_name": "D\u00e0til Branca Safata de 250gr",
+      "frequency": 1
+    },
+    {
+      "id": 327,
+      "canonical_name": "e.curat popc.31o-co",
+      "original_name": "E.CURAT POPC.31O-CO",
+      "frequency": 1
+    },
+    {
+      "id": 328,
+      "canonical_name": "ebrot vermell",
+      "original_name": "ebrot Vermell",
+      "frequency": 1
+    },
+    {
+      "id": 329,
+      "canonical_name": "eilet iloc envasada",
+      "original_name": "EILET ILOC ENVASADA",
+      "frequency": 1
+    },
+    {
+      "id": 330,
+      "canonical_name": "eineven llaunao",
+      "original_name": "EINEVEN LLAUNAO",
+      "frequency": 1
+    },
+    {
+      "id": 331,
+      "canonical_name": "ens.primavera golden bolsa 1kg",
+      "original_name": "ENS.PRIMAVERA GOLDEN BOLSA 1KG",
+      "frequency": 1
+    },
+    {
+      "id": 332,
+      "canonical_name": "es1au.consum-250",
+      "original_name": "ES1AU.CONSUM-250",
+      "frequency": 1
+    },
+    {
+      "id": 333,
+      "canonical_name": "escombra esp.pe.mik",
+      "original_name": "ESCOMBRA ESP.PE.MIK",
+      "frequency": 1
+    },
+    {
+      "id": 334,
+      "canonical_name": "espagueti cons.500",
+      "original_name": "ESPAGUETI CONS.500",
+      "frequency": 1
+    },
+    {
+      "id": 335,
+      "canonical_name": "espar.ex.consum 5/8",
+      "original_name": "ESPAR.EX.CONSUM 5/8",
+      "frequency": 1
+    },
+    {
+      "id": 336,
+      "canonical_name": "espetec extra nuestr",
+      "original_name": "ESPETEC EXTRA NUESTR",
+      "frequency": 1
+    },
+    {
+      "id": 337,
+      "canonical_name": "espinacs #tonyna clar oliv",
+      "original_name": "ESPINACS #TONYNA CLAR OLIV",
+      "frequency": 1
+    },
+    {
+      "id": 338,
+      "canonical_name": "espinacs pesol i pastanaga",
+      "original_name": "ESPINACS PESOL I PASTANAGA",
+      "frequency": 1
+    },
+    {
+      "id": 339,
+      "canonical_name": "espirals cons.500g",
+      "original_name": "ESPIRALS CONS.500G",
+      "frequency": 1
+    },
+    {
+      "id": 340,
+      "canonical_name": "espirals veg.consum",
+      "original_name": "ESPIRALS VEG.CONSUM",
+      "frequency": 1
+    },
+    {
+      "id": 341,
+      "canonical_name": "espresso machiatto",
+      "original_name": "Espresso Machiatto",
+      "frequency": 1
+    },
+    {
+      "id": 342,
+      "canonical_name": "estalvi got",
+      "original_name": "ESTALVI GOT",
+      "frequency": 1
+    },
+    {
+      "id": 343,
+      "canonical_name": "estrella damm",
+      "original_name": "ESTRELLA DAMM",
+      "frequency": 1
+    },
+    {
+      "id": 344,
+      "canonical_name": "estrella sin al",
+      "original_name": "ESTRELLA SIN AL",
+      "frequency": 1
+    },
+    {
+      "id": 345,
+      "canonical_name": "f. llu\u00c7 s/pell pes",
+      "original_name": "F. LLU\u00c7 S/PELL PES",
+      "frequency": 1
+    },
+    {
+      "id": 346,
+      "canonical_name": "f. ovella llet crua",
+      "original_name": "F. OVELLA LLET CRUA",
+      "frequency": 1
+    },
+    {
+      "id": 347,
+      "canonical_name": "f.feta kolios 200gr",
+      "original_name": "F.FETA KOLIOS 200GR",
+      "frequency": 1
+    },
+    {
+      "id": 348,
+      "canonical_name": "f.semi porc.g.baque",
+      "original_name": "F.SEMI PORC.G.BAQUE",
+      "frequency": 1
+    },
+    {
+      "id": 349,
+      "canonical_name": "fageda",
+      "original_name": "Fageda",
+      "frequency": 1
+    },
+    {
+      "id": 350,
+      "canonical_name": "fageda 350g",
+      "original_name": "Fageda 350g",
+      "frequency": 1
+    },
+    {
+      "id": 351,
+      "canonical_name": "fagiolini bobis 4,0%",
+      "original_name": "FAGIOLINI BOBIS 4,0%",
+      "frequency": 1
+    },
+    {
+      "id": 352,
+      "canonical_name": "fanta llimona1,25l",
+      "original_name": "FANTA LLIMONA1,25L",
+      "frequency": 1
+    },
+    {
+      "id": 353,
+      "canonical_name": "fenebcc",
+      "original_name": "fenebcc",
+      "frequency": 1
+    },
+    {
+      "id": 354,
+      "canonical_name": "festuc natural",
+      "original_name": "FESTUC NATURAL",
+      "frequency": 1
+    },
+    {
+      "id": 355,
+      "canonical_name": "festuc torrat o% sal",
+      "original_name": "FESTUC TORRAT O% SAL",
+      "frequency": 1
+    },
+    {
+      "id": 356,
+      "canonical_name": "fideu\u00c0 dia al diante",
+      "original_name": "FIDEU\u00c0 DIA AL DIANTE",
+      "frequency": 1
+    },
+    {
+      "id": 357,
+      "canonical_name": "filet llu\u00c7 sense pel",
+      "original_name": "FILET LLU\u00c7 SENSE PEL",
+      "frequency": 1
+    },
+    {
+      "id": 358,
+      "canonical_name": "filete merluza cabo",
+      "original_name": "FILETE MERLUZA CABO",
+      "frequency": 1
+    },
+    {
+      "id": 359,
+      "canonical_name": "finisim pernil",
+      "original_name": "FINISIM PERNIL",
+      "frequency": 1
+    },
+    {
+      "id": 360,
+      "canonical_name": "finocchio 4,0%",
+      "original_name": "FINOCCHIO 4,0%",
+      "frequency": 1
+    },
+    {
+      "id": 361,
+      "canonical_name": "flapj ener poma xoc",
+      "original_name": "FLAPJ ENER POMA XOC",
+      "frequency": 1
+    },
+    {
+      "id": 362,
+      "canonical_name": "floc integ 0% sucre",
+      "original_name": "FLOC INTEG 0% SUCRE",
+      "frequency": 1
+    },
+    {
+      "id": 363,
+      "canonical_name": "flocs de civada",
+      "original_name": "FLOCS DE CIVADA",
+      "frequency": 1
+    },
+    {
+      "id": 364,
+      "canonical_name": "fogassa llescad 510",
+      "original_name": "FOGASSA LLESCAD 510",
+      "frequency": 1
+    },
+    {
+      "id": 365,
+      "canonical_name": "fogassa multic.rust",
+      "original_name": "FOGASSA MULTIC.RUST",
+      "frequency": 1
+    },
+    {
+      "id": 366,
+      "canonical_name": "fonoll 1,022",
+      "original_name": "Fonoll 1,022",
+      "frequency": 1
+    },
+    {
+      "id": 367,
+      "canonical_name": "fonoll 1,228",
+      "original_name": "Fonoll 1,228",
+      "frequency": 1
+    },
+    {
+      "id": 368,
+      "canonical_name": "for. tendre consum",
+      "original_name": "FOR. TENDRE CONSUM",
+      "frequency": 1
+    },
+    {
+      "id": 369,
+      "canonical_name": "form.semi cons.porc",
+      "original_name": "FORM.SEMI CONS.PORC",
+      "frequency": 1
+    },
+    {
+      "id": 370,
+      "canonical_name": "forma.curat mescla",
+      "original_name": "FORMA.CURAT MESCLA",
+      "frequency": 1
+    },
+    {
+      "id": 371,
+      "canonical_name": "format burgos sencer",
+      "original_name": "FORMAT BURGOS SENCER",
+      "frequency": 1
+    },
+    {
+      "id": 372,
+      "canonical_name": "formatg ratll mozzar",
+      "original_name": "FORMATG RATLL MOZZAR",
+      "frequency": 1
+    },
+    {
+      "id": 373,
+      "canonical_name": "formatge albiero 1p",
+      "original_name": "FORMATGE ALBIERO 1P",
+      "frequency": 1
+    },
+    {
+      "id": 374,
+      "canonical_name": "formatge arzua",
+      "original_name": "FORMATGE ARZUA",
+      "frequency": 1
+    },
+    {
+      "id": 375,
+      "canonical_name": "formatge brie france",
+      "original_name": "FORMATGE BRIE FRANCE",
+      "frequency": 1
+    },
+    {
+      "id": 376,
+      "canonical_name": "formatge brie france rsre",
+      "original_name": "FORMATGE BRIE FRANCE rsre",
+      "frequency": 1
+    },
+    {
+      "id": 377,
+      "canonical_name": "formatge curat",
+      "original_name": "FORMATGE CURAT",
+      "frequency": 1
+    },
+    {
+      "id": 378,
+      "canonical_name": "formatge fres desnat",
+      "original_name": "FORMATGE FRES DESNAT",
+      "frequency": 1
+    },
+    {
+      "id": 379,
+      "canonical_name": "formatge fresc vaca",
+      "original_name": "FORMATGE FRESC VACA",
+      "frequency": 1
+    },
+    {
+      "id": 380,
+      "canonical_name": "formatge untar light",
+      "original_name": "FORMATGE UNTAR LIGHT",
+      "frequency": 1
+    },
+    {
+      "id": 381,
+      "canonical_name": "fornatge ratllat piz",
+      "original_name": "FORNATGE RATLLAT PIZ",
+      "frequency": 1
+    },
+    {
+      "id": 382,
+      "canonical_name": "fotal",
+      "original_name": "fotal",
+      "frequency": 1
+    },
+    {
+      "id": 383,
+      "canonical_name": "fregall verd",
+      "original_name": "FREGALL VERD",
+      "frequency": 1
+    },
+    {
+      "id": 384,
+      "canonical_name": "ft merluza argentina",
+      "original_name": "FT MERLUZA ARGENTINA",
+      "frequency": 1
+    },
+    {
+      "id": 385,
+      "canonical_name": "fuet espetec extra",
+      "original_name": "FUET ESPETEC EXTRA",
+      "frequency": 1
+    },
+    {
+      "id": 386,
+      "canonical_name": "funghi",
+      "original_name": "FUNGHI",
+      "frequency": 1
+    },
+    {
+      "id": 387,
+      "canonical_name": "fuze tea",
+      "original_name": "FUZE TEA",
+      "frequency": 1
+    },
+    {
+      "id": 388,
+      "canonical_name": "g.integral cons.600",
+      "original_name": "G.INTEGRAL CONS.600",
+      "frequency": 1
+    },
+    {
+      "id": 389,
+      "canonical_name": "gal .lacasitos 120g",
+      "original_name": "GAL .LACASITOS 120G",
+      "frequency": 1
+    },
+    {
+      "id": 390,
+      "canonical_name": "galets consum 500g",
+      "original_name": "GALETS CONSUM 500G",
+      "frequency": 1
+    },
+    {
+      "id": 391,
+      "canonical_name": "gel wc spa",
+      "original_name": "GEL WC SPA",
+      "frequency": 1
+    },
+    {
+      "id": 392,
+      "canonical_name": "gerds safata 125g",
+      "original_name": "Gerds Safata 125g",
+      "frequency": 1
+    },
+    {
+      "id": 393,
+      "canonical_name": "ginger haney goat",
+      "original_name": "Ginger Haney Goat",
+      "frequency": 1
+    },
+    {
+      "id": 394,
+      "canonical_name": "ginger hont goat",
+      "original_name": "Ginger Hont Goat",
+      "frequency": 1
+    },
+    {
+      "id": 395,
+      "canonical_name": "gnocchi tricolor",
+      "original_name": "GNOCCHI TRICOLOR",
+      "frequency": 1
+    },
+    {
+      "id": 396,
+      "canonical_name": "gnocchis pat.consum",
+      "original_name": "GNOCCHIS PAT.CONSUM",
+      "frequency": 1
+    },
+    {
+      "id": 397,
+      "canonical_name": "gnocchis patates 50",
+      "original_name": "GNOCCHIS PATATES 50",
+      "frequency": 1
+    },
+    {
+      "id": 398,
+      "canonical_name": "golosinas mini mix",
+      "original_name": "GOLOSINAS MINI MIX",
+      "frequency": 1
+    },
+    {
+      "id": 399,
+      "canonical_name": "gorgonzola dop",
+      "original_name": "GORGONZOLA DOP",
+      "frequency": 1
+    },
+    {
+      "id": 400,
+      "canonical_name": "grec llimona",
+      "original_name": "GREC LLIMONA",
+      "frequency": 1
+    },
+    {
+      "id": 401,
+      "canonical_name": "grec natural p-6",
+      "original_name": "GREC NATURAL P-6",
+      "frequency": 1
+    },
+    {
+      "id": 402,
+      "canonical_name": "guacamole 1 arros cat. primera",
+      "original_name": "GUACAMOLE 1 ARROS CAT. PRIMERA",
+      "frequency": 1
+    },
+    {
+      "id": 403,
+      "canonical_name": "guacamole 1 barra de pa 3 u",
+      "original_name": "GUACAMOLE 1 BARRA DE PA 3 U",
+      "frequency": 1
+    },
+    {
+      "id": 404,
+      "canonical_name": "guacamole 3 mango deshidratat",
+      "original_name": "GUACAMOLE 3 MANGO DESHIDRATAT",
+      "frequency": 1
+    },
+    {
+      "id": 405,
+      "canonical_name": "guant resi.lleixiu g",
+      "original_name": "GUANT RESI.LLEIXIU G",
+      "frequency": 1
+    },
+    {
+      "id": 406,
+      "canonical_name": "h20 bar retill",
+      "original_name": "H20 Bar Retill",
+      "frequency": 1
+    },
+    {
+      "id": 407,
+      "canonical_name": "hamburguesa eco vede",
+      "original_name": "HAMBURGUESA ECO VEDE",
+      "frequency": 1
+    },
+    {
+      "id": 408,
+      "canonical_name": "heineken 0'0 @",
+      "original_name": "HEINEKEN 0'0 @",
+      "frequency": 1
+    },
+    {
+      "id": 409,
+      "canonical_name": "helado de pistacho",
+      "original_name": "HELADO DE PISTACHO",
+      "frequency": 1
+    },
+    {
+      "id": 410,
+      "canonical_name": "helado dos bolas a ele",
+      "original_name": "HELADO DOS BOLAS A ELE",
+      "frequency": 1
+    },
+    {
+      "id": 411,
+      "canonical_name": "hig.megarro.consum6",
+      "original_name": "HIG.MEGARRO.CONSUM6",
+      "frequency": 1
+    },
+    {
+      "id": 412,
+      "canonical_name": "higien.meg.consum12",
+      "original_name": "HIGIEN.MEG.CONSUM12",
+      "frequency": 1
+    },
+    {
+      "id": 413,
+      "canonical_name": "higienic doble rotll",
+      "original_name": "HIGIENIC DOBLE ROTLL",
+      "frequency": 1
+    },
+    {
+      "id": 414,
+      "canonical_name": "huevos camperos",
+      "original_name": "HUEVOS CAMPEROS",
+      "frequency": 1
+    },
+    {
+      "id": 415,
+      "canonical_name": "huevos rotos",
+      "original_name": "HUEVOS ROTOS",
+      "frequency": 1
+    },
+    {
+      "id": 416,
+      "canonical_name": "hummus al punto",
+      "original_name": "HUMMUS AL PUNTO",
+      "frequency": 1
+    },
+    {
+      "id": 417,
+      "canonical_name": "i salsitxa gdindi poll",
+      "original_name": "I SALSITXA GDINDI POLL",
+      "frequency": 1
+    },
+    {
+      "id": 418,
+      "canonical_name": "i.a/fruites consux8",
+      "original_name": "I.A/FRUITES CONSUX8",
+      "frequency": 1
+    },
+    {
+      "id": 419,
+      "canonical_name": "iceberg consum 250",
+      "original_name": "ICEBERG CONSUM 250",
+      "frequency": 1
+    },
+    {
+      "id": 420,
+      "canonical_name": "idgurt amb fruites",
+      "original_name": "IDGURT AMB FRUITES",
+      "frequency": 1
+    },
+    {
+      "id": 421,
+      "canonical_name": "impof bu engeur:\u2014 a",
+      "original_name": "IMPOF Bu ENGEUR:\u2014 a",
+      "frequency": 1
+    },
+    {
+      "id": 422,
+      "canonical_name": "impor te engeur:\u2014",
+      "original_name": "IMPOR TE ENGEUR:\u2014",
+      "frequency": 1
+    },
+    {
+      "id": 423,
+      "canonical_name": "importe eneur",
+      "original_name": "IMPORTE ENEUR",
+      "frequency": 1
+    },
+    {
+      "id": 424,
+      "canonical_name": "iog greg nous/llima gr6o v",
+      "original_name": "IOG GREG NOUS/LLIMA GR6O V",
+      "frequency": 1
+    },
+    {
+      "id": 425,
+      "canonical_name": "iogurt natural dia l",
+      "original_name": "IOGURT NATURAL DIA L",
+      "frequency": 1
+    },
+    {
+      "id": 426,
+      "canonical_name": "iogurt natural x 6",
+      "original_name": "IOGURT NATURAL X 6",
+      "frequency": 1
+    },
+    {
+      "id": 427,
+      "canonical_name": "iva inclos total",
+      "original_name": "IVA INCLOS TOTAL",
+      "frequency": 1
+    },
+    {
+      "id": 428,
+      "canonical_name": "jjdion cocido",
+      "original_name": "JJDION COCIDO",
+      "frequency": 1
+    },
+    {
+      "id": 429,
+      "canonical_name": "jjdion cocido =resca semide",
+      "original_name": "JJDION COCIDO =RESCA SEMIDE",
+      "frequency": 1
+    },
+    {
+      "id": 430,
+      "canonical_name": "jranja",
+      "original_name": "jranja",
+      "frequency": 1
+    },
+    {
+      "id": 431,
+      "canonical_name": "k camisa",
+      "original_name": "K CAMISA",
+      "frequency": 1
+    },
+    {
+      "id": 432,
+      "canonical_name": "ka grean aspn",
+      "original_name": "Ka Grean aspn",
+      "frequency": 1
+    },
+    {
+      "id": 433,
+      "canonical_name": "kg cal fruit\u00f3s \u20ac/kg",
+      "original_name": "kg Cal Fruit\u00f3s \u20ac/kg",
+      "frequency": 1
+    },
+    {
+      "id": 434,
+      "canonical_name": "kg net x 1.95/kg",
+      "original_name": "kg NET X 1.95/kg",
+      "frequency": 1
+    },
+    {
+      "id": 435,
+      "canonical_name": "kg net x 11.49/kg",
+      "original_name": "kg NET X 11.49/kg",
+      "frequency": 1
+    },
+    {
+      "id": 436,
+      "canonical_name": "kg net x 8.49/kg",
+      "original_name": "kg NET X 8.49/kg",
+      "frequency": 1
+    },
+    {
+      "id": 437,
+      "canonical_name": "kiwi green zespri",
+      "original_name": "Kiwi Green Zespri",
+      "frequency": 1
+    },
+    {
+      "id": 438,
+      "canonical_name": "kiwi green zespr\u0131",
+      "original_name": "Kiwi Green Zespr\u0131",
+      "frequency": 1
+    },
+    {
+      "id": 439,
+      "canonical_name": "l. solar 50+ viatge",
+      "original_name": "L. SOLAR 50+ VIATGE",
+      "frequency": 1
+    },
+    {
+      "id": 440,
+      "canonical_name": "l.sen.s/lact.cons1l",
+      "original_name": "L.SEN.S/LACT.CONS1L",
+      "frequency": 1
+    },
+    {
+      "id": 441,
+      "canonical_name": "l/freg.pi consum1.5",
+      "original_name": "L/FREG.PI CONSUM1.5",
+      "frequency": 1
+    },
+    {
+      "id": 442,
+      "canonical_name": "lasanya de verdures",
+      "original_name": "LASANYA DE VERDURES",
+      "frequency": 1
+    },
+    {
+      "id": 443,
+      "canonical_name": "leche entera",
+      "original_name": "Leche Entera",
+      "frequency": 1
+    },
+    {
+      "id": 444,
+      "canonical_name": "leche fresca sem",
+      "original_name": "LECHE FRESCA SEM",
+      "frequency": 1
+    },
+    {
+      "id": 445,
+      "canonical_name": "legging ni#a",
+      "original_name": "LEGGING NI#A",
+      "frequency": 1
+    },
+    {
+      "id": 446,
+      "canonical_name": "legging niha legging ni#a",
+      "original_name": "LEGGING NIHA LEGGING NI#A",
+      "frequency": 1
+    },
+    {
+      "id": 447,
+      "canonical_name": "levat royal per ela",
+      "original_name": "LEVAT ROYAL PER ELA",
+      "frequency": 1
+    },
+    {
+      "id": 448,
+      "canonical_name": "libri 3.90 ns",
+      "original_name": "LIBRI 3.90 NS",
+      "frequency": 1
+    },
+    {
+      "id": 449,
+      "canonical_name": "lic. pressec giners",
+      "original_name": "LIC. PRESSEC GINERS",
+      "frequency": 1
+    },
+    {
+      "id": 450,
+      "canonical_name": "lleixiu mul.consum2",
+      "original_name": "LLEIXIU MUL.CONSUM2",
+      "frequency": 1
+    },
+    {
+      "id": 451,
+      "canonical_name": "llenques formaice",
+      "original_name": "LLENQUES FORMAICE",
+      "frequency": 1
+    },
+    {
+      "id": 452,
+      "canonical_name": "llentia",
+      "original_name": "LLENTIA",
+      "frequency": 1
+    },
+    {
+      "id": 453,
+      "canonical_name": "llentia pardina",
+      "original_name": "LLENTIA PARDINA",
+      "frequency": 1
+    },
+    {
+      "id": 454,
+      "canonical_name": "llet fresca sencera",
+      "original_name": "LLET FRESCA SENCERA",
+      "frequency": 1
+    },
+    {
+      "id": 455,
+      "canonical_name": "llet sen.consum tl",
+      "original_name": "LLET SEN.CONSUM TL",
+      "frequency": 1
+    },
+    {
+      "id": 456,
+      "canonical_name": "llet sencera dia lac",
+      "original_name": "LLET SENCERA DIA LAC",
+      "frequency": 1
+    },
+    {
+      "id": 457,
+      "canonical_name": "lleugera boca abajo",
+      "original_name": "LLEUGERA BOCA ABAJO",
+      "frequency": 1
+    },
+    {
+      "id": 458,
+      "canonical_name": "llevagre.consum750",
+      "original_name": "LLEVAGRE.CONSUM750",
+      "frequency": 1
+    },
+    {
+      "id": 459,
+      "canonical_name": "llima-llimona llauna",
+      "original_name": "LLIMA-LLIMONA LLAUNA",
+      "frequency": 1
+    },
+    {
+      "id": 460,
+      "canonical_name": "llimona",
+      "original_name": "Llimona",
+      "frequency": 1
+    },
+    {
+      "id": 461,
+      "canonical_name": "lloms llu\u00c7 360 pesc",
+      "original_name": "LLOMS LLU\u00c7 360 PESC",
+      "frequency": 1
+    },
+    {
+      "id": 462,
+      "canonical_name": "lote 5 calcetine",
+      "original_name": "LOTE 5 CALCETINE",
+      "frequency": 1
+    },
+    {
+      "id": 463,
+      "canonical_name": "m.b.settembrini gr.300 10,0%",
+      "original_name": "M.B.SETTEMBRINI GR.300 10,0%",
+      "frequency": 1
+    },
+    {
+      "id": 464,
+      "canonical_name": "maduixa d'estiu",
+      "original_name": "MADUIXA D'ESTIU",
+      "frequency": 1
+    },
+    {
+      "id": 465,
+      "canonical_name": "maduixot 500 gr",
+      "original_name": "MADUIXOT 500 GR",
+      "frequency": 1
+    },
+    {
+      "id": 466,
+      "canonical_name": "maduixot la collita",
+      "original_name": "MADUIXOT LA COLLITA",
+      "frequency": 1
+    },
+    {
+      "id": 467,
+      "canonical_name": "magdalena rodona",
+      "original_name": "MAGDALENA RODONA",
+      "frequency": 1
+    },
+    {
+      "id": 468,
+      "canonical_name": "magnum mini classic",
+      "original_name": "MAGNUM MINI CLASSIC",
+      "frequency": 1
+    },
+    {
+      "id": 469,
+      "canonical_name": "mahou sin alcohol",
+      "original_name": "MAHOU SIN ALCOHOL",
+      "frequency": 1
+    },
+    {
+      "id": 470,
+      "canonical_name": "maionesa l light 460",
+      "original_name": "MAIONESA L LIGHT 460",
+      "frequency": 1
+    },
+    {
+      "id": 471,
+      "canonical_name": "malo canteliup",
+      "original_name": "Malo Canteliup",
+      "frequency": 1
+    },
+    {
+      "id": 472,
+      "canonical_name": "mango deshidratat",
+      "original_name": "MANGO DESHIDRATAT",
+      "frequency": 1
+    },
+    {
+      "id": 473,
+      "canonical_name": "mantega ato 250",
+      "original_name": "MANTEGA ATO 250",
+      "frequency": 1
+    },
+    {
+      "id": 474,
+      "canonical_name": "mantega past, sese",
+      "original_name": "MANTEGA PAST, SESE",
+      "frequency": 1
+    },
+    {
+      "id": 475,
+      "canonical_name": "marg.veg.consum500",
+      "original_name": "MARG.VEG.CONSUM500",
+      "frequency": 1
+    },
+    {
+      "id": 476,
+      "canonical_name": "mariscos",
+      "original_name": "MARISCOS",
+      "frequency": 1
+    },
+    {
+      "id": 477,
+      "canonical_name": "masc. pantene repraeprui jubml",
+      "original_name": "MASC. PANTENE REPRAEPRUI JUBML",
+      "frequency": 1
+    },
+    {
+      "id": 478,
+      "canonical_name": "mascarpone",
+      "original_name": "MASCARPONE",
+      "frequency": 1
+    },
+    {
+      "id": 479,
+      "canonical_name": "maxi golrmet cherry bja 5oogr",
+      "original_name": "MAXI GOLRMET CHERRY BJA 5OOGR",
+      "frequency": 1
+    },
+    {
+      "id": 480,
+      "canonical_name": "maxi gourmet",
+      "original_name": "MAXI GOURMET",
+      "frequency": 1
+    },
+    {
+      "id": 481,
+      "canonical_name": "medall\u00d3 gall dindi",
+      "original_name": "MEDALL\u00d3 GALL DINDI",
+      "frequency": 1
+    },
+    {
+      "id": 482,
+      "canonical_name": "megarollo scottex 6",
+      "original_name": "MEGAROLLO SCOTTEX 6",
+      "frequency": 1
+    },
+    {
+      "id": 483,
+      "canonical_name": "melo extra cal fruitde",
+      "original_name": "Melo Extra Cal Fruitde",
+      "frequency": 1
+    },
+    {
+      "id": 484,
+      "canonical_name": "mel\u00f3 cantalup 0,876",
+      "original_name": "Mel\u00f3 Cantalup 0,876",
+      "frequency": 1
+    },
+    {
+      "id": 485,
+      "canonical_name": "mel\u00f3 extra cal fruit\u00f3s",
+      "original_name": "Mel\u00f3 Extra Cal Fruit\u00f3s",
+      "frequency": 1
+    },
+    {
+      "id": 486,
+      "canonical_name": "menu infantil",
+      "original_name": "MENU INFANTIL",
+      "frequency": 1
+    },
+    {
+      "id": 487,
+      "canonical_name": "mestral",
+      "original_name": "Mestral",
+      "frequency": 1
+    },
+    {
+      "id": 488,
+      "canonical_name": "minestra 1 espinacs picats",
+      "original_name": "MINESTRA 1 ESPINACS PICATS",
+      "frequency": 1
+    },
+    {
+      "id": 489,
+      "canonical_name": "minestra 1 kg. cons",
+      "original_name": "MINESTRA 1 KG. CONS",
+      "frequency": 1
+    },
+    {
+      "id": 490,
+      "canonical_name": "minestra espar.cons",
+      "original_name": "MINESTRA ESPAR.CONS",
+      "frequency": 1
+    },
+    {
+      "id": 491,
+      "canonical_name": "mini bombons 12 u",
+      "original_name": "MINI BOMBONS 12 U",
+      "frequency": 1
+    },
+    {
+      "id": 492,
+      "canonical_name": "mini fuets campofrio",
+      "original_name": "MINI FUETS CAMPOFRIO",
+      "frequency": 1
+    },
+    {
+      "id": 493,
+      "canonical_name": "minidauets pernil",
+      "original_name": "MINIDAUETS PERNIL",
+      "frequency": 1
+    },
+    {
+      "id": 494,
+      "canonical_name": "mladuixot huelva caixa 1kg",
+      "original_name": "Mladuixot Huelva Caixa 1kg",
+      "frequency": 1
+    },
+    {
+      "id": 495,
+      "canonical_name": "mocadors 4 capes",
+      "original_name": "MOCADORS 4 CAPES",
+      "frequency": 1
+    },
+    {
+      "id": 496,
+      "canonical_name": "mol\u00f3 extra cal fruit\u00f3s",
+      "original_name": "Mol\u00f3 Extra Cal Fruit\u00f3s",
+      "frequency": 1
+    },
+    {
+      "id": 497,
+      "canonical_name": "mongeta cui.fl.luen",
+      "original_name": "MONGETA CUI.FL.LUEN",
+      "frequency": 1
+    },
+    {
+      "id": 498,
+      "canonical_name": "mongeta plana a tro",
+      "original_name": "MONGETA PLANA A TRO",
+      "frequency": 1
+    },
+    {
+      "id": 499,
+      "canonical_name": "mongeta vermel.cuita",
+      "original_name": "MONGETA VERMEL.CUITA",
+      "frequency": 1
+    },
+    {
+      "id": 500,
+      "canonical_name": "mostassa dijon",
+      "original_name": "MOSTASSA DIJON",
+      "frequency": 1
+    },
+    {
+      "id": 501,
+      "canonical_name": "mozzar.ratll gonsum",
+      "original_name": "MOZZAR.RATLL GONSUM",
+      "frequency": 1
+    },
+    {
+      "id": 502,
+      "canonical_name": "mozzar.ratll.cons",
+      "original_name": "MOZZAR.RATLL.CONS",
+      "frequency": 1
+    },
+    {
+      "id": 503,
+      "canonical_name": "mozzarella galbani f",
+      "original_name": "MOZZARELLA GALBANI F",
+      "frequency": 1
+    },
+    {
+      "id": 504,
+      "canonical_name": "mport",
+      "original_name": "mport",
+      "frequency": 1
+    },
+    {
+      "id": 505,
+      "canonical_name": "muesli crunchy 0%",
+      "original_name": "MUESLI CRUNCHY 0%",
+      "frequency": 1
+    },
+    {
+      "id": 506,
+      "canonical_name": "multiusos perfumat",
+      "original_name": "MULTIUSOS PERFUMAT",
+      "frequency": 1
+    },
+    {
+      "id": 507,
+      "canonical_name": "nabius safata cf 150g",
+      "original_name": "Nabius Safata CF 150g",
+      "frequency": 1
+    },
+    {
+      "id": 508,
+      "canonical_name": "nactarna extra",
+      "original_name": "Nactarna Extra",
+      "frequency": 1
+    },
+    {
+      "id": 509,
+      "canonical_name": "naranja marca ma",
+      "original_name": "NARANJA MARCA MA",
+      "frequency": 1
+    },
+    {
+      "id": 510,
+      "canonical_name": "nata esprai",
+      "original_name": "NATA ESPRAI",
+      "frequency": 1
+    },
+    {
+      "id": 511,
+      "canonical_name": "ndria ratllada cal fruitos",
+      "original_name": "ndria Ratllada Cal Fruitos",
+      "frequency": 1
+    },
+    {
+      "id": 512,
+      "canonical_name": "nettarine gialle kg 1 4,0%",
+      "original_name": "NETTARINE GIALLE KG 1 4,0%",
+      "frequency": 1
+    },
+    {
+      "id": 513,
+      "canonical_name": "neula gullon 180g",
+      "original_name": "NEULA GULLON 180G",
+      "frequency": 1
+    },
+    {
+      "id": 514,
+      "canonical_name": "nius espinacs",
+      "original_name": "NIUS ESPINACS",
+      "frequency": 1
+    },
+    {
+      "id": 515,
+      "canonical_name": "ni\u00f1o 15/08/2025 18/08/2025 3 2",
+      "original_name": "Ni\u00f1o 15/08/2025 18/08/2025 3 2",
+      "frequency": 1
+    },
+    {
+      "id": 516,
+      "canonical_name": "nodi e nodini deliziosa 4,0%",
+      "original_name": "NODI E NODINI DELIZIOSA 4,0%",
+      "frequency": 1
+    },
+    {
+      "id": 517,
+      "canonical_name": "noodles de pollastre",
+      "original_name": "NOODLES DE POLLASTRE",
+      "frequency": 1
+    },
+    {
+      "id": 518,
+      "canonical_name": "oc.70% cacau lindt",
+      "original_name": "OC.70% CACAU LINDT",
+      "frequency": 1
+    },
+    {
+      "id": 519,
+      "canonical_name": "ofe galetes gullon dig",
+      "original_name": "OFE GALETES GULLON DIG",
+      "frequency": 1
+    },
+    {
+      "id": 520,
+      "canonical_name": "ofe nous bonpreu kmo c",
+      "original_name": "OFE NOUS BONPREU KMO C",
+      "frequency": 1
+    },
+    {
+      "id": 521,
+      "canonical_name": "ogombre 1,162",
+      "original_name": "ogombre 1,162",
+      "frequency": 1
+    },
+    {
+      "id": 522,
+      "canonical_name": "ol-i-flor",
+      "original_name": "ol-i-flor",
+      "frequency": 1
+    },
+    {
+      "id": 523,
+      "canonical_name": "oliva man\u00c7.s/anx.co",
+      "original_name": "OLIVA MAN\u00c7.S/ANX.CO",
+      "frequency": 1
+    },
+    {
+      "id": 524,
+      "canonical_name": "oliva.negra sense os",
+      "original_name": "OLIVA.NEGRA SENSE OS",
+      "frequency": 1
+    },
+    {
+      "id": 525,
+      "canonical_name": "oma fuji 1,658",
+      "original_name": "oma Fuji 1,658",
+      "frequency": 1
+    },
+    {
+      "id": 526,
+      "canonical_name": "ordcp33011a carta ordinaria",
+      "original_name": "ORDCP33011A CARTA ORDINARIA",
+      "frequency": 1
+    },
+    {
+      "id": 527,
+      "canonical_name": "otal",
+      "original_name": "otal",
+      "frequency": 1
+    },
+    {
+      "id": 528,
+      "canonical_name": "ous campers dia 22",
+      "original_name": "OUS CAMPERS DIA 22",
+      "frequency": 1
+    },
+    {
+      "id": 529,
+      "canonical_name": "ous ecolegics bonpre",
+      "original_name": "OUS ECOLEGICS BONPRE",
+      "frequency": 1
+    },
+    {
+      "id": 530,
+      "canonical_name": "ous pag\u00c8s",
+      "original_name": "OUS PAG\u00c8S",
+      "frequency": 1
+    },
+    {
+      "id": 531,
+      "canonical_name": "ous xocolata gran",
+      "original_name": "OUS XOCOLATA GRAN",
+      "frequency": 1
+    },
+    {
+      "id": 532,
+      "canonical_name": "p. curat reduit sal",
+      "original_name": "P. CURAT REDUIT SAL",
+      "frequency": 1
+    },
+    {
+      "id": 533,
+      "canonical_name": "p.cuit bras.160g co",
+      "original_name": "P.CUIT BRAS.160G CO",
+      "frequency": 1
+    },
+    {
+      "id": 534,
+      "canonical_name": "p.cuit tal.fi.16001",
+      "original_name": "P.CUIT TAL.FI.16001",
+      "frequency": 1
+    },
+    {
+      "id": 535,
+      "canonical_name": "p.mot.int.consumb20",
+      "original_name": "P.MOT.INT.CONSUMB20",
+      "frequency": 1
+    },
+    {
+      "id": 536,
+      "canonical_name": "p.pessic amb ou",
+      "original_name": "P.PESSIC AMB OU",
+      "frequency": 1
+    },
+    {
+      "id": 537,
+      "canonical_name": "pa 51x integral 5un",
+      "original_name": "PA 51X INTEGRAL 5UN",
+      "frequency": 1
+    },
+    {
+      "id": 538,
+      "canonical_name": "pa amb tomaquet",
+      "original_name": "PA AMB TOMAQUET",
+      "frequency": 1
+    },
+    {
+      "id": 539,
+      "canonical_name": "pa binbo artesa inieuna 5006",
+      "original_name": "PA BINBO ARTESA INIEUNA 5006",
+      "frequency": 1
+    },
+    {
+      "id": 540,
+      "canonical_name": "pa de motlle oroweat",
+      "original_name": "PA DE MOTLLE OROWEAT",
+      "frequency": 1
+    },
+    {
+      "id": 541,
+      "canonical_name": "pa de poble",
+      "original_name": "PA DE POBLE",
+      "frequency": 1
+    },
+    {
+      "id": 542,
+      "canonical_name": "pa llescat segol",
+      "original_name": "PA LLESCAT SEGOL",
+      "frequency": 1
+    },
+    {
+      "id": 543,
+      "canonical_name": "pa motlle blanc el m",
+      "original_name": "PA MOTLLE BLANC EL M",
+      "frequency": 1
+    },
+    {
+      "id": 544,
+      "canonical_name": "pa motlle integral",
+      "original_name": "PA MOTLLE INTEGRAL",
+      "frequency": 1
+    },
+    {
+      "id": 545,
+      "canonical_name": "pa ovalat rustik bak",
+      "original_name": "PA OVALAT RUSTIK BAK",
+      "frequency": 1
+    },
+    {
+      "id": 546,
+      "canonical_name": "pa ratll.nat.con500",
+      "original_name": "PA RATLL.NAT.CON500",
+      "frequency": 1
+    },
+    {
+      "id": 547,
+      "canonical_name": "pa ratllat c.consum",
+      "original_name": "PA RATLLAT C.CONSUM",
+      "frequency": 1
+    },
+    {
+      "id": 548,
+      "canonical_name": "pa tomaquet cons160",
+      "original_name": "PA TOMAQUET CONS160",
+      "frequency": 1
+    },
+    {
+      "id": 549,
+      "canonical_name": "pa viena",
+      "original_name": "PA VIENA",
+      "frequency": 1
+    },
+    {
+      "id": 550,
+      "canonical_name": "pa viena formatge semi",
+      "original_name": "PA VIENA FORMATGE SEMI",
+      "frequency": 1
+    },
+    {
+      "id": 551,
+      "canonical_name": "pag\u00c8s mul/llav cara",
+      "original_name": "PAG\u00c8S MUL/LLAV CARA",
+      "frequency": 1
+    },
+    {
+      "id": 552,
+      "canonical_name": "pan",
+      "original_name": "PAN",
+      "frequency": 1
+    },
+    {
+      "id": 553,
+      "canonical_name": "panet 11 un 1 barra de pa 3 u",
+      "original_name": "PANET 11 UN 1 BARRA DE PA 3 U",
+      "frequency": 1
+    },
+    {
+      "id": 554,
+      "canonical_name": "panet 11 un 1 gelat vainilla",
+      "original_name": "PANET 11 UN 1 GELAT VAINILLA",
+      "frequency": 1
+    },
+    {
+      "id": 555,
+      "canonical_name": "panet 11 un 1 llom embotit 4 p",
+      "original_name": "PANET 11 UN 1 LLOM EMBOTIT 4 P",
+      "frequency": 1
+    },
+    {
+      "id": 556,
+      "canonical_name": "panet 11 un 3 mocador capsa",
+      "original_name": "PANET 11 UN 3 MOCADOR CAPSA",
+      "frequency": 1
+    },
+    {
+      "id": 557,
+      "canonical_name": "panet 1o0n integral",
+      "original_name": "PANET 1O0N INTEGRAL",
+      "frequency": 1
+    },
+    {
+      "id": 558,
+      "canonical_name": "pango uutat promecis",
+      "original_name": "Pango Uutat Promecis",
+      "frequency": 1
+    },
+    {
+      "id": 559,
+      "canonical_name": "pantalon corto p",
+      "original_name": "PANTALON CORTO P",
+      "frequency": 1
+    },
+    {
+      "id": 560,
+      "canonical_name": "paraguai\u00c0 1,55 e/kg",
+      "original_name": "PARAGUAI\u00c0 1,55 e/kg",
+      "frequency": 1
+    },
+    {
+      "id": 561,
+      "canonical_name": "parrillada de verduras",
+      "original_name": "ParriLlada de verduras",
+      "frequency": 1
+    },
+    {
+      "id": 562,
+      "canonical_name": "pasta bonpreu espira",
+      "original_name": "PASTA BONPREU ESPIRA",
+      "frequency": 1
+    },
+    {
+      "id": 563,
+      "canonical_name": "pasta bonpreu fideua",
+      "original_name": "PASTA BONPREU FIDEUA",
+      "frequency": 1
+    },
+    {
+      "id": 564,
+      "canonical_name": "pastis nata-xocolata",
+      "original_name": "PASTIS NATA-XOCOLATA",
+      "frequency": 1
+    },
+    {
+      "id": 565,
+      "canonical_name": "patata blanca a granel",
+      "original_name": "Patata Blanca a granel",
+      "frequency": 1
+    },
+    {
+      "id": 566,
+      "canonical_name": "patata micro bossa",
+      "original_name": "Patata Micro Bossa",
+      "frequency": 1
+    },
+    {
+      "id": 567,
+      "canonical_name": "patates llises",
+      "original_name": "PATATES LLISES",
+      "frequency": 1
+    },
+    {
+      "id": 568,
+      "canonical_name": "patates ondulades",
+      "original_name": "PATATES ONDULADES",
+      "frequency": 1
+    },
+    {
+      "id": 569,
+      "canonical_name": "patates xurre. cons",
+      "original_name": "PATATES XURRE. CONS",
+      "frequency": 1
+    },
+    {
+      "id": 570,
+      "canonical_name": "pebrot piquillo",
+      "original_name": "PEBROT PIQUILLO",
+      "frequency": 1
+    },
+    {
+      "id": 571,
+      "canonical_name": "pebrot piquillo pot",
+      "original_name": "PEBROT PIQUILLO POT",
+      "frequency": 1
+    },
+    {
+      "id": 572,
+      "canonical_name": "per.cuit t.xa 200co",
+      "original_name": "PER.CUIT T.XA 200CO",
+      "frequency": 1
+    },
+    {
+      "id": 573,
+      "canonical_name": "pera rocha 1 tomaquet pera",
+      "original_name": "PERA ROCHA 1 TOMAQUET PERA",
+      "frequency": 1
+    },
+    {
+      "id": 574,
+      "canonical_name": "pernil cuit 1954 el",
+      "original_name": "PERNIL CUIT 1954 EL",
+      "frequency": 1
+    },
+    {
+      "id": 575,
+      "canonical_name": "pernil cuit bonnatur",
+      "original_name": "PERNIL CUIT BONNATUR",
+      "frequency": 1
+    },
+    {
+      "id": 576,
+      "canonical_name": "pernil cuit ferrar",
+      "original_name": "PERNIL CUIT FERRAR",
+      "frequency": 1
+    },
+    {
+      "id": 577,
+      "canonical_name": "pernil curat el pozo",
+      "original_name": "PERNIL CURAT EL POZO",
+      "frequency": 1
+    },
+    {
+      "id": 578,
+      "canonical_name": "pernil llauna talls",
+      "original_name": "PERNIL LLAUNA TALLS",
+      "frequency": 1
+    },
+    {
+      "id": 579,
+      "canonical_name": "pernil s/adit. 100g",
+      "original_name": "PERNIL S/ADIT. 100G",
+      "frequency": 1
+    },
+    {
+      "id": 580,
+      "canonical_name": "pernil serra reserva",
+      "original_name": "PERNIL SERRA RESERVA",
+      "frequency": 1
+    },
+    {
+      "id": 581,
+      "canonical_name": "pesol fi",
+      "original_name": "PESOL FI",
+      "frequency": 1
+    },
+    {
+      "id": 582,
+      "canonical_name": "pesols fins consum",
+      "original_name": "PESOLS FINS CONSUM",
+      "frequency": 1
+    },
+    {
+      "id": 583,
+      "canonical_name": "philade.natural 200",
+      "original_name": "PHILADE.NATURAL 200",
+      "frequency": 1
+    },
+    {
+      "id": 584,
+      "canonical_name": "pin mange unitat promeci\u00f3",
+      "original_name": "Pin Mange Unitat Promeci\u00f3",
+      "frequency": 1
+    },
+    {
+      "id": 585,
+      "canonical_name": "pinya i raim",
+      "original_name": "PINYA I RAIM",
+      "frequency": 1
+    },
+    {
+      "id": 586,
+      "canonical_name": "pit gall dindi fil",
+      "original_name": "PIT GALL DINDI FIL",
+      "frequency": 1
+    },
+    {
+      "id": 587,
+      "canonical_name": "pit indiot filet ext",
+      "original_name": "PIT INDIOT FILET EXT",
+      "frequency": 1
+    },
+    {
+      "id": 588,
+      "canonical_name": "pizcas pernil lorie",
+      "original_name": "PIZCAS PERNIL LORIE",
+      "frequency": 1
+    },
+    {
+      "id": 589,
+      "canonical_name": "pizza tono",
+      "original_name": "pizza TONO",
+      "frequency": 1
+    },
+    {
+      "id": 590,
+      "canonical_name": "platan banane",
+      "original_name": "Platan Banane",
+      "frequency": 1
+    },
+    {
+      "id": 591,
+      "canonical_name": "poina royal gala extra",
+      "original_name": "Poina Royal Gala Extra",
+      "frequency": 1
+    },
+    {
+      "id": 592,
+      "canonical_name": "poma fuji extra cal fruitas",
+      "original_name": "Poma Fuji Extra Cal Fruitas",
+      "frequency": 1
+    },
+    {
+      "id": 593,
+      "canonical_name": "poma fuji extra cat fruit\u00f3s",
+      "original_name": "Poma Fuji Extra Cat Fruit\u00f3s",
+      "frequency": 1
+    },
+    {
+      "id": 594,
+      "canonical_name": "poma golden bossa",
+      "original_name": "POMA GOLDEN BOSSA",
+      "frequency": 1
+    },
+    {
+      "id": 595,
+      "canonical_name": "poma granny 0,762 kg 2,25 \u20ac/kg",
+      "original_name": "POMA GRANNY 0,762 kg 2,25 \u20ac/kg",
+      "frequency": 1
+    },
+    {
+      "id": 596,
+      "canonical_name": "poma royal gala extra",
+      "original_name": "Poma Royal Gala Extra",
+      "frequency": 1
+    },
+    {
+      "id": 597,
+      "canonical_name": "pome golden extra cal fruitde",
+      "original_name": "Pome Golden Extra Cal Fruitde",
+      "frequency": 1
+    },
+    {
+      "id": 598,
+      "canonical_name": "pomod.fiaschetto rosso kg.1",
+      "original_name": "POMOD.FIASCHETTO ROSSO KG.1",
+      "frequency": 1
+    },
+    {
+      "id": 599,
+      "canonical_name": "porcio light",
+      "original_name": "PORCIO LIGHT",
+      "frequency": 1
+    },
+    {
+      "id": 600,
+      "canonical_name": "porna golden promoci\u00f3",
+      "original_name": "Porna Golden Promoci\u00f3",
+      "frequency": 1
+    },
+    {
+      "id": 601,
+      "canonical_name": "postres soia i coco",
+      "original_name": "POSTRES SOIA I COCO",
+      "frequency": 1
+    },
+    {
+      "id": 602,
+      "canonical_name": "pot xicle herba sana",
+      "original_name": "POT XICLE HERBA SANA",
+      "frequency": 1
+    },
+    {
+      "id": 603,
+      "canonical_name": "pr.cotto nostrano 10%",
+      "original_name": "PR.COTTO NOSTRANO 10%",
+      "frequency": 1
+    },
+    {
+      "id": 604,
+      "canonical_name": "pressec blane extra",
+      "original_name": "Pressec Blane Extra",
+      "frequency": 1
+    },
+    {
+      "id": 605,
+      "canonical_name": "pressec en almivar",
+      "original_name": "PRESSEC EN ALMIVAR",
+      "frequency": 1
+    },
+    {
+      "id": 606,
+      "canonical_name": "pressec i raim 1l",
+      "original_name": "PRESSEC I RAIM 1L",
+      "frequency": 1
+    },
+    {
+      "id": 607,
+      "canonical_name": "pro.intim normal 72",
+      "original_name": "PRO.INTIM NORMAL 72",
+      "frequency": 1
+    },
+    {
+      "id": 608,
+      "canonical_name": "produc, vegetal alpr",
+      "original_name": "PRODUC, VEGETAL ALPR",
+      "frequency": 1
+    },
+    {
+      "id": 609,
+      "canonical_name": "prose cco doc /50m1",
+      "original_name": "PROSE CCO DOC /50m1",
+      "frequency": 1
+    },
+    {
+      "id": 610,
+      "canonical_name": "protector -ntim bonp",
+      "original_name": "PROTECTOR -NTIM BONP",
+      "frequency": 1
+    },
+    {
+      "id": 611,
+      "canonical_name": "pr\u00c9secc-raim p6",
+      "original_name": "PR\u00c9SECC-RAIM P6",
+      "frequency": 1
+    },
+    {
+      "id": 612,
+      "canonical_name": "pr\u00e9senc blanc extra",
+      "original_name": "Pr\u00e9senc Blanc Extra",
+      "frequency": 1
+    },
+    {
+      "id": 613,
+      "canonical_name": "pr\u00e9ssec paraguaia extra",
+      "original_name": "Pr\u00e9ssec Paraguaia Extra",
+      "frequency": 1
+    },
+    {
+      "id": 614,
+      "canonical_name": "pr\u00e9ssec paraguai\u00e0 extra",
+      "original_name": "Pr\u00e9ssec Paraguai\u00e0 Extra",
+      "frequency": 1
+    },
+    {
+      "id": 615,
+      "canonical_name": "pur+ patates mouslin",
+      "original_name": "PUR+ PATATES MOUSLIN",
+      "frequency": 1
+    },
+    {
+      "id": 616,
+      "canonical_name": "pza",
+      "original_name": "Pza",
+      "frequency": 1
+    },
+    {
+      "id": 617,
+      "canonical_name": "pza alvocat extra cal fruit\u00f3s",
+      "original_name": "Pza Alvocat Extra Cal Fruit\u00f3s",
+      "frequency": 1
+    },
+    {
+      "id": 618,
+      "canonical_name": "q.rallado moz",
+      "original_name": "Q.RALLADO MOZ",
+      "frequency": 1
+    },
+    {
+      "id": 619,
+      "canonical_name": "quesencillos",
+      "original_name": "Quesencillos",
+      "frequency": 1
+    },
+    {
+      "id": 620,
+      "canonical_name": "quinto sin 1.70 17",
+      "original_name": "QUINTO SIN 1.70 17",
+      "frequency": 1
+    },
+    {
+      "id": 621,
+      "canonical_name": "raim blanc sese pep",
+      "original_name": "RAIM BLANC SESE PEP",
+      "frequency": 1
+    },
+    {
+      "id": 622,
+      "canonical_name": "raspall paquet 3 dur",
+      "original_name": "RASPALL PAQUET 3 DUR",
+      "frequency": 1
+    },
+    {
+      "id": 623,
+      "canonical_name": "ref :2892407",
+      "original_name": "Ref :2892407",
+      "frequency": 1
+    },
+    {
+      "id": 624,
+      "canonical_name": "rega\u00d1a",
+      "original_name": "REGA\u00d1A",
+      "frequency": 1
+    },
+    {
+      "id": 625,
+      "canonical_name": "rega\u00d1a 1 mortadel-la italiana",
+      "original_name": "REGA\u00d1A 1 MORTADEL-LA ITALIANA",
+      "frequency": 1
+    },
+    {
+      "id": 626,
+      "canonical_name": "rega\u00d1as consum250",
+      "original_name": "REGA\u00d1AS CONSUM250",
+      "frequency": 1
+    },
+    {
+      "id": 627,
+      "canonical_name": "remolatxa cuita",
+      "original_name": "Remolatxa Cuita",
+      "frequency": 1
+    },
+    {
+      "id": 628,
+      "canonical_name": "remolatxa ratll.190",
+      "original_name": "REMOLATXA RATLL.190",
+      "frequency": 1
+    },
+    {
+      "id": 629,
+      "canonical_name": "rentavaixelles norm",
+      "original_name": "RENTAVAIXELLES NORM",
+      "frequency": 1
+    },
+    {
+      "id": 630,
+      "canonical_name": "repel lent fort",
+      "original_name": "REPEL LENT FORT",
+      "frequency": 1
+    },
+    {
+      "id": 631,
+      "canonical_name": "revuelto setas",
+      "original_name": "REVUELTO SETAS",
+      "frequency": 1
+    },
+    {
+      "id": 632,
+      "canonical_name": "ricottina montronella",
+      "original_name": "RICOTTINA MONTRONELLA",
+      "frequency": 1
+    },
+    {
+      "id": 633,
+      "canonical_name": "rocoli de proximitat",
+      "original_name": "rocoli de Proximitat",
+      "frequency": 1
+    },
+    {
+      "id": 634,
+      "canonical_name": "rodanxa de salm\u00d3",
+      "original_name": "RODANXA DE SALM\u00d3",
+      "frequency": 1
+    },
+    {
+      "id": 635,
+      "canonical_name": "rodes patata cons85",
+      "original_name": "RODES PATATA CONS85",
+      "frequency": 1
+    },
+    {
+      "id": 636,
+      "canonical_name": "ronja promocio cal fruitos",
+      "original_name": "ronja Promocio Cal Fruitos",
+      "frequency": 1
+    },
+    {
+      "id": 637,
+      "canonical_name": "s.pres raim cons tl",
+      "original_name": "S.PRES RAIM CONS TL",
+      "frequency": 1
+    },
+    {
+      "id": 638,
+      "canonical_name": "s.tar-man consum p6",
+      "original_name": "S.TAR-MAN CONSUM P6",
+      "frequency": 1
+    },
+    {
+      "id": 639,
+      "canonical_name": "sal iodada",
+      "original_name": "SAL IODADA",
+      "frequency": 1
+    },
+    {
+      "id": 640,
+      "canonical_name": "salmo fum.nor 2x100",
+      "original_name": "SALMO FUM.NOR 2X100",
+      "frequency": 1
+    },
+    {
+      "id": 641,
+      "canonical_name": "salmorejo 1l consum",
+      "original_name": "SALMOREJO 1L CONSUM",
+      "frequency": 1
+    },
+    {
+      "id": 642,
+      "canonical_name": "salm\u00d3 fumat",
+      "original_name": "SALM\u00d3 FUMAT",
+      "frequency": 1
+    },
+    {
+      "id": 643,
+      "canonical_name": "saltat de bolets",
+      "original_name": "SALTAT DE BOLETS",
+      "frequency": 1
+    },
+    {
+      "id": 644,
+      "canonical_name": "saltat de verdures",
+      "original_name": "SALTAT DE VERDURES",
+      "frequency": 1
+    },
+    {
+      "id": 645,
+      "canonical_name": "samarreta-0483123",
+      "original_name": "SAMARRETA-0483123",
+      "frequency": 1
+    },
+    {
+      "id": 646,
+      "canonical_name": "samarreta-0483145",
+      "original_name": "SAMARRETA-0483145",
+      "frequency": 1
+    },
+    {
+      "id": 647,
+      "canonical_name": "sarten touch 20c",
+      "original_name": "SARTEN TOUCH 20C",
+      "frequency": 1
+    },
+    {
+      "id": 648,
+      "canonical_name": "sarten touch 26c",
+      "original_name": "SARTEN TOUCH 26C",
+      "frequency": 1
+    },
+    {
+      "id": 649,
+      "canonical_name": "scamorza consorc",
+      "original_name": "SCAMORZA CONSORC",
+      "frequency": 1
+    },
+    {
+      "id": 650,
+      "canonical_name": "scuento conced sobre",
+      "original_name": "scuento conced sobre",
+      "frequency": 1
+    },
+    {
+      "id": 651,
+      "canonical_name": "sin alcohol",
+      "original_name": "Sin Alcohol",
+      "frequency": 1
+    },
+    {
+      "id": 652,
+      "canonical_name": "sin alcohol tos",
+      "original_name": "SIN ALCOHOL TOS",
+      "frequency": 1
+    },
+    {
+      "id": 653,
+      "canonical_name": "sin tostada 2.20 2",
+      "original_name": "SIN TOSTADA 2.20 2",
+      "frequency": 1
+    },
+    {
+      "id": 654,
+      "canonical_name": "slx tonica limone lt.1 22,0%",
+      "original_name": "SLX TONICA LIMONE LT.1 22,0%",
+      "frequency": 1
+    },
+    {
+      "id": 655,
+      "canonical_name": "slx yogurt frutta ass. 125x8",
+      "original_name": "SLX YOGURT FRUTTA ASS. 125X8",
+      "frequency": 1
+    },
+    {
+      "id": 656,
+      "canonical_name": "solimon 280ml",
+      "original_name": "SOLIMON 280ML",
+      "frequency": 1
+    },
+    {
+      "id": 657,
+      "canonical_name": "stracciatella",
+      "original_name": "STRACCIATELLA",
+      "frequency": 1
+    },
+    {
+      "id": 658,
+      "canonical_name": "suavi-hipoalerg\u00c9nico",
+      "original_name": "SUAVI-HIPOALERG\u00c9NICO",
+      "frequency": 1
+    },
+    {
+      "id": 659,
+      "canonical_name": "subiolal",
+      "original_name": "SUBIOLAL",
+      "frequency": 1
+    },
+    {
+      "id": 660,
+      "canonical_name": "subtotale",
+      "original_name": "SUBTOTALE",
+      "frequency": 1
+    },
+    {
+      "id": 661,
+      "canonical_name": "suc espremut summum",
+      "original_name": "SUC ESPREMUT SUMMUM",
+      "frequency": 1
+    },
+    {
+      "id": 662,
+      "canonical_name": "suototal",
+      "original_name": "Suototal",
+      "frequency": 1
+    },
+    {
+      "id": 663,
+      "canonical_name": "suplemento bebida f",
+      "original_name": "SUPLEMENTO BEBIDA F",
+      "frequency": 1
+    },
+    {
+      "id": 664,
+      "canonical_name": "s\u00c9pia neta petita",
+      "original_name": "S\u00c9PIA NETA PETITA",
+      "frequency": 1
+    },
+    {
+      "id": 665,
+      "canonical_name": "s\u00c9samo/ajonjcli",
+      "original_name": "S\u00c9SAMO/AJONJCLI",
+      "frequency": 1
+    },
+    {
+      "id": 666,
+      "canonical_name": "s\u00c9samo/ajonjoli",
+      "original_name": "S\u00c9SAMO/AJONJOLI",
+      "frequency": 1
+    },
+    {
+      "id": 667,
+      "canonical_name": "t cilieg gioiella t/ 4,00%",
+      "original_name": "T CILIEG GIOIELLA T/ 4,00%",
+      "frequency": 1
+    },
+    {
+      "id": 668,
+      "canonical_name": "t mele r.del. melind 4,00%",
+      "original_name": "T MELE R.DEL. MELIND 4,00%",
+      "frequency": 1
+    },
+    {
+      "id": 669,
+      "canonical_name": "t melone galia 4,00%",
+      "original_name": "T MELONE GALIA 4,00%",
+      "frequency": 1
+    },
+    {
+      "id": 670,
+      "canonical_name": "t otal subtotal",
+      "original_name": "T otal Subtotal",
+      "frequency": 1
+    },
+    {
+      "id": 671,
+      "canonical_name": "t pane tipo baguetti 4,00%",
+      "original_name": "T PANE TIPO BAGUETTI 4,00%",
+      "frequency": 1
+    },
+    {
+      "id": 672,
+      "canonical_name": "t pomod grap cil coo 4,00%",
+      "original_name": "T POMOD GRAP CIL COO 4,00%",
+      "frequency": 1
+    },
+    {
+      "id": 673,
+      "canonical_name": "t stracchino nonno nan 4,00%",
+      "original_name": "T STRACCHINO NONNO NAN 4,00%",
+      "frequency": 1
+    },
+    {
+      "id": 674,
+      "canonical_name": "t succo100%aranciaco 22,00%",
+      "original_name": "T SUCCO100%ARANCIACO 22,00%",
+      "frequency": 1
+    },
+    {
+      "id": 675,
+      "canonical_name": "t tonno nostr ap.gir 10,00%",
+      "original_name": "T TONNO NOSTR AP.GIR 10,00%",
+      "frequency": 1
+    },
+    {
+      "id": 676,
+      "canonical_name": "t. pernil-formatge",
+      "original_name": "T. PERNIL-FORMATGE",
+      "frequency": 1
+    },
+    {
+      "id": 677,
+      "canonical_name": "t.xo.bl.f.ve.bic184",
+      "original_name": "T.XO.BL.F.VE.BIC184",
+      "frequency": 1
+    },
+    {
+      "id": 678,
+      "canonical_name": "tagliatelle",
+      "original_name": "TAGLIATELLE",
+      "frequency": 1
+    },
+    {
+      "id": 679,
+      "canonical_name": "tall pit fi pernil cuit 92%",
+      "original_name": "TALL PIT FI PERNIL CUIT 92%",
+      "frequency": 1
+    },
+    {
+      "id": 680,
+      "canonical_name": "tarnara 1101",
+      "original_name": "Tarnara 1101",
+      "frequency": 1
+    },
+    {
+      "id": 681,
+      "canonical_name": "taronja 1 pera rocha",
+      "original_name": "TARONJA 1 PERA ROCHA",
+      "frequency": 1
+    },
+    {
+      "id": 682,
+      "canonical_name": "taronja 1,800 kg 1,89 \u20ac/kg",
+      "original_name": "TARONJA 1,800 kg 1,89 \u20ac/kg",
+      "frequency": 1
+    },
+    {
+      "id": 683,
+      "canonical_name": "taronja normal",
+      "original_name": "TARONJA NORMAL",
+      "frequency": 1
+    },
+    {
+      "id": 684,
+      "canonical_name": "taronje promocis cal fruit\u00f3s",
+      "original_name": "Taronje Promocis Cal Fruit\u00f3s",
+      "frequency": 1
+    },
+    {
+      "id": 685,
+      "canonical_name": "terrina llim.consum",
+      "original_name": "TERRINA LLIM.CONSUM",
+      "frequency": 1
+    },
+    {
+      "id": 686,
+      "canonical_name": "tint numero b",
+      "original_name": "TINT NUMERO B",
+      "frequency": 1
+    },
+    {
+      "id": 687,
+      "canonical_name": "tint olia casta. cla",
+      "original_name": "TINT OLIA CASTA. CLA",
+      "frequency": 1
+    },
+    {
+      "id": 688,
+      "canonical_name": "toinaquet verd extra",
+      "original_name": "Toinaquet Verd Extra",
+      "frequency": 1
+    },
+    {
+      "id": 689,
+      "canonical_name": "tom.freg.orland.p3",
+      "original_name": "TOM.FREG.ORLAND.P3",
+      "frequency": 1
+    },
+    {
+      "id": 690,
+      "canonical_name": "tomaqu.trit.cons8o",
+      "original_name": "TOMAQU.TRIT.CONS8O",
+      "frequency": 1
+    },
+    {
+      "id": 691,
+      "canonical_name": "tomaquet branca",
+      "original_name": "TOMAQUET BRANCA",
+      "frequency": 1
+    },
+    {
+      "id": 692,
+      "canonical_name": "tomaquet madur",
+      "original_name": "TOMAQUET MADUR",
+      "frequency": 1
+    },
+    {
+      "id": 693,
+      "canonical_name": "tomaquet pora extra",
+      "original_name": "Tomaquet Pora Extra",
+      "frequency": 1
+    },
+    {
+      "id": 694,
+      "canonical_name": "tomaquet ratllat",
+      "original_name": "TOMAQUET RATLLAT",
+      "frequency": 1
+    },
+    {
+      "id": 695,
+      "canonical_name": "tom\u00c3qu.trit.cons41",
+      "original_name": "TOM\u00c3QU.TRIT.CONS41",
+      "frequency": 1
+    },
+    {
+      "id": 696,
+      "canonical_name": "tom\u00e0quet cor 1,084",
+      "original_name": "Tom\u00e0quet COR 1,084",
+      "frequency": 1
+    },
+    {
+      "id": 697,
+      "canonical_name": "tom\u00e0quet monte rosa",
+      "original_name": "Tom\u00e0quet Monte Rosa",
+      "frequency": 1
+    },
+    {
+      "id": 698,
+      "canonical_name": "tom\u00e0quet verd extra",
+      "original_name": "Tom\u00e0quet Verd Extra",
+      "frequency": 1
+    },
+    {
+      "id": 699,
+      "canonical_name": "tony. cl gira-sol p6",
+      "original_name": "TONY. CL GIRA-SOL P6",
+      "frequency": 1
+    },
+    {
+      "id": 700,
+      "canonical_name": "tony.oove consum bf",
+      "original_name": "TONY.OOVE CONSUM BF",
+      "frequency": 1
+    },
+    {
+      "id": 701,
+      "canonical_name": "tonyi clara nat pak6",
+      "original_name": "TONYI CLARA NAT PAK6",
+      "frequency": 1
+    },
+    {
+      "id": 702,
+      "canonical_name": "tonyi.oli.consum p6",
+      "original_name": "TONYI.OLI.CONSUM P6",
+      "frequency": 1
+    },
+    {
+      "id": 703,
+      "canonical_name": "tonyin.consum p3 bf",
+      "original_name": "TONYIN.CONSUM P3 BF",
+      "frequency": 1
+    },
+    {
+      "id": 704,
+      "canonical_name": "tonyina clara natura",
+      "original_name": "TONYINA CLARA NATURA",
+      "frequency": 1
+    },
+    {
+      "id": 705,
+      "canonical_name": "tornaquet verd extra",
+      "original_name": "Tornaquet Verd Extra",
+      "frequency": 1
+    },
+    {
+      "id": 706,
+      "canonical_name": "tort.blat s/g bicen",
+      "original_name": "TORT.BLAT S/G BICEN",
+      "frequency": 1
+    },
+    {
+      "id": 707,
+      "canonical_name": "tort.mat\u00d3/espinacs",
+      "original_name": "TORT.MAT\u00d3/ESPINACS",
+      "frequency": 1
+    },
+    {
+      "id": 708,
+      "canonical_name": "total",
+      "original_name": "Total",
+      "frequency": 1
+    },
+    {
+      "id": 709,
+      "canonical_name": "total entrega",
+      "original_name": "Total ENTREGA",
+      "frequency": 1
+    },
+    {
+      "id": 710,
+      "canonical_name": "total suttotal",
+      "original_name": "Total Suttotal",
+      "frequency": 1
+    },
+    {
+      "id": 711,
+      "canonical_name": "totale complessivo",
+      "original_name": "TOTALE COMPLESSIVO",
+      "frequency": 1
+    },
+    {
+      "id": 712,
+      "canonical_name": "truita fres.s/ceba",
+      "original_name": "TRUITA FRES.S/CEBA",
+      "frequency": 1
+    },
+    {
+      "id": 713,
+      "canonical_name": "truita fumada mari m",
+      "original_name": "TRUITA FUMADA MARI M",
+      "frequency": 1
+    },
+    {
+      "id": 714,
+      "canonical_name": "uat de moro cuit",
+      "original_name": "Uat de Moro Cuit",
+      "frequency": 1
+    },
+    {
+      "id": 715,
+      "canonical_name": "ulleres nat -0470678",
+      "original_name": "ULLERES NAT -0470678",
+      "frequency": 1
+    },
+    {
+      "id": 716,
+      "canonical_name": "uri",
+      "original_name": "URI",
+      "frequency": 1
+    },
+    {
+      "id": 717,
+      "canonical_name": "vaselina aroma gerd",
+      "original_name": "VASELINA AROMA GERD",
+      "frequency": 1
+    },
+    {
+      "id": 718,
+      "canonical_name": "verat fil. oliva bpk",
+      "original_name": "VERAT FIL. OLIVA BPK",
+      "frequency": 1
+    },
+    {
+      "id": 719,
+      "canonical_name": "vichy @",
+      "original_name": "VICHY @",
+      "frequency": 1
+    },
+    {
+      "id": 720,
+      "canonical_name": "vinag.bla. consum1l",
+      "original_name": "VINAG.BLA. CONSUM1L",
+      "frequency": 1
+    },
+    {
+      "id": 721,
+      "canonical_name": "vinj catedral le",
+      "original_name": "VINJ CATEDRAL LE",
+      "frequency": 1
+    },
+    {
+      "id": 722,
+      "canonical_name": "w vestido 3616030685925",
+      "original_name": "W VESTIDO 3616030685925",
+      "frequency": 1
+    },
+    {
+      "id": 723,
+      "canonical_name": "wi extra 0,888",
+      "original_name": "Wi Extra 0,888",
+      "frequency": 1
+    },
+    {
+      "id": 724,
+      "canonical_name": "wocat extra cal fruitos",
+      "original_name": "wocat Extra Cal Fruitos",
+      "frequency": 1
+    },
+    {
+      "id": 725,
+      "canonical_name": "wok de verdures safata",
+      "original_name": "Wok de Verdures Safata",
+      "frequency": 1
+    },
+    {
+      "id": 726,
+      "canonical_name": "wrap blat consum",
+      "original_name": "WRAP BLAT CONSUM",
+      "frequency": 1
+    },
+    {
+      "id": 727,
+      "canonical_name": "yak bossa soja",
+      "original_name": "YAK BOSSA SOJA",
+      "frequency": 1
+    },
+    {
+      "id": 728,
+      "canonical_name": "zespri kiwi green 4,0%",
+      "original_name": "ZESPRI KIWI GREEN 4,0%",
+      "frequency": 1
+    },
+    {
+      "id": 729,
+      "canonical_name": "zucchine",
+      "original_name": "ZUCCHINE",
+      "frequency": 1
+    }
+  ]
+}

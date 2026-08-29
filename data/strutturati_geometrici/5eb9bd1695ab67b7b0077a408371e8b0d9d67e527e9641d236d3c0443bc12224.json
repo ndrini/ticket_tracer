@@ -1,0 +1,48 @@
+{
+  "sha256": "5eb9bd1695ab67b7b0077a408371e8b0d9d67e527e9641d236d3c0443bc12224",
+  "foto_origine": "2025-06-03 09.16.54.jpg",
+  "shop_name": "Cal",
+  "date": "2025-05-26",
+  "total": 19.57,
+  "items": [
+    {
+      "name": "Tom\u00e0quet COR 1,084",
+      "price": 3.23,
+      "name_quality": "complete"
+    },
+    {
+      "name": "",
+      "price": 2.13,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 1.78,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.29,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "Albercoc Extra",
+      "price": 4.34,
+      "name_quality": "complete"
+    },
+    {
+      "name": "",
+      "price": 2.55,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "Llenties Marrons Bio 500g Ecobasics",
+      "price": 3.25,
+      "name_quality": "fused"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 19.57,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

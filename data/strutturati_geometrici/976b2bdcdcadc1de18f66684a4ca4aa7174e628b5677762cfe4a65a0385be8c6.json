@@ -1,0 +1,18 @@
+{
+  "sha256": "976b2bdcdcadc1de18f66684a4ca4aa7174e628b5677762cfe4a65a0385be8c6",
+  "foto_origine": "2025-07-26 08.04.49.jpg",
+  "shop_name": "IKEA Glortes",
+  "date": "2025-07-07",
+  "total": 25.0,
+  "items": [
+    {
+      "name": "",
+      "price": 25.0,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 25.0,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

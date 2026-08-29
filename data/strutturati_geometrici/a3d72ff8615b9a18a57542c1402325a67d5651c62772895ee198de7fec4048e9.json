@@ -1,0 +1,78 @@
+{
+  "sha256": "a3d72ff8615b9a18a57542c1402325a67d5651c62772895ee198de7fec4048e9",
+  "foto_origine": "2025-02-20 07.53.17.jpg",
+  "shop_name": "MERCADUNA",
+  "date": "2025-02-12",
+  "total": 37.58,
+  "items": [
+    {
+      "name": "TONYINA CLARA OLIV",
+      "price": 5.15,
+      "name_quality": "complete"
+    },
+    {
+      "name": "COQUES BLAT D MORO",
+      "price": 1.1,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CIGR\u00d3 M.CUIT",
+      "price": 0.75,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PASTISSET BLAT D MOR",
+      "price": 3.9,
+      "name_quality": "complete"
+    },
+    {
+      "name": "IOGURT CABRA",
+      "price": 2.08,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CAFE G.AROMA NATURAL",
+      "price": 9.6,
+      "name_quality": "complete"
+    },
+    {
+      "name": "GUACAMOLE",
+      "price": 3.85,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PERNIL S. EXTRA FI",
+      "price": 2.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PERNIL DOL\u00c7 QUALITAT",
+      "price": 2.04,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BARRA DE PA 3 U",
+      "price": 1.19,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORM. BURGOS NATURAL",
+      "price": 1.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PANET 11 UN",
+      "price": 1.14,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE TALLS VACA",
+      "price": 2.45,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 37.58,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

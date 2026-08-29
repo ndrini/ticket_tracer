@@ -1,0 +1,78 @@
+{
+  "sha256": "0f1e709ed5d640f2158d1131061d0e8a465f83a914502cbbdf1df27c90227802",
+  "foto_origine": "2025-06-03 09.14.48.jpg",
+  "shop_name": "Maxi Gourmet",
+  "date": "2025-05-31",
+  "total": 36.69,
+  "items": [
+    {
+      "name": "NARANJA MARCA MA",
+      "price": 2.59,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MAXI GOURMET",
+      "price": 1.88,
+      "name_quality": "complete"
+    },
+    {
+      "name": "HUEVOS CAMPEROS",
+      "price": 1.96,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LECHE FRESCA SEM",
+      "price": 1.34,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TOMATE ROSADO",
+      "price": 3.33,
+      "name_quality": "complete"
+    },
+    {
+      "name": "SCAMORZA CONSORC",
+      "price": 3.73,
+      "name_quality": "complete"
+    },
+    {
+      "name": "COSTILLA.CENTRO",
+      "price": 2.05,
+      "name_quality": "complete"
+    },
+    {
+      "name": "COSTILLA CENTRO. VINO BLANCO VERD",
+      "price": 2.79,
+      "name_quality": "fused"
+    },
+    {
+      "name": "VINO BLANCO VERD VINO CATEDRAL LE",
+      "price": 1.55,
+      "name_quality": "fused"
+    },
+    {
+      "name": "GUISANTE A. ECONO BRIE PUNTAS AUCH",
+      "price": 1.74,
+      "name_quality": "fused"
+    },
+    {
+      "name": "BRIE PUNTAS AUCH CHERRY BJA 500GR",
+      "price": 1.75,
+      "name_quality": "fused"
+    },
+    {
+      "name": "ENS.PRIMAVERA GOLDEN BOLSA 1KG",
+      "price": 1.49,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TOT",
+      "price": 36.69,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_ECCESSO",
+  "somma_prodotti": 62.89,
+  "scarto": 26.2,
+  "elaborato_il": null
+}

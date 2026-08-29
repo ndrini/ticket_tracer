@@ -1,0 +1,23 @@
+{
+  "sha256": "c852f000394f44fb8d315c9138bd2ed78a448f4b0e1bf525fdac21d6c5a58045",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "Pin Mange Unitat Promeci\u00f3",
+      "price": 2.6,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Blvocat Extra Cal Frut\u00e9s",
+      "price": 4.0,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 6.6,
+  "scarto": null,
+  "elaborato_il": null
+}

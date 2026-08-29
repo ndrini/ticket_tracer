@@ -1,0 +1,23 @@
+{
+  "sha256": "112ae757a5ac26ee6f79d542b00470dbc124b5e0ae972dfe818c29db2f2672cf",
+  "foto_origine": "2025-05-12 11.40.34.jpg",
+  "shop_name": "RUME SUPERMETCATS, SL",
+  "date": "2025-05-08",
+  "total": 6.68,
+  "items": [
+    {
+      "name": "ESTAC.CONSUM 250",
+      "price": 0.86,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LLET SEN.CONSUM 1L",
+      "price": 5.82,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 6.68,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

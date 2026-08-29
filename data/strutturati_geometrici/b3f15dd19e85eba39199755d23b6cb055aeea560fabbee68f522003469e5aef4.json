@@ -1,0 +1,28 @@
+{
+  "sha256": "b3f15dd19e85eba39199755d23b6cb055aeea560fabbee68f522003469e5aef4",
+  "foto_origine": "2025-02-20 07.51.40.jpg",
+  "shop_name": "LIDL SUPERMERCADOS S.A.U",
+  "date": "2025-01-31",
+  "total": 16.83,
+  "items": [
+    {
+      "name": "COLORACI\u00d3 5",
+      "price": 8.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "SAMARRETA-0483145",
+      "price": 4.99,
+      "name_quality": "complete"
+    },
+    {
+      "name": "SAMARRETA-0483123",
+      "price": 3.49,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 16.83,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

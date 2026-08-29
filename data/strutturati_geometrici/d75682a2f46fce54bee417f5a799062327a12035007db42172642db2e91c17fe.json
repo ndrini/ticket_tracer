@@ -1,0 +1,38 @@
+{
+  "sha256": "d75682a2f46fce54bee417f5a799062327a12035007db42172642db2e91c17fe",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "OFE GALETES GULLON DIG",
+      "price": 2.19,
+      "name_quality": "complete"
+    },
+    {
+      "name": "OUS ECOL-GICS BONPRE",
+      "price": 2.65,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MINI BURGER VEDELLA",
+      "price": 3.95,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TINT OLIA CASTA. CLA",
+      "price": 8.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "kg NET X 11.49/kg",
+      "price": 5.02,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 22.16,
+  "scarto": null,
+  "elaborato_il": null
+}

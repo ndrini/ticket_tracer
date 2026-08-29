@@ -1,0 +1,18 @@
+{
+  "sha256": "3ec14cb5423c7c852dc358618054ebce8e9cb5c7cbd91ac5567fda64da7fb596",
+  "foto_origine": "2025-07-11 18.35.37.jpg",
+  "shop_name": "CONSUM, S.COOP.V",
+  "date": "2022-06-08",
+  "total": 1.0,
+  "items": [
+    {
+      "name": "ASSORT GOMA CONS150",
+      "price": 0.75,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 0.75,
+  "scarto": -0.25,
+  "elaborato_il": null
+}

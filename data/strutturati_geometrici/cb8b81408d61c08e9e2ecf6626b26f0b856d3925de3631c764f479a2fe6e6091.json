@@ -1,0 +1,23 @@
+{
+  "sha256": "cb8b81408d61c08e9e2ecf6626b26f0b856d3925de3631c764f479a2fe6e6091",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "MOZZAR.RATLL.CONSUM 2 TOMAQU.TRIT.CONS800",
+      "price": 3.3,
+      "name_quality": "fused"
+    },
+    {
+      "name": "TOMAQU.TRIT.CONS800",
+      "price": 1.96,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 5.26,
+  "scarto": null,
+  "elaborato_il": null
+}

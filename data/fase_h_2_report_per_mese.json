@@ -1,0 +1,322 @@
+{
+  "metadata": {
+    "phase": "H.4 \u2014 Report per mese",
+    "period_start": "2025-01-01",
+    "period_end": "2025-11-01",
+    "total_spent": 2786.3800000000006
+  },
+  "categories": {
+    "Altro": {
+      "total": 1937.31,
+      "percentage": 69.52784616599314,
+      "per_month": {
+        "2025-11-01": {
+          "spesa": 29.92,
+          "num_scontrini": 3,
+          "num_righe": 12
+        },
+        "2025-09-01": {
+          "spesa": 263.42,
+          "num_scontrini": 19,
+          "num_righe": 52
+        },
+        "2025-07-01": {
+          "spesa": 595.86,
+          "num_scontrini": 70,
+          "num_righe": 231
+        },
+        "2025-06-01": {
+          "spesa": 281.82,
+          "num_scontrini": 14,
+          "num_righe": 71
+        },
+        "2025-05-01": {
+          "spesa": -14.18,
+          "num_scontrini": 8,
+          "num_righe": 21
+        },
+        "2025-04-01": {
+          "spesa": 288.7,
+          "num_scontrini": 21,
+          "num_righe": 84
+        },
+        "2025-03-01": {
+          "spesa": 235.32,
+          "num_scontrini": 16,
+          "num_righe": 55
+        },
+        "2025-02-01": {
+          "spesa": 237.71,
+          "num_scontrini": 21,
+          "num_righe": 71
+        },
+        "2025-01-01": {
+          "spesa": 18.740000000000002,
+          "num_scontrini": 1,
+          "num_righe": 7
+        }
+      }
+    },
+    "Bevande": {
+      "total": 136.67666666666668,
+      "percentage": 4.905169670564196,
+      "per_month": {
+        "2025-11-01": {
+          "spesa": 18.25,
+          "num_scontrini": 1,
+          "num_righe": 4
+        },
+        "2025-09-01": {
+          "spesa": 3.12,
+          "num_scontrini": 2,
+          "num_righe": 2
+        },
+        "2025-07-01": {
+          "spesa": 77.3,
+          "num_scontrini": 20,
+          "num_righe": 29
+        },
+        "2025-06-01": {
+          "spesa": -71.59,
+          "num_scontrini": 5,
+          "num_righe": 8
+        },
+        "2025-05-01": {
+          "spesa": 2.0,
+          "num_scontrini": 1,
+          "num_righe": 1
+        },
+        "2025-04-01": {
+          "spesa": 53.99666666666667,
+          "num_scontrini": 11,
+          "num_righe": 18
+        },
+        "2025-03-01": {
+          "spesa": 27.47,
+          "num_scontrini": 5,
+          "num_righe": 8
+        },
+        "2025-02-01": {
+          "spesa": 26.13,
+          "num_scontrini": 6,
+          "num_righe": 8
+        }
+      }
+    },
+    "Carne": {
+      "total": 59.92,
+      "percentage": 2.1504604540658483,
+      "per_month": {
+        "2025-07-01": {
+          "spesa": 19.67,
+          "num_scontrini": 9,
+          "num_righe": 10
+        },
+        "2025-06-01": {
+          "spesa": 9.690000000000001,
+          "num_scontrini": 3,
+          "num_righe": 3
+        },
+        "2025-04-01": {
+          "spesa": 11.15,
+          "num_scontrini": 5,
+          "num_righe": 5
+        },
+        "2025-03-01": {
+          "spesa": 9.76,
+          "num_scontrini": 3,
+          "num_righe": 4
+        },
+        "2025-02-01": {
+          "spesa": 9.65,
+          "num_scontrini": 4,
+          "num_righe": 4
+        }
+      }
+    },
+    "Frutta": {
+      "total": 176.03,
+      "percentage": 6.317515916709134,
+      "per_month": {
+        "2025-09-01": {
+          "spesa": 18.43,
+          "num_scontrini": 5,
+          "num_righe": 5
+        },
+        "2025-07-01": {
+          "spesa": 74.54,
+          "num_scontrini": 16,
+          "num_righe": 23
+        },
+        "2025-06-01": {
+          "spesa": 22.8,
+          "num_scontrini": 5,
+          "num_righe": 8
+        },
+        "2025-05-01": {
+          "spesa": 3.95,
+          "num_scontrini": 1,
+          "num_righe": 1
+        },
+        "2025-04-01": {
+          "spesa": 20.28,
+          "num_scontrini": 4,
+          "num_righe": 6
+        },
+        "2025-03-01": {
+          "spesa": 7.95,
+          "num_scontrini": 2,
+          "num_righe": 2
+        },
+        "2025-02-01": {
+          "spesa": 28.080000000000002,
+          "num_scontrini": 5,
+          "num_righe": 8
+        }
+      }
+    },
+    "Latticini": {
+      "total": 255.16000000000003,
+      "percentage": 9.157401359469993,
+      "per_month": {
+        "2025-11-01": {
+          "spesa": 3.65,
+          "num_scontrini": 1,
+          "num_righe": 2
+        },
+        "2025-09-01": {
+          "spesa": 16.77,
+          "num_scontrini": 5,
+          "num_righe": 8
+        },
+        "2025-07-01": {
+          "spesa": 82.26,
+          "num_scontrini": 27,
+          "num_righe": 44
+        },
+        "2025-06-01": {
+          "spesa": 23.02,
+          "num_scontrini": 6,
+          "num_righe": 12
+        },
+        "2025-05-01": {
+          "spesa": 13.16,
+          "num_scontrini": 4,
+          "num_righe": 5
+        },
+        "2025-04-01": {
+          "spesa": 42.97,
+          "num_scontrini": 8,
+          "num_righe": 21
+        },
+        "2025-03-01": {
+          "spesa": 32.19,
+          "num_scontrini": 7,
+          "num_righe": 11
+        },
+        "2025-02-01": {
+          "spesa": 41.14,
+          "num_scontrini": 9,
+          "num_righe": 17
+        }
+      }
+    },
+    "Pane": {
+      "total": 92.02333333333334,
+      "percentage": 3.3026124697038206,
+      "per_month": {
+        "2025-11-01": {
+          "spesa": 1.14,
+          "num_scontrini": 1,
+          "num_righe": 1
+        },
+        "2025-09-01": {
+          "spesa": 8.32,
+          "num_scontrini": 5,
+          "num_righe": 5
+        },
+        "2025-07-01": {
+          "spesa": 42.97,
+          "num_scontrini": 19,
+          "num_righe": 26
+        },
+        "2025-06-01": {
+          "spesa": 8.83,
+          "num_scontrini": 6,
+          "num_righe": 6
+        },
+        "2025-05-01": {
+          "spesa": 1.14,
+          "num_scontrini": 1,
+          "num_righe": 1
+        },
+        "2025-04-01": {
+          "spesa": 17.843333333333334,
+          "num_scontrini": 6,
+          "num_righe": 13
+        },
+        "2025-03-01": {
+          "spesa": 3.4699999999999998,
+          "num_scontrini": 2,
+          "num_righe": 3
+        },
+        "2025-02-01": {
+          "spesa": 5.76,
+          "num_scontrini": 2,
+          "num_righe": 5
+        },
+        "2025-01-01": {
+          "spesa": 2.55,
+          "num_scontrini": 1,
+          "num_righe": 2
+        }
+      }
+    },
+    "Verdure": {
+      "total": 129.26000000000002,
+      "percentage": 4.638993963493852,
+      "per_month": {
+        "2025-11-01": {
+          "spesa": 3.0500000000000003,
+          "num_scontrini": 1,
+          "num_righe": 2
+        },
+        "2025-09-01": {
+          "spesa": 12.69,
+          "num_scontrini": 4,
+          "num_righe": 7
+        },
+        "2025-07-01": {
+          "spesa": 29.52,
+          "num_scontrini": 13,
+          "num_righe": 17
+        },
+        "2025-06-01": {
+          "spesa": 13.14,
+          "num_scontrini": 4,
+          "num_righe": 6
+        },
+        "2025-05-01": {
+          "spesa": 4.86,
+          "num_scontrini": 2,
+          "num_righe": 2
+        },
+        "2025-04-01": {
+          "spesa": 42.7,
+          "num_scontrini": 11,
+          "num_righe": 19
+        },
+        "2025-03-01": {
+          "spesa": 16.44,
+          "num_scontrini": 4,
+          "num_righe": 4
+        },
+        "2025-02-01": {
+          "spesa": 6.86,
+          "num_scontrini": 3,
+          "num_righe": 5
+        }
+      }
+    }
+  }
+}

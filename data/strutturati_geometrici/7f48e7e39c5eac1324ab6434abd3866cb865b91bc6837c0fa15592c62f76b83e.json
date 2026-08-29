@@ -1,0 +1,33 @@
+{
+  "sha256": "7f48e7e39c5eac1324ab6434abd3866cb865b91bc6837c0fa15592c62f76b83e",
+  "foto_origine": "2025-07-11 18.20.11.jpg",
+  "shop_name": "MERCADUNA",
+  "date": "2025-01-10",
+  "total": 9.73,
+  "items": [
+    {
+      "name": "T. 100% INTEGRALS",
+      "price": 3.3,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BARRA DE PA 3 U",
+      "price": 1.19,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PANET 11 UN",
+      "price": 1.14,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PERNIL SERRA SOBRE",
+      "price": 4.1,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 9.73,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

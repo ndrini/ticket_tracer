@@ -1,0 +1,18 @@
+{
+  "sha256": "89884cc642eeec82d1fda9e37a50adddbb55c0bd87166f9edae76c2982df0d09",
+  "foto_origine": "2025-03-15 10.32.34.jpg",
+  "shop_name": "Alcampo",
+  "date": "2025-02-27",
+  "total": 39.94,
+  "items": [
+    {
+      "name": "TOT",
+      "price": 39.94,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 39.94,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

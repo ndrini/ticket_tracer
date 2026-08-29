@@ -1,0 +1,28 @@
+{
+  "sha256": "feab94c8fce0928cf8a44367597c2512672d80eda11be4ae8c64c8fc1acf4b0d",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "S.PRES RAIM CONS TL",
+      "price": 0.7,
+      "name_quality": "complete"
+    },
+    {
+      "name": "EINEVEN LLAUNAO",
+      "price": 0.59,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CERV FREE M",
+      "price": 0.63,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 1.92,
+  "scarto": null,
+  "elaborato_il": null
+}

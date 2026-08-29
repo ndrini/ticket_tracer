@@ -1,0 +1,18 @@
+{
+  "sha256": "87f452d161490dd4085c31fdeca1d8d54e3768cb8e937448fff354cd26b6c584",
+  "foto_origine": "2025-09-06 10.40.50.jpg",
+  "shop_name": "ciDum",
+  "date": "2025-08-22",
+  "total": 0.42,
+  "items": [
+    {
+      "name": "AIGUA AQUABONA 1,5L",
+      "price": 0.42,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 0.42,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

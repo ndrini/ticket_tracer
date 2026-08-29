@@ -1,0 +1,23 @@
+{
+  "sha256": "7a5baf7687827d4205d10bd0d2008612a9188989a4dac399d2c3173edd806fb5",
+  "foto_origine": "2025-04-10 19.21.13.jpg",
+  "shop_name": "MERCADONA",
+  "date": "2025-03-28",
+  "total": 0.57,
+  "items": [
+    {
+      "name": "PERNIL S. EXTRA FI",
+      "price": 2.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "AMANIDA QUATRE ESTAC",
+      "price": 1.72,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_ECCESSO",
+  "somma_prodotti": 4.07,
+  "scarto": 3.5,
+  "elaborato_il": null
+}

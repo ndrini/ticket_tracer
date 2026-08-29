@@ -1,0 +1,68 @@
+{
+  "sha256": "ba2e1ec9a66c21fd8b803b27d0201164a0c27a841cf835f092198e1f92f1b18c",
+  "foto_origine": "2025-07-11 18.20.11.jpg",
+  "shop_name": "MERCADUNA",
+  "date": "2025-01-07",
+  "total": 28.17,
+  "items": [
+    {
+      "name": "FORM. BURGOS NATURAL",
+      "price": 1.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE FRES DESNAT",
+      "price": 1.01,
+      "name_quality": "complete"
+    },
+    {
+      "name": "REMOLATXA A TIRES",
+      "price": 1.3,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TONYINA CLARA NATURA",
+      "price": 4.2,
+      "name_quality": "complete"
+    },
+    {
+      "name": "RAVIOLI MAT\u00d3 ESPINAC",
+      "price": 3.6,
+      "name_quality": "complete"
+    },
+    {
+      "name": "GUACAMOLE",
+      "price": 3.85,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PEBROT PIQUILLO",
+      "price": 1.45,
+      "name_quality": "complete"
+    },
+    {
+      "name": "B.MORO DOL\u00c7 PAQUET-3",
+      "price": 1.25,
+      "name_quality": "complete"
+    },
+    {
+      "name": "kg 1,48 \u20ac/kg",
+      "price": 1.22,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "kg 2,19 \u20ac/kg",
+      "price": 2.89,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "kg 1,89 \u20ac/kg",
+      "price": 2.18,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 24.93,
+  "scarto": -3.24,
+  "elaborato_il": null
+}

@@ -1,0 +1,58 @@
+{
+  "sha256": "cc172268c9ad4d126138cdcd43a1d7eee712e9e7ec5588ca8a95183eabf21900",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "PESOL FI",
+      "price": 1.65,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MONGETA PLANA A TRO",
+      "price": 1.6,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MONGETA BLANCA CUITA",
+      "price": 1.6,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FARINA DE BLAT",
+      "price": 0.72,
+      "name_quality": "complete"
+    },
+    {
+      "name": "AMANIDA QUATRE ESTAC",
+      "price": 0.86,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE SEMI",
+      "price": 4.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "kg 0,70 \u20ac/kg",
+      "price": 0.51,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "kg 1,75 e/kg",
+      "price": 1.24,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "kg 2,19 \u20ac/kg",
+      "price": 0.92,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 13.45,
+  "scarto": null,
+  "elaborato_il": null
+}

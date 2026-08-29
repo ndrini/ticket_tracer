@@ -1,0 +1,18 @@
+{
+  "sha256": "beeecc895bf13a2b9c319a2b3ef218bcbbcf76b95c7f904ef2564c2635d5fb2e",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "ORDCP33011A CARTA ORDINARIA",
+      "price": 2.9,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 2.9,
+  "scarto": null,
+  "elaborato_il": null
+}

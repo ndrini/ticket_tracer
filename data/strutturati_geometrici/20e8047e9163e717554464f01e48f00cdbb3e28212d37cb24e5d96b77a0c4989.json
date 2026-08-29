@@ -1,0 +1,78 @@
+{
+  "sha256": "20e8047e9163e717554464f01e48f00cdbb3e28212d37cb24e5d96b77a0c4989",
+  "foto_origine": "2025-07-11 18.39.52.jpg",
+  "shop_name": "Pruitos",
+  "date": "2025-06-04",
+  "total": 24.09,
+  "items": [
+    {
+      "name": "Platan Banana",
+      "price": 1.78,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Tomaquet Verd Extra",
+      "price": 2.78,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Melo Cantalup",
+      "price": 2.58,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Mladuixot Huelva Caixa 1kg",
+      "price": 2.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "dectarina Extra",
+      "price": 2.58,
+      "name_quality": "complete"
+    },
+    {
+      "name": "eba Seca Sencera Pelada",
+      "price": 4.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "eba Seca Sencera Pelada",
+      "price": 1.5,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ogombre 1,162",
+      "price": 3.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Wi Extra 0,888",
+      "price": 1.28,
+      "name_quality": "complete"
+    },
+    {
+      "name": "wocat Extra Cal Fruitos",
+      "price": 5.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ndria Ratllada Cal Fruitos",
+      "price": 0.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ronja Promocio Cal Fruitos",
+      "price": 1.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "scuento conced sobre",
+      "price": 1.98,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_ECCESSO",
+  "somma_prodotti": 35.36,
+  "scarto": 11.27,
+  "elaborato_il": null
+}

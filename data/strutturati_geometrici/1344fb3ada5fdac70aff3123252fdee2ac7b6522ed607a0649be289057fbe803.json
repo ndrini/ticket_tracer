@@ -1,0 +1,18 @@
+{
+  "sha256": "1344fb3ada5fdac70aff3123252fdee2ac7b6522ed607a0649be289057fbe803",
+  "foto_origine": "2025-07-11 18.46.38.jpg",
+  "shop_name": "LiDL",
+  "date": "2025-07-07",
+  "total": 23.68,
+  "items": [
+    {
+      "name": "Desc",
+      "price": 0.1,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 0.1,
+  "scarto": -23.58,
+  "elaborato_il": null
+}

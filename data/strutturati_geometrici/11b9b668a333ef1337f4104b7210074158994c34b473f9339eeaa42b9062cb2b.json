@@ -1,0 +1,28 @@
+{
+  "sha256": "11b9b668a333ef1337f4104b7210074158994c34b473f9339eeaa42b9062cb2b",
+  "foto_origine": "2025-07-26 08.01.55.jpg",
+  "shop_name": "IKEA",
+  "date": "2025-07-18",
+  "total": 16.0,
+  "items": [
+    {
+      "name": "",
+      "price": 24.99,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 17.99,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 16.0,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "SOMMA_IN_ECCESSO",
+  "somma_prodotti": 58.98,
+  "scarto": 42.98,
+  "elaborato_il": null
+}

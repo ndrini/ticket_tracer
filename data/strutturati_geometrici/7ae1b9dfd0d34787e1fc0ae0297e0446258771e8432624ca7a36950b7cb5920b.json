@@ -1,0 +1,23 @@
+{
+  "sha256": "7ae1b9dfd0d34787e1fc0ae0297e0446258771e8432624ca7a36950b7cb5920b",
+  "foto_origine": "2025-07-11 18.38.23.jpg",
+  "shop_name": "Juntos es cooperativa",
+  "date": "2025-06-13",
+  "total": 20.16,
+  "items": [
+    {
+      "name": "PATATES XURRE. CONS",
+      "price": 2.2,
+      "name_quality": "complete"
+    },
+    {
+      "name": "OC.70% CACAU LINDT",
+      "price": 17.96,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 20.16,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

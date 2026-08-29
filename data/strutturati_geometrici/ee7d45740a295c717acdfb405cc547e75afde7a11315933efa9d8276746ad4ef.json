@@ -1,0 +1,33 @@
+{
+  "sha256": "ee7d45740a295c717acdfb405cc547e75afde7a11315933efa9d8276746ad4ef",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "ESTAC.CONSUM 250",
+      "price": 1.72,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TOMAQU.TRIT.CONS800",
+      "price": 1.96,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CIGR\u00d3 CUIT CONS570",
+      "price": 0.75,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LLENTIA CUI.CONS570",
+      "price": 0.8,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 5.23,
+  "scarto": null,
+  "elaborato_il": null
+}

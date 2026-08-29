@@ -1,0 +1,48 @@
+{
+  "sha256": "78060019ffb01d45dcf80b8df07ebd9b4cb299eaf22f2921b33ea9b46a6b8ae9",
+  "foto_origine": "2025-07-11 18.45.32.jpg",
+  "shop_name": "GRUPU DIA",
+  "date": "2025-06-30",
+  "total": 20.0,
+  "items": [
+    {
+      "name": "PA MOTLLE BLANC EL M",
+      "price": 1.19,
+      "name_quality": "complete"
+    },
+    {
+      "name": "IOGURT NATURAL DIA L",
+      "price": 1.39,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PERNIL SERRA RESERVA",
+      "price": 3.69,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PERNIL CUIT 1954 EL",
+      "price": 2.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATG RATLL MOZZAR",
+      "price": 1.75,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE BRIE FRANCE",
+      "price": 1.85,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE FRESC MONOP",
+      "price": 1.05,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 12.92,
+  "scarto": -7.08,
+  "elaborato_il": null
+}

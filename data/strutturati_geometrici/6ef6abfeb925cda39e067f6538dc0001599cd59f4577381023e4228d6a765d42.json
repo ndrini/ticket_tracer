@@ -1,0 +1,23 @@
+{
+  "sha256": "6ef6abfeb925cda39e067f6538dc0001599cd59f4577381023e4228d6a765d42",
+  "foto_origine": "2025-09-06 10.43.15.jpg",
+  "shop_name": "IKEA",
+  "date": "2025-08-09",
+  "total": 3.49,
+  "items": [
+    {
+      "name": "Article 00343885",
+      "price": 2.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "",
+      "price": 1.49,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 3.49,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

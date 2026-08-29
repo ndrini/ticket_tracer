@@ -1,0 +1,63 @@
+{
+  "sha256": "fe6d007f40b1bd853541bdb87e0e4248d1e0c8f377aea6d61c6ff4bc642482d1",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "BARRA DE PA",
+      "price": 0.5,
+      "name_quality": "complete"
+    },
+    {
+      "name": "COMP. S\u00daPER A/A DRY",
+      "price": 2.15,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PANET 11 UN",
+      "price": 1.14,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MORTADEL-LA ITALIANA",
+      "price": 1.75,
+      "name_quality": "complete"
+    },
+    {
+      "name": "AMANIDA QUATRE ESTAC",
+      "price": 0.86,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MOSTASSA DIJON",
+      "price": 1.25,
+      "name_quality": "complete"
+    },
+    {
+      "name": "IOGURT CABRA",
+      "price": 2.08,
+      "name_quality": "complete"
+    },
+    {
+      "name": "kg 1,50 \u20ac/kg",
+      "price": 1.21,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "kg 1,89 \u20ac/kg",
+      "price": 2.65,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "kg 2,10 \u20ac/kg",
+      "price": 1.68,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 15.27,
+  "scarto": null,
+  "elaborato_il": null
+}

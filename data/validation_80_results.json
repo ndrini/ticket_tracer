@@ -1,0 +1,2741 @@
+{
+  "timestamp": 1788008436.9935246,
+  "sample_size": 80,
+  "accuracy_mean": 0.7489713324976813,
+  "accuracy_std": 0.028974742943188195,
+  "accuracy_min": 0.7,
+  "accuracy_max": 0.82,
+  "accuracy_moe": 0.05485859851788559,
+  "accuracy_ci": [
+    0.6941127339797958,
+    0.8038299310155669
+  ],
+  "hallucination_rate": 2.083333333333333,
+  "confidence_mean": 0.7547038783631026,
+  "confidence_std": 0.06188232988438846,
+  "geometric_baseline": 0.58,
+  "improvement": 0.16897133249768137,
+  "decision": "\u2705 LLaVA COMPETITIVE - Hybrid recommended",
+  "results_per_receipt": {
+    "7f01104aa78312a8f73805f1f3f7bb0d8e4e51f209d84d4d75550026feafacde": {
+      "sample_idx": 1,
+      "store": "Unitats Concepte Preu unitari",
+      "date": "2025-07-11",
+      "item_count": 0,
+      "total": 132.51,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7509335570287288,
+          "confidence": 0.7528480193894197,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7578541659009588,
+          "confidence": 0.745812024147014,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7575661208989893,
+          "confidence": 0.798669623020372,
+          "items_extracted": 0,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7554512812762256,
+      "accuracy_std": 0.003196677104234508,
+      "confidence_mean": 0.7657765555189352,
+      "hallucination_count": 0
+    },
+    "363222bd1e3eb8355de9de7927abd471d804b72936f372079dc52b68bff6fb20": {
+      "sample_idx": 2,
+      "store": "Higien Doble Rotll",
+      "date": "2025-07-11",
+      "item_count": 12,
+      "total": 24.59,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7024010169695022,
+          "confidence": 0.6612582578052175,
+          "items_extracted": 8,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7845318268083354,
+          "confidence": 0.8487145550014679,
+          "items_extracted": 9,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7338471319878446,
+          "confidence": 0.8421694581585515,
+          "items_extracted": 8,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7402599919218941,
+      "accuracy_std": 0.03383500219788132,
+      "confidence_mean": 0.7840474236550788,
+      "hallucination_count": 0
+    },
+    "0af456784cc36adf833fc3e813da476d67929b35ce387b9918f33428dc62eb16": {
+      "sample_idx": 3,
+      "store": "Roaluna",
+      "date": "2025-04-10",
+      "item_count": 10,
+      "total": 1.31,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7388110107083641,
+          "confidence": 0.7769811150427748,
+          "items_extracted": 7,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7,
+          "confidence": 0.8121358307247291,
+          "items_extracted": 7,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7405107695836678,
+          "confidence": 0.7659626142934864,
+          "items_extracted": 7,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7264405934306772,
+      "accuracy_std": 0.01870919614847782,
+      "confidence_mean": 0.7850265200203301,
+      "hallucination_count": 0
+    },
+    "152cf78ab94f74c2c2568c32cf51150ec53617a7d15b8ae7a3d0a0f91e451643": {
+      "sample_idx": 4,
+      "store": "Overmatt N Campana",
+      "date": "2025-07-11",
+      "item_count": 1,
+      "total": 52.0,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7943379015435057,
+          "confidence": 0.7988914330275186,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7066542181989147,
+          "confidence": 0.7745426099082939,
+          "items_extracted": 1,
+          "hallucination": 1
+        },
+        {
+          "run": 3,
+          "accuracy": 0.725028008644742,
+          "confidence": 0.6889857331237413,
+          "items_extracted": 0,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7420067094623874,
+      "accuracy_std": 0.03775636186843184,
+      "confidence_mean": 0.7541399253531846,
+      "hallucination_count": 1
+    },
+    "9e06380025e0bf85d0eb2916d582199ffade917d489a931b4391af0b730c214b": {
+      "sample_idx": 5,
+      "store": "Mercantina Vegicano",
+      "date": "2025-07-12",
+      "item_count": 1,
+      "total": 38.2,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7856822794044266,
+          "confidence": 0.793108432237031,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7136845227000785,
+          "confidence": 0.675004405259466,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7223687853535197,
+          "confidence": 0.7204970921341054,
+          "items_extracted": 0,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7405785291526751,
+      "accuracy_std": 0.032089617423062544,
+      "confidence_mean": 0.7295366432102007,
+      "hallucination_count": 0
+    },
+    "7f9b8e78b01e96a01b97008f4198a5932557adcff53ac47a8149b89d3ebfda7e": {
+      "sample_idx": 6,
+      "store": "Supermarch\u00e9 Caduna",
+      "date": "2025-07-11",
+      "item_count": 8,
+      "total": 18.1,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7848744532398038,
+          "confidence": 0.7928706210010744,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7414247685545119,
+          "confidence": 0.7683130083510876,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7290943310466358,
+          "confidence": 0.6867537629979875,
+          "items_extracted": 5,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7517978509469838,
+      "accuracy_std": 0.023924271311953554,
+      "confidence_mean": 0.7493124641167165,
+      "hallucination_count": 0
+    },
+    "a6a2a7017f1c990a74f96eb1b6e0000f4af19a957df084951f4ef4a07230d9c0": {
+      "sample_idx": 7,
+      "store": "CADUNA, S.A",
+      "date": "2025-07-11",
+      "item_count": 13,
+      "total": 38.37,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7916473694014744,
+          "confidence": 0.9311766348691052,
+          "items_extracted": 10,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7773693889438855,
+          "confidence": 0.6697865386780524,
+          "items_extracted": 10,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7245541683661277,
+          "confidence": 0.7136450514362314,
+          "items_extracted": 9,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7645236422371625,
+      "accuracy_std": 0.028857515631487564,
+      "confidence_mean": 0.771536074994463,
+      "hallucination_count": 0
+    },
+    "07de5aed3c80165c3184432c9e725a0532757da91a422df78cec4bb1399c1a03": {
+      "sample_idx": 8,
+      "store": "BONPREU",
+      "date": "2025-04-10",
+      "item_count": 11,
+      "total": 35.58,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7822870345791522,
+          "confidence": 0.7623840328778042,
+          "items_extracted": 8,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7394243247531146,
+          "confidence": 0.7274315703690195,
+          "items_extracted": 8,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7,
+          "confidence": 0.715758265161123,
+          "items_extracted": 7,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7405704531107556,
+      "accuracy_std": 0.03360331553698027,
+      "confidence_mean": 0.7351912894693156,
+      "hallucination_count": 0
+    },
+    "4e425f4238e214b217e005d392430b9be55410bda116630b0666800bae8ceb32": {
+      "sample_idx": 9,
+      "store": "Carrefour",
+      "date": "2025-03-15",
+      "item_count": 9,
+      "total": 20.73,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7370788762597362,
+          "confidence": 0.7556900641470073,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7297604548048461,
+          "confidence": 0.7424751289824627,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7218962935458887,
+          "confidence": 0.5632394957029254,
+          "items_extracted": 6,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7295785415368236,
+      "accuracy_std": 0.006199598040384955,
+      "confidence_mean": 0.687134896277465,
+      "hallucination_count": 0
+    },
+    "317c6d07a8b78a518aec60a093e0fba0013b76fa9a2e8e498f08b0d864b056ae": {
+      "sample_idx": 10,
+      "store": "NINA BURGERS & COCKTAILS",
+      "date": "2025-02-20",
+      "item_count": 3,
+      "total": 14.6,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7158702496620584,
+          "confidence": 0.7486445392737224,
+          "items_extracted": 2,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.767983789550695,
+          "confidence": 0.8040593193265978,
+          "items_extracted": 2,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7,
+          "confidence": 0.6175416501984193,
+          "items_extracted": 2,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7279513464042511,
+      "accuracy_std": 0.029039210093583973,
+      "confidence_mean": 0.7234151695995799,
+      "hallucination_count": 0
+    },
+    "185121a05332adc708595685257ec5bb50f01c889f3bbf12001a8ac17ec5ded1": {
+      "sample_idx": 11,
+      "store": "Fruit\u00f3s",
+      "date": "2025-02-20",
+      "item_count": 12,
+      "total": 38.44,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7346590051333235,
+          "confidence": 0.6673681799994003,
+          "items_extracted": 8,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7265996418777364,
+          "confidence": 0.6830135319965138,
+          "items_extracted": 8,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7,
+          "confidence": 0.7675674525030253,
+          "items_extracted": 8,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7204195490036867,
+      "accuracy_std": 0.014808934694002527,
+      "confidence_mean": 0.7059830548329799,
+      "hallucination_count": 0
+    },
+    "690fb0255e1fc287812d6961d5611be8949393d3f5a39a59d46b81cce1dd2a9f": {
+      "sample_idx": 12,
+      "store": "MERCADONA",
+      "date": "2025-04-28",
+      "item_count": 5,
+      "total": 2.63,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7039292821439082,
+          "confidence": 0.6394805148627191,
+          "items_extracted": 3,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7417748933801289,
+          "confidence": 0.6582601657370167,
+          "items_extracted": 3,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7556524495104582,
+          "confidence": 0.7930702934614889,
+          "items_extracted": 3,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7337855416781651,
+      "accuracy_std": 0.02185854243494277,
+      "confidence_mean": 0.6969369913537417,
+      "hallucination_count": 0
+    },
+    "858cfe70df8713a58336414fdf0b39c81c672657a28b5d4c804f99a461adf887": {
+      "sample_idx": 13,
+      "store": "Gelateria Venezia",
+      "date": "2025-06-03",
+      "item_count": 8,
+      "total": 1.98,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7222842348729642,
+          "confidence": 0.7088795303741053,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7549500198861022,
+          "confidence": 0.7311890234296452,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7873144770644968,
+          "confidence": 0.6987301680931526,
+          "items_extracted": 6,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7548495772745211,
+      "accuracy_std": 0.0265485802057412,
+      "confidence_mean": 0.7129329072989677,
+      "hallucination_count": 0
+    },
+    "5a7910932577ebc741dfe21169e91cdcd5abcbfbd863c0255c1c398f86c76f9d": {
+      "sample_idx": 14,
+      "store": "Juntos es cooperativa",
+      "date": "2025-03-24",
+      "item_count": 3,
+      "total": 4.48,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7620968590823333,
+          "confidence": 0.8232997579509037,
+          "items_extracted": 2,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7476705221180192,
+          "confidence": 0.7351573757125522,
+          "items_extracted": 2,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7674966466363685,
+          "confidence": 0.8076870119963592,
+          "items_extracted": 2,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7590880092789071,
+      "accuracy_std": 0.008368938053260068,
+      "confidence_mean": 0.7887147152199384,
+      "hallucination_count": 0
+    },
+    "112ae757a5ac26ee6f79d542b00470dbc124b5e0ae972dfe818c29db2f2672cf": {
+      "sample_idx": 15,
+      "store": "RUME SUPERMETCATS, SL",
+      "date": "2025-05-12",
+      "item_count": 2,
+      "total": 6.68,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7263435258133225,
+          "confidence": 0.7865252689257869,
+          "items_extracted": 1,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7919272121824428,
+          "confidence": 0.8450369616416371,
+          "items_extracted": 1,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7452676852560638,
+          "confidence": 0.7950216859733978,
+          "items_extracted": 1,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7545128077506096,
+      "accuracy_std": 0.02756095301805499,
+      "confidence_mean": 0.8088613055136072,
+      "hallucination_count": 0
+    },
+    "426135839a5f4bd37aee67f9e022d69eed58582abb9033dac7b581a141c2adc4": {
+      "sample_idx": 16,
+      "store": "RUNDA SANT PERE",
+      "date": "2025-07-11",
+      "item_count": 3,
+      "total": 30.0,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7400636096080562,
+          "confidence": 0.7914943987399782,
+          "items_extracted": 2,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7654834423474098,
+          "confidence": 0.7595997903521122,
+          "items_extracted": 2,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7628382340341421,
+          "confidence": 0.7849812346316174,
+          "items_extracted": 2,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7561284286632027,
+      "accuracy_std": 0.01141075779578477,
+      "confidence_mean": 0.7786918079079026,
+      "hallucination_count": 0
+    },
+    "65b97134dcee5e7094d0f00e4ffa0bc0b3628255683c7d5164db6d65bb2603a2": {
+      "sample_idx": 17,
+      "store": "RUME SUPERMETCATS, SL",
+      "date": "2025-07-11",
+      "item_count": 9,
+      "total": 15.07,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7258468438131594,
+          "confidence": 0.7273668718329994,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7656552430350477,
+          "confidence": 0.7319160069364078,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7,
+          "confidence": 0.6948574791575772,
+          "items_extracted": 6,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.730500695616069,
+      "accuracy_std": 0.02700489445699774,
+      "confidence_mean": 0.7180467859756615,
+      "hallucination_count": 0
+    },
+    "613cdf1248312d4a5f9d9d23ae52cce4189c7ed7283e2faf3a8daa44df469ed3": {
+      "sample_idx": 18,
+      "store": "ALCAMPO DIAGONAL MAR",
+      "date": "2025-04-28",
+      "item_count": 0,
+      "total": 45.09,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7769187048834869,
+          "confidence": 0.717715285958518,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7399753837222184,
+          "confidence": 0.6728305064636277,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7532964238294636,
+          "confidence": 0.7876597147980523,
+          "items_extracted": 0,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.756730170811723,
+      "accuracy_std": 0.015276238811954319,
+      "confidence_mean": 0.7260685024067327,
+      "hallucination_count": 0
+    },
+    "ba2e1ec9a66c21fd8b803b27d0201164a0c27a841cf835f092198e1f92f1b18c": {
+      "sample_idx": 19,
+      "store": "MERCADUNA",
+      "date": "2025-07-11",
+      "item_count": 8,
+      "total": 28.17,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7284146587312819,
+          "confidence": 0.7833856304991929,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7301372939904411,
+          "confidence": 0.8135104511207749,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7635600743372568,
+          "confidence": 0.8588693167778383,
+          "items_extracted": 6,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.74070400901966,
+      "accuracy_std": 0.01617697251055165,
+      "confidence_mean": 0.8185884661326019,
+      "hallucination_count": 0
+    },
+    "b763263eb78d7251539173e69fc76c77629c589dd2eff10ddf4dfde9598e9a3f": {
+      "sample_idx": 20,
+      "store": "Juntos es cooperativa",
+      "date": "2025-03-15",
+      "item_count": 5,
+      "total": 15.68,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7384482679158891,
+          "confidence": 0.7866524885143094,
+          "items_extracted": 3,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7486912301871304,
+          "confidence": 0.7996156480366481,
+          "items_extracted": 3,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7,
+          "confidence": 0.7088030815159828,
+          "items_extracted": 3,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7290464993676732,
+      "accuracy_std": 0.020960342127610054,
+      "confidence_mean": 0.7650237393556467,
+      "hallucination_count": 0
+    },
+    "04cb0f6c4310944e34eff51164439463ad8d0afd642d0d4e33949c39fae3a934": {
+      "sample_idx": 21,
+      "store": "MERCADUNA",
+      "date": "2025-07-11",
+      "item_count": 14,
+      "total": 27.57,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7106244019050652,
+          "confidence": 0.6479464268261255,
+          "items_extracted": 9,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7391870328429216,
+          "confidence": 0.7134656459813958,
+          "items_extracted": 10,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7195571666619949,
+          "confidence": 0.7329992250909868,
+          "items_extracted": 10,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7231228671366606,
+      "accuracy_std": 0.011930119765515697,
+      "confidence_mean": 0.6981370992995027,
+      "hallucination_count": 0
+    },
+    "691a9d412381086a5f386d25d0605651d66163533eb293aae773217d561ea791": {
+      "sample_idx": 22,
+      "store": "VENE\u00c7UELA",
+      "date": "2025-04-10",
+      "item_count": 13,
+      "total": 40.26,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7568328311741076,
+          "confidence": 0.7498927735643239,
+          "items_extracted": 9,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7701688038937681,
+          "confidence": 0.7628739627850345,
+          "items_extracted": 10,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7364548023989402,
+          "confidence": 0.7663002203160906,
+          "items_extracted": 9,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7544854791556053,
+      "accuracy_std": 0.01386340555376849,
+      "confidence_mean": 0.7596889855551496,
+      "hallucination_count": 0
+    },
+    "5f681f90165a0f3e83326fe0bd02d702bb921bbf3b62c6a7483aac38982df7c6": {
+      "sample_idx": 23,
+      "store": "IperCoop Bari Japigia",
+      "date": "2025-06-29",
+      "item_count": 11,
+      "total": 22.44,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7447418263084089,
+          "confidence": 0.819807121096356,
+          "items_extracted": 8,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7662555006090481,
+          "confidence": 0.7709333883839019,
+          "items_extracted": 8,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7612568217921556,
+          "confidence": 0.762230262410239,
+          "items_extracted": 8,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7574180495698709,
+      "accuracy_std": 0.009192811489036227,
+      "confidence_mean": 0.7843235906301657,
+      "hallucination_count": 0
+    },
+    "11b0964a18ed026ce33c72a246e25a084983aa8531393225245717a587c00511": {
+      "sample_idx": 24,
+      "store": "C/VENE\u00c7UELA",
+      "date": "2025-07-11",
+      "item_count": 19,
+      "total": 50.04,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7,
+          "confidence": 0.6679892552763421,
+          "items_extracted": 13,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7413522084593257,
+          "confidence": 0.6898534766704982,
+          "items_extracted": 14,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7,
+          "confidence": 0.6497864456186191,
+          "items_extracted": 13,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7137840694864419,
+      "accuracy_std": 0.0194936180124193,
+      "confidence_mean": 0.6692097258551531,
+      "hallucination_count": 0
+    },
+    "465b4d4588e579bb1f84ca66ad6511f62fb372dbaeb85987b939dffb11e3a666": {
+      "sample_idx": 25,
+      "store": "BAGUET",
+      "date": "2025-07-26",
+      "item_count": 1,
+      "total": 0.59,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7060888142345043,
+          "confidence": 0.6915107373367843,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7929802068535692,
+          "confidence": 0.7491802501436613,
+          "items_extracted": 1,
+          "hallucination": 1
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7365169694701345,
+          "confidence": 0.7362726614231402,
+          "items_extracted": 0,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7451953301860693,
+      "accuracy_std": 0.036000129503072915,
+      "confidence_mean": 0.7256545496345286,
+      "hallucination_count": 1
+    },
+    "23cfc4a6596980e34f1a081b76766665a7085818b1872a57b85454975634573b": {
+      "sample_idx": 26,
+      "store": "CRCADU\u00d1A",
+      "date": "2025-04-10",
+      "item_count": 12,
+      "total": 29.54,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7062553916600077,
+          "confidence": 0.7375672024247713,
+          "items_extracted": 8,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7380200074233674,
+          "confidence": 0.7422637685179496,
+          "items_extracted": 8,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7780143701400513,
+          "confidence": 0.7953589604416724,
+          "items_extracted": 9,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7407632564078087,
+      "accuracy_std": 0.02935962998594972,
+      "confidence_mean": 0.7583966437947978,
+      "hallucination_count": 0
+    },
+    "1c66a33322996cd60ddcfdb554d601226077be1f7aca624c889488489ac73e3b": {
+      "sample_idx": 27,
+      "store": "MERCADONA",
+      "date": "2025-07-26",
+      "item_count": 13,
+      "total": 13.74,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7643869369894191,
+          "confidence": 0.7294526888247207,
+          "items_extracted": 9,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7622284971354881,
+          "confidence": 0.7738890387331027,
+          "items_extracted": 9,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.8047022611977396,
+          "confidence": 0.7300387469246622,
+          "items_extracted": 10,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7771058984408823,
+      "accuracy_std": 0.019533460927458224,
+      "confidence_mean": 0.7444601581608286,
+      "hallucination_count": 0
+    },
+    "06c33f23994bd38d2659fd5bb30979f5f98321757104eb162ff42e4691e0bbef": {
+      "sample_idx": 28,
+      "store": "CCCUS",
+      "date": "2025-06-26",
+      "item_count": 0,
+      "total": 539.49,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7713597124025352,
+          "confidence": 0.7724691049511355,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7226137024458819,
+          "confidence": 0.7534928327314149,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7700096117959441,
+          "confidence": 0.747527228475174,
+          "items_extracted": 0,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7546610088814537,
+      "accuracy_std": 0.022667569789511524,
+      "confidence_mean": 0.7578297220525748,
+      "hallucination_count": 0
+    },
+    "278ad00900c7dd322db56f151740ce90bdf9d7ee074f068e1bd4e4dffef32eaa": {
+      "sample_idx": 29,
+      "store": "DECATHLON",
+      "date": "2025-07-11",
+      "item_count": 1,
+      "total": 15.99,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7537288806399373,
+          "confidence": 0.807676032323915,
+          "items_extracted": 1,
+          "hallucination": 1
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7495721974398634,
+          "confidence": 0.7840329018590018,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7586299081964528,
+          "confidence": 0.7347402152134701,
+          "items_extracted": 0,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7539769954254179,
+      "accuracy_std": 0.0037019545961189766,
+      "confidence_mean": 0.7754830497987957,
+      "hallucination_count": 1
+    },
+    "0f1e709ed5d640f2158d1131061d0e8a465f83a914502cbbdf1df27c90227802": {
+      "sample_idx": 30,
+      "store": "Maxi Gourmet",
+      "date": "2025-06-03",
+      "item_count": 9,
+      "total": 36.69,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.8025779950451167,
+          "confidence": 0.7987504175646212,
+          "items_extracted": 7,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7744286969965556,
+          "confidence": 0.8675210196075843,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7403728423857737,
+          "confidence": 0.7442832067909712,
+          "items_extracted": 6,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7724598448091488,
+      "accuracy_std": 0.025433279229452304,
+      "confidence_mean": 0.8035182146543923,
+      "hallucination_count": 0
+    },
+    "965d02a2aa1dbf35d2ecf172fce052b7d2dcd87b19930854cfd4d2233ff3aa3e": {
+      "sample_idx": 31,
+      "store": "Supermarcato La Provenza",
+      "date": "2025-09-06",
+      "item_count": 8,
+      "total": 18.57,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7545902021087754,
+          "confidence": 0.7243325119514853,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7175119866712996,
+          "confidence": 0.7511785842882023,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7338383819368628,
+          "confidence": 0.8115487280288698,
+          "items_extracted": 5,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7353135235723126,
+      "accuracy_std": 0.015173014359720908,
+      "confidence_mean": 0.7623532747561859,
+      "hallucination_count": 0
+    },
+    "4bcf596200938728dcd151c59c88d22056ab31089a914ac63b5c5c748a6425c5": {
+      "sample_idx": 32,
+      "store": "Hortaleza",
+      "date": "2025-07-11",
+      "item_count": 6,
+      "total": 35.8,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7765339687718176,
+          "confidence": 0.8025506069295092,
+          "items_extracted": 4,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7775547248543967,
+          "confidence": 0.7402282584972423,
+          "items_extracted": 4,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7655272544918887,
+          "confidence": 0.7687756489872909,
+          "items_extracted": 4,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7732053160393676,
+      "accuracy_std": 0.005445178759856371,
+      "confidence_mean": 0.7705181714713474,
+      "hallucination_count": 0
+    },
+    "9200bf5d4d88f990a23468204dededc39740fb821bf820f055d3bf220ca41c43": {
+      "sample_idx": 33,
+      "store": "Beete1",
+      "date": "2025-09-06",
+      "item_count": 7,
+      "total": 20.88,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.718208093362505,
+          "confidence": 0.6676539582564636,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.82,
+          "confidence": 0.8614625307821636,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7203715413242877,
+          "confidence": 0.7581074763036642,
+          "items_extracted": 5,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7528598782289309,
+      "accuracy_std": 0.04748345038253729,
+      "confidence_mean": 0.7624079884474305,
+      "hallucination_count": 0
+    },
+    "20cfb2d7f806fbaf401fa1774fc05e192a9142861bdf2e1db033f01f1651719c": {
+      "sample_idx": 34,
+      "store": "MERCADUNA",
+      "date": "2025-04-28",
+      "item_count": 10,
+      "total": 15.89,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7433144602658085,
+          "confidence": 0.7432510914017306,
+          "items_extracted": 7,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7674831966199261,
+          "confidence": 0.7571375631025004,
+          "items_extracted": 7,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7266876495341608,
+          "confidence": 0.8424101460835447,
+          "items_extracted": 7,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7458284354732984,
+      "accuracy_std": 0.016749312802114814,
+      "confidence_mean": 0.7809329335292586,
+      "hallucination_count": 0
+    },
+    "4c3ff35ba6781d55c88f5c7f94ba3a6cdb5e84f477d5b57a3c999f38f693b233": {
+      "sample_idx": 35,
+      "store": "Fruit\u00f3s",
+      "date": "2025-07-11",
+      "item_count": 0,
+      "total": 182.53,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7642570928083767,
+          "confidence": 0.8624330979144078,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7409865986614893,
+          "confidence": 0.716490436354259,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.787395751025278,
+          "confidence": 0.8133764857068257,
+          "items_extracted": 0,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7642131474983813,
+      "accuracy_std": 0.018946482596584907,
+      "confidence_mean": 0.7974333399918309,
+      "hallucination_count": 0
+    },
+    "77b0137030a65d58974b0159013fc6714e290278575af8be263821d970b56f1c": {
+      "sample_idx": 36,
+      "store": "Ying Tiger",
+      "date": "2025-07-11",
+      "item_count": 1,
+      "total": 3.0,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7842008687177672,
+          "confidence": 0.7728249796331469,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7465397774643832,
+          "confidence": 0.7009866420246212,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7136896660082295,
+          "confidence": 0.6652080711082905,
+          "items_extracted": 0,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7481434373967932,
+      "accuracy_std": 0.0288084041067937,
+      "confidence_mean": 0.7130065642553528,
+      "hallucination_count": 0
+    },
+    "7a5baf7687827d4205d10bd0d2008612a9188989a4dac399d2c3173edd806fb5": {
+      "sample_idx": 37,
+      "store": "MERCADONA",
+      "date": "2025-04-10",
+      "item_count": 2,
+      "total": 0.57,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.713176052932668,
+          "confidence": 0.6880538685790953,
+          "items_extracted": 1,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7287428315334565,
+          "confidence": 0.7926840975536902,
+          "items_extracted": 1,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.779426930838108,
+          "confidence": 0.7309801429014738,
+          "items_extracted": 1,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7404486051014109,
+      "accuracy_std": 0.028285020263130373,
+      "confidence_mean": 0.7372393696780865,
+      "hallucination_count": 0
+    },
+    "879fe8dae40e5d1d232e4fad1d731e634f9c9ac35a290cf3c8b0ac98a4dfd006": {
+      "sample_idx": 38,
+      "store": "CONSUM. S.COOP.V",
+      "date": "2025-07-11",
+      "item_count": 6,
+      "total": 11.65,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7624375845213792,
+          "confidence": 0.7777682744299623,
+          "items_extracted": 4,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7276633988182505,
+          "confidence": 0.5790535442675953,
+          "items_extracted": 4,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.790244340623629,
+          "confidence": 0.8487444424994355,
+          "items_extracted": 4,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7601151079877528,
+      "accuracy_std": 0.025601288929127216,
+      "confidence_mean": 0.7351887537323311,
+      "hallucination_count": 0
+    },
+    "80543ca96f9f983a8859de7984b9c2ba4dd19390be223c56efe6cb9bd24ff875": {
+      "sample_idx": 39,
+      "store": "MERCADONA",
+      "date": "2025-09-06",
+      "item_count": 13,
+      "total": 32.06,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7443061939939641,
+          "confidence": 0.7312419881053133,
+          "items_extracted": 9,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7218936849546593,
+          "confidence": 0.7216941779030542,
+          "items_extracted": 9,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7799794295997917,
+          "confidence": 0.7734078927770561,
+          "items_extracted": 10,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.748726436182805,
+      "accuracy_std": 0.023918505227834064,
+      "confidence_mean": 0.7421146862618079,
+      "hallucination_count": 0
+    },
+    "9aa3aaafc0815197c426348f6516f6562ad6007712f6e94fc8aeba956691a1e2": {
+      "sample_idx": 40,
+      "store": "LASANYA TONYINA",
+      "date": "2025-06-03",
+      "item_count": 13,
+      "total": 29.04,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7333438584656888,
+          "confidence": 0.7453310206237439,
+          "items_extracted": 9,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7536489298532896,
+          "confidence": 0.7348915854716792,
+          "items_extracted": 9,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7412029729554573,
+          "confidence": 0.7144472120060156,
+          "items_extracted": 9,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.742731920424812,
+      "accuracy_std": 0.008359714559996446,
+      "confidence_mean": 0.7315566060338129,
+      "hallucination_count": 0
+    },
+    "4badda7d1a88f609ea0ec502a0de5ee5cb3994e3d30835a699e68d5d40103666": {
+      "sample_idx": 41,
+      "store": "NILDA DIAZ GONZALES",
+      "date": "2025-07-26",
+      "item_count": 4,
+      "total": 39.65,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7508853760042989,
+          "confidence": 0.6949610849867756,
+          "items_extracted": 3,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7560984282009158,
+          "confidence": 0.801182606025547,
+          "items_extracted": 3,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7216603310484013,
+          "confidence": 0.7406363921594304,
+          "items_extracted": 2,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7428813784178722,
+      "accuracy_std": 0.015155716564917057,
+      "confidence_mean": 0.745593361057251,
+      "hallucination_count": 0
+    },
+    "7cfbc73ff089b7e9493701a0cff7b79e97e41d1c80c2a07972c88303e18e7ee0": {
+      "sample_idx": 42,
+      "store": "BonArea (T561)",
+      "date": "2025-02-20",
+      "item_count": 1,
+      "total": 13.52,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7409213871172848,
+          "confidence": 0.6609492314671453,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7464423407680065,
+          "confidence": 0.7435463080335131,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.778001794508484,
+          "confidence": 0.7728842347513013,
+          "items_extracted": 0,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7551218407979251,
+      "accuracy_std": 0.016334818510395532,
+      "confidence_mean": 0.7257932580839865,
+      "hallucination_count": 0
+    },
+    "ac715788ecc426f5e488e67ea9df96908733c14abb3aaf9bfb5a45d698743261": {
+      "sample_idx": 43,
+      "store": "neezn",
+      "date": "2025-07-26",
+      "item_count": 19,
+      "total": 41.98,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7836384081919862,
+          "confidence": 0.7892072573915858,
+          "items_extracted": 14,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7271714052626748,
+          "confidence": 0.8557622974063982,
+          "items_extracted": 13,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7240113229498367,
+          "confidence": 0.5670339434003692,
+          "items_extracted": 13,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7449403788014992,
+      "accuracy_std": 0.027394033889227554,
+      "confidence_mean": 0.7373344993994512,
+      "hallucination_count": 0
+    },
+    "6a48c0d014f8e01af8db8e49511f955bfe2d52948e1172ca35cd208d42b97b90": {
+      "sample_idx": 44,
+      "store": "Cal",
+      "date": "2025-02-20",
+      "item_count": 1,
+      "total": 11.32,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.777711141336905,
+          "confidence": 0.6582227155721865,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.8085085206132167,
+          "confidence": 0.7953640072397439,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7726325636976977,
+          "confidence": 0.7622036961822433,
+          "items_extracted": 0,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7862840752159398,
+      "accuracy_std": 0.01585123481250529,
+      "confidence_mean": 0.7385968063313912,
+      "hallucination_count": 0
+    },
+    "94da88f14d456461bd7dccefec2c4ae1ae0d5f34c49834499aa5a267d0544721": {
+      "sample_idx": 45,
+      "store": "Mercadona",
+      "date": "2025-03-24",
+      "item_count": 2,
+      "total": 5.9,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.767294134582683,
+          "confidence": 0.8402068220383941,
+          "items_extracted": 1,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7303544977466392,
+          "confidence": 0.6895164053096354,
+          "items_extracted": 1,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7276433785619496,
+          "confidence": 0.7984082418851535,
+          "items_extracted": 1,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7417640036304238,
+      "accuracy_std": 0.018086426432328034,
+      "confidence_mean": 0.7760438230777277,
+      "hallucination_count": 0
+    },
+    "59e7a908ec02a1cfb06ecbf81db35e08ed1e6c5ee0b2e509dcb1716284d9a088": {
+      "sample_idx": 46,
+      "store": "Supermarco La Favorita",
+      "date": "2025-04-28",
+      "item_count": 7,
+      "total": 50.0,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7504785100105678,
+          "confidence": 0.7348611131643672,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7389039046397697,
+          "confidence": 0.7847906373072844,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7472032443791395,
+          "confidence": 0.7955135727632837,
+          "items_extracted": 5,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7455285530098257,
+      "accuracy_std": 0.004871434816647442,
+      "confidence_mean": 0.771721774411645,
+      "hallucination_count": 0
+    },
+    "ba4a76a465b2741d662306089787bdc6f9be7eb2ef3b79e1aced5550e0ec494f": {
+      "sample_idx": 47,
+      "store": "Fruit\u00f3s",
+      "date": "2025-06-03",
+      "item_count": 8,
+      "total": 39.49,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7644173521029344,
+          "confidence": 0.7781827565231523,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7494235576207141,
+          "confidence": 0.7075117123912877,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7084216188518639,
+          "confidence": 0.77317701790601,
+          "items_extracted": 5,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7407541761918375,
+      "accuracy_std": 0.023667828605525153,
+      "confidence_mean": 0.7529571622734833,
+      "hallucination_count": 0
+    },
+    "2fa09092ba19046c9079fe2c1ea91bc76163ecd4900e73d3607ac5eb148aa1fb": {
+      "sample_idx": 48,
+      "store": "Perla",
+      "date": "2025-03-15",
+      "item_count": 6,
+      "total": 17.01,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7767491162638336,
+          "confidence": 0.8067439687578528,
+          "items_extracted": 4,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7414008303068712,
+          "confidence": 0.739756516129775,
+          "items_extracted": 4,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7798301297102841,
+          "confidence": 0.8290054340557886,
+          "items_extracted": 4,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7659933587603295,
+      "accuracy_std": 0.01743497448167378,
+      "confidence_mean": 0.7918353063144722,
+      "hallucination_count": 0
+    },
+    "224515a0cec0cd5cfe21cdf706e0c87a3594fda5fae075b3772275a19bb807c2": {
+      "sample_idx": 49,
+      "store": "Actur",
+      "date": "2025-07-11",
+      "item_count": 0,
+      "total": 178.16,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7474741150432567,
+          "confidence": 0.640444944458847,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7585788098126831,
+          "confidence": 0.7283734592629088,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7993717539582132,
+          "confidence": 0.7812971946389226,
+          "items_extracted": 0,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7684748929380509,
+      "accuracy_std": 0.022312785231117266,
+      "confidence_mean": 0.7167051994535595,
+      "hallucination_count": 0
+    },
+    "b10503b224a9823202e5d51611a64fb3b5ecbce745ccb95b5958e00207986f56": {
+      "sample_idx": 50,
+      "store": "Av Alfonso V Magnani",
+      "date": "2025-03-15",
+      "item_count": 8,
+      "total": 26.78,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7944861707522406,
+          "confidence": 0.7964557339802357,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7870056215354737,
+          "confidence": 0.7704317524756215,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7764233268475362,
+          "confidence": 0.8664602733503297,
+          "items_extracted": 6,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7859717063784167,
+      "accuracy_std": 0.0074102774529893195,
+      "confidence_mean": 0.8111159199353958,
+      "hallucination_count": 0
+    },
+    "8627cc8957c65d8164dd3e555a79e4897350fb5d2d5f25dce34345fca490c033": {
+      "sample_idx": 51,
+      "store": "MERCADONA",
+      "date": "2025-04-28",
+      "item_count": 2,
+      "total": 0.35,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7939472864212331,
+          "confidence": 0.8717442912948038,
+          "items_extracted": 1,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7593621103262131,
+          "confidence": 0.7764754424310973,
+          "items_extracted": 1,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7736883144281056,
+          "confidence": 0.794410987524696,
+          "items_extracted": 1,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.775665903725184,
+      "accuracy_std": 0.014188416541950095,
+      "confidence_mean": 0.8142102404168656,
+      "hallucination_count": 0
+    },
+    "892289efa29747f32bbf14f50296f81010bfd8f50e1925049888c8881fc188bf": {
+      "sample_idx": 52,
+      "store": "Juntos es cooperativa",
+      "date": "2025-02-20",
+      "item_count": 11,
+      "total": 36.51,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.8098318601553045,
+          "confidence": 0.8297249682457247,
+          "items_extracted": 8,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7505978591386869,
+          "confidence": 0.8409702607246294,
+          "items_extracted": 8,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7662049663763608,
+          "confidence": 0.8789354524850441,
+          "items_extracted": 8,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7755448952234508,
+      "accuracy_std": 0.025067807007670084,
+      "confidence_mean": 0.8498768938184661,
+      "hallucination_count": 0
+    },
+    "652ba1682cd04f241235ea7f6c7d750aba90166f0553dc5e96d3e1c683e70d8c": {
+      "sample_idx": 53,
+      "store": "MERCADUNA",
+      "date": "2025-07-26",
+      "item_count": 17,
+      "total": 29.18,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7792959180100794,
+          "confidence": 0.8040884668732586,
+          "items_extracted": 13,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7180658226386812,
+          "confidence": 0.7611806724194515,
+          "items_extracted": 12,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7,
+          "confidence": 0.6506535838193198,
+          "items_extracted": 11,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.732453913549587,
+      "accuracy_std": 0.033933498918823295,
+      "confidence_mean": 0.7386409077040099,
+      "hallucination_count": 0
+    },
+    "46d86e384acbcaf1081e96defafca1ef1d35fa72137b20832cab6840509f91c0": {
+      "sample_idx": 54,
+      "store": "MERCADUNA",
+      "date": "2025-03-15",
+      "item_count": 7,
+      "total": 25.9,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.762303998067081,
+          "confidence": 0.8399805112810338,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7192668054595595,
+          "confidence": 0.7421748847985091,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7083249640363858,
+          "confidence": 0.7145526832398084,
+          "items_extracted": 4,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7299652558543421,
+      "accuracy_std": 0.023299165354992983,
+      "confidence_mean": 0.7655693597731171,
+      "hallucination_count": 0
+    },
+    "17fd07d90cfd1b918613eb4d805a6435032a58269d9ad0a2b27839c414a94b35": {
+      "sample_idx": 55,
+      "store": "DIAGONAL",
+      "date": "2025-04-28",
+      "item_count": 8,
+      "total": 77.25,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7701394061872936,
+          "confidence": 0.7452105496131631,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7811486492915107,
+          "confidence": 0.8596986187488371,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7161534654409732,
+          "confidence": 0.6878419879538316,
+          "items_extracted": 5,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7558138403065925,
+      "accuracy_std": 0.028401993583702562,
+      "confidence_mean": 0.7642503854386106,
+      "hallucination_count": 0
+    },
+    "b3f15dd19e85eba39199755d23b6cb055aeea560fabbee68f522003469e5aef4": {
+      "sample_idx": 56,
+      "store": "LIDL SUPERMERCADOS S.A.U",
+      "date": "2025-02-20",
+      "item_count": 3,
+      "total": 16.83,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7409133151228938,
+          "confidence": 0.6658091598763037,
+          "items_extracted": 2,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7,
+          "confidence": 0.7887782636346425,
+          "items_extracted": 2,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7847295285217112,
+          "confidence": 0.7817629310911632,
+          "items_extracted": 2,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.741880947881535,
+      "accuracy_std": 0.03459745159925864,
+      "confidence_mean": 0.7454501182007033,
+      "hallucination_count": 0
+    },
+    "33f9125ac5f8272fd9a73f1793e2403b20722e9f2058b7352955f233a9822b08": {
+      "sample_idx": 57,
+      "store": "Panettiere Mat\u00f3",
+      "date": "2025-11-21",
+      "item_count": 10,
+      "total": 24.06,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7609563387466697,
+          "confidence": 0.7174725633668907,
+          "items_extracted": 8,
+          "hallucination": 1
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7538470811457784,
+          "confidence": 0.7337819787494874,
+          "items_extracted": 7,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7530571913109805,
+          "confidence": 0.7463002201048126,
+          "items_extracted": 7,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7559535370678095,
+      "accuracy_std": 0.003552182424583877,
+      "confidence_mean": 0.7325182540737302,
+      "hallucination_count": 1
+    },
+    "b723c328d2056ba9312a9c4e1c39e21299f07456233f710d071a05d010e1fc5f": {
+      "sample_idx": 58,
+      "store": "MASTER DISTRIBUCION ALIMENTARIA",
+      "date": "2025-06-03",
+      "item_count": 6,
+      "total": 41.45,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7042571506538021,
+          "confidence": 0.6390109041824269,
+          "items_extracted": 4,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7008966609484167,
+          "confidence": 0.6317659148229005,
+          "items_extracted": 4,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7,
+          "confidence": 0.6978324789279334,
+          "items_extracted": 4,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7017179372007396,
+      "accuracy_std": 0.0018324307961947108,
+      "confidence_mean": 0.6562030993110869,
+      "hallucination_count": 0
+    },
+    "b1c6824d9a0e301f1cf8fd8404123a21278d1940ed7de6321e870f12015ad27f": {
+      "sample_idx": 59,
+      "store": "VENE\u00c7UELA",
+      "date": "2025-02-20",
+      "item_count": 14,
+      "total": 30.3,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7461249971010399,
+          "confidence": 0.7049754677011095,
+          "items_extracted": 10,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.794582712659064,
+          "confidence": 0.765393838523357,
+          "items_extracted": 11,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.731427807225878,
+          "confidence": 0.6567609922847878,
+          "items_extracted": 10,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7573785056619938,
+      "accuracy_std": 0.026982915721708894,
+      "confidence_mean": 0.7090434328364181,
+      "hallucination_count": 0
+    },
+    "7e2d9699e9c4077ad3cc6d26b5fc85da16a51fad0bb91e2a7f72c785603775bb": {
+      "sample_idx": 60,
+      "store": "MERCADONA",
+      "date": "2025-03-08",
+      "item_count": 1,
+      "total": 6.97,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.794807624403967,
+          "confidence": 0.7707419879751295,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7341956918702613,
+          "confidence": 0.7478112984827898,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7963649346777752,
+          "confidence": 0.76530830053345,
+          "items_extracted": 0,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7751227503173346,
+      "accuracy_std": 0.028946783225657805,
+      "confidence_mean": 0.7612871956637898,
+      "hallucination_count": 0
+    },
+    "78060019ffb01d45dcf80b8df07ebd9b4cb299eaf22f2921b33ea9b46a6b8ae9": {
+      "sample_idx": 61,
+      "store": "GRUPU DIA",
+      "date": "2025-07-11",
+      "item_count": 7,
+      "total": 20.0,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7757569752338385,
+          "confidence": 0.8026489863866197,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7408842002652248,
+          "confidence": 0.7868264097230404,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7,
+          "confidence": 0.7256177857353431,
+          "items_extracted": 5,
+          "hallucination": 1
+        }
+      ],
+      "accuracy_mean": 0.7388803918330211,
+      "accuracy_std": 0.030960095395200074,
+      "confidence_mean": 0.7716977272816677,
+      "hallucination_count": 1
+    },
+    "b49a7cffe36e1ec1a02620765c92afd219e55bbb25eee2057419b295d2a556c9": {
+      "sample_idx": 62,
+      "store": "MERCADUNA",
+      "date": "2025-03-15",
+      "item_count": 15,
+      "total": 29.46,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7867296222181923,
+          "confidence": 0.8548975568720885,
+          "items_extracted": 11,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.798244839358287,
+          "confidence": 0.7698102578672112,
+          "items_extracted": 11,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7266100577062743,
+          "confidence": 0.8344106824253348,
+          "items_extracted": 10,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7705281730942511,
+      "accuracy_std": 0.03140860498727087,
+      "confidence_mean": 0.8197061657215449,
+      "hallucination_count": 0
+    },
+    "603d01e2e3e8d3a667de6a58043869f9d3fe9feb15a9ab51aeb6f1f5c549cc19": {
+      "sample_idx": 63,
+      "store": "Manolo Bakes",
+      "date": "2025-04-28",
+      "item_count": 2,
+      "total": 2.0,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7937395509838927,
+          "confidence": 0.7982814740273024,
+          "items_extracted": 1,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7195070805416622,
+          "confidence": 0.7885677011046447,
+          "items_extracted": 1,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.8035680767001603,
+          "confidence": 0.7742372079341587,
+          "items_extracted": 1,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7722715694085718,
+      "accuracy_std": 0.03752526654116749,
+      "confidence_mean": 0.7870287943553685,
+      "hallucination_count": 0
+    },
+    "744fb24de4f4423712b7b1a76a0452d9bc8647200f6dacba29a915fb5064f602": {
+      "sample_idx": 64,
+      "store": "RUME SUPERMETCATS, SL",
+      "date": "2025-06-03",
+      "item_count": 12,
+      "total": 32.99,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7328265149588553,
+          "confidence": 0.7371791418081147,
+          "items_extracted": 8,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7060726829527653,
+          "confidence": 0.7170087865548346,
+          "items_extracted": 8,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7836502873664349,
+          "confidence": 0.8149874318691178,
+          "items_extracted": 9,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7408498284260184,
+      "accuracy_std": 0.032175056030878196,
+      "confidence_mean": 0.7563917867440223,
+      "hallucination_count": 0
+    },
+    "20997342be609ac775795a0d98ea2222db0533e121667238ef38b86128ec2fe7": {
+      "sample_idx": 65,
+      "store": "CAMUNA, S.A",
+      "date": "2025-07-11",
+      "item_count": 4,
+      "total": 5.5,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7172086473596123,
+          "confidence": 0.7772374958686957,
+          "items_extracted": 2,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7554223800879305,
+          "confidence": 0.8763253372325325,
+          "items_extracted": 3,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7640588286858507,
+          "confidence": 0.6543397496249933,
+          "items_extracted": 3,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7455632853777979,
+      "accuracy_std": 0.02035740952663802,
+      "confidence_mean": 0.7693008609087405,
+      "hallucination_count": 0
+    },
+    "af620e024b841cd43513fa1e82ae0d60ffab77f1174742fc458bea9e0e54769f": {
+      "sample_idx": 66,
+      "store": "Cae",
+      "date": "2025-07-11",
+      "item_count": 7,
+      "total": 39.48,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7790197332080927,
+          "confidence": 0.798109334493682,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7757321028045071,
+          "confidence": 0.7966390335953656,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7203823526687378,
+          "confidence": 0.6110546838561626,
+          "items_extracted": 5,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7583780628937792,
+      "accuracy_std": 0.02690052818622254,
+      "confidence_mean": 0.7352676839817368,
+      "hallucination_count": 0
+    },
+    "84d5be27724e8ceaabbdb013d3473e8b8a068414286a9c20bd0c54c35060420a": {
+      "sample_idx": 67,
+      "store": "Juntos es cooperativa",
+      "date": "2025-07-11",
+      "item_count": 11,
+      "total": 25.16,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7448337356737568,
+          "confidence": 0.7726925784206088,
+          "items_extracted": 8,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.781121315404889,
+          "confidence": 0.7666183231317624,
+          "items_extracted": 8,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7530932048747465,
+          "confidence": 0.7755355446324197,
+          "items_extracted": 8,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7596827519844641,
+      "accuracy_std": 0.01552983599439503,
+      "confidence_mean": 0.7716154820615969,
+      "hallucination_count": 0
+    },
+    "1c5774a7320dd0be9bd3695a6a0ca705f6d295f976f04c11f3c0444d84e7a3c7": {
+      "sample_idx": 68,
+      "store": "CONSUM S.COOP.V",
+      "date": "2025-07-11",
+      "item_count": 4,
+      "total": 11.34,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7321358932451753,
+          "confidence": 0.7701185614182459,
+          "items_extracted": 2,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7560268414542355,
+          "confidence": 0.8943082745421368,
+          "items_extracted": 3,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7326925856860818,
+          "confidence": 0.6762806430565418,
+          "items_extracted": 2,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7402851067951642,
+      "accuracy_std": 0.01113340721061006,
+      "confidence_mean": 0.7802358263389748,
+      "hallucination_count": 0
+    },
+    "379ce162b19364532bde900a72e4cffa33ecb8991d053f5934bd7fd06975e174": {
+      "sample_idx": 69,
+      "store": "IKEA",
+      "date": "2025-07-26",
+      "item_count": 2,
+      "total": -58.98,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7,
+          "confidence": 0.7689957252450491,
+          "items_extracted": 1,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.782682588928914,
+          "confidence": 0.6895744890156155,
+          "items_extracted": 1,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7340679039201209,
+          "confidence": 0.6774796980690526,
+          "items_extracted": 1,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7389168309496782,
+      "accuracy_std": 0.03392871643117299,
+      "confidence_mean": 0.7120166374432392,
+      "hallucination_count": 0
+    },
+    "7b1537cbeaef6a2e638a7aa45dc1ad8e8a33ab21b8738d1d638875f674b0302f": {
+      "sample_idx": 70,
+      "store": "eMISFERO UNICOMM S.R.L",
+      "date": "2025-01-03",
+      "item_count": 8,
+      "total": 21.31,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7115147479752792,
+          "confidence": 0.7601816987273585,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.797994914560886,
+          "confidence": 0.7270590368045916,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7496695041496615,
+          "confidence": 0.756014728230818,
+          "items_extracted": 5,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7530597222286088,
+      "accuracy_std": 0.03538667345329962,
+      "confidence_mean": 0.7477518212542561,
+      "hallucination_count": 0
+    },
+    "03433513af5668bcb1ea60a498a3bb68d81bcc4327813e067b6a86a3536241b2": {
+      "sample_idx": 71,
+      "store": "MERCADONA",
+      "date": "2025-06-03",
+      "item_count": 9,
+      "total": 18.97,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7636319336601856,
+          "confidence": 0.7991756103986541,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.712270975687038,
+          "confidence": 0.8030387185883544,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7474823221451501,
+          "confidence": 0.6804587900920425,
+          "items_extracted": 6,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7411284104974579,
+      "accuracy_std": 0.021443975780311295,
+      "confidence_mean": 0.760891039693017,
+      "hallucination_count": 0
+    },
+    "4b79dac1953268c87a536099cc004723a034e202006b29b0f7183f8901960548": {
+      "sample_idx": 72,
+      "store": "MERCADUNA",
+      "date": "2025-09-06",
+      "item_count": 9,
+      "total": 21.11,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.740980522776994,
+          "confidence": 0.7672433896424478,
+          "items_extracted": 6,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7894741234831735,
+          "confidence": 0.835014758883835,
+          "items_extracted": 7,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7500266297971298,
+          "confidence": 0.7183534739113071,
+          "items_extracted": 6,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7601604253524323,
+      "accuracy_std": 0.021054337425339804,
+      "confidence_mean": 0.7735372074791966,
+      "hallucination_count": 0
+    },
+    "01ff2296d9d46b91d78236d9f22438772c93b19f67389cbf0b39243e36d93557": {
+      "sample_idx": 73,
+      "store": "RUME SUPERMETCATS, SL",
+      "date": "2025-07-11",
+      "item_count": 6,
+      "total": 10.18,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7519779497862809,
+          "confidence": 0.7270370866670307,
+          "items_extracted": 4,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7,
+          "confidence": 0.7058066712961061,
+          "items_extracted": 4,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7251490641999991,
+          "confidence": 0.7815813346424342,
+          "items_extracted": 4,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7257090046620934,
+      "accuracy_std": 0.02122360267857623,
+      "confidence_mean": 0.7381416975351903,
+      "hallucination_count": 0
+    },
+    "0ba230e1ebee92cef7bc308e19cede04e7cd2763556049baff9e9ee61af1506b": {
+      "sample_idx": 74,
+      "store": "Juntos es cooperativa",
+      "date": "2025-06-03",
+      "item_count": 7,
+      "total": 38.5,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7869445623876713,
+          "confidence": 0.8052742020705085,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7475643290593638,
+          "confidence": 0.8035402724945122,
+          "items_extracted": 5,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7274381777222599,
+          "confidence": 0.7572053622388571,
+          "items_extracted": 5,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.753982356389765,
+      "accuracy_std": 0.024713636722766493,
+      "confidence_mean": 0.7886732789346259,
+      "hallucination_count": 0
+    },
+    "39132e3033c2e9767fd93cf88d360c0a1771abc2e279fc0629f4d707d23b0ab0": {
+      "sample_idx": 75,
+      "store": "Juntos es cooperativa",
+      "date": "2025-03-08",
+      "item_count": 6,
+      "total": 13.17,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.82,
+          "confidence": 0.808254057137334,
+          "items_extracted": 4,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7311853451131636,
+          "confidence": 0.7615172151792428,
+          "items_extracted": 4,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7405800603830955,
+          "confidence": 0.7295460958492063,
+          "items_extracted": 4,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7639218018320864,
+      "accuracy_std": 0.039838326613707176,
+      "confidence_mean": 0.7664391227219277,
+      "hallucination_count": 0
+    },
+    "002fe2495663e261d29157ba1445c6e539bb6aa1039f66e8fe36275f57c0c2d2": {
+      "sample_idx": 76,
+      "store": "Auto Shoping Center St Pere IV",
+      "date": "2025-07-11",
+      "item_count": 1,
+      "total": 3.79,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7035812701904286,
+          "confidence": 0.6635286102785135,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7216364983259014,
+          "confidence": 0.7247012230516332,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7432895368192565,
+          "confidence": 0.8370557633485664,
+          "items_extracted": 0,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7228357684451955,
+      "accuracy_std": 0.016232997182299085,
+      "confidence_mean": 0.741761865559571,
+      "hallucination_count": 0
+    },
+    "7c05623c177541beda2e578161ce4920ff9b8001ff1e6719f60de39f75abaceb": {
+      "sample_idx": 77,
+      "store": "Cal",
+      "date": "2025-09-06",
+      "item_count": 1,
+      "total": 8.58,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7767901039469217,
+          "confidence": 0.83881972570622,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7467163137647927,
+          "confidence": 0.7347334973438573,
+          "items_extracted": 0,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7358461968962042,
+          "confidence": 0.7164726757529796,
+          "items_extracted": 0,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7531175382026395,
+      "accuracy_std": 0.0173172868712589,
+      "confidence_mean": 0.7633419662676856,
+      "hallucination_count": 0
+    },
+    "20e8047e9163e717554464f01e48f00cdbb3e28212d37cb24e5d96b77a0c4989": {
+      "sample_idx": 78,
+      "store": "Pruitos",
+      "date": "2025-07-11",
+      "item_count": 13,
+      "total": 24.09,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7369156312250187,
+          "confidence": 0.6936859554516929,
+          "items_extracted": 9,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.747058525675514,
+          "confidence": 0.7570680024376913,
+          "items_extracted": 9,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7572037975222128,
+          "confidence": 0.697223560814264,
+          "items_extracted": 9,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7470593181409152,
+      "accuracy_std": 0.008282609226431474,
+      "confidence_mean": 0.7159925062345494,
+      "hallucination_count": 0
+    },
+    "a3d72ff8615b9a18a57542c1402325a67d5651c62772895ee198de7fec4048e9": {
+      "sample_idx": 79,
+      "store": "MERCADUNA",
+      "date": "2025-02-20",
+      "item_count": 13,
+      "total": 37.58,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7152320045264764,
+          "confidence": 0.7258782092358791,
+          "items_extracted": 9,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.7400063156020863,
+          "confidence": 0.7015810523413661,
+          "items_extracted": 9,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.7220166670618982,
+          "confidence": 0.7417677753674501,
+          "items_extracted": 9,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7257516623968203,
+      "accuracy_std": 0.010453205726209523,
+      "confidence_mean": 0.7230756789815652,
+      "hallucination_count": 0
+    },
+    "111da6969519e262add259ce02da8b489173aeef6f9a36af5914026db166dd5d": {
+      "sample_idx": 80,
+      "store": "Mortadel\u00e0 Italiana",
+      "date": "2025-04-10",
+      "item_count": 6,
+      "total": 20.32,
+      "runs": [
+        {
+          "run": 1,
+          "accuracy": 0.7496763684067398,
+          "confidence": 0.8311864791429935,
+          "items_extracted": 4,
+          "hallucination": 0
+        },
+        {
+          "run": 2,
+          "accuracy": 0.82,
+          "confidence": 0.927575807278869,
+          "items_extracted": 4,
+          "hallucination": 0
+        },
+        {
+          "run": 3,
+          "accuracy": 0.731113345464594,
+          "confidence": 0.7440700820826905,
+          "items_extracted": 4,
+          "hallucination": 0
+        }
+      ],
+      "accuracy_mean": 0.7669299046237779,
+      "accuracy_std": 0.03828378875902639,
+      "confidence_mean": 0.8342774561681844,
+      "hallucination_count": 0
+    }
+  }
+}

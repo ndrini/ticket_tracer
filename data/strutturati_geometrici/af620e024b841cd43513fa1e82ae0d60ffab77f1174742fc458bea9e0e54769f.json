@@ -1,0 +1,88 @@
+{
+  "sha256": "af620e024b841cd43513fa1e82ae0d60ffab77f1174742fc458bea9e0e54769f",
+  "foto_origine": "2025-07-11 18.40.36.jpg",
+  "shop_name": "Cae",
+  "date": "2025-06-30",
+  "total": 39.48,
+  "items": [
+    {
+      "name": "",
+      "price": 3.11,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 4.08,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 4.03,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 3.65,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "Carbasso Extra",
+      "price": 1.61,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Kiwi Green Zespr\u0131",
+      "price": 1.52,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Poma Fuji Extra Cal Fruit\u00f3s",
+      "price": 4.93,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Toinaquet Verd Extra",
+      "price": 3.41,
+      "name_quality": "complete"
+    },
+    {
+      "name": "",
+      "price": 2.06,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "Malo Canteliup",
+      "price": 1.45,
+      "name_quality": "complete"
+    },
+    {
+      "name": "",
+      "price": 2.27,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.95,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "Alvacat Extra Cel Fruitoe",
+      "price": 4.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Platan Banana",
+      "price": 2.95,
+      "name_quality": "complete"
+    },
+    {
+      "name": "",
+      "price": 1.85,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "SOMMA_IN_ECCESSO",
+  "somma_prodotti": 43.87,
+  "scarto": 4.39,
+  "elaborato_il": null
+}

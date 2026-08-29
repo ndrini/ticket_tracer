@@ -1,0 +1,73 @@
+{
+  "sha256": "f472f0190d23501194986b2803ecdac191f6d8d5294fe09a94e313650a3d0c5d",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "PIZCAS PERNIL LORIE",
+      "price": 1.6,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FOR. TENDRE CONSUM",
+      "price": 2.95,
+      "name_quality": "complete"
+    },
+    {
+      "name": "F.SEMI PORC.G.BAQUE",
+      "price": 5.19,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMA.CURAT MESCLA",
+      "price": 3.79,
+      "name_quality": "complete"
+    },
+    {
+      "name": "F.FRESC P-2 CONSUM",
+      "price": 1.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "F.MOZZARELLA FRESCA",
+      "price": 1.94,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MOZZAR.RATLL.CONSUM",
+      "price": 1.62,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MANTEGA 250G.CONSUM",
+      "price": 2.25,
+      "name_quality": "complete"
+    },
+    {
+      "name": "REMOLATXA RATLL.190",
+      "price": 1.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "NOU CLOSCA CONSUM",
+      "price": 3.9,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ESPAGUETI CONS.500",
+      "price": 0.8,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TALLARINES CONS.500",
+      "price": 0.8,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 28.8,
+  "scarto": null,
+  "elaborato_il": null
+}

@@ -1,0 +1,33 @@
+{
+  "sha256": "5c9a9ede1206e1bb4e0ec35188e6aa34065399ee372c3a0999306ecd8ae0c314",
+  "foto_origine": "2025-06-03 09.16.54.jpg",
+  "shop_name": "Cal",
+  "date": "2025-05-13",
+  "total": 12.97,
+  "items": [
+    {
+      "name": "Taronja Extra Cal Fruit\u00f3s",
+      "price": 1.45,
+      "name_quality": "complete"
+    },
+    {
+      "name": "",
+      "price": 1.62,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "Pza Alvocat Extra Cal Fruit\u00f3s",
+      "price": 4.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "",
+      "price": 5.9,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 12.97,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

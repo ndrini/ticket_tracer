@@ -1,0 +1,38 @@
+{
+  "sha256": "16c609fb5c82c0b730c04716762f7bb0668495bd00bdc6197d1b23b8c7dc34c8",
+  "foto_origine": "2025-02-20 07.52.49.jpg",
+  "shop_name": "Mercadona",
+  "date": "2025-02-19",
+  "total": 11.55,
+  "items": [
+    {
+      "name": "FORMATGE RATLLAT PIZ",
+      "price": 3.24,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MOZZARELLA FRESCA",
+      "price": 1.94,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORM. BURGOS NATURAL",
+      "price": 1.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PERNIL DOL\u00c7 QUALITAT",
+      "price": 2.04,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PERNIL S. EXTRA FI",
+      "price": 2.35,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 11.55,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

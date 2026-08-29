@@ -1,0 +1,68 @@
+{
+  "sha256": "4badda7d1a88f609ea0ec502a0de5ee5cb3994e3d30835a699e68d5d40103666",
+  "foto_origine": "2025-07-26 08.03.39.jpg",
+  "shop_name": "NILDA DIAZ GONZALES",
+  "date": "2025-07-12",
+  "total": 39.65,
+  "items": [
+    {
+      "name": "k2 C/kg",
+      "price": 1.95,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "Pome Golden Extra Cal Fruitde",
+      "price": 4.65,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Platan Banane",
+      "price": 3.53,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Ka Grean aspn",
+      "price": 0.85,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Nactarna Extra",
+      "price": 5.91,
+      "name_quality": "complete"
+    },
+    {
+      "name": "",
+      "price": 3.77,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "C/kg",
+      "price": 5.3,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 3.22,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.46,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 4.53,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.88,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 39.05,
+  "scarto": -0.6,
+  "elaborato_il": null
+}

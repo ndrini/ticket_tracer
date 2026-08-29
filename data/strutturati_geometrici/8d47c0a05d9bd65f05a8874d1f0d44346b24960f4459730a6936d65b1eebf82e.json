@@ -1,0 +1,68 @@
+{
+  "sha256": "8d47c0a05d9bd65f05a8874d1f0d44346b24960f4459730a6936d65b1eebf82e",
+  "foto_origine": "2025-03-15 10.29.00.jpg",
+  "shop_name": "Cal",
+  "date": "2025-03-12",
+  "total": 21.84,
+  "items": [
+    {
+      "name": "Br\u00f2quil Verd",
+      "price": 1.95,
+      "name_quality": "complete"
+    },
+    {
+      "name": "",
+      "price": 2.25,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 0.4,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.25,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 1.81,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.39,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 3.63,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 2.07,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "Col",
+      "price": 1.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "",
+      "price": 2.52,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "Alvocat Extra Cal Fruit\u00f3s",
+      "price": 4.0,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_ECCESSO",
+  "somma_prodotti": 24.27,
+  "scarto": 2.43,
+  "elaborato_il": null
+}

@@ -1,0 +1,7830 @@
+{
+  "metadata": {
+    "total_fused": 150,
+    "splittable_suggested": 7,
+    "cannot_split": 143,
+    "threshold": 0.75,
+    "phase": "E.4 \u2014 Proponi spezzatura"
+  },
+  "proposte": [
+    {
+      "receipt_line_id": 9,
+      "receipt_id": 4,
+      "fused_name": "Adulto 15/08/2025 18/08/2025 3 2",
+      "total_price": 51.0,
+      "tokens": [
+        "adulto",
+        "2025",
+        "2025"
+      ],
+      "matches": [
+        {
+          "token": "adulto",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "2025",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "2025",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 11,
+      "receipt_id": 4,
+      "fused_name": "Parcela+coche 15/08/2025 18/08/2025 3 1",
+      "total_price": 57.0,
+      "tokens": [
+        "parcela",
+        "coche",
+        "2025",
+        "2025"
+      ],
+      "matches": [
+        {
+          "token": "parcela",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "coche",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "2025",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "2025",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 12,
+      "receipt_id": 4,
+      "fused_name": "Impuesto tur\u00edstico 15/08/2025 1 6",
+      "total_price": 3.96,
+      "tokens": [
+        "impuesto",
+        "tur\u00edstico",
+        "2025"
+      ],
+      "matches": [
+        {
+          "token": "impuesto",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "tur\u00edstico",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "2025",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 13,
+      "receipt_id": 4,
+      "fused_name": "Ab. Entrega a Cuenta web #13652 11/08/2025 1",
+      "total_price": -29.88,
+      "tokens": [
+        "entrega",
+        "cuenta",
+        "web",
+        "13652",
+        "2025"
+      ],
+      "matches": [
+        {
+          "token": "entrega",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cuenta",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "web",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "13652",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "2025",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 37,
+      "receipt_id": 7,
+      "fused_name": "Bossa de Nansa Pl\u00e0stic Cal Fruit\u00f3s",
+      "total_price": 0.15,
+      "tokens": [
+        "bossa",
+        "nansa",
+        "pl\u00e0stic",
+        "cal",
+        "fruit\u00f3s"
+      ],
+      "matches": [
+        {
+          "token": "bossa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "nansa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pl\u00e0stic",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fruit\u00f3s",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 72,
+      "receipt_id": 13,
+      "fused_name": "LLEVAT ROYAL 80G 6 LLET SEN.CONSUM 1L",
+      "total_price": 5.82,
+      "tokens": [
+        "llevat",
+        "royal",
+        "80g",
+        "llet",
+        "sen",
+        "consum"
+      ],
+      "matches": [
+        {
+          "token": "llevat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "royal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "80g",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "llet",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "sen",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 73,
+      "receipt_id": 13,
+      "fused_name": "LLEVAT ROYAL 80G 1 MEGAROLLO SCOTTEX 6",
+      "total_price": 2.35,
+      "tokens": [
+        "llevat",
+        "royal",
+        "80g",
+        "megarollo",
+        "scottex"
+      ],
+      "matches": [
+        {
+          "token": "llevat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "royal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "80g",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "megarollo",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "scottex",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 74,
+      "receipt_id": 13,
+      "fused_name": "MEGAROLLO SCOTTEX 6 NIE Soci-Client",
+      "total_price": 3.99,
+      "tokens": [
+        "megarollo",
+        "scottex",
+        "nie",
+        "soci",
+        "client"
+      ],
+      "matches": [
+        {
+          "token": "megarollo",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "scottex",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "nie",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "soci",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "client",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 86,
+      "receipt_id": 16,
+      "fused_name": "COSTILLA CENTRO. VINO BLANCO VERD",
+      "total_price": 2.79,
+      "tokens": [
+        "costilla",
+        "centro",
+        "vino",
+        "blanco",
+        "verd"
+      ],
+      "matches": [
+        {
+          "token": "costilla",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "centro",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "vino",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "blanco",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "verd",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 87,
+      "receipt_id": 16,
+      "fused_name": "VINO BLANCO VERD VINO CATEDRAL LE",
+      "total_price": 1.55,
+      "tokens": [
+        "vino",
+        "blanco",
+        "verd",
+        "vino",
+        "catedral"
+      ],
+      "matches": [
+        {
+          "token": "vino",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "blanco",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "verd",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "vino",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "catedral",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 88,
+      "receipt_id": 16,
+      "fused_name": "GUISANTE A. ECONO BRIE PUNTAS AUCH",
+      "total_price": 1.74,
+      "tokens": [
+        "guisante",
+        "econo",
+        "brie",
+        "puntas",
+        "auch"
+      ],
+      "matches": [
+        {
+          "token": "guisante",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "econo",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "brie",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "puntas",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "auch",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 89,
+      "receipt_id": 16,
+      "fused_name": "BRIE PUNTAS AUCH CHERRY BJA 500GR",
+      "total_price": 1.75,
+      "tokens": [
+        "brie",
+        "puntas",
+        "auch",
+        "cherry",
+        "bja",
+        "500gr"
+      ],
+      "matches": [
+        {
+          "token": "brie",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "puntas",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "auch",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cherry",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "bja",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "500gr",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 101,
+      "receipt_id": 20,
+      "fused_name": "BARRA DE PA 3 U 1 MORTADEL\u00b7LA ITALIANA",
+      "total_price": 1.75,
+      "tokens": [
+        "barra",
+        "mortadel",
+        "italiana"
+      ],
+      "matches": [
+        {
+          "token": "barra",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mortadel",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "italiana",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 102,
+      "receipt_id": 20,
+      "fused_name": "MOCADOR CAPSA 1 BARRA DE PA 3 U",
+      "total_price": 1.19,
+      "tokens": [
+        "mocador",
+        "capsa",
+        "barra"
+      ],
+      "matches": [
+        {
+          "token": "mocador",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "capsa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "barra",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 197,
+      "receipt_id": 40,
+      "fused_name": "IOGURT CABRA 1 IOGURT AMB FRUITES",
+      "total_price": 2.0,
+      "tokens": [
+        "iogurt",
+        "cabra",
+        "iogurt",
+        "amb",
+        "fruites"
+      ],
+      "matches": [
+        {
+          "token": "iogurt",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cabra",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "iogurt",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "amb",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fruites",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 199,
+      "receipt_id": 40,
+      "fused_name": "PANET 11 UN 1 MUESLI FRUITES 1 KG",
+      "total_price": 2.4,
+      "tokens": [
+        "panet",
+        "muesli",
+        "fruites"
+      ],
+      "matches": [
+        {
+          "token": "panet",
+          "product_id": 1355,
+          "product_name": "pan",
+          "confidence": 0.75
+        },
+        {
+          "token": "muesli",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fruites",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "panet",
+          "product_id": 1355,
+          "product_name": "pan",
+          "confidence": 0.75
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 230,
+      "receipt_id": 45,
+      "fused_name": "JAMON DOCIDO FINAS BAGUETTE ELMOL 250 G",
+      "total_price": 1.99,
+      "tokens": [
+        "jamon",
+        "docido",
+        "finas",
+        "baguette",
+        "elmol",
+        "250"
+      ],
+      "matches": [
+        {
+          "token": "jamon",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "docido",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "finas",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "baguette",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "elmol",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "250",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 231,
+      "receipt_id": 45,
+      "fused_name": "JAMON DOCIDO FINAS ENSALAD 4 ESTACIONES",
+      "total_price": 0.59,
+      "tokens": [
+        "jamon",
+        "docido",
+        "finas",
+        "ensalad",
+        "estaciones"
+      ],
+      "matches": [
+        {
+          "token": "jamon",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "docido",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "finas",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ensalad",
+          "product_id": 1103,
+          "product_name": "ensaladilla",
+          "confidence": 0.7777777777777778
+        },
+        {
+          "token": "estaciones",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "ensalad",
+          "product_id": 1103,
+          "product_name": "ensaladilla",
+          "confidence": 0.7777777777777778
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 232,
+      "receipt_id": 45,
+      "fused_name": "SANDIA RAVACA PARTIO 2,405 kg 2.99 \u20acg",
+      "total_price": 4.79,
+      "tokens": [
+        "sandia",
+        "ravaca",
+        "partio",
+        "405"
+      ],
+      "matches": [
+        {
+          "token": "sandia",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ravaca",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "partio",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "405",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 233,
+      "receipt_id": 45,
+      "fused_name": "CORNETTO OLASICO 6UD 2,405 kg 2.99 \u20acg",
+      "total_price": 3.6,
+      "tokens": [
+        "cornetto",
+        "olasico",
+        "6ud",
+        "405"
+      ],
+      "matches": [
+        {
+          "token": "cornetto",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "olasico",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "6ud",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "405",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 272,
+      "receipt_id": 53,
+      "fused_name": "Ref::5356933 RFID: 000000023425 PINK Tal",
+      "total_price": -6.99,
+      "tokens": [
+        "ref",
+        "5356933",
+        "rfid",
+        "000000023425",
+        "pink",
+        "tal"
+      ],
+      "matches": [
+        {
+          "token": "ref",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "5356933",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "rfid",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "000000023425",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pink",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "tal",
+          "product_id": 455,
+          "product_name": "otal",
+          "confidence": 0.8571428571428571
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "tal",
+          "product_id": 455,
+          "product_name": "otal",
+          "confidence": 0.8571428571428571
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 291,
+      "receipt_id": 57,
+      "fused_name": "Pautila per Brou Vegetal 1Zu Knorr",
+      "total_price": 1.69,
+      "tokens": [
+        "pautila",
+        "per",
+        "brou",
+        "vegetal",
+        "1zu",
+        "knorr"
+      ],
+      "matches": [
+        {
+          "token": "pautila",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "per",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "brou",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "vegetal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "1zu",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "knorr",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 395,
+      "receipt_id": 78,
+      "fused_name": "ESTAC.CONSUM 250 1 TRUITA FRES. A/CEBA",
+      "total_price": 1.72,
+      "tokens": [
+        "estac",
+        "consum",
+        "250",
+        "truita",
+        "fres",
+        "ceba"
+      ],
+      "matches": [
+        {
+          "token": "estac",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "250",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "truita",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fres",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ceba",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 412,
+      "receipt_id": 83,
+      "fused_name": "Descripci\u00f3 1 FORMATGE RATLLAT PIZ",
+      "total_price": 1.62,
+      "tokens": [
+        "descripci\u00f3",
+        "formatge",
+        "ratllat",
+        "piz"
+      ],
+      "matches": [
+        {
+          "token": "descripci\u00f3",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        },
+        {
+          "token": "ratllat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "piz",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 413,
+      "receipt_id": 83,
+      "fused_name": "FORMATGE RATLLAT PIZ 1 GAL.MARIA INTEGRAL-F",
+      "total_price": 1.4,
+      "tokens": [
+        "formatge",
+        "ratllat",
+        "piz",
+        "gal",
+        "maria",
+        "integral"
+      ],
+      "matches": [
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        },
+        {
+          "token": "ratllat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "piz",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "gal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "maria",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "integral",
+          "product_id": 1324,
+          "product_name": "% integral",
+          "confidence": 0.8888888888888888
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        },
+        {
+          "token": "integral",
+          "product_id": 1324,
+          "product_name": "% integral",
+          "confidence": 0.8888888888888888
+        }
+      ],
+      "decision": "SPLIT_SUGGESTED"
+    },
+    {
+      "receipt_line_id": 414,
+      "receipt_id": 83,
+      "fused_name": "MELMELADA PRUNA-KIWI 1 GAL.MARIA INTEGRAL-F",
+      "total_price": 1.7,
+      "tokens": [
+        "melmelada",
+        "pruna",
+        "kiwi",
+        "gal",
+        "maria",
+        "integral"
+      ],
+      "matches": [
+        {
+          "token": "melmelada",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pruna",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "kiwi",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "gal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "maria",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "integral",
+          "product_id": 1324,
+          "product_name": "% integral",
+          "confidence": 0.8888888888888888
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "integral",
+          "product_id": 1324,
+          "product_name": "% integral",
+          "confidence": 0.8888888888888888
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 417,
+      "receipt_id": 83,
+      "fused_name": "IOGURT AMB FRUITES 1 MORTADEL-LA ITALIANA",
+      "total_price": 2.0,
+      "tokens": [
+        "iogurt",
+        "amb",
+        "fruites",
+        "mortadel",
+        "italiana"
+      ],
+      "matches": [
+        {
+          "token": "iogurt",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "amb",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fruites",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mortadel",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "italiana",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 418,
+      "receipt_id": 83,
+      "fused_name": "IOGURT AMB FRUITES 1 FORM. BURGOS NATURAL",
+      "total_price": 1.98,
+      "tokens": [
+        "iogurt",
+        "amb",
+        "fruites",
+        "form",
+        "burgos",
+        "natural"
+      ],
+      "matches": [
+        {
+          "token": "iogurt",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "amb",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fruites",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "form",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "burgos",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "natural",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 419,
+      "receipt_id": 83,
+      "fused_name": "NYOQUIS DE PATATA 1 FORM. BURGOS NATURAL",
+      "total_price": 2.2,
+      "tokens": [
+        "nyoquis",
+        "patata",
+        "form",
+        "burgos",
+        "natural"
+      ],
+      "matches": [
+        {
+          "token": "nyoquis",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "patata",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "form",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "burgos",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "natural",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 420,
+      "receipt_id": 83,
+      "fused_name": "NYOQUIS DE PATATA 2 AMANIDA QUATRE ESTAC",
+      "total_price": 1.72,
+      "tokens": [
+        "nyoquis",
+        "patata",
+        "amanida",
+        "quatre",
+        "estac"
+      ],
+      "matches": [
+        {
+          "token": "nyoquis",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "patata",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "amanida",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "quatre",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "estac",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 421,
+      "receipt_id": 83,
+      "fused_name": "MANGO DESHIDRATAT 2 AMANIDA QUATRE ESTAC",
+      "total_price": 4.23,
+      "tokens": [
+        "mango",
+        "deshidratat",
+        "amanida",
+        "quatre",
+        "estac"
+      ],
+      "matches": [
+        {
+          "token": "mango",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "deshidratat",
+          "product_id": 1420,
+          "product_name": "mango deshidratat",
+          "confidence": 0.7857142857142857
+        },
+        {
+          "token": "amanida",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "quatre",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "estac",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "deshidratat",
+          "product_id": 1420,
+          "product_name": "mango deshidratat",
+          "confidence": 0.7857142857142857
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 425,
+      "receipt_id": 83,
+      "fused_name": "PANET 11 UN 1 PANET 100% INTEGRAL",
+      "total_price": 1.13,
+      "tokens": [
+        "panet",
+        "panet",
+        "100",
+        "integral"
+      ],
+      "matches": [
+        {
+          "token": "panet",
+          "product_id": 1355,
+          "product_name": "pan",
+          "confidence": 0.75
+        },
+        {
+          "token": "panet",
+          "product_id": 1355,
+          "product_name": "pan",
+          "confidence": 0.75
+        },
+        {
+          "token": "100",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "integral",
+          "product_id": 1324,
+          "product_name": "% integral",
+          "confidence": 0.8888888888888888
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "panet",
+          "product_id": 1355,
+          "product_name": "pan",
+          "confidence": 0.75
+        },
+        {
+          "token": "panet",
+          "product_id": 1355,
+          "product_name": "pan",
+          "confidence": 0.75
+        },
+        {
+          "token": "integral",
+          "product_id": 1324,
+          "product_name": "% integral",
+          "confidence": 0.8888888888888888
+        }
+      ],
+      "decision": "SPLIT_SUGGESTED"
+    },
+    {
+      "receipt_line_id": 437,
+      "receipt_id": 88,
+      "fused_name": "Farina Blat sarrai sense gluten E 1",
+      "total_price": 4.05,
+      "tokens": [
+        "farina",
+        "blat",
+        "sarrai",
+        "sense",
+        "gluten"
+      ],
+      "matches": [
+        {
+          "token": "farina",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "blat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "sarrai",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "sense",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "gluten",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 441,
+      "receipt_id": 90,
+      "fused_name": "Llenties Marrons Bio 500g Ecobasics",
+      "total_price": 3.25,
+      "tokens": [
+        "llenties",
+        "marrons",
+        "bio",
+        "500g",
+        "ecobasics"
+      ],
+      "matches": [
+        {
+          "token": "llenties",
+          "product_id": 1180,
+          "product_name": "llentia",
+          "confidence": 0.8
+        },
+        {
+          "token": "marrons",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "bio",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "500g",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ecobasics",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "llenties",
+          "product_id": 1180,
+          "product_name": "llentia",
+          "confidence": 0.8
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 504,
+      "receipt_id": 99,
+      "fused_name": "MOZZARELLA FRESCA 1 MANTEGA PAST. SESE",
+      "total_price": 2.3,
+      "tokens": [
+        "mozzarella",
+        "fresca",
+        "mantega",
+        "past",
+        "sese"
+      ],
+      "matches": [
+        {
+          "token": "mozzarella",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fresca",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mantega",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "past",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "sese",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 505,
+      "receipt_id": 99,
+      "fused_name": "SALSA PESTO 1 MANTEGA PAST. SESE",
+      "total_price": 1.95,
+      "tokens": [
+        "salsa",
+        "pesto",
+        "mantega",
+        "past",
+        "sese"
+      ],
+      "matches": [
+        {
+          "token": "salsa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pesto",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mantega",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "past",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "sese",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 506,
+      "receipt_id": 99,
+      "fused_name": "SALSA PESTO 1 ARROS CAT. PRIMERA",
+      "total_price": 1.3,
+      "tokens": [
+        "salsa",
+        "pesto",
+        "arros",
+        "cat",
+        "primera"
+      ],
+      "matches": [
+        {
+          "token": "salsa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pesto",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "arros",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "primera",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 558,
+      "receipt_id": 116,
+      "fused_name": "BANANE SFUSE PR.COTTO NOSTRANO 10%",
+      "total_price": 4.79,
+      "tokens": [
+        "banane",
+        "sfuse",
+        "cotto",
+        "nostrano"
+      ],
+      "matches": [
+        {
+          "token": "banane",
+          "product_id": 1152,
+          "product_name": "banana",
+          "confidence": 0.8333333333333334
+        },
+        {
+          "token": "sfuse",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cotto",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "nostrano",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "banane",
+          "product_id": 1152,
+          "product_name": "banana",
+          "confidence": 0.8333333333333334
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 572,
+      "receipt_id": 120,
+      "fused_name": "COGOMBR BANDE HORNIMANS 20 BOSSI",
+      "total_price": 10.0,
+      "tokens": [
+        "cogombr",
+        "bande",
+        "hornimans",
+        "bossi"
+      ],
+      "matches": [
+        {
+          "token": "cogombr",
+          "product_id": 975,
+          "product_name": "cogombre",
+          "confidence": 0.9333333333333333
+        },
+        {
+          "token": "bande",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "hornimans",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "bossi",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "cogombr",
+          "product_id": 975,
+          "product_name": "cogombre",
+          "confidence": 0.9333333333333333
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 579,
+      "receipt_id": 124,
+      "fused_name": "PERNIL CUIT 92% 1 FORMATGE RATLLAT PIZ",
+      "total_price": 1.65,
+      "tokens": [
+        "pernil",
+        "cuit",
+        "formatge",
+        "ratllat",
+        "piz"
+      ],
+      "matches": [
+        {
+          "token": "pernil",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cuit",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        },
+        {
+          "token": "ratllat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "piz",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 588,
+      "receipt_id": 125,
+      "fused_name": "SALTAT DE VERDURES 1 MINICORNET NATA X 12",
+      "total_price": 3.3,
+      "tokens": [
+        "saltat",
+        "verdures",
+        "minicornet",
+        "nata"
+      ],
+      "matches": [
+        {
+          "token": "saltat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "verdures",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "minicornet",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "nata",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 589,
+      "receipt_id": 125,
+      "fused_name": "SALTAT DE VERDURES 2 RAVIOLI MAT\u00d3 ESPINAC",
+      "total_price": 1.45,
+      "tokens": [
+        "saltat",
+        "verdures",
+        "ravioli",
+        "mat\u00f3",
+        "espinac"
+      ],
+      "matches": [
+        {
+          "token": "saltat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "verdures",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ravioli",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mat\u00f3",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "espinac",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 627,
+      "receipt_id": 131,
+      "fused_name": "IOGURT CABRA 1 PERNIL CUIT BRASEJAT",
+      "total_price": 2.1,
+      "tokens": [
+        "iogurt",
+        "cabra",
+        "pernil",
+        "cuit",
+        "brasejat"
+      ],
+      "matches": [
+        {
+          "token": "iogurt",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cabra",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pernil",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cuit",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "brasejat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 628,
+      "receipt_id": 131,
+      "fused_name": "FORMATGE RATLLAT PIZ 1 PERNIL CUIT BRASEJAT",
+      "total_price": 2.25,
+      "tokens": [
+        "formatge",
+        "ratllat",
+        "piz",
+        "pernil",
+        "cuit",
+        "brasejat"
+      ],
+      "matches": [
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        },
+        {
+          "token": "ratllat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "piz",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pernil",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cuit",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "brasejat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 629,
+      "receipt_id": 131,
+      "fused_name": "IOGURT AMB FRUITES 1 FORMATGE RATLLAT PIZ",
+      "total_price": 1.62,
+      "tokens": [
+        "iogurt",
+        "amb",
+        "fruites",
+        "formatge",
+        "ratllat",
+        "piz"
+      ],
+      "matches": [
+        {
+          "token": "iogurt",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "amb",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fruites",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        },
+        {
+          "token": "ratllat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "piz",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 631,
+      "receipt_id": 131,
+      "fused_name": "NYOQUIS DE PATATA 1 PRESERVATIU ON NATUR",
+      "total_price": 2.93,
+      "tokens": [
+        "nyoquis",
+        "patata",
+        "preservatiu",
+        "natur"
+      ],
+      "matches": [
+        {
+          "token": "nyoquis",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "patata",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "preservatiu",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "natur",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 649,
+      "receipt_id": 135,
+      "fused_name": "TOMAQUET PERA 2 4 ESTAC.CONSUM 250",
+      "total_price": 1.24,
+      "tokens": [
+        "tomaquet",
+        "pera",
+        "estac",
+        "consum",
+        "250"
+      ],
+      "matches": [
+        {
+          "token": "tomaquet",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pera",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "estac",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "250",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 650,
+      "receipt_id": 135,
+      "fused_name": "BARRA DE PAN 2 UDS 2 4 ESTAC.CONSUM 250",
+      "total_price": 1.3,
+      "tokens": [
+        "barra",
+        "pan",
+        "uds",
+        "estac",
+        "consum",
+        "250"
+      ],
+      "matches": [
+        {
+          "token": "barra",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pan",
+          "product_id": 1355,
+          "product_name": "pan",
+          "confidence": 1.0
+        },
+        {
+          "token": "uds",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "estac",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "250",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "pan",
+          "product_id": 1355,
+          "product_name": "pan",
+          "confidence": 1.0
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 676,
+      "receipt_id": 141,
+      "fused_name": "Ref: :2605173 Legeings sint cal1dos s500 Gy",
+      "total_price": 7.99,
+      "tokens": [
+        "ref",
+        "2605173",
+        "legeings",
+        "sint",
+        "cal1dos",
+        "s500"
+      ],
+      "matches": [
+        {
+          "token": "ref",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "2605173",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "legeings",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "sint",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cal1dos",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "s500",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 685,
+      "receipt_id": 143,
+      "fused_name": "MOCADOR CAPSA 2 AMANIDA QUATRE ESTAC",
+      "total_price": 1.72,
+      "tokens": [
+        "mocador",
+        "capsa",
+        "amanida",
+        "quatre",
+        "estac"
+      ],
+      "matches": [
+        {
+          "token": "mocador",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "capsa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "amanida",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "quatre",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "estac",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 686,
+      "receipt_id": 143,
+      "fused_name": "MOCADOR CAPSA 1 TONYINA CLARA OLIV",
+      "total_price": 2.5,
+      "tokens": [
+        "mocador",
+        "capsa",
+        "tonyina",
+        "clara",
+        "oliv"
+      ],
+      "matches": [
+        {
+          "token": "mocador",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "capsa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "tonyina",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "clara",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "oliv",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 687,
+      "receipt_id": 143,
+      "fused_name": "TONYINA CLARA OLIV 1 FORM. BURGOS NATURAL",
+      "total_price": 4.9,
+      "tokens": [
+        "tonyina",
+        "clara",
+        "oliv",
+        "form",
+        "burgos",
+        "natural"
+      ],
+      "matches": [
+        {
+          "token": "tonyina",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "clara",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "oliv",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "form",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "burgos",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "natural",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 688,
+      "receipt_id": 143,
+      "fused_name": "MINESTRA 1 FORM. BURGOS NATURAL",
+      "total_price": 2.05,
+      "tokens": [
+        "minestra",
+        "form",
+        "burgos",
+        "natural"
+      ],
+      "matches": [
+        {
+          "token": "minestra",
+          "product_id": 1431,
+          "product_name": "minestra",
+          "confidence": 1.0
+        },
+        {
+          "token": "form",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "burgos",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "natural",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "minestra",
+          "product_id": 1431,
+          "product_name": "minestra",
+          "confidence": 1.0
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 690,
+      "receipt_id": 143,
+      "fused_name": "ESPINACS PICATS 1 FORMATGE BRIE PORCI\u00d3",
+      "total_price": 1.31,
+      "tokens": [
+        "espinacs",
+        "picats",
+        "formatge",
+        "brie",
+        "porci\u00f3"
+      ],
+      "matches": [
+        {
+          "token": "espinacs",
+          "product_id": 1467,
+          "product_name": "nius espinacs",
+          "confidence": 0.7619047619047619
+        },
+        {
+          "token": "picats",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        },
+        {
+          "token": "brie",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "porci\u00f3",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "espinacs",
+          "product_id": 1467,
+          "product_name": "nius espinacs",
+          "confidence": 0.7619047619047619
+        },
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        }
+      ],
+      "decision": "SPLIT_SUGGESTED"
+    },
+    {
+      "receipt_line_id": 691,
+      "receipt_id": 143,
+      "fused_name": "IOGURT CABRA 1 FORMATGE BRIE PORCI\u00d3",
+      "total_price": 1.75,
+      "tokens": [
+        "iogurt",
+        "cabra",
+        "formatge",
+        "brie",
+        "porci\u00f3"
+      ],
+      "matches": [
+        {
+          "token": "iogurt",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cabra",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        },
+        {
+          "token": "brie",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "porci\u00f3",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 728,
+      "receipt_id": 152,
+      "fused_name": "MOCADOR CAPSA 1 PA 51% INTEGRAL 5UN",
+      "total_price": 1.36,
+      "tokens": [
+        "mocador",
+        "capsa",
+        "integral",
+        "5un"
+      ],
+      "matches": [
+        {
+          "token": "mocador",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "capsa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "integral",
+          "product_id": 1324,
+          "product_name": "% integral",
+          "confidence": 0.8888888888888888
+        },
+        {
+          "token": "5un",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "integral",
+          "product_id": 1324,
+          "product_name": "% integral",
+          "confidence": 0.8888888888888888
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 729,
+      "receipt_id": 152,
+      "fused_name": "MOCADOR CAPSA 1 LLOMS I CENTRES LLU\u00c7",
+      "total_price": 3.75,
+      "tokens": [
+        "mocador",
+        "capsa",
+        "lloms",
+        "centres",
+        "llu\u00e7"
+      ],
+      "matches": [
+        {
+          "token": "mocador",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "capsa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "lloms",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "centres",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "llu\u00e7",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 749,
+      "receipt_id": 159,
+      "fused_name": "ULLERES NAT -0470678 26helo 00r eb",
+      "total_price": 6.85,
+      "tokens": [
+        "ulleres",
+        "nat",
+        "0470678",
+        "26helo",
+        "00r"
+      ],
+      "matches": [
+        {
+          "token": "ulleres",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "nat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "0470678",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "26helo",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "00r",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 768,
+      "receipt_id": 163,
+      "fused_name": "ID:ES-31119-03-01906542-20250505-173013 *******||*+***+**|**********|*||*** 3,63 5.73 BASE DESGLOSSAMENTS DE L'IVA GRUPO DIA",
+      "total_price": 5.73,
+      "tokens": [
+        "31119",
+        "01906542",
+        "20250505",
+        "173013",
+        "base",
+        "desglossaments",
+        "iva",
+        "grupo",
+        "dia"
+      ],
+      "matches": [
+        {
+          "token": "31119",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "01906542",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "20250505",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "173013",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "base",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "desglossaments",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "iva",
+          "product_id": 1099,
+          "product_name": "a iva",
+          "confidence": 0.75
+        },
+        {
+          "token": "grupo",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "dia",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "iva",
+          "product_id": 1099,
+          "product_name": "a iva",
+          "confidence": 0.75
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 855,
+      "receipt_id": 178,
+      "fused_name": "TOMAQUET TRITURAT HIGIENIC DOBLE ROTLL",
+      "total_price": 2.4,
+      "tokens": [
+        "tomaquet",
+        "triturat",
+        "higienic",
+        "doble",
+        "rotll"
+      ],
+      "matches": [
+        {
+          "token": "tomaquet",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "triturat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "higienic",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "doble",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "rotll",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 863,
+      "receipt_id": 179,
+      "fused_name": "BLANCO - 10 ANOS 1 ARTISTIC CAT CAMISETA KIDS",
+      "total_price": 12.9,
+      "tokens": [
+        "blanco",
+        "anos",
+        "artistic",
+        "cat",
+        "camiseta",
+        "kids"
+      ],
+      "matches": [
+        {
+          "token": "blanco",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "anos",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "artistic",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "camiseta",
+          "product_id": 1504,
+          "product_name": "k camisa",
+          "confidence": 0.75
+        },
+        {
+          "token": "kids",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "camiseta",
+          "product_id": 1504,
+          "product_name": "k camisa",
+          "confidence": 0.75
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 903,
+      "receipt_id": 187,
+      "fused_name": "kg Llenties Vermelles Bio 500g Ecobasics",
+      "total_price": 2.75,
+      "tokens": [
+        "llenties",
+        "vermelles",
+        "bio",
+        "500g",
+        "ecobasics"
+      ],
+      "matches": [
+        {
+          "token": "llenties",
+          "product_id": 1180,
+          "product_name": "llentia",
+          "confidence": 0.8
+        },
+        {
+          "token": "vermelles",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "bio",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "500g",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ecobasics",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "llenties",
+          "product_id": 1180,
+          "product_name": "llentia",
+          "confidence": 0.8
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 908,
+      "receipt_id": 187,
+      "fused_name": "Pastilla per Brou Vegetal 12u Knorr",
+      "total_price": 1.85,
+      "tokens": [
+        "pastilla",
+        "per",
+        "brou",
+        "vegetal",
+        "12u",
+        "knorr"
+      ],
+      "matches": [
+        {
+          "token": "pastilla",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "per",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "brou",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "vegetal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "12u",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "knorr",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 926,
+      "receipt_id": 192,
+      "fused_name": "LLET SEN.CONSUM 1L 0,97 5,82 Descripcio TOMAQUET AMANIDA",
+      "total_price": 4.0,
+      "tokens": [
+        "llet",
+        "sen",
+        "consum",
+        "descripcio",
+        "tomaquet",
+        "amanida"
+      ],
+      "matches": [
+        {
+          "token": "llet",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "sen",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "descripcio",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "tomaquet",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "amanida",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 962,
+      "receipt_id": 198,
+      "fused_name": "Bossa Pl\u00e0tan Deshidratat 150g Cal Fruit\u00f3s",
+      "total_price": 1.45,
+      "tokens": [
+        "bossa",
+        "pl\u00e0tan",
+        "deshidratat",
+        "150g",
+        "cal",
+        "fruit\u00f3s"
+      ],
+      "matches": [
+        {
+          "token": "bossa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pl\u00e0tan",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "deshidratat",
+          "product_id": 1420,
+          "product_name": "mango deshidratat",
+          "confidence": 0.7857142857142857
+        },
+        {
+          "token": "150g",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fruit\u00f3s",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "deshidratat",
+          "product_id": 1420,
+          "product_name": "mango deshidratat",
+          "confidence": 0.7857142857142857
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 974,
+      "receipt_id": 201,
+      "fused_name": "BARRA DE PA 3 U 1 GOLOSINAS MINI MIX",
+      "total_price": 1.6,
+      "tokens": [
+        "barra",
+        "golosinas",
+        "mini",
+        "mix"
+      ],
+      "matches": [
+        {
+          "token": "barra",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "golosinas",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mini",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mix",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 975,
+      "receipt_id": 201,
+      "fused_name": "LLOM EMBOTIT 4 P 2 AMANIDA QUATRE ESTAC",
+      "total_price": 1.72,
+      "tokens": [
+        "llom",
+        "embotit",
+        "amanida",
+        "quatre",
+        "estac"
+      ],
+      "matches": [
+        {
+          "token": "llom",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "embotit",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "amanida",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "quatre",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "estac",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 977,
+      "receipt_id": 201,
+      "fused_name": "PANET 11 UN 1 PERNIL LLAUNA TALLS",
+      "total_price": 1.14,
+      "tokens": [
+        "panet",
+        "pernil",
+        "llauna",
+        "talls"
+      ],
+      "matches": [
+        {
+          "token": "panet",
+          "product_id": 1355,
+          "product_name": "pan",
+          "confidence": 0.75
+        },
+        {
+          "token": "pernil",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "llauna",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "talls",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "panet",
+          "product_id": 1355,
+          "product_name": "pan",
+          "confidence": 0.75
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 985,
+      "receipt_id": 202,
+      "fused_name": "INTH SLIP CONA 1VE 8033805178836",
+      "total_price": 9.9,
+      "tokens": [
+        "inth",
+        "slip",
+        "cona",
+        "1ve",
+        "8033805178836"
+      ],
+      "matches": [
+        {
+          "token": "inth",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "slip",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cona",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "1ve",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "8033805178836",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 987,
+      "receipt_id": 202,
+      "fused_name": "INTIM SLIP DONA 2 VEN 21% 1X 8050664203813",
+      "total_price": 9.9,
+      "tokens": [
+        "intim",
+        "slip",
+        "dona",
+        "ven",
+        "8050664203813"
+      ],
+      "matches": [
+        {
+          "token": "intim",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "slip",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "dona",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ven",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "8050664203813",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 998,
+      "receipt_id": 205,
+      "fused_name": "DAUETS PER.SER 2X75 2 PERNIL CUIT FERRAR",
+      "total_price": 5.38,
+      "tokens": [
+        "dauets",
+        "per",
+        "ser",
+        "2x75",
+        "pernil",
+        "cuit",
+        "ferrar"
+      ],
+      "matches": [
+        {
+          "token": "dauets",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "per",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ser",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "2x75",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pernil",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cuit",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ferrar",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 999,
+      "receipt_id": 205,
+      "fused_name": "DAUETS PER.SER 2X75 1 CUIXA G.DINDI BOADA",
+      "total_price": 2.2,
+      "tokens": [
+        "dauets",
+        "per",
+        "ser",
+        "2x75",
+        "cuixa",
+        "dindi",
+        "boada"
+      ],
+      "matches": [
+        {
+          "token": "dauets",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "per",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ser",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "2x75",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cuixa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "dindi",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "boada",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1002,
+      "receipt_id": 205,
+      "fused_name": "F.FRESC P-2 CONSUM 1 POSTRES SOIA NABIU",
+      "total_price": 1.98,
+      "tokens": [
+        "fresc",
+        "consum",
+        "postres",
+        "soia",
+        "nabiu"
+      ],
+      "matches": [
+        {
+          "token": "fresc",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "postres",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "soia",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "nabiu",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1003,
+      "receipt_id": 205,
+      "fused_name": "COCTEL OLIVARIA 1 POSTRES SOIA NABIU",
+      "total_price": 1.99,
+      "tokens": [
+        "coctel",
+        "olivaria",
+        "postres",
+        "soia",
+        "nabiu"
+      ],
+      "matches": [
+        {
+          "token": "coctel",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "olivaria",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "postres",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "soia",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "nabiu",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1009,
+      "receipt_id": 205,
+      "fused_name": "SAL.NORM EVAX44 1 GALETS CONSUM 500G",
+      "total_price": 0.8,
+      "tokens": [
+        "sal",
+        "norm",
+        "evax44",
+        "galets",
+        "consum",
+        "500g"
+      ],
+      "matches": [
+        {
+          "token": "sal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "norm",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "evax44",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "galets",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "500g",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1010,
+      "receipt_id": 205,
+      "fused_name": "SAL.NORM EVAX44 NIE Soci-Client",
+      "total_price": 2.79,
+      "tokens": [
+        "sal",
+        "norm",
+        "evax44",
+        "nie",
+        "soci",
+        "client"
+      ],
+      "matches": [
+        {
+          "token": "sal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "norm",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "evax44",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "nie",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "soci",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "client",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1011,
+      "receipt_id": 206,
+      "fused_name": "POMA ROYAL GALA 2 TOMAQU.TRIT.CONS400",
+      "total_price": 1.63,
+      "tokens": [
+        "poma",
+        "royal",
+        "gala",
+        "tomaqu",
+        "trit",
+        "cons400"
+      ],
+      "matches": [
+        {
+          "token": "poma",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "royal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "gala",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "tomaqu",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "trit",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cons400",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1012,
+      "receipt_id": 206,
+      "fused_name": "FARINA BLAT CONSUM 2 TOMAQU.TRIT.CONS400",
+      "total_price": 1.3,
+      "tokens": [
+        "farina",
+        "blat",
+        "consum",
+        "tomaqu",
+        "trit",
+        "cons400"
+      ],
+      "matches": [
+        {
+          "token": "farina",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "blat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "tomaqu",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "trit",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cons400",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1035,
+      "receipt_id": 210,
+      "fused_name": "Alvocat Extra Cal Fruit\u00f3s 200g Cal Fruit\u00f3s",
+      "total_price": 2.85,
+      "tokens": [
+        "alvocat",
+        "extra",
+        "cal",
+        "fruit\u00f3s",
+        "200g",
+        "cal",
+        "fruit\u00f3s"
+      ],
+      "matches": [
+        {
+          "token": "alvocat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "extra",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fruit\u00f3s",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "200g",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fruit\u00f3s",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1055,
+      "receipt_id": 213,
+      "fused_name": "ogurt Desnatat 2\u00d7125g Cal Fruit\u00f3s",
+      "total_price": 0.85,
+      "tokens": [
+        "ogurt",
+        "desnatat",
+        "125g",
+        "cal",
+        "fruit\u00f3s"
+      ],
+      "matches": [
+        {
+          "token": "ogurt",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "desnatat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "125g",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fruit\u00f3s",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1096,
+      "receipt_id": 220,
+      "fused_name": "BLAT DE MORO DOL\u00c7 MONGETA EXTRAFINA",
+      "total_price": 4.39,
+      "tokens": [
+        "blat",
+        "moro",
+        "dol\u00e7",
+        "mongeta",
+        "extrafina"
+      ],
+      "matches": [
+        {
+          "token": "blat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "moro",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "dol\u00e7",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mongeta",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "extrafina",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1097,
+      "receipt_id": 220,
+      "fused_name": "PESOL I PASTANAGA BLAT DE MORO DOL\u00c7",
+      "total_price": 0.99,
+      "tokens": [
+        "pesol",
+        "pastanaga",
+        "blat",
+        "moro",
+        "dol\u00e7"
+      ],
+      "matches": [
+        {
+          "token": "pesol",
+          "product_id": 1048,
+          "product_name": "pesols",
+          "confidence": 0.9090909090909091
+        },
+        {
+          "token": "pastanaga",
+          "product_id": 970,
+          "product_name": "pastanaga bossa",
+          "confidence": 0.75
+        },
+        {
+          "token": "blat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "moro",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "dol\u00e7",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "pesol",
+          "product_id": 1048,
+          "product_name": "pesols",
+          "confidence": 0.9090909090909091
+        },
+        {
+          "token": "pastanaga",
+          "product_id": 970,
+          "product_name": "pastanaga bossa",
+          "confidence": 0.75
+        }
+      ],
+      "decision": "SPLIT_SUGGESTED"
+    },
+    {
+      "receipt_line_id": 1120,
+      "receipt_id": 226,
+      "fused_name": "MOZZAR.RATLL.CONSUM 2 TOMAQU.TRIT.CONS800",
+      "total_price": 3.3,
+      "tokens": [
+        "mozzar",
+        "ratll",
+        "consum",
+        "tomaqu",
+        "trit",
+        "cons800"
+      ],
+      "matches": [
+        {
+          "token": "mozzar",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ratll",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "tomaqu",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "trit",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cons800",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1142,
+      "receipt_id": 229,
+      "fused_name": "PA MOTLLE 2 P.CUIT EXTRA 150GR INTEGRAL",
+      "total_price": 1.59,
+      "tokens": [
+        "motlle",
+        "cuit",
+        "extra",
+        "150gr",
+        "integral"
+      ],
+      "matches": [
+        {
+          "token": "motlle",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cuit",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "extra",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "150gr",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "integral",
+          "product_id": 1324,
+          "product_name": "% integral",
+          "confidence": 0.8888888888888888
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "integral",
+          "product_id": 1324,
+          "product_name": "% integral",
+          "confidence": 0.8888888888888888
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1143,
+      "receipt_id": 229,
+      "fused_name": "P.CUIT EXTRA 150GR 1 FORM.UNTAR S.MILLAN",
+      "total_price": 4.0,
+      "tokens": [
+        "cuit",
+        "extra",
+        "150gr",
+        "form",
+        "untar",
+        "millan"
+      ],
+      "matches": [
+        {
+          "token": "cuit",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "extra",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "150gr",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "form",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "untar",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "millan",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1166,
+      "receipt_id": 235,
+      "fused_name": "LLA\u00c7OS MONTES LAKA 200R PA BINBO ARTESA INIEUNA 5006",
+      "total_price": 2.83,
+      "tokens": [
+        "lla\u00e7os",
+        "montes",
+        "laka",
+        "200r",
+        "binbo",
+        "artesa",
+        "inieuna",
+        "5006"
+      ],
+      "matches": [
+        {
+          "token": "lla\u00e7os",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "montes",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "laka",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "200r",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "binbo",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "artesa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "inieuna",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "5006",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1167,
+      "receipt_id": 235,
+      "fused_name": "LLA\u00c7OS MONTES LAKA 200R PLT POLLASIRE A FILLTS SAFAIA",
+      "total_price": 2.79,
+      "tokens": [
+        "lla\u00e7os",
+        "montes",
+        "laka",
+        "200r",
+        "plt",
+        "pollasire",
+        "fillts",
+        "safaia"
+      ],
+      "matches": [
+        {
+          "token": "lla\u00e7os",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "montes",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "laka",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "200r",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "plt",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pollasire",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fillts",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "safaia",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1168,
+      "receipt_id": 235,
+      "fused_name": "FILET LLU, ENURSHDA PLT POLLASIRE A FILLTS SAFAIA",
+      "total_price": 3.64,
+      "tokens": [
+        "filet",
+        "llu",
+        "enurshda",
+        "plt",
+        "pollasire",
+        "fillts",
+        "safaia"
+      ],
+      "matches": [
+        {
+          "token": "filet",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "llu",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "enurshda",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "plt",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pollasire",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fillts",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "safaia",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1169,
+      "receipt_id": 235,
+      "fused_name": "FILET LLU, ENURSHDA 0.379 \u00d7 EILET ILOC ENVASADA",
+      "total_price": 8.41,
+      "tokens": [
+        "filet",
+        "llu",
+        "enurshda",
+        "379",
+        "eilet",
+        "iloc",
+        "envasada"
+      ],
+      "matches": [
+        {
+          "token": "filet",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "llu",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "enurshda",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "379",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "eilet",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "iloc",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "envasada",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1172,
+      "receipt_id": 235,
+      "fused_name": "BOSSA BIO COMPOSTABLE 52AEO G120",
+      "total_price": 0.19,
+      "tokens": [
+        "bossa",
+        "bio",
+        "compostable",
+        "52aeo",
+        "g120"
+      ],
+      "matches": [
+        {
+          "token": "bossa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "bio",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "compostable",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "52aeo",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "g120",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1200,
+      "receipt_id": 238,
+      "fused_name": "PERNIL S. EXTRA FI 1 PERNIL DOL\u00c7 QUALITAT",
+      "total_price": 2.04,
+      "tokens": [
+        "pernil",
+        "extra",
+        "pernil",
+        "dol\u00e7",
+        "qualitat"
+      ],
+      "matches": [
+        {
+          "token": "pernil",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "extra",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pernil",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "dol\u00e7",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "qualitat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1202,
+      "receipt_id": 238,
+      "fused_name": "IOGURT CABRA 1 COQUETES ARR\u00f2S IOGUR",
+      "total_price": 1.95,
+      "tokens": [
+        "iogurt",
+        "cabra",
+        "coquetes",
+        "arr\u00f2s",
+        "iogur"
+      ],
+      "matches": [
+        {
+          "token": "iogurt",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cabra",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "coquetes",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "arr\u00f2s",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "iogur",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1204,
+      "receipt_id": 238,
+      "fused_name": "PASTANAGA BOSSA 2 AMANIDA QUATRE ESTAC",
+      "total_price": 1.72,
+      "tokens": [
+        "pastanaga",
+        "bossa",
+        "amanida",
+        "quatre",
+        "estac"
+      ],
+      "matches": [
+        {
+          "token": "pastanaga",
+          "product_id": 970,
+          "product_name": "pastanaga bossa",
+          "confidence": 0.75
+        },
+        {
+          "token": "bossa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "amanida",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "quatre",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "estac",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "pastanaga",
+          "product_id": 970,
+          "product_name": "pastanaga bossa",
+          "confidence": 0.75
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1205,
+      "receipt_id": 238,
+      "fused_name": "PASTANAGA BOSSA 1 S\u00c9SAMO/AJONJOLI",
+      "total_price": 1.1,
+      "tokens": [
+        "pastanaga",
+        "bossa",
+        "s\u00e9samo",
+        "ajonjoli"
+      ],
+      "matches": [
+        {
+          "token": "pastanaga",
+          "product_id": 970,
+          "product_name": "pastanaga bossa",
+          "confidence": 0.75
+        },
+        {
+          "token": "bossa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "s\u00e9samo",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ajonjoli",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "pastanaga",
+          "product_id": 970,
+          "product_name": "pastanaga bossa",
+          "confidence": 0.75
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1221,
+      "receipt_id": 243,
+      "fused_name": "MONGETA PLANA IK CO 1 BROCOLI 900 GR. CON",
+      "total_price": 2.03,
+      "tokens": [
+        "mongeta",
+        "plana",
+        "brocoli",
+        "900",
+        "con"
+      ],
+      "matches": [
+        {
+          "token": "mongeta",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "plana",
+          "product_id": 1355,
+          "product_name": "pan",
+          "confidence": 0.75
+        },
+        {
+          "token": "brocoli",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "900",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "con",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "plana",
+          "product_id": 1355,
+          "product_name": "pan",
+          "confidence": 0.75
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1222,
+      "receipt_id": 243,
+      "fused_name": "CORS DE LLU\u00c7 PESCA 1 MONGETA PLANA IK CO",
+      "total_price": 1.62,
+      "tokens": [
+        "cors",
+        "llu\u00e7",
+        "pesca",
+        "mongeta",
+        "plana"
+      ],
+      "matches": [
+        {
+          "token": "cors",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "llu\u00e7",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pesca",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mongeta",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "plana",
+          "product_id": 1355,
+          "product_name": "pan",
+          "confidence": 0.75
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "plana",
+          "product_id": 1355,
+          "product_name": "pan",
+          "confidence": 0.75
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1224,
+      "receipt_id": 243,
+      "fused_name": "PERNIL ROST NATURAL 2 MINI FUET CAMPOFRIO",
+      "total_price": 0.3,
+      "tokens": [
+        "pernil",
+        "rost",
+        "natural",
+        "mini",
+        "fuet",
+        "campofrio"
+      ],
+      "matches": [
+        {
+          "token": "pernil",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "rost",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "natural",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mini",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fuet",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "campofrio",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1251,
+      "receipt_id": 247,
+      "fused_name": "SCOTTONA-BOU.AD. HAMBURGER 10,0%",
+      "total_price": 3.75,
+      "tokens": [
+        "scottona",
+        "bou",
+        "hamburger"
+      ],
+      "matches": [
+        {
+          "token": "scottona",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "bou",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "hamburger",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1258,
+      "receipt_id": 247,
+      "fused_name": "NIVEA KIDS PeC SPRAY 50+ ML270 22,0%",
+      "total_price": 12.9,
+      "tokens": [
+        "nivea",
+        "kids",
+        "pec",
+        "spray",
+        "ml270"
+      ],
+      "matches": [
+        {
+          "token": "nivea",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "kids",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pec",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "spray",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ml270",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1259,
+      "receipt_id": 247,
+      "fused_name": "SCOTTONA-BOV.AD. HAMBURGER 10,0%",
+      "total_price": 3.72,
+      "tokens": [
+        "scottona",
+        "bov",
+        "hamburger"
+      ],
+      "matches": [
+        {
+          "token": "scottona",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "bov",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "hamburger",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1265,
+      "receipt_id": 247,
+      "fused_name": "LEOCREMA FLUIDA NUTRIENTE M250 22,0%",
+      "total_price": 2.99,
+      "tokens": [
+        "leocrema",
+        "fluida",
+        "nutriente",
+        "m250"
+      ],
+      "matches": [
+        {
+          "token": "leocrema",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fluida",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "nutriente",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "m250",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1268,
+      "receipt_id": 247,
+      "fused_name": "SLX SALE MARINO IODATO FINO K1 22,0%",
+      "total_price": 0.55,
+      "tokens": [
+        "slx",
+        "sale",
+        "marino",
+        "iodato",
+        "fino"
+      ],
+      "matches": [
+        {
+          "token": "slx",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "sale",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "marino",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "iodato",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fino",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1277,
+      "receipt_id": 249,
+      "fused_name": "COQUETES BICENTURY ARROS INT PA OROWEAT PIPES GIR/CARB 550 G",
+      "total_price": 2.75,
+      "tokens": [
+        "coquetes",
+        "bicentury",
+        "arros",
+        "int",
+        "oroweat",
+        "pipes",
+        "gir",
+        "carb",
+        "550"
+      ],
+      "matches": [
+        {
+          "token": "coquetes",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "bicentury",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "arros",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "int",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "oroweat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pipes",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "gir",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "carb",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "550",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1278,
+      "receipt_id": 249,
+      "fused_name": "PA OROWEAT PIPES GIR/CARB 550 G",
+      "total_price": 3.17,
+      "tokens": [
+        "oroweat",
+        "pipes",
+        "gir",
+        "carb",
+        "550"
+      ],
+      "matches": [
+        {
+          "token": "oroweat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pipes",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "gir",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "carb",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "550",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1279,
+      "receipt_id": 249,
+      "fused_name": "LLEVAT ROYAL PANADERIA 5U BOSSA CONDIS REUTILITZABLE 1 UN",
+      "total_price": 0.15,
+      "tokens": [
+        "llevat",
+        "royal",
+        "panaderia",
+        "bossa",
+        "condis",
+        "reutilitzable"
+      ],
+      "matches": [
+        {
+          "token": "llevat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "royal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "panaderia",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "bossa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "condis",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "reutilitzable",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1280,
+      "receipt_id": 249,
+      "fused_name": "FORM.TGT PROVOLONE TENDRE LLEVAT ROYAL PANADERIA 5U",
+      "total_price": 2.25,
+      "tokens": [
+        "form",
+        "tgt",
+        "provolone",
+        "tendre",
+        "llevat",
+        "royal",
+        "panaderia"
+      ],
+      "matches": [
+        {
+          "token": "form",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "tgt",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "provolone",
+          "product_id": 1455,
+          "product_name": "provolone",
+          "confidence": 1.0
+        },
+        {
+          "token": "tendre",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "llevat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "royal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "panaderia",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "provolone",
+          "product_id": 1455,
+          "product_name": "provolone",
+          "confidence": 1.0
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1281,
+      "receipt_id": 249,
+      "fused_name": "MINI FUETS CAMPOFRIO FORM.TGT PROVOLONE TENDRE",
+      "total_price": 4.43,
+      "tokens": [
+        "mini",
+        "fuets",
+        "campofrio",
+        "form",
+        "tgt",
+        "provolone",
+        "tendre"
+      ],
+      "matches": [
+        {
+          "token": "mini",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fuets",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "campofrio",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "form",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "tgt",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "provolone",
+          "product_id": 1455,
+          "product_name": "provolone",
+          "confidence": 1.0
+        },
+        {
+          "token": "tendre",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "provolone",
+          "product_id": 1455,
+          "product_name": "provolone",
+          "confidence": 1.0
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1282,
+      "receipt_id": 249,
+      "fused_name": "MINI FUETS CAMPOFRIO FORMATGE ZANETTI GRANA PADANO 2",
+      "total_price": 1.35,
+      "tokens": [
+        "mini",
+        "fuets",
+        "campofrio",
+        "formatge",
+        "zanetti",
+        "grana",
+        "padano"
+      ],
+      "matches": [
+        {
+          "token": "mini",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fuets",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "campofrio",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        },
+        {
+          "token": "zanetti",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "grana",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "padano",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1283,
+      "receipt_id": 249,
+      "fused_name": "FORMATGE ZANETTI GRANA PADANO 2",
+      "total_price": 4.99,
+      "tokens": [
+        "formatge",
+        "zanetti",
+        "grana",
+        "padano"
+      ],
+      "matches": [
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        },
+        {
+          "token": "zanetti",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "grana",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "padano",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1284,
+      "receipt_id": 249,
+      "fused_name": "OCO SUAU LINDT EXCELLENCE 70% FORMAT.RALL. HOCHLAND MOZZARELLA",
+      "total_price": 4.49,
+      "tokens": [
+        "oco",
+        "suau",
+        "lindt",
+        "excellence",
+        "format",
+        "rall",
+        "hochland",
+        "mozzarella"
+      ],
+      "matches": [
+        {
+          "token": "oco",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "suau",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "lindt",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "excellence",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "format",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "rall",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "hochland",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mozzarella",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1285,
+      "receipt_id": 249,
+      "fused_name": "MINI FUETS CAMPOFRIO FORMAT.RALL. HOCHLAND MOZZARELLA",
+      "total_price": 2.69,
+      "tokens": [
+        "mini",
+        "fuets",
+        "campofrio",
+        "format",
+        "rall",
+        "hochland",
+        "mozzarella"
+      ],
+      "matches": [
+        {
+          "token": "mini",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fuets",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "campofrio",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "format",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "rall",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "hochland",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mozzarella",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1287,
+      "receipt_id": 249,
+      "fused_name": "REFRESC COCA-COLA NORMAL LLAUNA",
+      "total_price": 0.98,
+      "tokens": [
+        "refresc",
+        "coca",
+        "cola",
+        "normal",
+        "llauna"
+      ],
+      "matches": [
+        {
+          "token": "refresc",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "coca",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cola",
+          "product_id": 1009,
+          "product_name": "col",
+          "confidence": 0.8571428571428571
+        },
+        {
+          "token": "normal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "llauna",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "cola",
+          "product_id": 1009,
+          "product_name": "col",
+          "confidence": 0.8571428571428571
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1288,
+      "receipt_id": 249,
+      "fused_name": "GORGONZOLA BALLARINI 100 G REFRESC AQUARIUS TARONJA LLAUNA",
+      "total_price": 1.99,
+      "tokens": [
+        "gorgonzola",
+        "ballarini",
+        "100",
+        "refresc",
+        "aquarius",
+        "taronja",
+        "llauna"
+      ],
+      "matches": [
+        {
+          "token": "gorgonzola",
+          "product_id": 1501,
+          "product_name": "gorgonzola dop",
+          "confidence": 0.8333333333333334
+        },
+        {
+          "token": "ballarini",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "100",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "refresc",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "aquarius",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "taronja",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "llauna",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "gorgonzola",
+          "product_id": 1501,
+          "product_name": "gorgonzola dop",
+          "confidence": 0.8333333333333334
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1289,
+      "receipt_id": 249,
+      "fused_name": "REFRESC AQUARIUS TARONJA LLAUNA",
+      "total_price": 0.95,
+      "tokens": [
+        "refresc",
+        "aquarius",
+        "taronja",
+        "llauna"
+      ],
+      "matches": [
+        {
+          "token": "refresc",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "aquarius",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "taronja",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "llauna",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1298,
+      "receipt_id": 252,
+      "fused_name": "Nectarina Extra Llenties Vermelles Bic 500g Ecobasics",
+      "total_price": 2.75,
+      "tokens": [
+        "nectarina",
+        "extra",
+        "llenties",
+        "vermelles",
+        "bic",
+        "500g",
+        "ecobasics"
+      ],
+      "matches": [
+        {
+          "token": "nectarina",
+          "product_id": 953,
+          "product_name": "nectarina extra",
+          "confidence": 0.75
+        },
+        {
+          "token": "extra",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "llenties",
+          "product_id": 1180,
+          "product_name": "llentia",
+          "confidence": 0.8
+        },
+        {
+          "token": "vermelles",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "bic",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "500g",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ecobasics",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "nectarina",
+          "product_id": 953,
+          "product_name": "nectarina extra",
+          "confidence": 0.75
+        },
+        {
+          "token": "llenties",
+          "product_id": 1180,
+          "product_name": "llentia",
+          "confidence": 0.8
+        }
+      ],
+      "decision": "SPLIT_SUGGESTED"
+    },
+    {
+      "receipt_line_id": 1299,
+      "receipt_id": 252,
+      "fused_name": "Ous Ecol\u00f2gics \"M/L\" 1/2 Dotzona Viubio",
+      "total_price": 3.54,
+      "tokens": [
+        "ous",
+        "ecol\u00f2gics",
+        "dotzona",
+        "viubio"
+      ],
+      "matches": [
+        {
+          "token": "ous",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ecol\u00f2gics",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "dotzona",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "viubio",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1320,
+      "receipt_id": 258,
+      "fused_name": "Bossa Mix Amanides 200g Cal Fruit\u00f3s",
+      "total_price": 2.85,
+      "tokens": [
+        "bossa",
+        "mix",
+        "amanides",
+        "200g",
+        "cal",
+        "fruit\u00f3s"
+      ],
+      "matches": [
+        {
+          "token": "bossa",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mix",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "amanides",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "200g",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cal",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fruit\u00f3s",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1322,
+      "receipt_id": 258,
+      "fused_name": "Dus Ecol\u00f2gics \"M/L\" 1/2 Dotzena Viubio",
+      "total_price": 2.75,
+      "tokens": [
+        "dus",
+        "ecol\u00f2gics",
+        "dotzena",
+        "viubio"
+      ],
+      "matches": [
+        {
+          "token": "dus",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ecol\u00f2gics",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "dotzena",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "viubio",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1323,
+      "receipt_id": 258,
+      "fused_name": "Ous Ecologics \"M/L\" 1/2 Dotzena Viubio",
+      "total_price": 2.75,
+      "tokens": [
+        "ous",
+        "ecologics",
+        "dotzena",
+        "viubio"
+      ],
+      "matches": [
+        {
+          "token": "ous",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ecologics",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "dotzena",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "viubio",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1324,
+      "receipt_id": 258,
+      "fused_name": "Lientia Pardina Seca Llegums Safata 300g",
+      "total_price": 1.45,
+      "tokens": [
+        "lientia",
+        "pardina",
+        "seca",
+        "llegums",
+        "safata",
+        "300g"
+      ],
+      "matches": [
+        {
+          "token": "lientia",
+          "product_id": 1180,
+          "product_name": "llentia",
+          "confidence": 0.8571428571428571
+        },
+        {
+          "token": "pardina",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "seca",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "llegums",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "safata",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "300g",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "lientia",
+          "product_id": 1180,
+          "product_name": "llentia",
+          "confidence": 0.8571428571428571
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1402,
+      "receipt_id": 270,
+      "fused_name": "PINYA I RAIM P-6 1 CAF\u00c9 G.AROMA NATURAL",
+      "total_price": 4.8,
+      "tokens": [
+        "pinya",
+        "raim",
+        "caf\u00e9",
+        "aroma",
+        "natural"
+      ],
+      "matches": [
+        {
+          "token": "pinya",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "raim",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "caf\u00e9",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "aroma",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "natural",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1403,
+      "receipt_id": 270,
+      "fused_name": "PINYA I RAIM P-6 2 FORMATGE RATLLAT PIZ",
+      "total_price": 1.5,
+      "tokens": [
+        "pinya",
+        "raim",
+        "formatge",
+        "ratllat",
+        "piz"
+      ],
+      "matches": [
+        {
+          "token": "pinya",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "raim",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        },
+        {
+          "token": "ratllat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "piz",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1404,
+      "receipt_id": 270,
+      "fused_name": "ESPARRECS CURTS 2 FORMATGE RATLLAT PIZ",
+      "total_price": 3.24,
+      "tokens": [
+        "esparrecs",
+        "curts",
+        "formatge",
+        "ratllat",
+        "piz"
+      ],
+      "matches": [
+        {
+          "token": "esparrecs",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "curts",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        },
+        {
+          "token": "ratllat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "piz",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "formatge",
+          "product_id": 1002,
+          "product_name": "formatge feta",
+          "confidence": 0.7619047619047619
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1405,
+      "receipt_id": 270,
+      "fused_name": "ESPARRECS CURTS 1 ESPARRECS CURTS",
+      "total_price": 1.5,
+      "tokens": [
+        "esparrecs",
+        "curts",
+        "esparrecs",
+        "curts"
+      ],
+      "matches": [
+        {
+          "token": "esparrecs",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "curts",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "esparrecs",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "curts",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1426,
+      "receipt_id": 274,
+      "fused_name": "PA LLESCAT SEGOL 1 PESOLS FINS CONSUM",
+      "total_price": 1.78,
+      "tokens": [
+        "llescat",
+        "segol",
+        "pesols",
+        "fins",
+        "consum"
+      ],
+      "matches": [
+        {
+          "token": "llescat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "segol",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pesols",
+          "product_id": 1048,
+          "product_name": "pesols",
+          "confidence": 1.0
+        },
+        {
+          "token": "fins",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "pesols",
+          "product_id": 1048,
+          "product_name": "pesols",
+          "confidence": 1.0
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1433,
+      "receipt_id": 275,
+      "fused_name": "Import Operaci\u00f3 acceptada Online Verificado por dispositivo Autori:36993 00/0000001010 C:4419 Targeta:*1409",
+      "total_price": 1.72,
+      "tokens": [
+        "import",
+        "operaci\u00f3",
+        "acceptada",
+        "online",
+        "verificado",
+        "por",
+        "dispositivo",
+        "autori",
+        "36993",
+        "0000001010",
+        "4419",
+        "targeta",
+        "1409"
+      ],
+      "matches": [
+        {
+          "token": "import",
+          "product_id": 1094,
+          "product_name": "importe",
+          "confidence": 0.9230769230769231
+        },
+        {
+          "token": "operaci\u00f3",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "acceptada",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "online",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "verificado",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "por",
+          "product_id": 373,
+          "product_name": "mport",
+          "confidence": 0.75
+        },
+        {
+          "token": "dispositivo",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "autori",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "36993",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "0000001010",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "4419",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "targeta",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "1409",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "import",
+          "product_id": 1094,
+          "product_name": "importe",
+          "confidence": 0.9230769230769231
+        },
+        {
+          "token": "por",
+          "product_id": 373,
+          "product_name": "mport",
+          "confidence": 0.75
+        }
+      ],
+      "decision": "SPLIT_SUGGESTED"
+    },
+    {
+      "receipt_line_id": 1455,
+      "receipt_id": 279,
+      "fused_name": "CARABASS\u00d3 VERD 1 PASTANAGA TAULA 1KG",
+      "total_price": 2.24,
+      "tokens": [
+        "carabass\u00f3",
+        "verd",
+        "pastanaga",
+        "taula",
+        "1kg"
+      ],
+      "matches": [
+        {
+          "token": "carabass\u00f3",
+          "product_id": 443,
+          "product_name": "carabass\u00f3 verd",
+          "confidence": 0.782608695652174
+        },
+        {
+          "token": "verd",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pastanaga",
+          "product_id": 970,
+          "product_name": "pastanaga bossa",
+          "confidence": 0.75
+        },
+        {
+          "token": "taula",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "1kg",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "carabass\u00f3",
+          "product_id": 443,
+          "product_name": "carabass\u00f3 verd",
+          "confidence": 0.782608695652174
+        },
+        {
+          "token": "pastanaga",
+          "product_id": 970,
+          "product_name": "pastanaga bossa",
+          "confidence": 0.75
+        }
+      ],
+      "decision": "SPLIT_SUGGESTED"
+    },
+    {
+      "receipt_line_id": 1456,
+      "receipt_id": 279,
+      "fused_name": "LLET SEN.CONSUM 1L 1 PASTANAGA TAULA 1KG",
+      "total_price": 1.15,
+      "tokens": [
+        "llet",
+        "sen",
+        "consum",
+        "pastanaga",
+        "taula",
+        "1kg"
+      ],
+      "matches": [
+        {
+          "token": "llet",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "sen",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pastanaga",
+          "product_id": 970,
+          "product_name": "pastanaga bossa",
+          "confidence": 0.75
+        },
+        {
+          "token": "taula",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "1kg",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "pastanaga",
+          "product_id": 970,
+          "product_name": "pastanaga bossa",
+          "confidence": 0.75
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1457,
+      "receipt_id": 279,
+      "fused_name": "LLET SEN.CONSUM 1L Soci-Client 2902521629013",
+      "total_price": 5.82,
+      "tokens": [
+        "llet",
+        "sen",
+        "consum",
+        "soci",
+        "client",
+        "2902521629013"
+      ],
+      "matches": [
+        {
+          "token": "llet",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "sen",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "soci",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "client",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "2902521629013",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1472,
+      "receipt_id": 283,
+      "fused_name": "F.FRESC P-2 CONSUM 3 F.MOZZARELLA FRESCA",
+      "total_price": 1.98,
+      "tokens": [
+        "fresc",
+        "consum",
+        "mozzarella",
+        "fresca"
+      ],
+      "matches": [
+        {
+          "token": "fresc",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mozzarella",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fresca",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1473,
+      "receipt_id": 283,
+      "fused_name": "F.MOZZARELLA FRESCA 2 MOZZAR.RATLL.CONSUM",
+      "total_price": 2.91,
+      "tokens": [
+        "mozzarella",
+        "fresca",
+        "mozzar",
+        "ratll",
+        "consum"
+      ],
+      "matches": [
+        {
+          "token": "mozzarella",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fresca",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mozzar",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ratll",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1474,
+      "receipt_id": 283,
+      "fused_name": "MOZZAR.RATLL.CONSUM 1 VARITA LLU\u00c7 EMP420G",
+      "total_price": 3.3,
+      "tokens": [
+        "mozzar",
+        "ratll",
+        "consum",
+        "varita",
+        "llu\u00e7",
+        "emp420g"
+      ],
+      "matches": [
+        {
+          "token": "mozzar",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "ratll",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "varita",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "llu\u00e7",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "emp420g",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1475,
+      "receipt_id": 283,
+      "fused_name": "VARITA LLU\u00c7 EMP420G 1 SALMOREJO 1L CONSUM",
+      "total_price": 3.49,
+      "tokens": [
+        "varita",
+        "llu\u00e7",
+        "emp420g",
+        "salmorejo",
+        "consum"
+      ],
+      "matches": [
+        {
+          "token": "varita",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "llu\u00e7",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "emp420g",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "salmorejo",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1476,
+      "receipt_id": 283,
+      "fused_name": "POSTRES SOIA NABIU 1 SALMOREJO 1L CONSUM",
+      "total_price": 2.2,
+      "tokens": [
+        "postres",
+        "soia",
+        "nabiu",
+        "salmorejo",
+        "consum"
+      ],
+      "matches": [
+        {
+          "token": "postres",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "soia",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "nabiu",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "salmorejo",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1477,
+      "receipt_id": 283,
+      "fused_name": "POSTRES SOIA NABIU 1 MACARRO INT.CONSUM",
+      "total_price": 3.98,
+      "tokens": [
+        "postres",
+        "soia",
+        "nabiu",
+        "macarro",
+        "int",
+        "consum"
+      ],
+      "matches": [
+        {
+          "token": "postres",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "soia",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "nabiu",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "macarro",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "int",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1478,
+      "receipt_id": 283,
+      "fused_name": "MACARRO INT.CONSUM 1 ESPAGUETI CONS.500",
+      "total_price": 1.21,
+      "tokens": [
+        "macarro",
+        "int",
+        "consum",
+        "espagueti",
+        "cons",
+        "500"
+      ],
+      "matches": [
+        {
+          "token": "macarro",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "int",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "espagueti",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cons",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "500",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1479,
+      "receipt_id": 283,
+      "fused_name": "ESPAGUETI CONS.500 1 TALLARINES CONS.500",
+      "total_price": 0.8,
+      "tokens": [
+        "espagueti",
+        "cons",
+        "500",
+        "tallarines",
+        "cons",
+        "500"
+      ],
+      "matches": [
+        {
+          "token": "espagueti",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cons",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "500",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "tallarines",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cons",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "500",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1480,
+      "receipt_id": 283,
+      "fused_name": "TALLARINES CONS.500 1 XAROP ATZAVARA WASS",
+      "total_price": 0.8,
+      "tokens": [
+        "tallarines",
+        "cons",
+        "500",
+        "xarop",
+        "atzavara",
+        "wass"
+      ],
+      "matches": [
+        {
+          "token": "tallarines",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cons",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "500",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "xarop",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "atzavara",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "wass",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1482,
+      "receipt_id": 284,
+      "fused_name": "TOMAQUET PERA 2 4 ESTAC.CONSUM 250",
+      "total_price": 1.03,
+      "tokens": [
+        "tomaquet",
+        "pera",
+        "estac",
+        "consum",
+        "250"
+      ],
+      "matches": [
+        {
+          "token": "tomaquet",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pera",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "estac",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "250",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1483,
+      "receipt_id": 284,
+      "fused_name": "ESTAC.CONSUM 250  PA LLESCAT INTEGRAL",
+      "total_price": 1.18,
+      "tokens": [
+        "estac",
+        "consum",
+        "250",
+        "llescat",
+        "integral"
+      ],
+      "matches": [
+        {
+          "token": "estac",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "250",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "llescat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "integral",
+          "product_id": 1324,
+          "product_name": "% integral",
+          "confidence": 0.8888888888888888
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "integral",
+          "product_id": 1324,
+          "product_name": "% integral",
+          "confidence": 0.8888888888888888
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1484,
+      "receipt_id": 284,
+      "fused_name": "PA LLESCAT INTEGRAL  PERNIL G.RESER.FINS",
+      "total_price": 1.59,
+      "tokens": [
+        "llescat",
+        "integral",
+        "pernil",
+        "reser",
+        "fins"
+      ],
+      "matches": [
+        {
+          "token": "llescat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "integral",
+          "product_id": 1324,
+          "product_name": "% integral",
+          "confidence": 0.8888888888888888
+        },
+        {
+          "token": "pernil",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "reser",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fins",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "integral",
+          "product_id": 1324,
+          "product_name": "% integral",
+          "confidence": 0.8888888888888888
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1485,
+      "receipt_id": 284,
+      "fused_name": "PERNIL G.RESER.FINS 2 BLAT MORO DOL\u00c7 CONS",
+      "total_price": 2.28,
+      "tokens": [
+        "pernil",
+        "reser",
+        "fins",
+        "blat",
+        "moro",
+        "dol\u00e7",
+        "cons"
+      ],
+      "matches": [
+        {
+          "token": "pernil",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "reser",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "fins",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "blat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "moro",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "dol\u00e7",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cons",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1486,
+      "receipt_id": 284,
+      "fused_name": "OLIVA NEGRA S/P CON 2 BLAT MORO DOL\u00c7 CONS",
+      "total_price": 2.5,
+      "tokens": [
+        "oliva",
+        "negra",
+        "con",
+        "blat",
+        "moro",
+        "dol\u00e7",
+        "cons"
+      ],
+      "matches": [
+        {
+          "token": "oliva",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "negra",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "con",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "blat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "moro",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "dol\u00e7",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "cons",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1487,
+      "receipt_id": 284,
+      "fused_name": "OLIVA NEGRA S/P CON Soci-C11ent 2902521629013",
+      "total_price": 0.95,
+      "tokens": [
+        "oliva",
+        "negra",
+        "con",
+        "soci",
+        "c11ent",
+        "2902521629013"
+      ],
+      "matches": [
+        {
+          "token": "oliva",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "negra",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "con",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "soci",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "c11ent",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "2902521629013",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1488,
+      "receipt_id": 285,
+      "fused_name": "F.SEMI PORC.G.BAQUE 1 PASTANAGA TAULA 1KG",
+      "total_price": 1.15,
+      "tokens": [
+        "semi",
+        "porc",
+        "baque",
+        "pastanaga",
+        "taula",
+        "1kg"
+      ],
+      "matches": [
+        {
+          "token": "semi",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "porc",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "baque",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "pastanaga",
+          "product_id": 970,
+          "product_name": "pastanaga bossa",
+          "confidence": 0.75
+        },
+        {
+          "token": "taula",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "1kg",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "pastanaga",
+          "product_id": 970,
+          "product_name": "pastanaga bossa",
+          "confidence": 0.75
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1489,
+      "receipt_id": 285,
+      "fused_name": "FORMA.CURAT MESCLA 1 F.SEMI PORC.G.BAQUE",
+      "total_price": 4.65,
+      "tokens": [
+        "forma",
+        "curat",
+        "mescla",
+        "semi",
+        "porc",
+        "baque"
+      ],
+      "matches": [
+        {
+          "token": "forma",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "curat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mescla",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "semi",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "porc",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "baque",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1490,
+      "receipt_id": 285,
+      "fused_name": "FORMA.CURAT MESCLA 1 SALM\u00d3 F.100G MARINA",
+      "total_price": 4.39,
+      "tokens": [
+        "forma",
+        "curat",
+        "mescla",
+        "salm\u00f3",
+        "100g",
+        "marina"
+      ],
+      "matches": [
+        {
+          "token": "forma",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "curat",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "mescla",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "salm\u00f3",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "100g",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "marina",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1491,
+      "receipt_id": 285,
+      "fused_name": "SALM\u00d3 F.100G MARINA 3 GNOCCHIS PATATES 50",
+      "total_price": 3.8,
+      "tokens": [
+        "salm\u00f3",
+        "100g",
+        "marina",
+        "gnocchis",
+        "patates"
+      ],
+      "matches": [
+        {
+          "token": "salm\u00f3",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "100g",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "marina",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "gnocchis",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "patates",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1492,
+      "receipt_id": 285,
+      "fused_name": "OLIVA NEGR.MAROJANA 3 GNOCCHIS PATATES 50",
+      "total_price": 3.3,
+      "tokens": [
+        "oliva",
+        "negr",
+        "marojana",
+        "gnocchis",
+        "patates"
+      ],
+      "matches": [
+        {
+          "token": "oliva",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "negr",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "marojana",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "gnocchis",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "patates",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [],
+      "decision": "CANNOT_SPLIT"
+    },
+    {
+      "receipt_line_id": 1493,
+      "receipt_id": 285,
+      "fused_name": "CEBET.VERME.CONSUM 1 OLIVA NEGR.MAROJANA",
+      "total_price": 2.59,
+      "tokens": [
+        "cebet",
+        "verme",
+        "consum",
+        "oliva",
+        "negr",
+        "marojana"
+      ],
+      "matches": [
+        {
+          "token": "cebet",
+          "product_id": 1544,
+          "product_name": "cebetes",
+          "confidence": 0.8333333333333334
+        },
+        {
+          "token": "verme",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "consum",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "oliva",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "negr",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        },
+        {
+          "token": "marojana",
+          "product_id": null,
+          "product_name": null,
+          "confidence": 0.0
+        }
+      ],
+      "strong_matches": [
+        {
+          "token": "cebet",
+          "product_id": 1544,
+          "product_name": "cebetes",
+          "confidence": 0.8333333333333334
+        }
+      ],
+      "decision": "CANNOT_SPLIT"
+    }
+  ]
+}

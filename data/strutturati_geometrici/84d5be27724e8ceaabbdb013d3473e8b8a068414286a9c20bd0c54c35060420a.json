@@ -1,0 +1,68 @@
+{
+  "sha256": "84d5be27724e8ceaabbdb013d3473e8b8a068414286a9c20bd0c54c35060420a",
+  "foto_origine": "2025-07-11 18.47.12.jpg",
+  "shop_name": "Juntos es cooperativa",
+  "date": "2025-07-05",
+  "total": 25.16,
+  "items": [
+    {
+      "name": "BROQUIL MANAT",
+      "price": 1.3,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BURGER DE BOVI",
+      "price": 3.99,
+      "name_quality": "complete"
+    },
+    {
+      "name": "F.GRANA PADANO 180",
+      "price": 2.96,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MOZZAR.RATLL.CONSUM",
+      "price": 1.65,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MAGNUM MINI CLASSIC",
+      "price": 3.99,
+      "name_quality": "complete"
+    },
+    {
+      "name": "GASPATXO 1L.CONSUM",
+      "price": 1.6,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ALPRO NABIU-F.VERMX",
+      "price": 2.29,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CEBET.VERME.CONSUM",
+      "price": 1.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "T.FREG.OLIV.CONS.P3",
+      "price": 1.33,
+      "name_quality": "complete"
+    },
+    {
+      "name": "NOU CLOSCA CONSUM",
+      "price": 3.9,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LLENTIA CUI.CONS570",
+      "price": 0.8,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 25.16,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

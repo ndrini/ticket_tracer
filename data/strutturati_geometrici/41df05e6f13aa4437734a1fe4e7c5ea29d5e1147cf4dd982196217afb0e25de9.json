@@ -1,0 +1,18 @@
+{
+  "sha256": "41df05e6f13aa4437734a1fe4e7c5ea29d5e1147cf4dd982196217afb0e25de9",
+  "foto_origine": "2025-05-27 16.37.45.jpg",
+  "shop_name": "ALCAMPO DIAGONAL MAR",
+  "date": "2025-05-27",
+  "total": null,
+  "items": [
+    {
+      "name": "IMPOF Bu ENGEUR:\u2014 a",
+      "price": -89.0,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": -89.0,
+  "scarto": null,
+  "elaborato_il": null
+}

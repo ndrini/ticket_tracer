@@ -1,0 +1,78 @@
+{
+  "sha256": "b8f7446ec0e63aa485461de48eb9a02f713c423f150151417966326602f0df1a",
+  "foto_origine": "2025-02-20 07.47.51.jpg",
+  "shop_name": "Cal",
+  "date": "2025-01-28",
+  "total": 50.0,
+  "items": [
+    {
+      "name": "",
+      "price": 1.32,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 3.17,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 3.06,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 0.48,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 4.42,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "Quesencillos",
+      "price": 1.95,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Br\u00f2quil Verd",
+      "price": 3.95,
+      "name_quality": "complete"
+    },
+    {
+      "name": "Br\u00f2coli de Proximitat",
+      "price": 2.25,
+      "name_quality": "complete"
+    },
+    {
+      "name": "",
+      "price": 0.97,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 0.35,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 1.84,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 3.37,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "Alvocat Extra CalFruit\u00f3s",
+      "price": 4.0,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 31.13,
+  "scarto": -18.87,
+  "elaborato_il": null
+}

@@ -1,0 +1,28 @@
+{
+  "sha256": "8b760724d949511b526ffc14f7368d23a36a7f8296031edae7dc0f2c2a50ecbf",
+  "foto_origine": "2025-03-24 14.01.26.jpg",
+  "shop_name": "DECATHLON C",
+  "date": "2025-03-21",
+  "total": 32.38,
+  "items": [
+    {
+      "name": "Ref: :2605173 Legeings sint cal1dos s500 Gy",
+      "price": 7.99,
+      "name_quality": "fused"
+    },
+    {
+      "name": "Suototal",
+      "price": 32.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "otal",
+      "price": 32.98,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_ECCESSO",
+  "somma_prodotti": 73.95,
+  "scarto": 41.57,
+  "elaborato_il": null
+}

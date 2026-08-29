@@ -1,0 +1,18 @@
+{
+  "sha256": "77cc03e311098c56c08a885c7121c9278a9d13fb78f55a0776e48a575ec667a7",
+  "foto_origine": "2025-09-06 10.42.29.jpg",
+  "shop_name": "Juntos es cooperativa",
+  "date": "2025-08-11",
+  "total": 11.62,
+  "items": [
+    {
+      "name": "TOMAQUET MADUR",
+      "price": 1.59,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 1.59,
+  "scarto": -10.03,
+  "elaborato_il": null
+}

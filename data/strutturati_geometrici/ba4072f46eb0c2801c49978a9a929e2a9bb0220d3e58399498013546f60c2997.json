@@ -1,0 +1,18 @@
+{
+  "sha256": "ba4072f46eb0c2801c49978a9a929e2a9bb0220d3e58399498013546f60c2997",
+  "foto_origine": "2025-07-11 18.35.37.jpg",
+  "shop_name": "DE-CIO 334150042 D Merl",
+  "date": null,
+  "total": 45.6,
+  "items": [
+    {
+      "name": "",
+      "price": 8.9,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 8.9,
+  "scarto": -36.7,
+  "elaborato_il": null
+}

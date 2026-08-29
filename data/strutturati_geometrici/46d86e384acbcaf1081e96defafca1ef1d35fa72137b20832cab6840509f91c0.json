@@ -1,0 +1,48 @@
+{
+  "sha256": "46d86e384acbcaf1081e96defafca1ef1d35fa72137b20832cab6840509f91c0",
+  "foto_origine": "2025-03-15 10.31.59.jpg",
+  "shop_name": "MERCADUNA",
+  "date": "2025-02-22",
+  "total": 25.9,
+  "items": [
+    {
+      "name": "IOGURT CABRA",
+      "price": 2.08,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TALL PIT FI",
+      "price": 4.12,
+      "name_quality": "complete"
+    },
+    {
+      "name": "RODANXA DE SALM\u00d3",
+      "price": 7.06,
+      "name_quality": "complete"
+    },
+    {
+      "name": "S\u00c9PIA NETA PETITA",
+      "price": 4.5,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE GRANA PADAN",
+      "price": 3.29,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE FETA",
+      "price": 2.4,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE TALLS VACA",
+      "price": 2.45,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 25.9,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

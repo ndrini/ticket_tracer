@@ -1,0 +1,28 @@
+{
+  "sha256": "be29b6ca24b892138a456442964d9c2f69c76aacd30089bb5b5b9c4a0a54f562",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "PANET 11 UN",
+      "price": 2.28,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORM. BURGOS NATURAL",
+      "price": 1.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "AMANIDA QUATRE ESTAC",
+      "price": 1.72,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 5.98,
+  "scarto": null,
+  "elaborato_il": null
+}

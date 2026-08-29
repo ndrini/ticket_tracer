@@ -1,0 +1,63 @@
+{
+  "sha256": "c25699a2d087d63a7481a3b4037cba68684d960bf3c1de94ff6774ee621b46fc",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "% AMONIAC",
+      "price": 3.9,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MOCADORS 4 CAPES",
+      "price": 1.05,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MARISCOS",
+      "price": 0.8,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PA AMB TOMAQUET",
+      "price": 1.28,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE CURAT",
+      "price": 4.64,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE SEMI",
+      "price": 4.18,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ANARCARDS NATURAL",
+      "price": 2.8,
+      "name_quality": "complete"
+    },
+    {
+      "name": "GNOCCHI TRICOLOR",
+      "price": 1.75,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TAGLIATELLE",
+      "price": 1.2,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BOSSA PLASTIC",
+      "price": 0.15,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 21.75,
+  "scarto": null,
+  "elaborato_il": null
+}

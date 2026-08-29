@@ -1,0 +1,23 @@
+{
+  "sha256": "99bf895db4c4d286da0bbf9b64e77c786ab827fed3e0af3a530244c3435ef0dd",
+  "foto_origine": "2025-07-11 18.38.23.jpg",
+  "shop_name": "LiDL",
+  "date": "2025-06-12",
+  "total": 9.34,
+  "items": [
+    {
+      "name": "ULLERES NAT -0470678 26helo 00r eb",
+      "price": 6.85,
+      "name_quality": "fused"
+    },
+    {
+      "name": "ULLERES NAT -0470678",
+      "price": 2.49,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 9.34,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

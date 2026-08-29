@@ -1,0 +1,18 @@
+{
+  "sha256": "f33643b72aa06e419e930daeb2d090aa2dd77a98f8828a8f8bccfa2e00493a70",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "TOTAL COMPRA GRUPO DIA",
+      "price": 10.82,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 10.82,
+  "scarto": null,
+  "elaborato_il": null
+}

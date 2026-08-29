@@ -1,0 +1,23 @@
+{
+  "sha256": "d8b4d30788a33c225797b1e547cf2e8acc595a063d5bc7b424fc13140bbaebde",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "MEGAROLLO SCOTTEX 6",
+      "price": 3.99,
+      "name_quality": "complete"
+    },
+    {
+      "name": "R.CUI.SUAVECEL 3=6",
+      "price": 2.69,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 6.68,
+  "scarto": null,
+  "elaborato_il": null
+}

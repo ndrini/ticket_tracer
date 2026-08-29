@@ -1,0 +1,93 @@
+{
+  "sha256": "691a9d412381086a5f386d25d0605651d66163533eb293aae773217d561ea791",
+  "foto_origine": "2025-04-10 19.21.13.jpg",
+  "shop_name": "VENE\u00c7UELA",
+  "date": "2025-04-04",
+  "total": 40.26,
+  "items": [
+    {
+      "name": "FILET VERAT OLIVA P2",
+      "price": 3.9,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE SEMI",
+      "price": 4.31,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CHOCODAYS",
+      "price": 2.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORM. BURGOS NATURAL",
+      "price": 1.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PANET 11 UN",
+      "price": 1.14,
+      "name_quality": "complete"
+    },
+    {
+      "name": "NOU CLOSCA NATURAL",
+      "price": 3.9,
+      "name_quality": "complete"
+    },
+    {
+      "name": "IOGURT AMB FRUITES",
+      "price": 2.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "AMANIDA QUATRE ESTAC",
+      "price": 2.58,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PERNIL CUIT 92%",
+      "price": 2.41,
+      "name_quality": "complete"
+    },
+    {
+      "name": "LLENTIA PARDINA",
+      "price": 2.1,
+      "name_quality": "complete"
+    },
+    {
+      "name": "CIGR\u00d3 LLET\u00d3S NAC",
+      "price": 2.5,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MOZZARELLA FRESCA",
+      "price": 1.94,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MOZZARELLA FRESCA 1 MANTEGA PAST. SESE",
+      "price": 2.3,
+      "name_quality": "fused"
+    },
+    {
+      "name": "SALSA PESTO 1 MANTEGA PAST. SESE",
+      "price": 1.95,
+      "name_quality": "fused"
+    },
+    {
+      "name": "SALSA PESTO 1 ARROS CAT. PRIMERA",
+      "price": 1.3,
+      "name_quality": "fused"
+    },
+    {
+      "name": "GUACAMOLE 1 ARROS CAT. PRIMERA",
+      "price": 3.95,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 40.26,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

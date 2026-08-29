@@ -1,0 +1,88 @@
+{
+  "sha256": "b49a7cffe36e1ec1a02620765c92afd219e55bbb25eee2057419b295d2a556c9",
+  "foto_origine": "2025-03-15 10.33.47.jpg",
+  "shop_name": "MERCADUNA",
+  "date": "2025-03-13",
+  "total": 29.46,
+  "items": [
+    {
+      "name": "PENNE INTEGRAL",
+      "price": 2.42,
+      "name_quality": "complete"
+    },
+    {
+      "name": "AVENA CRUNCHY CACAU",
+      "price": 2.15,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PERNIL LLAUNA TALLS",
+      "price": 2.29,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PANET 11 UN",
+      "price": 1.14,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FLOCS BLAT MORO 0%",
+      "price": 1.5,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PR\u00c9SECC-RAIM P6",
+      "price": 1.5,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FILET VERAT OLIVA P2",
+      "price": 2.05,
+      "name_quality": "complete"
+    },
+    {
+      "name": "GEL WC SPA",
+      "price": 1.15,
+      "name_quality": "complete"
+    },
+    {
+      "name": "IOGURT CABRA",
+      "price": 2.08,
+      "name_quality": "complete"
+    },
+    {
+      "name": "AMANIDA QUATRE ESTAC",
+      "price": 0.86,
+      "name_quality": "complete"
+    },
+    {
+      "name": "GREC LLIMONA",
+      "price": 1.7,
+      "name_quality": "complete"
+    },
+    {
+      "name": "SALM\u00d3 FUMAT",
+      "price": 3.61,
+      "name_quality": "complete"
+    },
+    {
+      "name": "GAL.MARIA INTEGRAL-F",
+      "price": 1.45,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ARROS CAT. PRIMERA",
+      "price": 1.33,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE GRANA PADAN",
+      "price": 4.23,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 29.46,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

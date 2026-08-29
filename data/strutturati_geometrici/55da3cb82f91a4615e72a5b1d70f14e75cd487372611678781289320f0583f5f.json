@@ -1,0 +1,38 @@
+{
+  "sha256": "55da3cb82f91a4615e72a5b1d70f14e75cd487372611678781289320f0583f5f",
+  "foto_origine": "2025-02-20 07.57.06.jpg",
+  "shop_name": "GRUPU DIA",
+  "date": "2025-01-27",
+  "total": 20.88,
+  "items": [
+    {
+      "name": "ANUL.TOMAQUET CHERRY PERA",
+      "price": 1.39,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BOLES BLAT A/XOCOLA",
+      "price": 2.29,
+      "name_quality": "complete"
+    },
+    {
+      "name": "OUS ECOLOGICS DIA",
+      "price": 2.65,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TONYI CLARA NAT PAK6",
+      "price": 4.55,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BLAT DE MORO DOLC VE",
+      "price": 1.15,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "SOMMA_IN_DIFETTO",
+  "somma_prodotti": 12.03,
+  "scarto": -8.85,
+  "elaborato_il": null
+}

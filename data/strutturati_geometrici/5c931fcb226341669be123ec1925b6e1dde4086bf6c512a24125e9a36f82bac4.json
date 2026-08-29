@@ -1,0 +1,18 @@
+{
+  "sha256": "5c931fcb226341669be123ec1925b6e1dde4086bf6c512a24125e9a36f82bac4",
+  "foto_origine": "2025-07-11 18.45.32.jpg",
+  "shop_name": "KIABI DIAGONAL",
+  "date": "2025-07-05",
+  "total": -25.0,
+  "items": [
+    {
+      "name": "W VESTIDO 3616030685925",
+      "price": -25.0,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": -25.0,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

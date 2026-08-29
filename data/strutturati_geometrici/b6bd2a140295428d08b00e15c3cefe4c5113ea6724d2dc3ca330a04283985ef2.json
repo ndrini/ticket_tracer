@@ -1,0 +1,18 @@
+{
+  "sha256": "b6bd2a140295428d08b00e15c3cefe4c5113ea6724d2dc3ca330a04283985ef2",
+  "foto_origine": "2025-09-06 10.40.00.jpg",
+  "shop_name": "Comercia Global Payments",
+  "date": null,
+  "total": 123.48,
+  "items": [
+    {
+      "name": "",
+      "price": 123.48,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 123.48,
+  "scarto": 0.0,
+  "elaborato_il": null
+}
