@@ -81,10 +81,22 @@ def estrai_llava_immagine(image_path, processor, model, device, image_size_limit
     except Exception as e:
         return [], 0, False, f"Image load failed: {e}"
 
-    prompt = """Estrai SOLO i nomi e prezzi dei prodotti da questo scontrino.
-Rispondi con JSON valido: [{"name": "...", "price": X.XX}, ...]
-Se la qualità OCR è scarsa, indica il numero di prodotti che vedi.
-Non includere totali, IVA, intestazioni o righe vuote."""
+    prompt = """You are an assistant that extracts structured product data from receipt images.
+
+TASK: Extract ONLY purchased items (products with prices).
+
+RULES:
+1. Return ONLY valid JSON, no other text
+2. Ignore: headers, totals, VAT, subtotals, discounts, empty lines, merchant info
+3. Extract each item with name and price in decimal format (X.XX)
+4. If multiple items on same line, extract each separately
+5. If quality is poor or no items found, return: []
+
+FORMAT:
+[
+  {"name": "product name", "price": X.XX},
+  {"name": "another product", "price": Y.YY}
+]"""
 
     try:
         mem_before = get_memory_usage()
@@ -275,6 +287,12 @@ def main(argv):
 
     success_rate = 100 * successes / len(results) if results else 0
 
+    # Metrica fallback: se LLaVA fallisce, quanti Geometric recupererebbe?
+    # (Stima: Geometric 58% success rate)
+    geometric_expected_success = 0.58 * len(results)
+    fallback_recovery = max(0, successes - geometric_expected_success)
+    recovery_rate = 100 * fallback_recovery / (len(results) - geometric_expected_success) if (len(results) - geometric_expected_success) > 0 else 0
+
     print(f"\n📊 Metriche Performance:")
     print(f"   Success rate: {successes}/{len(results)} ({success_rate:.1f}%)")
     print(f"   Items: {total_items} totali, {total_items/max(1,len(results)):.1f} per immagine")
@@ -307,16 +325,20 @@ def main(argv):
     print(f"\n📊 Confronto metodi estrazione:")
     print(f"   Geometric:  58% success, 0.001s/scontrino, €0")
     print(f"   LLaVA:      {success_rate:.0f}% success, {avg_time:.3f}s/scontrino, €0")
+    print(f"   Fallback gain: +{recovery_rate:.0f}% items se LLaVA fallisce (Geometric recupera)")
 
-    if success_rate > 58:
-        if avg_time < 5:
-            print(f"   ✅ LLaVA VINCE: migliore accuracy + latenza accettabile")
-        else:
-            print(f"   ⚠️  LLaVA accuracy migliore, latenza alta")
-    elif success_rate == 58:
-        print(f"   ≈ Pari: stessa accuracy, ma LLaVA più lento")
+    if success_rate > 75 and avg_time < 1.5:
+        print(f"\n   ✅✅ LLaVA WINS: accuracy significativa + latenza OK")
+        print(f"       Raccomandazione: Switch a LLaVA + Geometric fallback")
+    elif success_rate > 70 and avg_time < 3:
+        print(f"\n   ✅ LLaVA COMPETITIVO: accuracy buona, latenza accettabile")
+        print(f"       Raccomandazione: Hybrid (Geometric primary, LLaVA fallback)")
+    elif success_rate > 58:
+        print(f"\n   ⚠️  LLaVA PARZIALE: migliore accuracy, latenza alta")
+        print(f"       Raccomandazione: Mantieni Geometric, LLaVA per edge cases")
     else:
-        print(f"   ❌ Geometric vince: migliore accuracy o latenza")
+        print(f"\n   ❌ GEOMETRIC VINCE: LLaVA non migliora")
+        print(f"       Raccomandazione: Status quo Geometric")
 
     # Costi
     print(f"\n💰 Costi:")
@@ -339,6 +361,8 @@ def main(argv):
         "p95_latency": p95_time,
         "total_items": total_items,
         "total_time": t_total,
+        "fallback_recovery_rate": recovery_rate,
+        "geometric_baseline": 0.58,
         "results": results
     }
 
