@@ -1,0 +1,256 @@
+{
+  "dashboard": {
+    "title": "Extraction Pipeline - Hybrid (Geometric + LLaVA)",
+    "description": "Week 2-3: Monitor hybrid extraction pipeline performance, hallucination rate, latency, and manual review queue",
+    "timezone": "browser",
+    "refresh": "30s",
+    "time": {
+      "from": "now-24h",
+      "to": "now"
+    },
+    "panels": [
+      {
+        "id": 1,
+        "title": "Extraction Success Rate (Last 24h)",
+        "type": "gauge",
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 0,
+          "y": 0
+        },
+        "targets": [
+          {
+            "query": "SELECT 100.0 * COUNT(CASE WHEN hybrid_method != 'manual_review' THEN 1 END) / NULLIF(COUNT(*), 0) as success_rate FROM receipts WHERE date >= DATE('now', '-1 day')"
+          }
+        ],
+        "thresholds": "0,70,85,95",
+        "colors": ["#d44a3a", "#f2cc0c", "#37872d"]
+      },
+      {
+        "id": 2,
+        "title": "Extraction Method Distribution",
+        "type": "piechart",
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 6,
+          "y": 0
+        },
+        "targets": [
+          {
+            "query": "SELECT hybrid_method as method, COUNT(*) as count FROM receipts WHERE date >= DATE('now', '-1 day') GROUP BY hybrid_method ORDER BY count DESC"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Hallucination Rate (%) - 7 day avg",
+        "type": "stat",
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 12,
+          "y": 0
+        },
+        "targets": [
+          {
+            "query": "SELECT AVG(hallucination_rate) as rate FROM extraction_metrics WHERE date >= DATE('now', '-7 days')"
+          }
+        ],
+        "unit": "percent",
+        "thresholds": {
+          "steps": [
+            {"color": "#37872d", "value": null},
+            {"color": "#f2cc0c", "value": 3},
+            {"color": "#d44a3a", "value": 5}
+          ]
+        }
+      },
+      {
+        "id": 4,
+        "title": "Average Latency (ms) - by Method",
+        "type": "timeseries",
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        },
+        "targets": [
+          {
+            "query": "SELECT date, hybrid_method as method, AVG(extraction_latency_ms) as latency FROM receipts WHERE date >= DATE('now', '-7 days') GROUP BY date, hybrid_method ORDER BY date ASC"
+          }
+        ],
+        "yaxis": {
+          "label": "Latency (ms)",
+          "min": 0,
+          "max": 2000
+        }
+      },
+      {
+        "id": 5,
+        "title": "Manual Review Queue",
+        "type": "stat",
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 12,
+          "y": 8
+        },
+        "targets": [
+          {
+            "query": "SELECT COUNT(*) as pending FROM manual_review_queue WHERE completed_at IS NULL"
+          }
+        ],
+        "unit": "short",
+        "thresholds": {
+          "steps": [
+            {"color": "#37872d", "value": null},
+            {"color": "#f2cc0c", "value": 10},
+            {"color": "#d44a3a", "value": 50}
+          ]
+        }
+      },
+      {
+        "id": 6,
+        "title": "Risk Level Distribution (Last 24h)",
+        "type": "barchart",
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 16
+        },
+        "targets": [
+          {
+            "query": "SELECT extraction_risk_level, COUNT(*) as count FROM receipts WHERE date >= DATE('now', '-1 day') GROUP BY extraction_risk_level ORDER BY CASE extraction_risk_level WHEN 'low' THEN 1 WHEN 'medium' THEN 2 WHEN 'high' THEN 3 END"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Extraction Queue Status",
+        "type": "stat",
+        "gridPos": {
+          "h": 4,
+          "w": 4,
+          "x": 12,
+          "y": 16
+        },
+        "targets": [
+          {
+            "query": "SELECT COUNT(*) as pending FROM extraction_queue WHERE status = 'pending'"
+          }
+        ],
+        "unit": "short",
+        "colorMode": "background",
+        "thresholds": {
+          "steps": [
+            {"color": "#37872d", "value": null},
+            {"color": "#f2cc0c", "value": 20},
+            {"color": "#d44a3a", "value": 100}
+          ]
+        }
+      },
+      {
+        "id": 8,
+        "title": "Oldest Manual Review (minutes)",
+        "type": "stat",
+        "gridPos": {
+          "h": 4,
+          "w": 4,
+          "x": 16,
+          "y": 16
+        },
+        "targets": [
+          {
+            "query": "SELECT MAX(CAST((julianday('now') - julianday(created_at)) * 1440 AS INTEGER)) as oldest_minutes FROM manual_review_queue WHERE completed_at IS NULL"
+          }
+        ],
+        "unit": "minutes",
+        "thresholds": {
+          "steps": [
+            {"color": "#37872d", "value": null},
+            {"color": "#f2cc0c", "value": 60},
+            {"color": "#d44a3a", "value": 480}
+          ]
+        }
+      },
+      {
+        "id": 9,
+        "title": "Accuracy Trend (7 days)",
+        "type": "timeseries",
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 20
+        },
+        "targets": [
+          {
+            "query": "SELECT date, method, avg_accuracy FROM extraction_metrics WHERE date >= DATE('now', '-7 days') ORDER BY date ASC, method"
+          }
+        ],
+        "yaxis": {
+          "label": "Accuracy (%)",
+          "min": 0,
+          "max": 100
+        }
+      },
+      {
+        "id": 10,
+        "title": "Review Completion Rate (24h)",
+        "type": "gauge",
+        "gridPos": {
+          "h": 8,
+          "w": 6,
+          "x": 12,
+          "y": 20
+        },
+        "targets": [
+          {
+            "query": "SELECT 100.0 * COUNT(CASE WHEN completed_at IS NOT NULL THEN 1 END) / NULLIF(COUNT(*), 0) as completion_rate FROM manual_review_queue WHERE created_at >= datetime('now', '-1 day')"
+          }
+        ],
+        "unit": "percent",
+        "thresholds": "0,50,80,95",
+        "colors": ["#d44a3a", "#f2cc0c", "#37872d"]
+      }
+    ],
+    "alerts": [
+      {
+        "id": "hallucination-high",
+        "title": "Hallucination Rate > 3%",
+        "condition": "SELECT AVG(hallucination_rate) FROM extraction_metrics WHERE date = DATE('now') > 3",
+        "frequency": "5m",
+        "handler": "slack",
+        "channel": "#extraction-alerts"
+      },
+      {
+        "id": "latency-high",
+        "title": "P99 Latency > 2000ms",
+        "condition": "SELECT PERCENTILE_CONT(0.99) WITHIN GROUP (ORDER BY extraction_latency_ms) FROM receipts WHERE date = DATE('now') > 2000",
+        "frequency": "10m",
+        "handler": "slack",
+        "channel": "#extraction-alerts"
+      },
+      {
+        "id": "review-queue-high",
+        "title": "Manual Review Queue > 100",
+        "condition": "SELECT COUNT(*) FROM manual_review_queue WHERE completed_at IS NULL > 100",
+        "frequency": "15m",
+        "handler": "slack",
+        "channel": "#extraction-alerts"
+      },
+      {
+        "id": "gpu-saturation",
+        "title": "GPU Utilization > 80%",
+        "condition": "SELECT gpu_utilization FROM system_metrics WHERE timestamp > datetime('now', '-5 minutes') > 80",
+        "frequency": "5m",
+        "handler": "slack",
+        "channel": "#infrastructure-alerts"
+      }
+    ]
+  }
+}
