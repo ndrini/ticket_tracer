@@ -1,0 +1,732 @@
+{
+  "metadata": {
+    "total": 80,
+    "simple_count": 30,
+    "normal_count": 50,
+    "complex_count": 0,
+    "store_count": 55,
+    "date_range": "2025-01-03 to 2025-11-21"
+  },
+  "samples": [
+    {
+      "id": 122,
+      "sha256": "7f01104aa78312a8f73805f1f3f7bb0d8e4e51f209d84d4d75550026feafacde",
+      "total": 132.51,
+      "date": "2025-07-11",
+      "store": "Unitats Concepte Preu unitari",
+      "item_count": 0,
+      "complexity": "simple"
+    },
+    {
+      "id": 58,
+      "sha256": "363222bd1e3eb8355de9de7927abd471d804b72936f372079dc52b68bff6fb20",
+      "total": 24.59,
+      "date": "2025-07-11",
+      "store": "Higien Doble Rotll",
+      "item_count": 12,
+      "complexity": "normal"
+    },
+    {
+      "id": 12,
+      "sha256": "0af456784cc36adf833fc3e813da476d67929b35ce387b9918f33428dc62eb16",
+      "total": 1.31,
+      "date": "2025-04-10",
+      "store": "Roaluna",
+      "item_count": 10,
+      "complexity": "normal"
+    },
+    {
+      "id": 26,
+      "sha256": "152cf78ab94f74c2c2568c32cf51150ec53617a7d15b8ae7a3d0a0f91e451643",
+      "total": 52.0,
+      "date": "2025-07-11",
+      "store": "Overmatt N Campana",
+      "item_count": 1,
+      "complexity": "simple"
+    },
+    {
+      "id": 164,
+      "sha256": "9e06380025e0bf85d0eb2916d582199ffade917d489a931b4391af0b730c214b",
+      "total": 38.2,
+      "date": "2025-07-12",
+      "store": "Mercantina Vegicano",
+      "item_count": 1,
+      "complexity": "simple"
+    },
+    {
+      "id": 124,
+      "sha256": "7f9b8e78b01e96a01b97008f4198a5932557adcff53ac47a8149b89d3ebfda7e",
+      "total": 18.1,
+      "date": "2025-07-11",
+      "store": "Supermarch\u00e9 Caduna",
+      "item_count": 8,
+      "complexity": "normal"
+    },
+    {
+      "id": 169,
+      "sha256": "a6a2a7017f1c990a74f96eb1b6e0000f4af19a957df084951f4ef4a07230d9c0",
+      "total": 38.37,
+      "date": "2025-07-11",
+      "store": "CADUNA, S.A",
+      "item_count": 13,
+      "complexity": "normal"
+    },
+    {
+      "id": 10,
+      "sha256": "07de5aed3c80165c3184432c9e725a0532757da91a422df78cec4bb1399c1a03",
+      "total": 35.58,
+      "date": "2025-04-10",
+      "store": "BONPREU",
+      "item_count": 11,
+      "complexity": "normal"
+    },
+    {
+      "id": 76,
+      "sha256": "4e425f4238e214b217e005d392430b9be55410bda116630b0666800bae8ceb32",
+      "total": 20.73,
+      "date": "2025-03-15",
+      "store": "Carrefour",
+      "item_count": 9,
+      "complexity": "normal"
+    },
+    {
+      "id": 51,
+      "sha256": "317c6d07a8b78a518aec60a093e0fba0013b76fa9a2e8e498f08b0d864b056ae",
+      "total": 14.6,
+      "date": "2025-02-20",
+      "store": "NINA BURGERS & COCKTAILS",
+      "item_count": 3,
+      "complexity": "simple"
+    },
+    {
+      "id": 30,
+      "sha256": "185121a05332adc708595685257ec5bb50f01c889f3bbf12001a8ac17ec5ded1",
+      "total": 38.44,
+      "date": "2025-02-20",
+      "store": "Fruit\u00f3s",
+      "item_count": 12,
+      "complexity": "normal"
+    },
+    {
+      "id": 98,
+      "sha256": "690fb0255e1fc287812d6961d5611be8949393d3f5a39a59d46b81cce1dd2a9f",
+      "total": 2.63,
+      "date": "2025-04-28",
+      "store": "MERCADONA",
+      "item_count": 5,
+      "complexity": "simple"
+    },
+    {
+      "id": 131,
+      "sha256": "858cfe70df8713a58336414fdf0b39c81c672657a28b5d4c804f99a461adf887",
+      "total": 1.98,
+      "date": "2025-06-03",
+      "store": "Gelateria Venezia",
+      "item_count": 8,
+      "complexity": "normal"
+    },
+    {
+      "id": 84,
+      "sha256": "5a7910932577ebc741dfe21169e91cdcd5abcbfbd863c0255c1c398f86c76f9d",
+      "total": 4.48,
+      "date": "2025-03-24",
+      "store": "Juntos es cooperativa",
+      "item_count": 3,
+      "complexity": "simple"
+    },
+    {
+      "id": 21,
+      "sha256": "112ae757a5ac26ee6f79d542b00470dbc124b5e0ae972dfe818c29db2f2672cf",
+      "total": 6.68,
+      "date": "2025-05-12",
+      "store": "RUME SUPERMETCATS, SL",
+      "item_count": 2,
+      "complexity": "simple"
+    },
+    {
+      "id": 68,
+      "sha256": "426135839a5f4bd37aee67f9e022d69eed58582abb9033dac7b581a141c2adc4",
+      "total": 30.0,
+      "date": "2025-07-11",
+      "store": "RUNDA SANT PERE",
+      "item_count": 3,
+      "complexity": "simple"
+    },
+    {
+      "id": 96,
+      "sha256": "65b97134dcee5e7094d0f00e4ffa0bc0b3628255683c7d5164db6d65bb2603a2",
+      "total": 15.07,
+      "date": "2025-07-11",
+      "store": "RUME SUPERMETCATS, SL",
+      "item_count": 9,
+      "complexity": "normal"
+    },
+    {
+      "id": 93,
+      "sha256": "613cdf1248312d4a5f9d9d23ae52cce4189c7ed7283e2faf3a8daa44df469ed3",
+      "total": 45.09,
+      "date": "2025-04-28",
+      "store": "ALCAMPO DIAGONAL MAR",
+      "item_count": 0,
+      "complexity": "simple"
+    },
+    {
+      "id": 196,
+      "sha256": "ba2e1ec9a66c21fd8b803b27d0201164a0c27a841cf835f092198e1f92f1b18c",
+      "total": 28.17,
+      "date": "2025-07-11",
+      "store": "MERCADUNA",
+      "item_count": 8,
+      "complexity": "normal"
+    },
+    {
+      "id": 190,
+      "sha256": "b763263eb78d7251539173e69fc76c77629c589dd2eff10ddf4dfde9598e9a3f",
+      "total": 15.68,
+      "date": "2025-03-15",
+      "store": "Juntos es cooperativa",
+      "item_count": 5,
+      "complexity": "simple"
+    },
+    {
+      "id": 6,
+      "sha256": "04cb0f6c4310944e34eff51164439463ad8d0afd642d0d4e33949c39fae3a934",
+      "total": 27.57,
+      "date": "2025-07-11",
+      "store": "MERCADUNA",
+      "item_count": 14,
+      "complexity": "normal"
+    },
+    {
+      "id": 99,
+      "sha256": "691a9d412381086a5f386d25d0605651d66163533eb293aae773217d561ea791",
+      "total": 40.26,
+      "date": "2025-04-10",
+      "store": "VENE\u00c7UELA",
+      "item_count": 13,
+      "complexity": "normal"
+    },
+    {
+      "id": 91,
+      "sha256": "5f681f90165a0f3e83326fe0bd02d702bb921bbf3b62c6a7483aac38982df7c6",
+      "total": 22.44,
+      "date": "2025-06-29",
+      "store": "IperCoop Bari Japigia",
+      "item_count": 11,
+      "complexity": "normal"
+    },
+    {
+      "id": 22,
+      "sha256": "11b0964a18ed026ce33c72a246e25a084983aa8531393225245717a587c00511",
+      "total": 50.04,
+      "date": "2025-07-11",
+      "store": "C/VENE\u00c7UELA",
+      "item_count": 19,
+      "complexity": "normal"
+    },
+    {
+      "id": 69,
+      "sha256": "465b4d4588e579bb1f84ca66ad6511f62fb372dbaeb85987b939dffb11e3a666",
+      "total": 0.59,
+      "date": "2025-07-26",
+      "store": "BAGUET",
+      "item_count": 1,
+      "complexity": "simple"
+    },
+    {
+      "id": 43,
+      "sha256": "23cfc4a6596980e34f1a081b76766665a7085818b1872a57b85454975634573b",
+      "total": 29.54,
+      "date": "2025-04-10",
+      "store": "CRCADU\u00d1A",
+      "item_count": 12,
+      "complexity": "normal"
+    },
+    {
+      "id": 36,
+      "sha256": "1c66a33322996cd60ddcfdb554d601226077be1f7aca624c889488489ac73e3b",
+      "total": 13.74,
+      "date": "2025-07-26",
+      "store": "MERCADONA",
+      "item_count": 13,
+      "complexity": "normal"
+    },
+    {
+      "id": 9,
+      "sha256": "06c33f23994bd38d2659fd5bb30979f5f98321757104eb162ff42e4691e0bbef",
+      "total": 539.49,
+      "date": "2025-06-26",
+      "store": "CCCUS",
+      "item_count": 0,
+      "complexity": "simple"
+    },
+    {
+      "id": 46,
+      "sha256": "278ad00900c7dd322db56f151740ce90bdf9d7ee074f068e1bd4e4dffef32eaa",
+      "total": 15.99,
+      "date": "2025-07-11",
+      "store": "DECATHLON",
+      "item_count": 1,
+      "complexity": "simple"
+    },
+    {
+      "id": 16,
+      "sha256": "0f1e709ed5d640f2158d1131061d0e8a465f83a914502cbbdf1df27c90227802",
+      "total": 36.69,
+      "date": "2025-06-03",
+      "store": "Maxi Gourmet",
+      "item_count": 9,
+      "complexity": "normal"
+    },
+    {
+      "id": 153,
+      "sha256": "965d02a2aa1dbf35d2ecf172fce052b7d2dcd87b19930854cfd4d2233ff3aa3e",
+      "total": 18.57,
+      "date": "2025-09-06",
+      "store": "Supermarcato La Provenza",
+      "item_count": 8,
+      "complexity": "normal"
+    },
+    {
+      "id": 74,
+      "sha256": "4bcf596200938728dcd151c59c88d22056ab31089a914ac63b5c5c748a6425c5",
+      "total": 35.8,
+      "date": "2025-07-11",
+      "store": "Hortaleza",
+      "item_count": 6,
+      "complexity": "normal"
+    },
+    {
+      "id": 148,
+      "sha256": "9200bf5d4d88f990a23468204dededc39740fb821bf820f055d3bf220ca41c43",
+      "total": 20.88,
+      "date": "2025-09-06",
+      "store": "Beete1",
+      "item_count": 7,
+      "complexity": "normal"
+    },
+    {
+      "id": 40,
+      "sha256": "20cfb2d7f806fbaf401fa1774fc05e192a9142861bdf2e1db033f01f1651719c",
+      "total": 15.89,
+      "date": "2025-04-28",
+      "store": "MERCADUNA",
+      "item_count": 10,
+      "complexity": "normal"
+    },
+    {
+      "id": 75,
+      "sha256": "4c3ff35ba6781d55c88f5c7f94ba3a6cdb5e84f477d5b57a3c999f38f693b233",
+      "total": 182.53,
+      "date": "2025-07-11",
+      "store": "Fruit\u00f3s",
+      "item_count": 0,
+      "complexity": "simple"
+    },
+    {
+      "id": 110,
+      "sha256": "77b0137030a65d58974b0159013fc6714e290278575af8be263821d970b56f1c",
+      "total": 3.0,
+      "date": "2025-07-11",
+      "store": "Ying Tiger",
+      "item_count": 1,
+      "complexity": "simple"
+    },
+    {
+      "id": 114,
+      "sha256": "7a5baf7687827d4205d10bd0d2008612a9188989a4dac399d2c3173edd806fb5",
+      "total": 0.57,
+      "date": "2025-04-10",
+      "store": "MERCADONA",
+      "item_count": 2,
+      "complexity": "simple"
+    },
+    {
+      "id": 135,
+      "sha256": "879fe8dae40e5d1d232e4fad1d731e634f9c9ac35a290cf3c8b0ac98a4dfd006",
+      "total": 11.65,
+      "date": "2025-07-11",
+      "store": "CONSUM. S.COOP.V",
+      "item_count": 6,
+      "complexity": "normal"
+    },
+    {
+      "id": 125,
+      "sha256": "80543ca96f9f983a8859de7984b9c2ba4dd19390be223c56efe6cb9bd24ff875",
+      "total": 32.06,
+      "date": "2025-09-06",
+      "store": "MERCADONA",
+      "item_count": 13,
+      "complexity": "normal"
+    },
+    {
+      "id": 161,
+      "sha256": "9aa3aaafc0815197c426348f6516f6562ad6007712f6e94fc8aeba956691a1e2",
+      "total": 29.04,
+      "date": "2025-06-03",
+      "store": "LASANYA TONYINA",
+      "item_count": 13,
+      "complexity": "normal"
+    },
+    {
+      "id": 73,
+      "sha256": "4badda7d1a88f609ea0ec502a0de5ee5cb3994e3d30835a699e68d5d40103666",
+      "total": 39.65,
+      "date": "2025-07-26",
+      "store": "NILDA DIAZ GONZALES",
+      "item_count": 4,
+      "complexity": "simple"
+    },
+    {
+      "id": 120,
+      "sha256": "7cfbc73ff089b7e9493701a0cff7b79e97e41d1c80c2a07972c88303e18e7ee0",
+      "total": 13.52,
+      "date": "2025-02-20",
+      "store": "BonArea (T561)",
+      "item_count": 1,
+      "complexity": "simple"
+    },
+    {
+      "id": 174,
+      "sha256": "ac715788ecc426f5e488e67ea9df96908733c14abb3aaf9bfb5a45d698743261",
+      "total": 41.98,
+      "date": "2025-07-26",
+      "store": "neezn",
+      "item_count": 19,
+      "complexity": "normal"
+    },
+    {
+      "id": 101,
+      "sha256": "6a48c0d014f8e01af8db8e49511f955bfe2d52948e1172ca35cd208d42b97b90",
+      "total": 11.32,
+      "date": "2025-02-20",
+      "store": "Cal",
+      "item_count": 1,
+      "complexity": "simple"
+    },
+    {
+      "id": 151,
+      "sha256": "94da88f14d456461bd7dccefec2c4ae1ae0d5f34c49834499aa5a267d0544721",
+      "total": 5.9,
+      "date": "2025-03-24",
+      "store": "Mercadona",
+      "item_count": 2,
+      "complexity": "simple"
+    },
+    {
+      "id": 83,
+      "sha256": "59e7a908ec02a1cfb06ecbf81db35e08ed1e6c5ee0b2e509dcb1716284d9a088",
+      "total": 50.0,
+      "date": "2025-04-28",
+      "store": "Supermarco La Favorita",
+      "item_count": 7,
+      "complexity": "normal"
+    },
+    {
+      "id": 198,
+      "sha256": "ba4a76a465b2741d662306089787bdc6f9be7eb2ef3b79e1aced5550e0ec494f",
+      "total": 39.49,
+      "date": "2025-06-03",
+      "store": "Fruit\u00f3s",
+      "item_count": 8,
+      "complexity": "normal"
+    },
+    {
+      "id": 49,
+      "sha256": "2fa09092ba19046c9079fe2c1ea91bc76163ecd4900e73d3607ac5eb148aa1fb",
+      "total": 17.01,
+      "date": "2025-03-15",
+      "store": "Perla",
+      "item_count": 6,
+      "complexity": "normal"
+    },
+    {
+      "id": 42,
+      "sha256": "224515a0cec0cd5cfe21cdf706e0c87a3594fda5fae075b3772275a19bb807c2",
+      "total": 178.16,
+      "date": "2025-07-11",
+      "store": "Actur",
+      "item_count": 0,
+      "complexity": "simple"
+    },
+    {
+      "id": 177,
+      "sha256": "b10503b224a9823202e5d51611a64fb3b5ecbce745ccb95b5958e00207986f56",
+      "total": 26.78,
+      "date": "2025-03-15",
+      "store": "Av Alfonso V Magnani",
+      "item_count": 8,
+      "complexity": "normal"
+    },
+    {
+      "id": 133,
+      "sha256": "8627cc8957c65d8164dd3e555a79e4897350fb5d2d5f25dce34345fca490c033",
+      "total": 0.35,
+      "date": "2025-04-28",
+      "store": "MERCADONA",
+      "item_count": 2,
+      "complexity": "simple"
+    },
+    {
+      "id": 138,
+      "sha256": "892289efa29747f32bbf14f50296f81010bfd8f50e1925049888c8881fc188bf",
+      "total": 36.51,
+      "date": "2025-02-20",
+      "store": "Juntos es cooperativa",
+      "item_count": 11,
+      "complexity": "normal"
+    },
+    {
+      "id": 95,
+      "sha256": "652ba1682cd04f241235ea7f6c7d750aba90166f0553dc5e96d3e1c683e70d8c",
+      "total": 29.18,
+      "date": "2025-07-26",
+      "store": "MERCADUNA",
+      "item_count": 17,
+      "complexity": "normal"
+    },
+    {
+      "id": 71,
+      "sha256": "46d86e384acbcaf1081e96defafca1ef1d35fa72137b20832cab6840509f91c0",
+      "total": 25.9,
+      "date": "2025-03-15",
+      "store": "MERCADUNA",
+      "item_count": 7,
+      "complexity": "normal"
+    },
+    {
+      "id": 29,
+      "sha256": "17fd07d90cfd1b918613eb4d805a6435032a58269d9ad0a2b27839c414a94b35",
+      "total": 77.25,
+      "date": "2025-04-28",
+      "store": "DIAGONAL",
+      "item_count": 8,
+      "complexity": "normal"
+    },
+    {
+      "id": 182,
+      "sha256": "b3f15dd19e85eba39199755d23b6cb055aeea560fabbee68f522003469e5aef4",
+      "total": 16.83,
+      "date": "2025-02-20",
+      "store": "LIDL SUPERMERCADOS S.A.U",
+      "item_count": 3,
+      "complexity": "simple"
+    },
+    {
+      "id": 55,
+      "sha256": "33f9125ac5f8272fd9a73f1793e2403b20722e9f2058b7352955f233a9822b08",
+      "total": 24.06,
+      "date": "2025-11-21",
+      "store": "Panettiere Mat\u00f3",
+      "item_count": 10,
+      "complexity": "normal"
+    },
+    {
+      "id": 189,
+      "sha256": "b723c328d2056ba9312a9c4e1c39e21299f07456233f710d071a05d010e1fc5f",
+      "total": 41.45,
+      "date": "2025-06-03",
+      "store": "MASTER DISTRIBUCION ALIMENTARIA",
+      "item_count": 6,
+      "complexity": "normal"
+    },
+    {
+      "id": 178,
+      "sha256": "b1c6824d9a0e301f1cf8fd8404123a21278d1940ed7de6321e870f12015ad27f",
+      "total": 30.3,
+      "date": "2025-02-20",
+      "store": "VENE\u00c7UELA",
+      "item_count": 14,
+      "complexity": "normal"
+    },
+    {
+      "id": 121,
+      "sha256": "7e2d9699e9c4077ad3cc6d26b5fc85da16a51fad0bb91e2a7f72c785603775bb",
+      "total": 6.97,
+      "date": "2025-03-08",
+      "store": "MERCADONA",
+      "item_count": 1,
+      "complexity": "simple"
+    },
+    {
+      "id": 113,
+      "sha256": "78060019ffb01d45dcf80b8df07ebd9b4cb299eaf22f2921b33ea9b46a6b8ae9",
+      "total": 20.0,
+      "date": "2025-07-11",
+      "store": "GRUPU DIA",
+      "item_count": 7,
+      "complexity": "normal"
+    },
+    {
+      "id": 183,
+      "sha256": "b49a7cffe36e1ec1a02620765c92afd219e55bbb25eee2057419b295d2a556c9",
+      "total": 29.46,
+      "date": "2025-03-15",
+      "store": "MERCADUNA",
+      "item_count": 15,
+      "complexity": "normal"
+    },
+    {
+      "id": 92,
+      "sha256": "603d01e2e3e8d3a667de6a58043869f9d3fe9feb15a9ab51aeb6f1f5c549cc19",
+      "total": 2.0,
+      "date": "2025-04-28",
+      "store": "Manolo Bakes",
+      "item_count": 2,
+      "complexity": "simple"
+    },
+    {
+      "id": 107,
+      "sha256": "744fb24de4f4423712b7b1a76a0452d9bc8647200f6dacba29a915fb5064f602",
+      "total": 32.99,
+      "date": "2025-06-03",
+      "store": "RUME SUPERMETCATS, SL",
+      "item_count": 12,
+      "complexity": "normal"
+    },
+    {
+      "id": 39,
+      "sha256": "20997342be609ac775795a0d98ea2222db0533e121667238ef38b86128ec2fe7",
+      "total": 5.5,
+      "date": "2025-07-11",
+      "store": "CAMUNA, S.A",
+      "item_count": 4,
+      "complexity": "simple"
+    },
+    {
+      "id": 175,
+      "sha256": "af620e024b841cd43513fa1e82ae0d60ffab77f1174742fc458bea9e0e54769f",
+      "total": 39.48,
+      "date": "2025-07-11",
+      "store": "Cae",
+      "item_count": 7,
+      "complexity": "normal"
+    },
+    {
+      "id": 129,
+      "sha256": "84d5be27724e8ceaabbdb013d3473e8b8a068414286a9c20bd0c54c35060420a",
+      "total": 25.16,
+      "date": "2025-07-11",
+      "store": "Juntos es cooperativa",
+      "item_count": 11,
+      "complexity": "normal"
+    },
+    {
+      "id": 35,
+      "sha256": "1c5774a7320dd0be9bd3695a6a0ca705f6d295f976f04c11f3c0444d84e7a3c7",
+      "total": 11.34,
+      "date": "2025-07-11",
+      "store": "CONSUM S.COOP.V",
+      "item_count": 4,
+      "complexity": "simple"
+    },
+    {
+      "id": 59,
+      "sha256": "379ce162b19364532bde900a72e4cffa33ecb8991d053f5934bd7fd06975e174",
+      "total": -58.98,
+      "date": "2025-07-26",
+      "store": "IKEA",
+      "item_count": 2,
+      "complexity": "simple"
+    },
+    {
+      "id": 116,
+      "sha256": "7b1537cbeaef6a2e638a7aa45dc1ad8e8a33ab21b8738d1d638875f674b0302f",
+      "total": 21.31,
+      "date": "2025-01-03",
+      "store": "eMISFERO UNICOMM S.R.L",
+      "item_count": 8,
+      "complexity": "normal"
+    },
+    {
+      "id": 5,
+      "sha256": "03433513af5668bcb1ea60a498a3bb68d81bcc4327813e067b6a86a3536241b2",
+      "total": 18.97,
+      "date": "2025-06-03",
+      "store": "MERCADONA",
+      "item_count": 9,
+      "complexity": "normal"
+    },
+    {
+      "id": 72,
+      "sha256": "4b79dac1953268c87a536099cc004723a034e202006b29b0f7183f8901960548",
+      "total": 21.11,
+      "date": "2025-09-06",
+      "store": "MERCADUNA",
+      "item_count": 9,
+      "complexity": "normal"
+    },
+    {
+      "id": 3,
+      "sha256": "01ff2296d9d46b91d78236d9f22438772c93b19f67389cbf0b39243e36d93557",
+      "total": 10.18,
+      "date": "2025-07-11",
+      "store": "RUME SUPERMETCATS, SL",
+      "item_count": 6,
+      "complexity": "normal"
+    },
+    {
+      "id": 13,
+      "sha256": "0ba230e1ebee92cef7bc308e19cede04e7cd2763556049baff9e9ee61af1506b",
+      "total": 38.5,
+      "date": "2025-06-03",
+      "store": "Juntos es cooperativa",
+      "item_count": 7,
+      "complexity": "normal"
+    },
+    {
+      "id": 60,
+      "sha256": "39132e3033c2e9767fd93cf88d360c0a1771abc2e279fc0629f4d707d23b0ab0",
+      "total": 13.17,
+      "date": "2025-03-08",
+      "store": "Juntos es cooperativa",
+      "item_count": 6,
+      "complexity": "normal"
+    },
+    {
+      "id": 1,
+      "sha256": "002fe2495663e261d29157ba1445c6e539bb6aa1039f66e8fe36275f57c0c2d2",
+      "total": 3.79,
+      "date": "2025-07-11",
+      "store": "Auto Shoping Center St Pere IV",
+      "item_count": 1,
+      "complexity": "simple"
+    },
+    {
+      "id": 117,
+      "sha256": "7c05623c177541beda2e578161ce4920ff9b8001ff1e6719f60de39f75abaceb",
+      "total": 8.58,
+      "date": "2025-09-06",
+      "store": "Cal",
+      "item_count": 1,
+      "complexity": "simple"
+    },
+    {
+      "id": 41,
+      "sha256": "20e8047e9163e717554464f01e48f00cdbb3e28212d37cb24e5d96b77a0c4989",
+      "total": 24.09,
+      "date": "2025-07-11",
+      "store": "Pruitos",
+      "item_count": 13,
+      "complexity": "normal"
+    },
+    {
+      "id": 167,
+      "sha256": "a3d72ff8615b9a18a57542c1402325a67d5651c62772895ee198de7fec4048e9",
+      "total": 37.58,
+      "date": "2025-02-20",
+      "store": "MERCADUNA",
+      "item_count": 13,
+      "complexity": "normal"
+    },
+    {
+      "id": 20,
+      "sha256": "111da6969519e262add259ce02da8b489173aeef6f9a36af5914026db166dd5d",
+      "total": 20.32,
+      "date": "2025-04-10",
+      "store": "Mortadel\u00e0 Italiana",
+      "item_count": 6,
+      "complexity": "normal"
+    }
+  ]
+}
