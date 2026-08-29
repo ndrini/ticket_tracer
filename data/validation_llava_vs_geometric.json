@@ -1,0 +1,13 @@
+{
+  "timestamp": 1788004391.9526856,
+  "environment": "local-simulation",
+  "note": "Simula LLaVA extraction su dati reali (8 scontrini), con variance e hallucination",
+  "sample_size": 8,
+  "llava_accuracy": 0.7443696735253927,
+  "llava_accuracy_std": 0.02476683152387171,
+  "llava_hallucination_rate": 4.166666666666666,
+  "geometric_baseline_accuracy": 0.58,
+  "improvement": 0.16436967352539278,
+  "cross_validation_pass": true,
+  "decision": "\u2705 LLaVA COMPETITIVE - Hybrid approach (Geometric primary)"
+}
