@@ -91,6 +91,57 @@ def init_db(db_path):
     """
     )
 
+    # --- Fase G: Catalogo versionato ---
+
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS catalog_versions (
+            version_id INTEGER PRIMARY KEY,
+            phase TEXT NOT NULL CHECK (phase IN ('E.1_grezzo', 'E.2_clustered', 'E.3_canonical', 'E.4_split_proposed', 'E.5_split_applied')),
+            status TEXT NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'final', 'deprecated')),
+            created_at TEXT NOT NULL,
+            description TEXT,
+            stats TEXT
+        )
+    """
+    )
+
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS catalog_snapshots (
+            id INTEGER PRIMARY KEY,
+            version_id INTEGER NOT NULL,
+            logical_item_id TEXT,
+            product_id INTEGER,
+            canonical_name TEXT NOT NULL,
+            aka_list TEXT,
+            frequency INTEGER,
+            cluster_id INTEGER,
+            confidence REAL,
+            metadata TEXT,
+            FOREIGN KEY(version_id) REFERENCES catalog_versions(version_id),
+            UNIQUE(version_id, logical_item_id)
+        )
+    """
+    )
+
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS catalog_decisions (
+            id INTEGER PRIMARY KEY,
+            version_id INTEGER NOT NULL,
+            decision_type TEXT NOT NULL CHECK (decision_type IN ('CLUSTER_MERGE', 'FUSED_SPLIT', 'SKIP', 'REVIEW')),
+            target_type TEXT NOT NULL CHECK (target_type IN ('cluster', 'snapshot', 'receipt_line')),
+            target_id INTEGER NOT NULL,
+            decision_value TEXT,
+            metadata TEXT,
+            approved_by TEXT,
+            created_at TEXT,
+            FOREIGN KEY(version_id) REFERENCES catalog_versions(version_id)
+        )
+    """
+    )
+
     # # Dictionary Table for multilingual support and aliases
     # cursor.execute(
     #     """
