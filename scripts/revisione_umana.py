@@ -49,9 +49,151 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 from app.revisione.coda import costruisci_coda  # noqa: E402
 from app.revisione.dati import (  # noqa: E402
     costruisci_scheda, mappa_foto, registra_giudizio)
+from app.revisione.lavori import Lavori, cartelle_candidate  # noqa: E402
 from app.storage import costruisci_archivio  # noqa: E402
 
 RADICE = pathlib.Path(__file__).resolve().parent.parent
+
+
+# La pagina dell'ingestione: separata da quella di revisione, stesso servizio.
+# Separata perche' le due cose hanno tempi incompatibili — la revisione risponde
+# in millisecondi, un'ingestione dura minuti — e mescolarle costringerebbe chi
+# rivede ad aspettare, o chi ingerisce a non poter rivedere.
+PAGINA_INGESTIONE = """<!doctype html>
+<meta charset="utf-8"><title>Nuovi scontrini</title>
+<style>
+ :root{--bg:#f6f6f4;--carta:#fff;--bordo:#dcdcd6;--testo:#222;--tenue:#6b6b66;
+       --ok:#2e7d32;--no:#c62828;--attenzione:#b26a00}
+ *{box-sizing:border-box}
+ body{margin:0;font:14px/1.55 system-ui,-apple-system,sans-serif;
+      background:var(--bg);color:var(--testo)}
+ header{display:flex;align-items:baseline;gap:14px;padding:11px 18px;
+        background:var(--carta);border-bottom:1px solid var(--bordo)}
+ h1{font-size:15px;margin:0;font-weight:600}
+ a{color:var(--tenue)}
+ main{max-width:760px;margin:0 auto;padding:18px}
+ .riquadro{background:var(--carta);border:1px solid var(--bordo);border-radius:8px;
+           padding:14px 16px;margin-bottom:14px}
+ h2{font-size:12px;text-transform:uppercase;letter-spacing:.06em;
+    color:var(--tenue);margin:0 0 10px}
+ button{font:inherit;padding:6px 14px;border-radius:6px;border:1px solid var(--bordo);
+        background:#fafaf8;cursor:pointer}
+ button:hover:not(:disabled){background:#f0f0ec}
+ button:disabled{opacity:.45;cursor:default}
+ .primario{background:#222;color:#fff;border-color:#222;font-weight:600}
+ .primario:hover:not(:disabled){background:#000}
+ input[type=text]{font:inherit;padding:6px 9px;border:1px solid var(--bordo);
+                  border-radius:6px;width:230px}
+ table{border-collapse:collapse;width:100%;font-size:13px}
+ td{padding:4px 8px 4px 0;border-bottom:1px solid #f0f0ec}
+ td.n{text-align:right;color:var(--tenue);font-variant-numeric:tabular-nums}
+ pre{background:#1e1e1c;color:#e8e8e4;padding:11px 13px;border-radius:6px;
+     font-size:12px;line-height:1.5;max-height:320px;overflow:auto;margin:0;
+     white-space:pre-wrap}
+ .passo{display:flex;align-items:center;gap:10px;padding:5px 0}
+ .passo b{font-weight:600}
+ .tenue{color:var(--tenue)}
+ .esito{padding:2px 9px;border-radius:99px;font-size:12px;font-weight:600}
+ .in_corso{background:#fff5e6;color:var(--attenzione)}
+ .finito{background:#eaf5ea;color:var(--ok)}
+ .fallito{background:#fdecea;color:var(--no)}
+</style>
+<body>
+<header><h1>Nuovi scontrini</h1>
+  <a href="/">&larr; torna alla revisione</a></header>
+<main>
+  <div class="riquadro">
+    <h2>1. Cerca cosa e' nuovo</h2>
+    <p class="tenue" style="margin-top:0">Una cartella qualsiasi sul disco.
+      Riconosce anche le copie ridotte o ricompresse, e non elabora nulla.</p>
+    <input type="text" id="percorso" placeholder="/percorso/della/cartella">
+    <button onclick="ispeziona()" id="b_isp">Ispeziona</button>
+    <span id="quanto" class="tenue"></span>
+  </div>
+
+  <div class="riquadro">
+    <h2>2. Cartelle pronte sotto data/</h2>
+    <div id="cartelle" class="tenue">...</div>
+  </div>
+
+  <div class="riquadro">
+    <h2>3. Elabora</h2>
+    <div class="passo"><button onclick="avvia('ingestione')" id="b1">Ingestione</button>
+      <span class="tenue">ritaglia e legge il testo &mdash; ~2 min per foto</span></div>
+    <div class="passo"><button onclick="avvia('estrazione')" id="b2">Estrazione prodotti</button>
+      <span class="tenue">dai testi ai prodotti &mdash; secondi</span></div>
+    <div class="passo"><button onclick="avvia('vaglio')" id="b3">Vaglio</button>
+      <span class="tenue">separa i chiusi da quelli da ripassare</span></div>
+    <div class="passo"><button onclick="avvia('miniature')" id="b4">Miniature</button>
+      <span class="tenue">immagini piccole per il controllo visivo</span></div>
+  </div>
+
+  <div class="riquadro" id="riq_stato" style="display:none">
+    <h2>In corso <span id="etichetta" class="esito"></span></h2>
+    <pre id="uscita"></pre>
+  </div>
+</main>
+<script>
+let cartellaScelta = null, tempo = null;
+
+async function cartelle(){
+  const r = await fetch('/lavori/cartelle');
+  const d = await r.json();
+  const e = document.getElementById('cartelle');
+  if(!d.cartelle.length){ e.textContent = 'nessuna cartella di foto sotto data/'; return; }
+  e.innerHTML = '<table>' + d.cartelle.map(c =>
+    `<tr><td><label><input type="radio" name="c" value="${c.nome}"` +
+    `${c.nome===cartellaScelta?' checked':''} onchange="cartellaScelta=this.value">` +
+    ` ${c.nome}</label></td><td class="n">${c.immagini} immagini</td></tr>`
+  ).join('') + '</table>';
+}
+
+async function ispeziona(){
+  const p = document.getElementById('percorso').value.trim();
+  if(!p){ alert('Scrivi il percorso di una cartella.'); return; }
+  document.getElementById('b_isp').disabled = true;
+  document.getElementById('quanto').textContent = ' cerco...';
+  const r = await fetch('/lavori/avvia', {method:'POST',
+    body: JSON.stringify({lavoro:'ispeziona', percorso:p})});
+  const d = await r.json();
+  document.getElementById('quanto').textContent = d.ok ? '' : ' ' + d.messaggio;
+  document.getElementById('b_isp').disabled = false;
+  if(d.ok) guarda();
+}
+
+async function avvia(quale){
+  if((quale==='ingestione') && !cartellaScelta){
+    alert('Scegli prima una cartella sotto data/.'); return; }
+  const r = await fetch('/lavori/avvia', {method:'POST',
+    body: JSON.stringify({lavoro:quale, cartella:cartellaScelta})});
+  const d = await r.json();
+  if(!d.ok){ alert(d.messaggio); return; }
+  guarda();
+}
+
+function guarda(){ if(!tempo) tempo = setInterval(stato, 1200); stato(); }
+
+async function stato(){
+  const r = await fetch('/lavori/stato');
+  const d = await r.json();
+  if(!d.lavoro){ document.getElementById('riq_stato').style.display='none'; return; }
+  const L = d.lavoro;
+  document.getElementById('riq_stato').style.display='';
+  const e = document.getElementById('etichetta');
+  e.className = 'esito ' + L.stato;
+  e.textContent = L.nome + ' — ' + L.stato + ' (' + L.secondi + 's)';
+  const pre = document.getElementById('uscita');
+  const giu = pre.scrollTop + pre.clientHeight >= pre.scrollHeight - 30;
+  pre.textContent = L.righe.join('\n');
+  if(giu) pre.scrollTop = pre.scrollHeight;   // segue l'avanzamento, non se stai leggendo sopra
+  for(const b of ['b1','b2','b3','b4'])
+    document.getElementById(b).disabled = (L.stato === 'in_corso');
+  if(L.stato !== 'in_corso'){ clearInterval(tempo); tempo = null; cartelle(); }
+}
+
+cartelle(); stato();
+</script>
+"""
 
 # Folders a photo may come from, newest batch first. Keys inside the archive,
 # not paths: on S3 they become key prefixes.
@@ -172,6 +314,8 @@ function disegna(){
      <h1>#${S.receipt_id}</h1>
      <span class="etichetta ${S.sospetto}">${S.motivo}</span>
      <span class="avanzamento">${S.posizione} di ${S.totale_coda}</span>
+     <a href="/ingestione" class="avanzamento"
+        style="margin-left:auto">nuovi scontrini &rarr;</a>
    </header>
    <main>
      <div class="riquadro"><h2>Foto d'origine</h2>
@@ -400,7 +544,21 @@ class Sessione:
                 self.orienta(chiave)
 
 
+# I comandi che la pagina puo' avviare. Sono gli stessi script della riga di
+# comando, invocati: duplicarne la logica nel server significherebbe che un
+# domani i due divergono in silenzio.
+def comandi(cartella):
+    return {
+        "ingestione": ["scripts/fase_a_ingestione.py", cartella or ""],
+        "estrazione": ["scripts/fase_c_geometrica.py"],
+        "vaglio": ["scripts/vaglia_scontrini.py", "--archivia"],
+        "miniature": ["scripts/miniature.py"],
+    }
+
+
 def servi(sessione, porta):
+    lavori = Lavori()
+
     class Gestore(http.server.BaseHTTPRequestHandler):
         def log_message(self, *a):
             pass  # keep the console readable
@@ -429,6 +587,14 @@ def servi(sessione, porta):
             p = urllib.parse.urlparse(self.path)
             if p.path == "/":
                 return self._manda(PAGINA, "text/html; charset=utf-8")
+            if p.path == "/ingestione":
+                return self._manda(PAGINA_INGESTIONE, "text/html; charset=utf-8")
+            if p.path == "/lavori/cartelle":
+                return self._manda(json.dumps({"cartelle": cartelle_candidate()}))
+            if p.path == "/lavori/stato":
+                corrente = lavori.corrente
+                return self._manda(json.dumps(
+                    {"lavoro": corrente.come_dizionario() if corrente else None}))
             if p.path == "/scheda":
                 q = urllib.parse.parse_qs(p.query)
                 pos = int((q.get("pos") or ["0"])[0] or 0)
@@ -450,6 +616,25 @@ def servi(sessione, porta):
             if self.path == "/giudica":
                 sessione.giudica(corpo)
                 return self._manda(json.dumps({"ok": True}))
+            if self.path == "/lavori/avvia":
+                quale = corpo.get("lavoro")
+                if quale == "ispeziona":
+                    percorso = (corpo.get("percorso") or "").strip()
+                    if not percorso:
+                        return self._manda(json.dumps(
+                            {"ok": False, "messaggio": "percorso mancante"}))
+                    argomenti = ["scripts/ispeziona_cartella.py", percorso]
+                else:
+                    cartella = corpo.get("cartella")
+                    if quale == "ingestione" and not cartella:
+                        return self._manda(json.dumps(
+                            {"ok": False, "messaggio": "scegli una cartella"}))
+                    argomenti = comandi(cartella).get(quale)
+                    if argomenti is None:
+                        return self._manda(json.dumps(
+                            {"ok": False, "messaggio": f"lavoro ignoto: {quale}"}))
+                ok, messaggio = lavori.avvia(quale, argomenti)
+                return self._manda(json.dumps({"ok": ok, "messaggio": messaggio}))
             self._manda(b"", "text/plain", 404)
 
     class Server(socketserver.ThreadingMixIn, http.server.HTTPServer):
@@ -457,7 +642,8 @@ def servi(sessione, porta):
         allow_reuse_address = True
 
     with Server(("127.0.0.1", porta), Gestore) as s:
-        print(f"\n  Revisione su http://localhost:{porta}")
+        print(f"\n  Revisione       http://localhost:{porta}")
+        print(f"  Nuovi scontrini http://localhost:{porta}/ingestione")
         print(f"  {len(sessione.coda)} scontrini in coda. Ctrl-C per uscire.\n")
         try:
             s.serve_forever()
