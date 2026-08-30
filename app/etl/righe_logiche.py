@@ -253,3 +253,33 @@ def ricomponi(righe_ocr):
 def testo_ricomposto(righe_ocr):
     """Lo scontrino come testo, una riga fisica per riga."""
     return "\n".join(r for r in ricomponi(righe_ocr) if r)
+
+
+def stessa_riga(righe_ocr):
+    """Un test `(y, x) -> bool` che dice se un frammento sta su una data riga.
+
+    Serve a chi ragiona per COORDINATE e non per testo — l'estrattore
+    geometrico deve sapere quali frammenti stanno accanto a un importo, non
+    leggere la riga gia' composta.
+
+    Perche' esiste invece di lasciare che ognuno confronti le y: un confronto
+    orizzontale `abs(y1 - y2) < k` assume lo scontrino dritto. MISURATO sul
+    materiale: la mediana e' 0 gradi, ma il decimo peggiore sta a 2,1 gradi e il
+    massimo a 4,2 — su uno scontrino largo 400 px sono 15-30 px di dislivello,
+    quanto un'intera riga di testo. Su quelli il confronto orizzontale aggancia
+    la riga sbagliata.
+
+    Restituisce anche l'altezza mediana, che i chiamanti usano come unita' di
+    misura al posto di una costante in pixel.
+    """
+    if not righe_ocr:
+        return (lambda ya, xa, yb, xb: False), 1.0
+
+    altezza = float(np.median([_altezza(r["box"]) for r in righe_ocr])) or 1.0
+    pendenza = inclinazione(righe_ocr)
+
+    def sono_vicine(ya, xa, yb, xb, tolleranza=0.5):
+        """Le due y, raddrizzate, distano meno di `tolleranza` righe."""
+        return abs((ya - pendenza * xa) - (yb - pendenza * xb)) < tolleranza * altezza
+
+    return sono_vicine, altezza

@@ -9,7 +9,108 @@ Nasce da un episodio concreto: `scripts/` contiene quindici file di cui buona pa
 
 ---
 
-## ⭐ ADESSO — 2026-08-23
+## ⭐ ADESSO — 2026-08-30
+
+Ramo `feat_UI_for_review`. Costruita un'**interfaccia di revisione umana**
+(`scripts/revisione_umana.py`, porta 8098): foto d'origine orientata, ritaglio,
+righe estratte, e due domande separate — il taglio e' buono? i dati sono giusti?
+Registra un giudizio in `manual_review_queue`, non corregge nulla.
+Quando una foto ha prodotto piu' ritagli, delle schede in cima li mostrano tutti
+e la coda li tiene consecutivi (prima distavano 78 posizioni in mediana).
+
+Ingerite le 24 foto del 2026: 14 nuove, 39 scontrini. Dieci erano duplicati
+riconosciuti dall'hash percettivo, quattro dei quali duplicavano foto del 2025.
+Sono a meta' pipeline: hanno ritagli e OCR, non sono nel database.
+
+### Cosa dicono i 33 giudizi umani
+
+| misura | valore |
+| --- | --- |
+| ritaglio giudicato buono | 28/33, **85%** |
+| scontrini con dati giusti | **0/33** |
+| righe scartate al caricamento perche' senza nome | 237/1752, **14%** |
+| **valore economico che non entra nel database** | **2054 EUR su 6133, 33%** |
+| righe nel database il cui nome NON e' un prodotto | 98/1556, 6% |
+| totale stampato letto male (dichiarato dall'umano) | 7/28, 25% |
+
+**Il collo di bottiglia non e' ne' il ritaglio ne' l'OCR: e' l'ASSOCIAZIONE
+nome/prezzo.** Sullo scontrino #137 PaddleOCR produce 91 righe di testo coi nomi
+catalani corretti (`Alberginia`, `Cogombre`, `Pastanaga`) e nel database ne
+arrivano 3. L'OCR restituisce ogni parola separata: nome e prezzo non sono mai
+sulla stessa riga, e il collegamento va ricostruito per coordinate.
+
+**Il 33% del valore sparisce in silenzio.** L'estrattore geometrico trova il
+PREZZO e lascia il NOME vuoto (in uno scontrino, 9 righe su 12); poi
+`fase_d_carica_db.py` chiama `trova_o_crea_prodotto()`, che restituisce `None`
+sul nome vuoto, e salta la riga con un `continue` senza lasciare traccia. Uno
+scontrino da 849,64 EUR perde il 100% del proprio valore.
+
+### Il VLM e' stato provato e scartato
+
+Confronto dichiarato prima di misurare (`docs/122_metrica_confronto_vlm.md`),
+LLaVA 1.5 7B su 28 ritagli col taglio buono, su T4 di Kaggle e in locale:
+**geometrico 0/28, VLM 0/28**, e sconfitta netta sulle guardie (23 risposte su
+28 illeggibili). Il VLM **inventa prodotti plausibili**: `MATTRESS 399,00 EUR`
+su uno scontrino IKEA da 16,00 EUR, il nome del negozio preso per un prodotto,
+e una risposta che ha ricopiato l'esempio del prompt. Su uno scontrino la sua
+somma era 30,10 contro 30,47 stampati — quasi perfetta grazie a una riga
+inventata da 21,90: senza le metriche di guardia sarebbe sembrata una vittoria.
+
+Il geometrico sbaglia in modo VERIFICABILE, il VLM no. Motivazione corretta per
+lo scarto: senza GPU stabile e con necessita' di verificabilita' automatica, un
+VLM generico aggiunge complessita' senza beneficio misurato.
+
+### ⚠️ Il pezzo dimenticato
+
+`app/etl/righe_logiche.py` ricompone i frammenti OCR nelle righe fisiche
+**seguendo la pendenza del testo**, e' testato e misurato. Lo importano
+`fase_c_estrazione.py` (ramo LLM) e i test.
+
+**`scripts/fase_c_geometrica.py` NON lo importa** — e ha prodotto 287 scontrini
+su 306. Usa `abs(y - y_addendo) >= 0.5 * altezza`, confronto orizzontale che
+ignora l'inclinazione. Misurato: mediana 0 gradi (la maggior parte e' dritta),
+ma il 10% peggiore sta a 2,1 gradi e il massimo a 4,2 — 15-30 px di dislivello
+su righe alte ~30 px. Trovato da Gemini leggendo il codice, non dalle misure.
+
+### Il prossimo passo, col consenso di Perplexity e Gemini (Vibe non ha risposto)
+
+1. **Collegare `righe_logiche.py` al ramo geometrico.** Codice gia' scritto e
+   testato; i 33 giudizi fanno da metro. ← in corso
+2. **Smettere di scartare le righe senza nome.** Salvarle marcate incomplete,
+   **fuori dal catalogo prodotti** (entrambi gli agenti insistono su questo:
+   nei report come "spesa non classificata", mai come categoria). Da' anche lo
+   strumento per misurare quanto il punto 1 migliora le cose.
+3. **Rendere esplicito il dubbio sul totale stampato** invece di trattarlo come
+   verita': serve un campo di affidabilita', o separare il contante dal totale.
+4. **TODO — template per catena.** Idea dell'utente: marcare a mano in una
+   interfaccia dove stanno il nome della catena, la struttura delle righe, il
+   totale e lo sconto; poi riconoscere lo scontrino e applicare il template, con
+   ripiego sul metodo generico per i mai visti. Misurato a supporto: 5 formati
+   coprono il 44% del corpus, 10 il 57%, e il layout e' stabile dentro la catena
+   (colonna prezzi al 89% della larghezza da Consum, 96% da Mercadona, dev.st
+   6-7 punti). Da sottoporre agli agenti prima di implementare.
+
+⚠️ Questi numeri sui formati **contraddicono in parte** la nota in fondo a
+questo file ("quattro catene coprono il 22,5%, il 47% viene da negozi visti una
+volta sola"). La differenza e' il metodo: qui il raggruppamento e' per firma
+dell'intestazione OCR con fusione delle varianti (`MERCADONA`/`MERCADUNA`,
+`CONSUM`/`ONSUM`), non per il nome del negozio nel database — che e'
+inaffidabile, come mostra la tabella sopra. Va rifatto per bene prima di
+decidere sui template.
+
+### Critiche degli agenti da tenere presenti
+
+Perplexity ha smontato tre conclusioni piu' forti dei dati: "l'OCR non e' il
+collo di bottiglia" viene da UN scontrino; "il ritaglio funziona" da 33 su 287;
+il rifiuto del VLM vale per quel setup, non in generale. E ha colto il buco
+vero: **non era mai stata misurata la correttezza delle righe che ENTRANO** nel
+database — solo quelle perse. Misurato poi: il 6% dei nomi non sono prodotti
+(`%`, `a iva`, `art. total a pagar`, `kg 0,70 EUR/kg`).
+
+---
+
+## Passato — 2026-08-23
+
 
 Ramo `feat_step_A`. Ultimo commit `8239bc0`, estrazione su GPU Kaggle.
 

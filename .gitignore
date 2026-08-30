@@ -60,3 +60,13 @@ data/foto_viste.json
 data/strutturati
 data/spese.db
 data/strutturati_vecchi
+
+# Foto girate per la revisione: ricostruibili, non si versionano
+data/cache_revisione_orientate
+
+# Copie preparate per l upload: ricostruibili dal database
+data/kaggle_ritagli
+data/kaggle_output
+
+# Foto sorgente: stanno in /mnt/condivisa, qui e una copia di lavoro
+data/2026_scontrini

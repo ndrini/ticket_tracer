@@ -22,6 +22,7 @@ sys.path.insert(0, os.getcwd())
 
 from app.etl.addendi import addendi, TOLLERANZA_SOMMA  # noqa: E402
 from app.etl.geometria import altezza_riga, centro_x, centro_y, colonna_dei_prezzi  # noqa: E402
+from app.etl.totale import trova_totale  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 ESTRATTI = ROOT / "data" / "estratti"
@@ -177,11 +178,21 @@ def main(argv):
             continue
 
         meta = metadati.get(sha256, {})
+
+        # Il totale si LEGGE, non si copia dai file dell'LLM. Quelli esistono
+        # solo per 218 scontrini su 287: per gli altri il totale restava None
+        # anche quando trova_totale() lo legge benissimo dal testo OCR.
+        # MISURATO il 2026-08-30: 69 totali su 91 recuperati cosi', fra cui
+        # "TOTAL (€) 26,81" e "TOTAL (€) 16,29", perfettamente leggibili.
+        totale = trova_totale(dati.get("righe_ocr") or [])
+        if totale is None:
+            totale = meta.get("total")
+
         risultato = estrai_geometrico(
             dati.get("righe_ocr", []),
             sha256,
             meta.get("shop_name"),
-            meta.get("total"),
+            totale,
             meta.get("date"),
             meta.get("foto_origine")
         )
