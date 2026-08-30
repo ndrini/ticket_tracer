@@ -446,3 +446,79 @@ costo si paga una volta sola in ingestione.
 
 Provato sul codice vero: la stessa foto a 0, 90 e 180 gradi -> DUPLICATO al 100%
 in tutti e tre i casi. Prima passava per nuova (distanza 29-32).
+
+## Ricostruzione delle righe: metriche dichiarate PRIMA (2026-08-30)
+
+CAA a tre, concordi: soglia relativa all'altezza + centro della banda +
+sovrapposizione verticale; accoppiamento nome/numeri verificato dall'aritmetica;
+avviso e non correzione quando non torna.
+
+Si scrivono qui PRIMA di misurare, altrimenti la metrica si adatta al risultato.
+
+### Metrica principale
+
+    bande che fondono piu' prodotti     58% degli scontrini  ->  < 10%
+
+### Metriche di guardia (non devono peggiorare)
+
+    coerenza aritmetica righe a peso    92% (169/184)  ->  >= 92%
+    frammenti orfani (non assegnati)     0%            ->    0%
+    scontrini con somma che quadra     201/325 (62%)   ->  >= 62%
+
+Quest'ultima e' una guardia, NON una prova: quadrava anche col difetto (il caso
+Cal Fruitos quadrava al centesimo coi prezzi tutti sul prodotto sbagliato). Serve
+solo a scoprire se la nuova ricostruzione rompe cio' che oggi funziona.
+
+### Cosa conta come fallimento
+
+Bande fuse sopra il 20%, oppure una qualunque guardia che peggiora.
+
+### La soluzione ESISTE GIA' nel progetto (2026-08-30)
+
+Avevo cominciato a scrivere un modulo nuovo. **Errore mio: non avevo cercato
+prima.** `app/etl/righe_logiche.py` esiste dal 25 agosto, ha 14 test, ed e' piu'
+completo di quello che stavo scrivendo — corregge l'INCLINAZIONE della foto
+prima di raggruppare (`inclinazione()`), e ricuce le righe spezzate
+(`_ricuci_righe_spezzate`), che era esattamente la domanda B del CAA. Il mio
+duplicato e' stato cancellato.
+
+Misurato sui 359 scontrini veri, righe che fondono piu' prodotti:
+
+    parse_raw_data()          (15px fissi, in uso in etl_engine)   85   24%
+    righe_logiche.ricomponi() (gia' esistente, usato da fase_c)    27    8%
+
+**Tre volte meglio, e c'era gia'.** Sul caso segnalato dall'utente ricostruisce
+tutto correttamente:
+
+    0,418  Poma Royal Gala Extra      3,48  1,45     0,418 x 3,48 = 1,45
+    0,544  Taronja Extra Cal Fruitos  2,98  1,62     0,544 x 2,98 = 1,62
+           Alvocat Extra Cal Fruitos        4,00
+    2      Dus Ecologics "M/L"        2,95  5,90     2 x 2,95 = 5,90
+
+### Perche' allora i dati sono sbagliati: la vera causa
+
+`scripts/fase_c_geometrica.py` — che produce `data/strutturati_geometrici/`,
+cioe' i file con lo sfasamento — **non usa `righe_logiche`**. Usa
+`app/etl/geometria.py`, e accoppia nome e prezzo cosi':
+
+    def nome_per_addendo(righe_ocr, y_addendo, x_addendo, altezza):
+        """Il nome che sta a SINISTRA dell'addendo, sulla sua stessa riga."""
+        if abs(y - y_addendo) >= 0.5 * altezza:   # STESSA RIGA
+            continue
+
+Cerca il nome **sulla stessa riga fisica dell'importo**. Ma sui formati a peso
+il nome sta sulla riga SOPRA: non lo trova, e prende quello che capita a
+sinistra — che appartiene a un altro prodotto. Da qui i nomi vuoti e lo
+sfasamento.
+
+Non e' un difetto di ricostruzione delle righe: e' `fase_c_geometrica` che
+presume un layout a una riga. Il pezzo che sa gestire le due righe esiste gia'
+e non e' collegato.
+
+### Da fare (non ancora fatto)
+
+Collegare `righe_logiche.ricomponi()` a `fase_c_geometrica`, o portare in
+`nome_per_addendo` la ricucitura che `righe_logiche` fa gia'. Poi rielaborare i
+359 estratti (costa secondi, i frammenti OCR sono su disco) e rimisurare le
+metriche dichiarate sopra. La fase D resta sospesa fino ad allora.
+
