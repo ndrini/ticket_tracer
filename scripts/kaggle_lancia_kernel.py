@@ -43,6 +43,27 @@ USCITA = ROOT / "data" / "kaggle_output"
 SLUG = "ticket-tracer-estrazione-gpu"
 TITOLO = "ticket tracer estrazione gpu"
 
+# Altri lavori che usano la stessa meccanica (T4 esplicita, kernel privato,
+# slug uguale al titolo). Si passano con --lavoro invece di duplicare questo
+# script: le avvertenze qui sopra sono cicatrici gia' pagate una volta.
+LAVORI = {
+    "estrazione": {
+        "sorgente": "kaggle_estrai_gpu.py",
+        "slug": SLUG,
+        "titolo": TITOLO,
+        "dataset": "ticket-tracer-ocr",
+    },
+    "vlm": {
+        # Sotto experiments/, non notebooks/: e' lo strumento di una misura gia'
+        # conclusa (esito negativo, vedi docs/122), non un pezzo di pipeline.
+        "cartella": "experiments/vlm",
+        "sorgente": "kaggle_vlm_confronto.py",
+        "slug": "ticket-tracer-vlm-confronto",
+        "titolo": "ticket tracer vlm confronto",
+        "dataset": "ticket-tracer-ritagli",
+    },
+}
+
 # ⛔️ La T4 va chiesta ESPLICITAMENTE. Lasciando scegliere a Kaggle arriva una
 # P100 (capability CUDA sm_60), mentre il PyTorch preinstallato parte da sm_70:
 # il modello si carica, scarica i pesi, e muore alla prima inferenza con
@@ -73,19 +94,20 @@ def utente() -> str:
     return ""
 
 
-def prepara(nome_utente: str, dataset: str) -> Path:
+def prepara(nome_utente: str, dataset: str, lavoro: dict) -> Path:
     """Cartella con il codice e il `kernel-metadata.json`."""
-    if not SORGENTE.exists():
-        raise SystemExit(f"⛔️ kernel non trovato: {SORGENTE}")
+    sorgente = ROOT / lavoro.get("cartella", "notebooks") / lavoro["sorgente"]
+    if not sorgente.exists():
+        raise SystemExit(f"⛔️ kernel non trovato: {sorgente}")
     if STAGING.exists():
         shutil.rmtree(STAGING)
     STAGING.mkdir(parents=True)
-    shutil.copy(SORGENTE, STAGING / SORGENTE.name)
+    shutil.copy(sorgente, STAGING / sorgente.name)
 
     metadata = {
-        "id": f"{nome_utente}/{SLUG}",
-        "title": TITOLO,
-        "code_file": SORGENTE.name,
+        "id": f"{nome_utente}/{lavoro['slug']}",
+        "title": lavoro["titolo"],
+        "code_file": sorgente.name,
         "language": "python",
         "kernel_type": "script",
         # ⛔️ Il kernel contiene il codice E l'output: negozi, date e importi
@@ -144,13 +166,18 @@ def main() -> int:
     parser.add_argument("--stato", action="store_true", help="a che punto e' l'esecuzione")
     parser.add_argument("--scarica", action="store_true", help="scarica l'output prodotto")
     parser.add_argument("--utente", default="")
-    parser.add_argument("--dataset", default=DATASET, help="slug del dataset in ingresso")
+    parser.add_argument("--lavoro", choices=sorted(LAVORI), default="estrazione",
+                        help="quale kernel spingere")
+    parser.add_argument("--dataset", default="", help="slug del dataset in ingresso")
     args = parser.parse_args()
+
+    lavoro = LAVORI[args.lavoro]
+    dataset_scelto = args.dataset or lavoro["dataset"]
 
     nome_utente = args.utente or utente()
     if not nome_utente:
         raise SystemExit("username Kaggle non deducibile: passalo con --utente <nome>")
-    riferimento = f"{nome_utente}/{SLUG}"
+    riferimento = f"{nome_utente}/{lavoro['slug']}"
 
     if args.stato:
         print(stato(riferimento))
@@ -173,11 +200,11 @@ def main() -> int:
             print(f"  {percorso.name} ({percorso.stat().st_size / 1024:.0f} KB)")
         return 0
 
-    cartella = prepara(nome_utente, args.dataset)
+    cartella = prepara(nome_utente, dataset_scelto, lavoro)
     controlla(cartella)
     print(f"kernel pronto in {cartella}")
     print(f"  id: {riferimento}   privato: si'   GPU: {ACCELERATORE}")
-    print(f"  dataset in ingresso: {nome_utente}/{args.dataset}")
+    print(f"  dataset in ingresso: {nome_utente}/{dataset_scelto}")
 
     if not args.esegui:
         print("\nPROVA A VUOTO. Con --esegui spingerei e avvierei l'esecuzione su GPU.")
