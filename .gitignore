@@ -77,3 +77,9 @@ data/test_spese.db
 # Miniature: ricostruibili dai ritagli con scripts/miniature.py
 # (la tabella `miniature` nel db conserva le impronte)
 data/miniature
+
+# Credenziali Google, se mai finissero per sbaglio nella cartella del progetto.
+# Il posto giusto e' ~/.config/ticket-tracer/, ma una rete di sicurezza costa
+# due righe e un segreto committato non si toglie piu' dalla storia.
+client_secret*.json
+token.json

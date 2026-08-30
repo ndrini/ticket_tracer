@@ -15,6 +15,8 @@ dependencies = [
     "pydantic",
     "kaggle>=2.2.4",
     "boto3>=1.43.83",
+    "google-api-python-client>=2.199.0",
+    "google-auth-oauthlib>=1.4.1",
 ]
 authors = [
     { name = "ndrini", email = "aless@ndrini.eu" },
@@ -28,6 +30,12 @@ dev = [
 
 [tool.pytest.ini_options]
 pythonpath = "."
+# I test stanno in tests/. Senza questo, `pytest` senza argomenti raccoglie
+# anche scripts/test_llava_local_quick.py, che non e' un test ma un programma
+# e chiama sys.exit(1) mentre viene importato: la raccolta muore prima di
+# eseguire qualunque cosa.
+testpaths = ["tests"]
 markers = [
     "integration: richiede servizi esterni (Ollama, modelli locali) o immagini reali",
+    "drive: parla col Google Drive vero; serve l'autorizzazione una tantum",
 ]

@@ -9,6 +9,8 @@ the contract.
 New backends (Google Drive, ...) subclass ArchivioConforme and only provide the
 `archivio` fixture.
 """
+import uuid
+
 import pytest
 
 from app.storage.archivio import ArchivioImmagini, ChiaveAssente
@@ -96,3 +98,43 @@ class TestArchivioS3(ArchivioConforme):
                 CreateBucketConfiguration={"LocationConstraint": "eu-south-1"},
             )
             yield ArchivioS3(bucket="prova", prefisso="produzione/", client=client)
+
+
+@pytest.mark.drive
+class TestArchivioDrive(ArchivioConforme):
+    """Lo stesso contratto, su Google Drive.
+
+    Contro il servizio VERO, non contro un finto: di Drive non esiste un
+    equivalente di moto che sia fedele abbastanza da valerne la pena, e un
+    finto scritto da noi proverebbe soltanto che il nostro finto e' d'accordo
+    col nostro codice.
+
+    Percio' questi test sono esclusi di default (marcatore `drive`) e servono
+    a mano quando si tocca il backend:
+
+        uv run pytest -m drive tests/storage/
+
+    Ogni test riceve una cartella usa-e-getta sotto `prove/`, cancellata alla
+    fine: una passata fallita non lascia rifiuti nel Drive dell'utente.
+    """
+
+    @pytest.fixture
+    def archivio(self):
+        pytest.importorskip("googleapiclient")
+        from app.storage.drive import TOKEN, ArchivioDrive
+
+        if not TOKEN.is_file():
+            pytest.skip("Drive non autorizzato: scripts/autorizza_drive.py")
+
+        # Un nome solo, senza "/": la radice e' UNA cartella di primo livello,
+        # non un percorso, e uno slash qui creerebbe una cartella dal nome
+        # assurdo invece di due annidate.
+        radice = f"ticket-tracer-prove-{uuid.uuid4().hex[:12]}"
+        archivio = ArchivioDrive(radice=radice)
+        yield archivio
+
+        # Pulizia: si cancella la cartella di prova, non i singoli file, cosi'
+        # sparisce anche cio' che un test fallito ha lasciato a meta'.
+        identificativo = archivio._cartella("", crea=False)
+        if identificativo:
+            archivio.servizio.files().delete(fileId=identificativo).execute()

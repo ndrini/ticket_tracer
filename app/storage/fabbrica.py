@@ -47,7 +47,16 @@ def costruisci_archivio(settings: str | Path | None = None) -> ArchivioImmagini:
                              fallback=os.environ.get("AWS_REGION", "eu-south-1")),
         )
 
+    if tipo == "drive":
+        from app.storage.drive import ArchivioDrive
+        # No credentials here either: the OAuth token lives in
+        # ~/.config/ticket-tracer/token.json, written once by
+        # scripts/autorizza_drive.py.
+        return ArchivioDrive(
+            radice=conf.get("archivio", "radice", fallback="ticket-tracer"),
+        )
+
     raise ValueError(
         f"tipo di archivio sconosciuto: {tipo!r} in {percorso}. "
-        f"Validi: locale, s3."
+        f"Validi: locale, s3, drive."
     )
