@@ -118,3 +118,91 @@ costante, una POST per azione, salvataggio a ogni battuta, e soprattutto
 - **Ogni giudizio "sbagliato" e' un buco dichiarato che va poi chiuso.** Serve
   un passo successivo che li raccolga e decida cosa farne, altrimenti la
   marcatura diventa un alibi.
+
+---
+
+# Parte 2 — La pagina di elaborazione
+
+Stato: **FATTA e provata**. Data: 2026-08-30.
+
+La revisione risponde alla domanda "questo scontrino e' giusto?". Questa pagina
+risponde a un'altra: "a che punto siamo, e cosa conviene fare adesso?".
+
+## Il quadro d'insieme
+
+Prima si scopriva solo lanciando i comandi. Ora `/riassunto` li dice
+all'apertura. Sui dati veri del 2026-08-30:
+
+    foto sul disco          207     di cui 13 mai ingerite
+    scontrini ritagliati    360     360 col testo letto
+    strutturati             325
+      chiusi                178     la somma quadra e i nomi ci sono
+      da ripassare          147
+
+**Non chiede niente a Google Drive**, ed e' la scelta che conta. Lassu' ci sono
+833 file: contarli a ogni caricamento sarebbe una chiamata di rete per un numero
+che cambia solo quando si preme un pulsante, e la pagina diventerebbe lenta e
+inservibile senza connessione. Due test lo impongono — uno vieta di costruire
+l'archivio remoto, l'altro vieta `socket.connect` — perche' una buona intenzione
+scritta in un commento non regge alla prima fretta.
+
+## L'ordine si mostra, non si impone
+
+Le fasi sono numerate da 1 a 7 e ognuna dice cosa fa, quando si esegue e quanto
+costa. Ma nessun controllo impedisce di lanciarle fuori ordine.
+
+E' deliberato: ogni script e' **gia' idempotente** e salta cio' che ha fatto. Un
+blocco nell'interfaccia sarebbe una SECONDA verita' sullo stato del lavoro,
+libera di divergere da quella vera — e quando divergesse, impedirebbe un'azione
+legittima senza spiegare perche'.
+
+## La fase D c'e', disabilitata, col motivo scritto
+
+Il caricamento nel database e' sospeso: sui formati a peso il nome e il prezzo
+vengono accoppiati male **e la somma quadra lo stesso**, quindi gli scontrini
+sbagliati risulterebbero `chiuso`, cioe' certificati come buoni.
+
+Il pulsante non e' stato tolto. Un pulsante assente e' una domanda ("perche' non
+si puo' caricare nel database?"), uno disabilitato con la ragione accanto e' una
+risposta. Chi torna fra sei mesi la trova nella pagina, non in un commento.
+
+La difesa non e' solo visiva: `database` **non compare fra i comandi eseguibili**
+del server, quindi la rotta non lo lancerebbe nemmeno ricevendo la richiesta a
+mano. Un `disabled` nell'HTML sta nel browser, e il browser non e' un guardiano.
+Un test lo verifica.
+
+## Cosa NON e' stato aggiunto, e perche'
+
+Consultati Vibe e Perplexity, concordi (Gemini fuori quota giornaliera):
+
+| Tentazione | Perche' no |
+|---|---|
+| Pulsante "esegui tutto" | Bloccherebbe per ore senza potersi fermare in mezzo |
+| Avvio automatico all'arrivo di foto nuove | Contro "segnalare, non correggere d'ufficio" |
+| Framework web (Flask, FastAPI) | Il progetto sta in libreria standard, e basta |
+| Stato di Drive in tempo reale | Una chiamata di rete a ogni caricamento |
+| Autenticazione | Utente singolo in locale: sarebbe codice morto |
+| Polling continuo del riassunto | Cambia solo dopo un lavoro: si rilegge allora |
+
+## Come e' fatta
+
+- `app/revisione/riassunto.py` — i numeri e l'elenco delle fasi. Nessuna rete.
+- `scripts/revisione_umana.py` — rotta `GET /riassunto`, pagina che disegna i
+  pulsanti **dai dati**: prima erano scritti a mano nell'HTML, cioe' due elenchi
+  da tenere allineati a memoria. Un test impedisce che tornino.
+- I comandi restano invocazioni degli stessi script della riga di comando, mai
+  logica duplicata nel server.
+
+## Prove
+
+31 test, scritti prima del codice (rosso, poi verde). Oltre ai conteggi:
+
+- il riassunto non tocca la rete (due test, uno per via);
+- ogni comando punta a uno script che **esiste** — un refuso qui fallirebbe solo
+  alla pressione del pulsante, minuti dopo;
+- ogni fase mostrata e' lanciabile, e la sospesa non lo e';
+- i comandi Drive contengono `--esegui`: senza, direbbero soltanto cosa
+  farebbero, e il pulsante sembrerebbe riuscito senza caricare niente.
+
+Provata anche contro il server vero: `/riassunto` risponde coi numeri qui sopra,
+`/ingestione` e la pagina di revisione rispondono 200.

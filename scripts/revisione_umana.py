@@ -50,6 +50,7 @@ from app.revisione.coda import costruisci_coda  # noqa: E402
 from app.revisione.dati import (  # noqa: E402
     costruisci_scheda, mappa_foto, registra_giudizio)
 from app.revisione.lavori import Lavori, cartelle_candidate  # noqa: E402
+from app.revisione.riassunto import FASI, riassumi  # noqa: E402
 from app.storage import costruisci_archivio  # noqa: E402
 
 RADICE = pathlib.Path(__file__).resolve().parent.parent
@@ -117,15 +118,16 @@ PAGINA_INGESTIONE = """<!doctype html>
   </div>
 
   <div class="riquadro">
+    <h2>A che punto siamo</h2>
+    <div id="riassunto" class="tenue">...</div>
+  </div>
+
+  <div class="riquadro">
     <h2>3. Elabora</h2>
-    <div class="passo"><button onclick="avvia('ingestione')" id="b1">Ingestione</button>
-      <span class="tenue">ritaglia e legge il testo &mdash; ~2 min per foto</span></div>
-    <div class="passo"><button onclick="avvia('estrazione')" id="b2">Estrazione prodotti</button>
-      <span class="tenue">dai testi ai prodotti &mdash; secondi</span></div>
-    <div class="passo"><button onclick="avvia('vaglio')" id="b3">Vaglio</button>
-      <span class="tenue">separa i chiusi da quelli da ripassare</span></div>
-    <div class="passo"><button onclick="avvia('miniature')" id="b4">Miniature</button>
-      <span class="tenue">immagini piccole per il controllo visivo</span></div>
+    <p class="tenue" style="margin:0 0 10px">L'ordine e' quello dei numeri, ma
+      nessuno lo impone: ogni passo salta da solo cio' che ha gia' fatto,
+      quindi rilanciarlo non guasta.</p>
+    <div id="fasi"></div>
   </div>
 
   <div class="riquadro" id="riq_stato" style="display:none">
@@ -146,6 +148,38 @@ async function cartelle(){
     `${c.nome===cartellaScelta?' checked':''} onchange="cartellaScelta=this.value">` +
     ` ${c.nome}</label></td><td class="n">${c.immagini} immagini</td></tr>`
   ).join('') + '</table>';
+}
+
+// Il riassunto arriva da file locali, quindi si puo' chiedere all'apertura
+// senza rallentare nulla. Niente polling: cambia solo dopo un lavoro.
+async function riassunto(){
+  const d = await (await fetch('/riassunto')).json();
+  const n = d.numeri;
+  const righe = [
+    ['Foto sul disco', n.foto, n.da_ingerire ? n.da_ingerire + ' da ingerire' : 'tutte gia' + "'" + ' viste'],
+    ['Scontrini ritagliati', n.ritagli, n.estratti + ' con il testo letto'],
+    ['Strutturati', n.strutturati, n.miniature + ' con miniatura'],
+    ['&nbsp;&nbsp;chiusi', n.chiusi, 'la somma quadra e i nomi ci sono'],
+    ['&nbsp;&nbsp;da ripassare', n.da_ripassare, 'manca un nome o la somma non torna'],
+  ];
+  if(n.illeggibili) righe.push(['&nbsp;&nbsp;illeggibili', n.illeggibili, 'file rotti, da rifare']);
+  document.getElementById('riassunto').innerHTML = '<table>' + righe.map(r =>
+    `<tr><td>${r[0]}</td><td class="n">${r[1]}</td><td class="tenue">${r[2]}</td></tr>`
+  ).join('') + '</table>';
+
+  document.getElementById('fasi').innerHTML = d.fasi.map((f, i) => {
+    const dettaglio = `${f.spiega} <i>${f.quando} &mdash; ${f.costo}</i>`;
+    if(f.sospesa){
+      // Presente ma disabilitata, col motivo accanto: un pulsante assente e'
+      // una domanda, uno disabilitato con la ragione e' una risposta.
+      return `<div class="passo"><b class="tenue">${i+1}.</b>` +
+             `<button disabled>${f.titolo}</button>` +
+             `<span class="tenue">sospesa &mdash; ${f.perche}</span></div>`;
+    }
+    return `<div class="passo"><b class="tenue">${i+1}.</b>` +
+           `<button onclick="avvia('${f.chiave}')">${f.titolo}</button>` +
+           `<span class="tenue">${dettaglio}</span></div>`;
+  }).join('');
 }
 
 async function ispeziona(){
@@ -186,12 +220,20 @@ async function stato(){
   const giu = pre.scrollTop + pre.clientHeight >= pre.scrollHeight - 30;
   pre.textContent = L.righe.join('\n');
   if(giu) pre.scrollTop = pre.scrollHeight;   // segue l'avanzamento, non se stai leggendo sopra
-  for(const b of ['b1','b2','b3','b4'])
-    document.getElementById(b).disabled = (L.stato === 'in_corso');
-  if(L.stato !== 'in_corso'){ clearInterval(tempo); tempo = null; cartelle(); }
+  // I pulsanti nascono dai dati e non hanno piu' id fissi: si prendono tutti
+  // quelli dentro #fasi. Quelli sospesi restano disabilitati comunque.
+  for(const b of document.querySelectorAll('#fasi button:not([disabled])'))
+    b.disabled = (L.stato === 'in_corso');
+  if(L.stato !== 'in_corso'){
+    clearInterval(tempo); tempo = null;
+    cartelle();
+    // riassunto() ridisegna anche i pulsanti dai dati, quindi le fasi sospese
+    // tornano disabilitate da sole: niente da riabilitare a mano.
+    riassunto();
+  }
 }
 
-cartelle(); stato();
+cartelle(); riassunto(); stato();
 </script>
 """
 
@@ -553,6 +595,10 @@ def comandi(cartella):
         "estrazione": ["scripts/fase_c_geometrica.py"],
         "vaglio": ["scripts/vaglia_scontrini.py", "--archivia"],
         "miniature": ["scripts/miniature.py"],
+        # --esegui e' esplicito: senza, i due script dicono soltanto cosa
+        # farebbero. Il pulsante carica davvero, e la pagina lo dichiara.
+        "drive_immagini": ["scripts/sincronizza_drive.py", "--esegui"],
+        "drive_dati": ["scripts/sincronizza_dati_drive.py", "--esegui"],
     }
 
 
@@ -589,6 +635,11 @@ def servi(sessione, porta):
                 return self._manda(PAGINA, "text/html; charset=utf-8")
             if p.path == "/ingestione":
                 return self._manda(PAGINA_INGESTIONE, "text/html; charset=utf-8")
+            if p.path == "/riassunto":
+                # Solo file locali, quindi si puo' rispondere subito: vedi
+                # app/revisione/riassunto.py.
+                return self._manda(json.dumps(
+                    {"numeri": riassumi(RADICE / "data"), "fasi": FASI}))
             if p.path == "/lavori/cartelle":
                 return self._manda(json.dumps({"cartelle": cartelle_candidate()}))
             if p.path == "/lavori/stato":
