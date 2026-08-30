@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 60.21,
   "items": [
     {
       "name": "BROCOLI 900 GR. CON",
@@ -101,8 +101,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "SOMMA_IN_DIFETTO",
   "somma_prodotti": 57.76,
-  "scarto": null,
+  "scarto": -2.45,
   "elaborato_il": null
 }

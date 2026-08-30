@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 9.4,
   "items": [
     {
       "name": "RAIM BLANC SESE PEP",
@@ -31,8 +31,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "VALIDO",
   "somma_prodotti": 9.4,
-  "scarto": null,
+  "scarto": 0.0,
   "elaborato_il": null
 }

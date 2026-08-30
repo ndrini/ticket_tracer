@@ -1,0 +1,18 @@
+{
+  "sha256": "cb32806fde8d79f2cdf670f8784f7eb4314afbc610ff7bb14d97e9f676fa9aff",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": 1.2,
+  "items": [
+    {
+      "name": "MASSA PASTA DE FULL",
+      "price": 1.2,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 1.2,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

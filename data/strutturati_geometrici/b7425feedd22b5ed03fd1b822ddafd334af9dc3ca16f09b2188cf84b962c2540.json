@@ -1,0 +1,18 @@
+{
+  "sha256": "b7425feedd22b5ed03fd1b822ddafd334af9dc3ca16f09b2188cf84b962c2540",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "AUTH.RESP.CODE 00 TOTALE COMPLESSIVO",
+      "price": 13.0,
+      "name_quality": "fused"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 13.0,
+  "scarto": null,
+  "elaborato_il": null
+}

@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 10.0,
   "items": [
     {
       "name": "Import Operaci\u00f3 acceptada Online Verificado por dispositivo Autori:36993 00/0000001010 C:4419 Targeta:*1409",
@@ -11,8 +11,8 @@
       "name_quality": "fused"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "SOMMA_IN_DIFETTO",
   "somma_prodotti": 1.72,
-  "scarto": null,
+  "scarto": -8.28,
   "elaborato_il": null
 }

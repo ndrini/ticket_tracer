@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 5.8,
   "items": [
     {
       "name": "GEL RENTAV.CON.36LV",
@@ -31,8 +31,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "VALIDO",
   "somma_prodotti": 5.8,
-  "scarto": null,
+  "scarto": 0.0,
   "elaborato_il": null
 }

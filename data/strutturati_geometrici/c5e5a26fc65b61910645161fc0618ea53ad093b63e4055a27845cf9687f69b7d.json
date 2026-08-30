@@ -1,0 +1,18 @@
+{
+  "sha256": "c5e5a26fc65b61910645161fc0618ea53ad093b63e4055a27845cf9687f69b7d",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "IMPORTO \u20ac",
+      "price": 83.5,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 83.5,
+  "scarto": null,
+  "elaborato_il": null
+}

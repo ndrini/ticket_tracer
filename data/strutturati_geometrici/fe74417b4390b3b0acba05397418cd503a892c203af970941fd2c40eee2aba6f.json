@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 9.53,
   "items": [
     {
       "name": "TOMAQUET PERA 2 4 ESTAC.CONSUM 250",
@@ -36,8 +36,8 @@
       "name_quality": "fused"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "VALIDO",
   "somma_prodotti": 9.53,
-  "scarto": null,
+  "scarto": 0.0,
   "elaborato_il": null
 }

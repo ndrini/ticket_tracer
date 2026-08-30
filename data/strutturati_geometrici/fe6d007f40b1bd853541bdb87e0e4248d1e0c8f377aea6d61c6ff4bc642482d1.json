@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 15.27,
   "items": [
     {
       "name": "BARRA DE PA",
@@ -56,8 +56,8 @@
       "name_quality": "incomplete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "VALIDO",
   "somma_prodotti": 15.27,
-  "scarto": null,
+  "scarto": 0.0,
   "elaborato_il": null
 }

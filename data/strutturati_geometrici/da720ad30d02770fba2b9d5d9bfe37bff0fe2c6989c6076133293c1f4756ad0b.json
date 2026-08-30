@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 37.59,
   "items": [
     {
       "name": "PANET 11 UN",
@@ -61,8 +61,8 @@
       "name_quality": "incomplete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "VALIDO",
   "somma_prodotti": 37.59,
-  "scarto": null,
+  "scarto": 0.0,
   "elaborato_il": null
 }

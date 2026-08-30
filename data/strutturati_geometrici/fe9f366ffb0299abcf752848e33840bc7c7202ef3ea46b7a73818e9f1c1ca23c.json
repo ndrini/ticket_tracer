@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 21.23,
   "items": [
     {
       "name": "F.SEMI PORC.G.BAQUE 1 PASTANAGA TAULA 1KG",
@@ -41,8 +41,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "VALIDO",
   "somma_prodotti": 21.23,
-  "scarto": null,
+  "scarto": 0.0,
   "elaborato_il": null
 }

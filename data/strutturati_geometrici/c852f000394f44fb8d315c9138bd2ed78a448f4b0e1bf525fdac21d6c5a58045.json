@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 20.21,
   "items": [
     {
       "name": "Pin Mange Unitat Promeci\u00f3",
@@ -16,8 +16,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "SOMMA_IN_DIFETTO",
   "somma_prodotti": 6.6,
-  "scarto": null,
+  "scarto": -13.61,
   "elaborato_il": null
 }

@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 30.42,
   "items": [
     {
       "name": "Patata Blanca a granel",
@@ -81,8 +81,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "SOMMA_IN_ECCESSO",
   "somma_prodotti": 33.8,
-  "scarto": null,
+  "scarto": 3.38,
   "elaborato_il": null
 }

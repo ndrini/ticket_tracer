@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 2.6,
   "items": [
     {
       "name": "TRUITA FRES. A/CEBA",
@@ -11,8 +11,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "VALIDO",
   "somma_prodotti": 2.6,
-  "scarto": null,
+  "scarto": 0.0,
   "elaborato_il": null
 }

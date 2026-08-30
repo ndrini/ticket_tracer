@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 20.02,
   "items": [
     {
       "name": "FORMATGE FRESC MONOP",
@@ -46,8 +46,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "SOMMA_IN_DIFETTO",
   "somma_prodotti": 7.69,
-  "scarto": null,
+  "scarto": -12.33,
   "elaborato_il": null
 }

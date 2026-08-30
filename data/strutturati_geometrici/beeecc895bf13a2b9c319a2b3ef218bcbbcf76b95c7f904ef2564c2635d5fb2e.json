@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 5.0,
   "items": [
     {
       "name": "ORDCP33011A CARTA ORDINARIA",
@@ -11,8 +11,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "SOMMA_IN_DIFETTO",
   "somma_prodotti": 2.9,
-  "scarto": null,
+  "scarto": -2.1,
   "elaborato_il": null
 }

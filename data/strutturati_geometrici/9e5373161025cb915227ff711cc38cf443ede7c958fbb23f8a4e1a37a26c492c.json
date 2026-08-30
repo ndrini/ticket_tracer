@@ -1,0 +1,28 @@
+{
+  "sha256": "9e5373161025cb915227ff711cc38cf443ede7c958fbb23f8a4e1a37a26c492c",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": 30.3,
+  "items": [
+    {
+      "name": "I CERVEZA SIN",
+      "price": 2.9,
+      "name_quality": "complete"
+    },
+    {
+      "name": "I TIRA DE SEPIA",
+      "price": 12.9,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FIDEUA",
+      "price": 14.5,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 30.3,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

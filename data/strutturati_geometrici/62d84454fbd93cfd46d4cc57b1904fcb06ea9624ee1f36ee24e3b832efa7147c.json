@@ -1,0 +1,53 @@
+{
+  "sha256": "62d84454fbd93cfd46d4cc57b1904fcb06ea9624ee1f36ee24e3b832efa7147c",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": 13.07,
+  "items": [
+    {
+      "name": "FUET ESPETEC EXTRA",
+      "price": 2.57,
+      "name_quality": "complete"
+    },
+    {
+      "name": "AMANIDA QUATRE ESTAC",
+      "price": 0.85,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PANET 11 UN",
+      "price": 1.14,
+      "name_quality": "complete"
+    },
+    {
+      "name": "T. 100% INTEGRALS",
+      "price": 1.55,
+      "name_quality": "complete"
+    },
+    {
+      "name": "SALSA DE SOJA SALADA",
+      "price": 1.2,
+      "name_quality": "complete"
+    },
+    {
+      "name": "SALSA PESTO",
+      "price": 1.95,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORMATGE BRIE PORCI\u00d3",
+      "price": 1.65,
+      "name_quality": "complete"
+    },
+    {
+      "name": "kg 1,75 \u20ac/kg",
+      "price": 2.16,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 13.07,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

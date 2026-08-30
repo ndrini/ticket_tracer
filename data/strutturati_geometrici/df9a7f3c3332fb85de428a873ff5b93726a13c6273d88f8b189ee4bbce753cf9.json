@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 24.0,
   "items": [
     {
       "name": "K CAMISA",
@@ -11,8 +11,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "SOMMA_IN_DIFETTO",
   "somma_prodotti": 12.0,
-  "scarto": null,
+  "scarto": -12.0,
   "elaborato_il": null
 }

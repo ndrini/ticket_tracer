@@ -1,0 +1,18 @@
+{
+  "sha256": "651056631061a69ba411c9807ee0f51bfa00ae6aac218d07b02a8ee894151f9c",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": 5.76,
+  "items": [
+    {
+      "name": "LLET SEN.CONSUM 1L",
+      "price": 5.76,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 5.76,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 27.52,
   "items": [
     {
       "name": "AMANIDA QUATRE ESTAC",
@@ -76,8 +76,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "SOMMA_IN_DIFETTO",
   "somma_prodotti": 26.39,
-  "scarto": null,
+  "scarto": -1.13,
   "elaborato_il": null
 }

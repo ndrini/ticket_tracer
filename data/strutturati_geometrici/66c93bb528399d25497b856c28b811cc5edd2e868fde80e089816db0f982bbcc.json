@@ -1,0 +1,18 @@
+{
+  "sha256": "66c93bb528399d25497b856c28b811cc5edd2e868fde80e089816db0f982bbcc",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": 24.99,
+  "items": [
+    {
+      "name": "Subtotal",
+      "price": 24.99,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 24.99,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

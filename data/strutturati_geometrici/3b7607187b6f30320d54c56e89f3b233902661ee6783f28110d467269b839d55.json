@@ -1,0 +1,63 @@
+{
+  "sha256": "3b7607187b6f30320d54c56e89f3b233902661ee6783f28110d467269b839d55",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": 20.42,
+  "items": [
+    {
+      "name": "PANET 11 UN",
+      "price": 2.28,
+      "name_quality": "complete"
+    },
+    {
+      "name": "AMANIDA QUATRE ESTAC",
+      "price": 1.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FUET ESPETEC EXTRA",
+      "price": 2.5,
+      "name_quality": "complete"
+    },
+    {
+      "name": "FORM. BURGOS NATURAL",
+      "price": 2.05,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TOMAQ. PERA TERRINA",
+      "price": 2.42,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ICLETS XXL",
+      "price": 1.8,
+      "name_quality": "complete"
+    },
+    {
+      "name": "GUACAMOLE",
+      "price": 3.95,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PA M. 55% S\u00c8GOL",
+      "price": 1.35,
+      "name_quality": "complete"
+    },
+    {
+      "name": "IOGURT AMB FRUITES",
+      "price": 2.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "kg 1,55 \u20ac/kg",
+      "price": 1.07,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 20.42,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

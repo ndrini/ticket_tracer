@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 27.4,
   "items": [
     {
       "name": "BAGUET 1 CAF\u00c9 G.AROMA NATURAL",
@@ -41,8 +41,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "SOMMA_IN_DIFETTO",
   "somma_prodotti": 16.56,
-  "scarto": null,
+  "scarto": -10.84,
   "elaborato_il": null
 }

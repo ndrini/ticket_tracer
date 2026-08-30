@@ -1,0 +1,18 @@
+{
+  "sha256": "e0c4470ab9c1fb5e31614dd7ff461461cd26206664cefa4c1835701a35fbc46a",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": 0.9,
+  "items": [
+    {
+      "name": "YAK BOSSA SOJA",
+      "price": 0.9,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 0.9,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

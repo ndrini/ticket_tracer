@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 30.83,
   "items": [
     {
       "name": "",
@@ -56,8 +56,8 @@
       "name_quality": "incomplete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "SOMMA_IN_DIFETTO",
   "somma_prodotti": 28.7,
-  "scarto": null,
+  "scarto": -2.13,
   "elaborato_il": null
 }

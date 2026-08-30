@@ -1,0 +1,73 @@
+{
+  "sha256": "fdd286543cf18491f34feac6a0f25a7c9a8743eba736d3af4354f571c3c717d8",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": 29.47,
+  "items": [
+    {
+      "name": "",
+      "price": 2.27,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "POMA GOLDEN 1 TOMAQUET ROSA",
+      "price": 3.11,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TOMAQUET ROSA 2 4 ESTAC.CONSUM 250",
+      "price": 1.7,
+      "name_quality": "fused"
+    },
+    {
+      "name": "MINI FUET CAMPOFRIO",
+      "price": 1.3,
+      "name_quality": "complete"
+    },
+    {
+      "name": "I. NATURAL DE CABRA",
+      "price": 3.7,
+      "name_quality": "complete"
+    },
+    {
+      "name": "T.FREG.OLIV.CONS.P3",
+      "price": 1.33,
+      "name_quality": "complete"
+    },
+    {
+      "name": "TOMAQU.TRIT.CONS400",
+      "price": 2.2,
+      "name_quality": "complete"
+    },
+    {
+      "name": "MANGO DESH. CON 90G",
+      "price": 3.98,
+      "name_quality": "complete"
+    },
+    {
+      "name": "NOU CLOSCA CONSUM",
+      "price": 3.7,
+      "name_quality": "complete"
+    },
+    {
+      "name": "NOU MACD.CONSUM",
+      "price": 2.99,
+      "name_quality": "complete"
+    },
+    {
+      "name": "ELICOIDALE GAROFALO",
+      "price": 1.79,
+      "name_quality": "complete"
+    },
+    {
+      "name": "COQ.B.MORO XOC CONS",
+      "price": 1.4,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 29.47,
+  "scarto": 0.0,
+  "elaborato_il": null
+}

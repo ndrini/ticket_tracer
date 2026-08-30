@@ -1,0 +1,33 @@
+{
+  "sha256": "9916f64ed7fc7e97f7d86ce6f3641295ac273e701829f0b95e86c1b955584011",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": null,
+  "items": [
+    {
+      "name": "",
+      "price": 2.0,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 6.5,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 0.0,
+      "name_quality": "incomplete"
+    },
+    {
+      "name": "",
+      "price": 5.59,
+      "name_quality": "incomplete"
+    }
+  ],
+  "esito": "TOTALE_ASSENTE",
+  "somma_prodotti": 14.09,
+  "scarto": null,
+  "elaborato_il": null
+}

@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 29.03,
   "items": [
     {
       "name": "SUPLEMENTO BEBIDA F",
@@ -76,8 +76,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "VALIDO",
   "somma_prodotti": 29.03,
-  "scarto": null,
+  "scarto": 0.0,
   "elaborato_il": null
 }

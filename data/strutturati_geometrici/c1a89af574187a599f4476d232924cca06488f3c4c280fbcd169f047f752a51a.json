@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 10.54,
   "items": [
     {
       "name": "GREC NATURAL P-6",
@@ -36,8 +36,8 @@
       "name_quality": "incomplete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "SOMMA_IN_DIFETTO",
   "somma_prodotti": 9.4,
-  "scarto": null,
+  "scarto": -1.14,
   "elaborato_il": null
 }

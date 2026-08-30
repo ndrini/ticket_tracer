@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 14.18,
   "items": [
     {
       "name": "CHOCODAYS",
@@ -51,8 +51,8 @@
       "name_quality": "incomplete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "VALIDO",
   "somma_prodotti": 14.18,
-  "scarto": null,
+  "scarto": 0.0,
   "elaborato_il": null
 }

@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 23.89,
   "items": [
     {
       "name": "BARRA DE PA 3 U",
@@ -66,8 +66,8 @@
       "name_quality": "incomplete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "VALIDO",
   "somma_prodotti": 23.89,
-  "scarto": null,
+  "scarto": 0.0,
   "elaborato_il": null
 }

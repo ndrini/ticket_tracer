@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 25.45,
   "items": [
     {
       "name": "BLAT DE MORO DOL\u00c7 MONGETA EXTRAFINA",
@@ -46,8 +46,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "VALIDO",
   "somma_prodotti": 25.45,
-  "scarto": null,
+  "scarto": 0.0,
   "elaborato_il": null
 }

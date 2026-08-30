@@ -3,7 +3,7 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": null,
+  "total": 5.55,
   "items": [
     {
       "name": "IVA INCLOS TOTAL",
@@ -11,8 +11,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "TOTALE_ASSENTE",
+  "esito": "VALIDO",
   "somma_prodotti": 5.55,
-  "scarto": null,
+  "scarto": 0.0,
   "elaborato_il": null
 }

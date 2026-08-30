@@ -1,0 +1,38 @@
+{
+  "sha256": "bd38878d4cf116ce42e9ab7b1c6f35749577cbeaf10d28e477eaedadc2d9838d",
+  "foto_origine": null,
+  "shop_name": null,
+  "date": null,
+  "total": 31.2,
+  "items": [
+    {
+      "name": "CONB.VEGETAL",
+      "price": 10.5,
+      "name_quality": "complete"
+    },
+    {
+      "name": "PLATO ARAYES",
+      "price": 8.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "BABA GANUJ",
+      "price": 6.0,
+      "name_quality": "complete"
+    },
+    {
+      "name": "RACION DE PAN",
+      "price": 1.2,
+      "name_quality": "complete"
+    },
+    {
+      "name": "SIN ALCOHOL",
+      "price": 5.5,
+      "name_quality": "complete"
+    }
+  ],
+  "esito": "VALIDO",
+  "somma_prodotti": 31.2,
+  "scarto": 0.0,
+  "elaborato_il": null
+}
