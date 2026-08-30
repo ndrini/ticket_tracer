@@ -151,3 +151,29 @@ class TestFasi:
 
         attive = [f for f in FASI if not f.get("sospesa")]
         assert len(attive) >= 5
+
+
+class TestStatoDrive:
+    """Quanto c'e' su Drive, senza chiederlo a Drive.
+
+    Idea di Gemini nel CAA: gli script di sincronizzazione lasciano un file
+    locale con l'esito dell'ultima passata, e la pagina legge quello. Cosi' il
+    numero c'e' anche offline, e resta vero fino alla prossima sincronizzazione.
+    """
+
+    def test_senza_il_file_dice_che_non_si_sa(self, progetto):
+        r = riassumi(progetto)
+        assert r["drive"] is None, "senza sincronizzazioni non si inventa un numero"
+
+    def test_legge_l_esito_dell_ultima_sincronizzazione(self, progetto):
+        (progetto / "stato_drive.json").write_text(json.dumps({
+            "quando": "2026-08-30T12:00:00",
+            "miniature": 360, "originali": 147, "strutturati": 325, "database": 1,
+        }))
+        d = riassumi(progetto)["drive"]
+        assert d["miniature"] == 360
+        assert d["quando"].startswith("2026-08-30")
+
+    def test_un_file_rotto_non_fa_cadere_il_riassunto(self, progetto):
+        (progetto / "stato_drive.json").write_text("{ rotto")
+        assert riassumi(progetto)["drive"] is None

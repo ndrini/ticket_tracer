@@ -83,3 +83,8 @@ data/miniature
 # due righe e un segreto committato non si toglie piu' dalla storia.
 client_secret*.json
 token.json
+
+# Esito dell'ultima sincronizzazione con Drive: descrive lo stato di QUESTA
+# macchina e cambia a ogni passata. Versionarlo darebbe conflitti a ogni sync
+# e direbbe il falso su un altro computer.
+data/stato_drive.json

@@ -163,6 +163,18 @@ async function riassunto(){
     ['&nbsp;&nbsp;da ripassare', n.da_ripassare, 'manca un nome o la somma non torna'],
   ];
   if(n.illeggibili) righe.push(['&nbsp;&nbsp;illeggibili', n.illeggibili, 'file rotti, da rifare']);
+  // Su Drive: l'esito dell'ULTIMA sincronizzazione, letto da un file locale.
+  // Se non c'e' si dice che non si sa, invece di mostrare uno zero che
+  // sembrerebbe "niente e' salito" quando invece nessuno ha ancora provato.
+  if(n.drive){
+    const d = n.drive, q = (d.quando||'').replace('T',' ').slice(0,16);
+    righe.push(['Su Drive',
+      (d.miniature||0)+(d.originali||0)+(d.strutturati||0)+(d.database||0),
+      `${d.miniature||0} miniature, ${d.originali||0} originali, ` +
+      `${d.strutturati||0} json &mdash; al ${q}`]);
+  } else {
+    righe.push(['Su Drive', '&mdash;', 'mai sincronizzato da questo computer']);
+  }
   document.getElementById('riassunto').innerHTML = '<table>' + righe.map(r =>
     `<tr><td>${r[0]}</td><td class="n">${r[1]}</td><td class="tenue">${r[2]}</td></tr>`
   ).join('') + '</table>';

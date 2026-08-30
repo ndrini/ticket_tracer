@@ -140,6 +140,16 @@ def main(argv=None):
     print(f"\n  caricati {caricati}, gia' presenti {saltati}, falliti {falliti}")
     if falliti:
         print("  Rilancia: i falliti si riprovano, i riusciti si saltano.")
+
+    # Si lascia la nota per la pagina di elaborazione, cosi' puo' dire quanto
+    # c'e' lassu' senza chiederlo a Drive a ogni caricamento.
+    # Si RICHIEDE a Drive cosa c'e' davvero, invece di sommare i previsti: con
+    # dei falliti la somma sarebbe gonfiata, e la pagina direbbe che le immagini
+    # sono al sicuro quando non lo sono. Una chiamata sola, a lavoro finito.
+    from app.revisione.riassunto import annota_drive
+    annota_drive(ROOT / "data",
+                 miniature=len(list(archivio.elenca("miniature/"))),
+                 originali=len(list(archivio.elenca("originali/"))))
     return 1 if falliti else 0
 
 

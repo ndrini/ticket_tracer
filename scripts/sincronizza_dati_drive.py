@@ -121,6 +121,13 @@ def main(argv=None):
     print(f"\n  caricati {caricati}, gia' presenti {saltati}, falliti {falliti}")
     if falliti:
         print("  Rilancia: i falliti si riprovano, i riusciti si saltano.")
+
+    # La nota per la pagina: cio' che c'e' DAVVERO lassu', richiesto a Drive a
+    # lavoro finito, non la somma dei previsti (con dei falliti sarebbe gonfia).
+    from app.revisione.riassunto import annota_drive
+    annota_drive(ROOT / "data",
+                 strutturati=len(list(archivio.elenca("strutturati/"))),
+                 database=len(list(archivio.elenca("database/"))))
     return 1 if falliti else 0
 
 

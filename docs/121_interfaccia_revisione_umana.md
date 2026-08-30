@@ -139,7 +139,23 @@ all'apertura. Sui dati veri del 2026-08-30:
       chiusi                178     la somma quadra e i nomi ci sono
       da ripassare          147
 
-**Non chiede niente a Google Drive**, ed e' la scelta che conta. Lassu' ci sono
+### Quanto c'e' su Drive, senza chiederlo a Drive
+
+Idea di Gemini nel CAA, implementata: gli script di sincronizzazione lasciano in
+`data/stato_drive.json` l'esito dell'ultima passata, e la pagina legge quello.
+
+    Su Drive   833   360 miniature, 147 originali, 325 json — al 2026-08-30 19:04
+
+Il numero e' quello **vero**, richiesto a Drive una volta sola a lavoro finito,
+non la somma dei file previsti: con dei falliti quella sarebbe gonfia, e la
+pagina direbbe che le immagini sono al sicuro quando non lo sono.
+
+I due script aggiornano solo le proprie chiavi e si fondono, cosi' chi
+sincronizza le immagini non cancella cio' che si sa dei dati. Se il file non
+c'e' la pagina scrive "mai sincronizzato", non uno zero: uno zero sembrerebbe
+"non e' salito niente" quando invece nessuno ha ancora provato.
+
+**Il resto del riassunto non chiede niente a Google Drive**, ed e' la scelta che conta. Lassu' ci sono
 833 file: contarli a ogni caricamento sarebbe una chiamata di rete per un numero
 che cambia solo quando si preme un pulsante, e la pagina diventerebbe lenta e
 inservibile senza connessione. Due test lo impongono — uno vieta di costruire

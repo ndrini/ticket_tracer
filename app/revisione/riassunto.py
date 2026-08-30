@@ -118,6 +118,22 @@ def _conta(cartella: Path, motivo: str) -> int:
     return sum(1 for f in cartella.iterdir() if f.is_file() and f.name.endswith(motivo))
 
 
+def stato_drive(radice: Path):
+    """Esito dell'ultima sincronizzazione, letto dal file che lascia lo script.
+
+    None quando non si sa: nessuna sincronizzazione fatta, o file illeggibile.
+    Un numero inventato sarebbe peggio di un buco dichiarato — chi guarda
+    penserebbe che le sue immagini sono al sicuro.
+    """
+    percorso = Path(radice) / "stato_drive.json"
+    if not percorso.is_file():
+        return None
+    try:
+        return json.loads(percorso.read_text())
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
 def riassumi(radice: Path) -> dict:
     """I numeri della pagina. Solo file locali: vedi il docstring del modulo."""
     radice = Path(radice)
@@ -171,4 +187,30 @@ def riassumi(radice: Path) -> dict:
         "chiusi": chiusi,
         "da_ripassare": da_ripassare,
         "illeggibili": illeggibili,
+        "drive": stato_drive(radice),
     }
+
+
+def annota_drive(radice: Path, **conteggi):
+    """Lascia sul disco l'esito di una sincronizzazione, per la pagina.
+
+    Lo scrivono gli script di sincronizzazione a fine corsa. Senza, il riassunto
+    non saprebbe dire quanto c'e' su Drive se non chiedendolo a Drive — cioe'
+    una chiamata di rete a ogni caricamento della pagina.
+
+    Aggiorna solo le chiavi passate: chi sincronizza le immagini non deve
+    cancellare cio' che sa dei dati, e viceversa.
+    """
+    from datetime import datetime
+
+    percorso = Path(radice) / "stato_drive.json"
+    stato = stato_drive(radice) or {}
+    stato.update(conteggi)
+    stato["quando"] = datetime.now().isoformat(timespec="seconds")
+    try:
+        percorso.write_text(json.dumps(stato, indent=2))
+    except OSError:
+        # Non e' il risultato del lavoro: se non si riesce a scrivere la nota,
+        # l'upload resta valido e il programma non deve fallire per questo.
+        pass
+    return stato
