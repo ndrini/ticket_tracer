@@ -70,3 +70,10 @@ data/kaggle_output
 
 # Foto sorgente: stanno in /mnt/condivisa, qui e una copia di lavoro
 data/2026_scontrini
+
+# Database ricreato dai test a ogni esecuzione: artefatto, non sorgente
+data/test_spese.db
+
+# Miniature: ricostruibili dai ritagli con scripts/miniature.py
+# (la tabella `miniature` nel db conserva le impronte)
+data/miniature
