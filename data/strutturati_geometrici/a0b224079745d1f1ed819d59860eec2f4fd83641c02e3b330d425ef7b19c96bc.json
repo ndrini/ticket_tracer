@@ -4,6 +4,7 @@
   "shop_name": "ALCAMPU",
   "date": "2025-04-08",
   "total": 18.79,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "SARTEN TOUCH 20C",

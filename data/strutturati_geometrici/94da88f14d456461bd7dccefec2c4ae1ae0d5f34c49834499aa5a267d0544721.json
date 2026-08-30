@@ -4,6 +4,7 @@
   "shop_name": "Mercadona",
   "date": "2025-03-24",
   "total": 5.9,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "POT XICLE HERBA SANA",

@@ -4,6 +4,7 @@
   "shop_name": "BAGUET",
   "date": "2025-07-17",
   "total": 0.59,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "BAGUET ENFARINADA",

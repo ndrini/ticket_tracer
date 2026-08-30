@@ -4,6 +4,7 @@
   "shop_name": "MERCADONA",
   "date": "2025-04-28",
   "total": 28.8,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "OUS PAG\u00c8S",

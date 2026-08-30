@@ -4,6 +4,7 @@
   "shop_name": "MERCADONA",
   "date": "2025-07-19",
   "total": 13.74,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "GUACAMOLE",

@@ -3,7 +3,8 @@
   "foto_origine": "2025-04-28 17.11.14.jpg",
   "shop_name": "Supermarco La Favorita",
   "date": "2025-04-26",
-  "total": 50.0,
+  "total": 34.92,
+  "totale_riconosciuto_dalla_somma": true,
   "items": [
     {
       "name": "Descripci\u00f3 1 FORMATGE RATLLAT PIZ",
@@ -86,8 +87,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "SOMMA_IN_DIFETTO",
+  "esito": "VALIDO",
   "somma_prodotti": 34.92,
-  "scarto": -15.08,
+  "scarto": 0.0,
   "elaborato_il": null
 }

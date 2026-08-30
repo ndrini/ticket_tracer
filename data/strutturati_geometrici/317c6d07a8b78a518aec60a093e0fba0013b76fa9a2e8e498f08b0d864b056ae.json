@@ -4,6 +4,7 @@
   "shop_name": "NINA BURGERS & COCKTAILS",
   "date": null,
   "total": 14.6,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "HEINEKEN 0'0 @",

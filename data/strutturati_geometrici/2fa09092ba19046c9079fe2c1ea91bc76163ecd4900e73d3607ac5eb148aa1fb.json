@@ -4,6 +4,7 @@
   "shop_name": "Perla",
   "date": "2025-03-12",
   "total": 17.01,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "PERNIL CUIT 92%",

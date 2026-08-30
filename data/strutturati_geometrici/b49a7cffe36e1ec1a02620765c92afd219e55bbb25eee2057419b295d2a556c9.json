@@ -4,6 +4,7 @@
   "shop_name": "MERCADUNA",
   "date": "2025-03-13",
   "total": 29.46,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "PENNE INTEGRAL",

@@ -4,6 +4,7 @@
   "shop_name": null,
   "date": null,
   "total": 29.23,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "Bossa Mix Amanides Caixa 1kg",

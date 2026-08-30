@@ -3,7 +3,8 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": 1.0,
+  "total": 0.83,
+  "totale_riconosciuto_dalla_somma": true,
   "items": [
     {
       "name": "AMANIDA 4 ESTACIONS",
@@ -11,8 +12,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "SOMMA_IN_DIFETTO",
+  "esito": "VALIDO",
   "somma_prodotti": 0.83,
-  "scarto": -0.17,
+  "scarto": 0.0,
   "elaborato_il": null
 }

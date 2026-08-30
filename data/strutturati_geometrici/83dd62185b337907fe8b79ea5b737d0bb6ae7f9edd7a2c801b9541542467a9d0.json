@@ -3,7 +3,8 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": 8.99,
+  "total": 13.86,
+  "totale_riconosciuto_dalla_somma": true,
   "items": [
     {
       "name": "CL ALFONS EL MAGNANIM 5 BarCelona BARCEI IDES-31119-03-00014597-20260508-180527 *******k 19,66 13,86 BASE 8,99 \u20ac/kg",
@@ -11,8 +12,8 @@
       "name_quality": "fused"
     }
   ],
-  "esito": "SOMMA_IN_ECCESSO",
+  "esito": "VALIDO",
   "somma_prodotti": 13.86,
-  "scarto": 4.87,
+  "scarto": 0.0,
   "elaborato_il": null
 }

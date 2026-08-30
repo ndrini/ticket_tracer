@@ -4,6 +4,7 @@
   "shop_name": "Auto Shoping Center St Pere IV",
   "date": "2022-04-13",
   "total": 3.79,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "Cantidad",

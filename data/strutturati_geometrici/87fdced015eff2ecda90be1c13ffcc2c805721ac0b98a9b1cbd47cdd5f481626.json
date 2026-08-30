@@ -4,6 +4,7 @@
   "shop_name": "Cal",
   "date": "2025-02-04",
   "total": 23.5,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "",

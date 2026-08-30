@@ -4,6 +4,7 @@
   "shop_name": "Cal",
   "date": "2025-03-12",
   "total": 21.84,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "Br\u00f2quil Verd",

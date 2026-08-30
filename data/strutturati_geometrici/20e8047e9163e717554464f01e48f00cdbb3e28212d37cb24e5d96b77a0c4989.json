@@ -4,6 +4,7 @@
   "shop_name": "Pruitos",
   "date": "2025-06-04",
   "total": 24.09,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "Platan Banana",

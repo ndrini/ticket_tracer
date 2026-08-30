@@ -4,6 +4,7 @@
   "shop_name": null,
   "date": null,
   "total": null,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "CY2502S C3 Occhiale da Sole 22,00%",

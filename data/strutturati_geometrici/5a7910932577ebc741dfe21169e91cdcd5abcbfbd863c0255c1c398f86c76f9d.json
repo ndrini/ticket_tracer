@@ -4,6 +4,7 @@
   "shop_name": "Juntos es cooperativa",
   "date": "2025-03-21",
   "total": 4.48,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "T.FREG.OLIV.CONS.P3",

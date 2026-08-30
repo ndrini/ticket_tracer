@@ -3,7 +3,8 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": 6.95,
+  "total": 1.21,
+  "totale_riconosciuto_dalla_somma": true,
   "items": [
     {
       "name": "",
@@ -11,8 +12,8 @@
       "name_quality": "incomplete"
     }
   ],
-  "esito": "SOMMA_IN_DIFETTO",
+  "esito": "VALIDO",
   "somma_prodotti": 1.21,
-  "scarto": -5.74,
+  "scarto": 0.0,
   "elaborato_il": null
 }

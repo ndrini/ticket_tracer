@@ -4,6 +4,7 @@
   "shop_name": "LiDL",
   "date": null,
   "total": 1.08,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "fotal",

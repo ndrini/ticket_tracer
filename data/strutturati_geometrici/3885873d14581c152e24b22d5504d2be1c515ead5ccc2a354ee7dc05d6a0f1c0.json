@@ -4,6 +4,7 @@
   "shop_name": null,
   "date": null,
   "total": 6.62,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "TOTAL COMPRA GRUPO DIA",

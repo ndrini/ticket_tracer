@@ -4,6 +4,7 @@
   "shop_name": "Manolo Bakes",
   "date": null,
   "total": 2.0,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "Espresso Machiatto",

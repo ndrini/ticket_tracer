@@ -4,6 +4,7 @@
   "shop_name": "Fruit\u00f3s",
   "date": "2025-03-26",
   "total": 39.24,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "kg",

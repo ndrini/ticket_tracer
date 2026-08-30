@@ -4,6 +4,7 @@
   "shop_name": "Roaluna",
   "date": "2025-04-01",
   "total": 1.31,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "IOGURT AMB FRUITES",

@@ -4,6 +4,7 @@
   "shop_name": "DIAGONAL",
   "date": "2025-04-17",
   "total": 77.25,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "BUFFET MEDIODIA",

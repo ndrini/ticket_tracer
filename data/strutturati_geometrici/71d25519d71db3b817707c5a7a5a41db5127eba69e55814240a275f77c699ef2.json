@@ -4,6 +4,7 @@
   "shop_name": "Fenebcc",
   "date": null,
   "total": 9.75,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "fenebcc",

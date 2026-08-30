@@ -4,6 +4,7 @@
   "shop_name": "Mercantina Vegicano",
   "date": "2020-03-28",
   "total": 38.2,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "",

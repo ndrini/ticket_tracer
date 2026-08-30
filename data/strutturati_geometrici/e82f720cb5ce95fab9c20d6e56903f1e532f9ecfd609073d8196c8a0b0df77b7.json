@@ -4,6 +4,7 @@
   "shop_name": null,
   "date": null,
   "total": 36.22,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "Carbass\u00f3 Extra",

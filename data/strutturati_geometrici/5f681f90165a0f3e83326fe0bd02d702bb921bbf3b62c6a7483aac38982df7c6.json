@@ -4,6 +4,7 @@
   "shop_name": "IperCoop Bari Japigia",
   "date": "2025-06-29",
   "total": 22.44,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "T SUCCO100%ARANCIACO 22,00%",

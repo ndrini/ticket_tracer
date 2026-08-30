@@ -4,6 +4,7 @@
   "shop_name": "MERCADUNA",
   "date": "2025-07-21",
   "total": 8.4,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "TORTILLA BLAT 6 U",

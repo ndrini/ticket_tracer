@@ -4,6 +4,7 @@
   "shop_name": "CASA RAMBLA-POBLENOU",
   "date": "2025-07-23",
   "total": 12.0,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "%",

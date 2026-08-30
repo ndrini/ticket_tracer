@@ -4,6 +4,7 @@
   "shop_name": null,
   "date": null,
   "total": 37.59,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "PANET 11 UN",

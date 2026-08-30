@@ -4,6 +4,7 @@
   "shop_name": "Fruitos",
   "date": "2025-08-07",
   "total": 34.92,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "",

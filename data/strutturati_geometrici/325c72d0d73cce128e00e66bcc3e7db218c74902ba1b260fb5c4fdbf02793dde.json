@@ -3,7 +3,8 @@
   "foto_origine": "2025-09-06 10.43.15.jpg",
   "shop_name": "DECATHLON",
   "date": "2025-08-03",
-  "total": 6.99,
+  "total": -6.99,
+  "totale_riconosciuto_dalla_somma": true,
   "items": [
     {
       "name": "Ref::5356933 RFID: 000000023425 PINK Tal",
@@ -11,8 +12,8 @@
       "name_quality": "fused"
     }
   ],
-  "esito": "SOMMA_IN_DIFETTO",
+  "esito": "VALIDO",
   "somma_prodotti": -6.99,
-  "scarto": -13.98,
+  "scarto": 0.0,
   "elaborato_il": null
 }

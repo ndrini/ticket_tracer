@@ -4,6 +4,7 @@
   "shop_name": "IKEA",
   "date": "2025-07-18",
   "total": -58.98,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "Devoluci 10430518",

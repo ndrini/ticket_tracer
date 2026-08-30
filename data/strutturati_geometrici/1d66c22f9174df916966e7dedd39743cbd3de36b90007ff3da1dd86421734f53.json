@@ -4,6 +4,7 @@
   "shop_name": "H&M",
   "date": "2025-03-15",
   "total": 8.99,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "Subtotal",

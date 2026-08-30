@@ -4,6 +4,7 @@
   "shop_name": "MASTER DISTRIBUCION ALIMENTARIA",
   "date": "2025-05-22",
   "total": 41.45,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "ESTRELLA SIN AL",

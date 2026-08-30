@@ -4,6 +4,7 @@
   "shop_name": "Juntos es cooperativa",
   "date": "2025-08-13",
   "total": 1.72,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "ESTAC.CONSUM 250",

@@ -4,6 +4,7 @@
   "shop_name": null,
   "date": null,
   "total": null,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "A IVA",

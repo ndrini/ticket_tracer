@@ -3,7 +3,8 @@
   "foto_origine": "2025-07-11 18.45.32.jpg",
   "shop_name": "GRUPU DIA",
   "date": "2025-06-30",
-  "total": 20.0,
+  "total": 12.92,
+  "totale_riconosciuto_dalla_somma": true,
   "items": [
     {
       "name": "PA MOTLLE BLANC EL M",
@@ -41,8 +42,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "SOMMA_IN_DIFETTO",
+  "esito": "VALIDO",
   "somma_prodotti": 12.92,
-  "scarto": -7.08,
+  "scarto": 0.0,
   "elaborato_il": null
 }

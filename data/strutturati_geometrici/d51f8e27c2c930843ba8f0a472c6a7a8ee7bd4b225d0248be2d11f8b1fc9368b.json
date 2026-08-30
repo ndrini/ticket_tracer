@@ -4,6 +4,7 @@
   "shop_name": null,
   "date": null,
   "total": 20.05,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "RAVIOLI MAT\u00d3 ESPINAC",

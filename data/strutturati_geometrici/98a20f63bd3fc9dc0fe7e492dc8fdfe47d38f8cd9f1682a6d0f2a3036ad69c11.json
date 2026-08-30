@@ -4,6 +4,7 @@
   "shop_name": "Alicia Bertha Garcia Gallardo",
   "date": null,
   "total": 16.4,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "HUEVOS ROTOS",

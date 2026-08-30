@@ -4,6 +4,7 @@
   "shop_name": "MERCADUNA",
   "date": "2025-01-10",
   "total": 9.73,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "T. 100% INTEGRALS",

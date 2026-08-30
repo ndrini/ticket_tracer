@@ -4,6 +4,7 @@
   "shop_name": "CONSUM. S.COOP.V",
   "date": null,
   "total": 11.65,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "TARONJA 1 PERA ROCHA",

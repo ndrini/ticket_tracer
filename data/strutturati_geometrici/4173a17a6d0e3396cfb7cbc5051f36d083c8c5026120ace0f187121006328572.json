@@ -4,6 +4,7 @@
   "shop_name": "L'ESTANY",
   "date": "2025-06-07",
   "total": 5.3,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "CAFE CON HIELO 1.40 14",

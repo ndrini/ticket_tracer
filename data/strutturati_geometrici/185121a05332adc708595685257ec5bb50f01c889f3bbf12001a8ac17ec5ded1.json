@@ -4,6 +4,7 @@
   "shop_name": "Fruit\u00f3s",
   "date": "2025-02-19",
   "total": 38.44,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "Esp\u00e0rrec Extra",

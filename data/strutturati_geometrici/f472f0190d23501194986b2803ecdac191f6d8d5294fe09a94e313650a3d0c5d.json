@@ -4,6 +4,7 @@
   "shop_name": null,
   "date": null,
   "total": 28.8,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "PIZCAS PERNIL LORIE",

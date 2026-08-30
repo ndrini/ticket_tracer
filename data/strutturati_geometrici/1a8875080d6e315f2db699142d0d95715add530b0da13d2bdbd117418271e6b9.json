@@ -4,6 +4,7 @@
   "shop_name": "LIDL SUPERMERCADOS S.A.U",
   "date": "2025-01-21",
   "total": 38.97,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "GORGONZOLA DOP",

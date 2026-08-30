@@ -4,6 +4,7 @@
   "shop_name": "Comercia Global Payments",
   "date": null,
   "total": 123.48,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "",

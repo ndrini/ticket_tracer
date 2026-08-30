@@ -3,7 +3,8 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": 5.02,
+  "total": 22.16,
+  "totale_riconosciuto_dalla_somma": true,
   "items": [
     {
       "name": "OFE GALETES GULLON DIG",
@@ -31,8 +32,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "SOMMA_IN_ECCESSO",
+  "esito": "VALIDO",
   "somma_prodotti": 22.16,
-  "scarto": 17.14,
+  "scarto": 0.0,
   "elaborato_il": null
 }

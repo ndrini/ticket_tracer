@@ -4,6 +4,7 @@
   "shop_name": "CONSUM, S.COOP.V",
   "date": "2022-04-27",
   "total": 12.69,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "ESTAC.CONSUM 250",

@@ -4,6 +4,7 @@
   "shop_name": "BASAR JUAN",
   "date": "2025-05-19",
   "total": 10.7,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "ARTICULO TEMPORAL",

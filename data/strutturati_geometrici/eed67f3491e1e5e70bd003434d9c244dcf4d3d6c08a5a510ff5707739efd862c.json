@@ -4,6 +4,7 @@
   "shop_name": null,
   "date": null,
   "total": 9.04,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "KG TOTAL",

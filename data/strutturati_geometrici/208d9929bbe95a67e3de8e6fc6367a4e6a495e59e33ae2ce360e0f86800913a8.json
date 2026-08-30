@@ -4,6 +4,7 @@
   "shop_name": "ABLOY",
   "date": "2025-05-22",
   "total": 16.5,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "",

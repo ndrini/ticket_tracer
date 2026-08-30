@@ -4,6 +4,7 @@
   "shop_name": "sas di Beccegado Luca & C",
   "date": "2024-12-24",
   "total": 9.95,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "PROSE CCO DOC /50m1",

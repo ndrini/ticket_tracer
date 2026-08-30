@@ -4,6 +4,7 @@
   "shop_name": "BONPREU",
   "date": null,
   "total": 35.58,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "PUR+ PATATES MOUSLIN",

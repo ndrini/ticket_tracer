@@ -4,6 +4,7 @@
   "shop_name": "CHRREFOUR MARKET",
   "date": "2025-05-27",
   "total": 2.53,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "ART. TOTAL A PAGAR",

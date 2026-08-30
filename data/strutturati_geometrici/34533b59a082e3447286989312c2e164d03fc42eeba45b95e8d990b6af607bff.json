@@ -4,6 +4,7 @@
   "shop_name": "Fruitos",
   "date": null,
   "total": 54.7,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "",

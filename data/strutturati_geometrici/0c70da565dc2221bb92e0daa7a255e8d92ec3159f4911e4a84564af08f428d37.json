@@ -4,6 +4,7 @@
   "shop_name": "CHOCODAYS",
   "date": "2025-08-05",
   "total": 30.47,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "MINESTRA",

@@ -4,6 +4,7 @@
   "shop_name": "Bar Tapas",
   "date": "2025-04-24",
   "total": null,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "Sin Alcohol",

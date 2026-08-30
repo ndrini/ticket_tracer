@@ -4,6 +4,7 @@
   "shop_name": "LIDL SUPERMERCADOS S.A.U",
   "date": "2025-01-31",
   "total": 16.83,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "COLORACI\u00d3 5",

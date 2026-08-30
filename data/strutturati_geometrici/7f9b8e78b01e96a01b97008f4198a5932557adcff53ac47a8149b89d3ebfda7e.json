@@ -4,6 +4,7 @@
   "shop_name": "Supermarch\u00e9 Caduna",
   "date": "2025-06-13",
   "total": 18.1,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "PERNIL CUIT 92% 1 FORMATGE RATLLAT PIZ",

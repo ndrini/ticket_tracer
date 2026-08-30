@@ -4,6 +4,7 @@
   "shop_name": "Magazzino",
   "date": "2023-12-31",
   "total": 2.07,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "%",

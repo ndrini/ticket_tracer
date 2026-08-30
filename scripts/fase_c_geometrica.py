@@ -22,7 +22,7 @@ sys.path.insert(0, os.getcwd())
 
 from app.etl.addendi import addendi, TOLLERANZA_SOMMA  # noqa: E402
 from app.etl.geometria import altezza_riga, centro_x, centro_y, colonna_dei_prezzi  # noqa: E402
-from app.etl.totale import trova_totale  # noqa: E402
+from app.etl.totale import candidati_totale, trova_totale  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 ESTRATTI = ROOT / "data" / "estratti"
@@ -110,6 +110,25 @@ def estrai_geometrico(righe_ocr, sha256, shop_name, total, date, foto_origine):
 
     somma = round(somma, 2)
 
+    # Se il totale letto non quadra, si guarda se un ALTRO importo stampato
+    # accanto a un'etichetta di totale quadrerebbe. Non e' cercare il numero che
+    # fa tornare i conti: i candidati sono tutti realmente stampati accanto a
+    # "TOTAL", e la posizione da sola non basta a distinguerli — MISURATO, su
+    # 144 righe con piu' importi "il piu' a destra" e "il maggiore" divergono in
+    # 96 casi e nessuna delle due regole e' giusta (la riga di riepilogo IVA
+    # `TOTAL 31,10 2,03` mette la quota a destra; `Total 7,79 ... 20,00` mette il
+    # contante come massimo).
+    #
+    # La scelta viene MARCATA: e' un totale riconosciuto, non letto, e chi legge
+    # il dato deve poterlo sapere.
+    totale_riconosciuto = False
+    if total is None or abs(somma - total) > TOLLERANZA_SOMMA:
+        for candidato in candidati_totale(righe_ocr):
+            if abs(somma - candidato) <= TOLLERANZA_SOMMA:
+                total = candidato
+                totale_riconosciuto = True
+                break
+
     esito = None
     scarto = None
     if total is not None:
@@ -130,6 +149,7 @@ def estrai_geometrico(righe_ocr, sha256, shop_name, total, date, foto_origine):
         "shop_name": shop_name,
         "date": date,
         "total": total,
+        "totale_riconosciuto_dalla_somma": totale_riconosciuto,
         "items": items,
         "esito": esito,
         "somma_prodotti": somma,

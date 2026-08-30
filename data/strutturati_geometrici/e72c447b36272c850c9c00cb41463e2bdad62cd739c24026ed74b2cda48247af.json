@@ -3,7 +3,8 @@
   "foto_origine": null,
   "shop_name": null,
   "date": null,
-  "total": 5.0,
+  "total": 3.15,
+  "totale_riconosciuto_dalla_somma": true,
   "items": [
     {
       "name": "OUS ECOLOGICS DIA",
@@ -11,8 +12,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "SOMMA_IN_DIFETTO",
+  "esito": "VALIDO",
   "somma_prodotti": 3.15,
-  "scarto": -1.85,
+  "scarto": 0.0,
   "elaborato_il": null
 }

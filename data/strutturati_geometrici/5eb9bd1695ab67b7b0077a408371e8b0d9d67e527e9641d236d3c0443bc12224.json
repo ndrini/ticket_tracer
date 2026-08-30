@@ -4,6 +4,7 @@
   "shop_name": "Cal",
   "date": "2025-05-26",
   "total": 19.57,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "Tom\u00e0quet COR 1,084",

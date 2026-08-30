@@ -4,6 +4,7 @@
   "shop_name": "Beete1",
   "date": "2026-08-20",
   "total": 20.88,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "Uat de Moro Cuit",

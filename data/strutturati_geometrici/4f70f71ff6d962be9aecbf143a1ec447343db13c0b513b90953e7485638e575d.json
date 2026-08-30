@@ -4,6 +4,7 @@
   "shop_name": "IKEA",
   "date": null,
   "total": 21.79,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "",

@@ -4,6 +4,7 @@
   "shop_name": null,
   "date": null,
   "total": -12.99,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "Total Suttotal",

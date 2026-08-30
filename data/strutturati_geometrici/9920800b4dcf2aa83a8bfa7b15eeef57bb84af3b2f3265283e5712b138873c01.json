@@ -4,6 +4,7 @@
   "shop_name": "MERCADONA",
   "date": "2025-07-14",
   "total": 8.72,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "CHOCODAYS",

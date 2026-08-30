@@ -4,6 +4,7 @@
   "shop_name": "RUME SUPERMETCATS, SL",
   "date": "2025-05-23",
   "total": 32.99,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "FILET ARREBOSSAT",

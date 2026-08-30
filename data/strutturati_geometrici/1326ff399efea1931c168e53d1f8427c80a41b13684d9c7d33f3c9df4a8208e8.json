@@ -4,6 +4,7 @@
   "shop_name": "MY LOVE",
   "date": "2025-08-31",
   "total": 10.0,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "% BLUSA N/B/P/AO/RS",

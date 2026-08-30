@@ -4,6 +4,7 @@
   "shop_name": "RUME SUPERMETCATS, SL",
   "date": "2025-01-08",
   "total": 10.92,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "ESTAC.CONSUM 250",

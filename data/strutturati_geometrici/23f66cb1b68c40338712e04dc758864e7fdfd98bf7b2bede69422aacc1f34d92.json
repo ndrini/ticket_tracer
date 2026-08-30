@@ -4,6 +4,7 @@
   "shop_name": "Juntos es cooperativa",
   "date": "2025-04-26",
   "total": 3.52,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "MOZZAR.RATLL.CONSUM",

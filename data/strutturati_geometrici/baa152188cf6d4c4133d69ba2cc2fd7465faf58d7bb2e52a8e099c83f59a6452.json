@@ -4,6 +4,7 @@
   "shop_name": "FRUIT\u00d3S",
   "date": "2025-01-03",
   "total": 43.68,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "ol-i-flor",

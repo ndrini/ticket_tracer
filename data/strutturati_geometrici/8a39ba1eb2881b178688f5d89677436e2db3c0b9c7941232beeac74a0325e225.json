@@ -4,6 +4,7 @@
   "shop_name": "MERCADONA",
   "date": "2025-06-03",
   "total": 7.57,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "PANET 11 UN",

@@ -4,6 +4,7 @@
   "shop_name": null,
   "date": null,
   "total": 20.99,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "CARABASS\u00d3 VERD",

@@ -3,7 +3,8 @@
   "foto_origine": "2025-07-11 18.46.38.jpg",
   "shop_name": "LiDL",
   "date": "2025-07-07",
-  "total": 23.68,
+  "total": 0.1,
+  "totale_riconosciuto_dalla_somma": true,
   "items": [
     {
       "name": "Desc",
@@ -11,8 +12,8 @@
       "name_quality": "complete"
     }
   ],
-  "esito": "SOMMA_IN_DIFETTO",
+  "esito": "VALIDO",
   "somma_prodotti": 0.1,
-  "scarto": -23.58,
+  "scarto": 0.0,
   "elaborato_il": null
 }

@@ -4,6 +4,7 @@
   "shop_name": "Gragtes",
   "date": "2022-06-12",
   "total": 11.85,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "BAGUETTE ELMOL 250 G",

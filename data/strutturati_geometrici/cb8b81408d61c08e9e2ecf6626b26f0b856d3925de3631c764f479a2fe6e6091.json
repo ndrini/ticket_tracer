@@ -4,6 +4,7 @@
   "shop_name": null,
   "date": null,
   "total": 5.26,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "MOZZAR.RATLL.CONSUM 2 TOMAQU.TRIT.CONS800",

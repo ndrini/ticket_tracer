@@ -4,6 +4,7 @@
   "shop_name": "MERCADONA",
   "date": "2025-05-20",
   "total": 18.97,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "MOCADOR CAPSA",

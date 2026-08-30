@@ -3,7 +3,8 @@
   "foto_origine": "2025-09-06 10.39.33.jpg",
   "shop_name": "ESTAC.CONSUM",
   "date": "2025-08-22",
-  "total": 6.55,
+  "total": 4.0,
+  "totale_riconosciuto_dalla_somma": true,
   "items": [
     {
       "name": "LLET SEN.CONSUM 1L 0,97 5,82 Descripcio TOMAQUET AMANIDA",
@@ -11,8 +12,8 @@
       "name_quality": "fused"
     }
   ],
-  "esito": "SOMMA_IN_DIFETTO",
+  "esito": "VALIDO",
   "somma_prodotti": 4.0,
-  "scarto": -2.55,
+  "scarto": 0.0,
   "elaborato_il": null
 }

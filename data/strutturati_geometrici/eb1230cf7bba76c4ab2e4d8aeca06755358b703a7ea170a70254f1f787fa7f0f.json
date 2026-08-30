@@ -4,6 +4,7 @@
   "shop_name": null,
   "date": null,
   "total": 30.42,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "Patata Blanca a granel",

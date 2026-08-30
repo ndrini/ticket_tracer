@@ -4,6 +4,7 @@
   "shop_name": "ALFONS V EL MAGNANIM 5/7",
   "date": "2025-04-04",
   "total": 9.69,
+  "totale_riconosciuto_dalla_somma": false,
   "items": [
     {
       "name": "TOTAL COMPRA GRUPO DIA",

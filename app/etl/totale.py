@@ -72,6 +72,51 @@ def _importo(testo):
     return -valore if intero.startswith("-") else valore
 
 
+def candidati_totale(righe_ocr):
+    """Tutti gli importi stampati accanto a un'etichetta di totale.
+
+    Serve a chi ha un modo INDIPENDENTE di riconoscere quello giusto — per
+    esempio la somma delle righe gia' estratte. `trova_totale` sceglie da solo
+    con una regola posizionale; questa restituisce le opzioni e lascia scegliere.
+
+    NASCE DA UNA MISURA (2026-08-30): su 144 righe-totale con piu' di un importo,
+    "il piu' a destra" e "il maggiore" divergono in 96 casi, e NESSUNA delle due
+    regole e' giusta. Sulla riga di riepilogo IVA `TOTAL 31,10 2,03` il piu' a
+    destra e' la quota d'imposta; su `Total 7,79 ... 20,00` il maggiore e' il
+    contante consegnato. La posizione da sola non basta a distinguerli.
+    """
+    if not righe_ocr:
+        return []
+
+    altezza_riga = float(np.median([_altezza(r["box"]) for r in righe_ocr])) or 1.0
+    etichette = [r for r in righe_ocr
+                 if len(r["testo"]) <= MAX_CARATTERI_ETICHETTA
+                 and ETICHETTA_TOTALE.search(r["testo"])
+                 and not CONTEGGIO_NON_IMPORTO.search(r["testo"])]
+
+    valori = []
+    for etichetta in etichette:
+        proprio = _importo(etichetta["testo"])
+        if proprio is not None:
+            valori.append(proprio)
+            continue
+        y, x = _centro_y(etichetta["box"]), _centro_x(etichetta["box"])
+        for r in righe_ocr:
+            if (abs(_centro_y(r["box"]) - y) < 1.2 * altezza_riga
+                    and _centro_x(r["box"]) > x):
+                valore = _importo(r["testo"])
+                if valore is not None:
+                    valori.append(valore)
+
+    # Ordine stabile senza duplicati.
+    visti, unici = set(), []
+    for v in valori:
+        if v not in visti:
+            visti.add(v)
+            unici.append(v)
+    return unici
+
+
 def trova_totale(righe_ocr):
     """
     Il totale dichiarato sullo scontrino, o None se non e' individuabile.
