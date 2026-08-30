@@ -18,6 +18,20 @@ def test_dia_20_88_extraction():
     if not os.path.exists(image_path):
         pytest.skip(f"Immagine non trovata: {image_path}")
 
+    # Il modello va verificato PRIMA, come l'immagine. Senza, OllamaProcessor
+    # cattura l'errore e restituisce {"shop_name": "Unknown", ...}: il test
+    # fallisce su "DIA non trovato", che manda a cercare un difetto
+    # nell'estrazione invece che un modello mancante.
+    modello = "llama3.1:latest"
+    try:
+        import requests
+        disponibili = [m["name"] for m in requests.get(
+            "http://localhost:11434/api/tags", timeout=5).json()["models"]]
+    except Exception as errore:
+        pytest.skip(f"Ollama non raggiungibile: {errore}")
+    if modello not in disponibili:
+        pytest.skip(f"modello {modello} non installato (ci sono: {disponibili})")
+
     # 1. Pipeline OCR (Phase 0-1)
     pipeline = ReceiptPipeline()
     receipts_texts, _ = pipeline.extract_raw_ocr(image_path)
@@ -26,7 +40,7 @@ def test_dia_20_88_extraction():
     assert len(receipts_texts) >= 1
     
     # 2. LLM Analysis (Phase 2)
-    processor = OllamaProcessor(model_name="llama3.1:latest")
+    processor = OllamaProcessor(model_name=modello)
     
     results = []
     for lines in receipts_texts:

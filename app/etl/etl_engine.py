@@ -904,9 +904,16 @@ class ReceiptPipeline:
 
 
     def parse_raw_data(self, raw_ocr_output):
-        """Ricostruisce le righe di testo."""
-        if not raw_ocr_output: return {"shop_name": "Unknown", "date": None, "total": 0.0, "items": []}
-        
+        """OCR fragments -> one string per visual line.
+
+        Empty input gives an empty list, not a dict. It used to return
+        {"shop_name": "Unknown", ...}, left over from an earlier contract: on an
+        unreadable photo the caller got a mapping where it expects text, and the
+        failure surfaced far away, as a receipt named "Unknown" with no items.
+        """
+        if not raw_ocr_output:
+            return []
+
         def get_y_center(line): return sum([p[1] for p in line[0]]) / 4
         def get_x_start(line): return min([p[0] for p in line[0]])
         

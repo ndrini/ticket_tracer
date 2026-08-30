@@ -36,6 +36,10 @@ Due difese contro il doppio lavoro, a due livelli diversi:
    condividono poche parole, lo stesso scontrino ricompresso quasi tutte.
    Nel dubbio si elabora e si segnala, non si scarta.
 
+   Il dhash non regge la rotazione (la stessa foto ruotata cade a distanza
+   29-32), percio' i sospetti si cercano nei quattro orientamenti della foto
+   nuova. Nel registro resta un hash solo per foto.
+
    Il registro delle foto viste sta in data/foto_viste.json e fa anche da
    indice foto -> scontrini.
 
@@ -161,15 +165,35 @@ def carica_registro():
     return {}
 
 
-def gia_viste(registro, phash):
+def hash_ruotati(img):
+    """I dhash della foto nei suoi quattro orientamenti.
+
+    Il dhash non e' invariante alla rotazione: la stessa foto ruotata di 90
+    gradi cade a distanza 29-32, cioe' fra le foto del tutto diverse, e passava
+    per nuova. Succede a chi ruota e salva da un editor o dalla galleria.
+
+    Si ruota la foto NUOVA e si tiene UN hash per foto archiviata, non il
+    contrario. Comprimere le quattro rotazioni in un solo hash (il minimo delle
+    quattro) sembra piu' elegante ma peggiora: il minimo puo' solo accorciare le
+    distanze, e misurato su 58 foto portava le coppie sotto soglia da 0 a 10.
+    Cosi' invece le distanze fra le foto gia' viste restano quelle di oggi.
+    """
+    return [dhash(np.rot90(img, k)) for k in range(4)]
+
+
+def gia_viste(registro, hash_foto):
     """Foto gia' elaborate che SOMIGLIANO a questa. Sospetti, non duplicati.
 
-    Restituisce una lista e non il primo che capita: fra piu' candidati il
-    duplicato vero puo' non essere il primo in ordine di dizionario, e sceglierlo
-    per posizione significherebbe confrontare il testo con la foto sbagliata.
+    `hash_foto` e' un hash solo o la lista dei quattro orientamenti; basta che
+    uno somigli. Restituisce una lista e non il primo che capita: fra piu'
+    candidati il duplicato vero puo' non essere il primo in ordine di
+    dizionario, e sceglierlo per posizione significherebbe confrontare il testo
+    con la foto sbagliata.
     """
+    hashes = [hash_foto] if isinstance(hash_foto, str) else hash_foto
     return [nome for nome, voce in registro.items()
-            if distanza_hash(voce["phash"], phash) <= SOGLIA_DUPLICATO]
+            if min(distanza_hash(voce["phash"], h) for h in hashes)
+            <= SOGLIA_DUPLICATO]
 
 
 def parole(righe_ocr):
@@ -285,7 +309,10 @@ def elabora_foto(chiave_foto, pipeline, segmenter, registro, rifai=False,
     phash = dhash(raw)
     sospetti = []
     if not rifai:
-        sospetti = [n for n in gia_viste(registro, phash) if n != nome]
+        # Si cercano i sospetti nei quattro orientamenti, ma nel registro si
+        # scrive il phash dritto: vedi hash_ruotati.
+        sospetti = [n for n in gia_viste(registro, hash_ruotati(raw))
+                    if n != nome]
 
     img = pipeline._resize_safe(raw, 2000)
     img = pipeline._orient_whole_image(img, max_orient_dim=800)

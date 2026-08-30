@@ -82,6 +82,50 @@ class TestGiaViste:
         registro = {"c.jpg": {"phash": "ffffffffffffffff"}}
         assert gia_viste(registro, "0000000000000000") == []
 
+    def test_accetta_una_lista_di_hash_e_basta_che_uno_somigli(self):
+        """The four orientations arrive as a list; any one matching is enough."""
+        registro = {"a.jpg": {"phash": "ffffffffffffffff"}}
+        assert gia_viste(registro, ["0000000000000000", "ffffffffffffffff"]) == ["a.jpg"]
+        assert gia_viste(registro, ["0000000000000000"]) == []
+
+
+class TestRotazione:
+    """The same photo rotated used to pass as new: dhash lands 29-32 away."""
+
+    def _foto(self):
+        cv2 = pytest.importorskip("cv2")
+        np = pytest.importorskip("numpy")
+        # Asymmetric, or every rotation would hash the same by accident.
+        img = np.zeros((120, 160, 3), dtype=np.uint8)
+        img[10:60, 20:70] = 255
+        img[70:90, 100:150] = 128
+        return cv2, np, img
+
+    def test_una_foto_ruotata_trova_l_originale(self):
+        from fase_a_ingestione import dhash, hash_ruotati
+
+        _, np, img = self._foto()
+        registro = {"originale.jpg": {"phash": dhash(img)}}
+        for giro in range(4):
+            ruotata = np.rot90(img, giro)
+            assert gia_viste(registro, hash_ruotati(ruotata)) == ["originale.jpg"], (
+                f"la foto ruotata di {giro * 90} gradi non riconosce l'originale")
+
+    def test_il_registro_conserva_un_hash_solo(self):
+        """Rotate the incoming photo, not the stored hash.
+
+        Collapsing the four rotations into one hash (their minimum) shortens
+        distances and nothing else: measured on 58 photos it took the pairs
+        under threshold from 0 to 10. Storing one hash keeps the archive's own
+        distances exactly as they are.
+        """
+        from fase_a_ingestione import dhash, hash_ruotati
+
+        _, _, img = self._foto()
+        quattro = hash_ruotati(img)
+        assert len(quattro) == 4
+        assert quattro[0] == dhash(img), "il primo deve essere la foto dritta"
+
 
 class TestConfermaDuplicato:
     """The heart of the fix: the text decides, not the perceptual hash."""

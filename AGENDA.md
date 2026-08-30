@@ -283,14 +283,24 @@ Test: `uv run pytest -q` per i moduli, `uv run pytest -m integration` per ciò c
 
 **CAA = cerca accordo con gli altri**: sottoporre il proprio piano a Gemini, Vibe e Perplexity prima di decidere. Serve per le scelte irreversibili o che toccano la semantica dei dati — schema, tassonomia, regole di fusione. Non per soglie e regex, dove bastano la misura e i test. Il criterio non è la difficoltà tecnica ma quanto costa accorgersi tardi dell'errore. E il consenso non è una prova: gli agenti si sono già sbagliati, e una misura li ha corretti.
 
-**`parse_raw_data()` ha due tipi di ritorno, e uno dei due è sbagliato.** Sul ramo normale restituisce `list[str]`, le righe ricostruite — ed è ciò che il suo unico chiamante (`etl_engine.py:81`) si aspetta. Ma sul ramo "OCR vuoto" (riga 908) restituisce un `dict` con `shop_name`/`date`/`total`/`items`, residuo di un contratto precedente. Con una foto illeggibile il chiamante riceve quindi un dizionario dove aspetta una lista di testo. `tests/test_ocr.py::test_pipeline_structure` fallisce da qui, ma per la ragione sbagliata: cerca `"shop_name" in parsed_data`, che su una lista cerca un *elemento*, e il messaggio d'errore non dice che il tipo è cambiato. Preesistente (commit `ee1f2b0`), non toccato dal lavoro su Drive.
+**RISOLTO il 2026-08-30.** `parse_raw_data()` aveva due tipi di ritorno: sul
+ramo normale `list[str]` (le righe ricostruite, cio' che il chiamante aspetta),
+sul ramo "OCR vuoto" un `dict` `{"shop_name": "Unknown", ...}`, residuo di un
+contratto precedente. Ora il ramo vuoto restituisce `[]`.
 
-Fallisce anche `tests/repro/test_dia_20_88.py`, con lo stesso difetto ma
-sintomo diverso: i risultati sono sette dizionari
-`{'shop_name': 'Unknown', 'date': None, 'total': 0.0, 'items': []}`, cioe'
-proprio il ramo vuoto della riga 908 restituito dove il chiamante aspetta le
-righe di testo. Verificato il 2026-08-30 mettendo da parte le modifiche in
-corso: fallisce comunque, quindi non c'entra la deduplica. Da sistemare insieme — il ramo vuoto deve restituire `[]` e il test va riscritto sul contratto vero.
+`tests/test_ocr.py` e' stato riscritto sul contratto vero: asseriva
+`"shop_name" in parsed_data`, che su una lista cerca un ELEMENTO — passava per
+la ragione sbagliata e nascondeva il difetto invece di rivelarlo. Quattro test
+al suo posto, compreso il ramo vuoto che nessuno provava.
+
+**Una diagnosi mia sbagliata, corretta misurando.** Avevo attribuito allo stesso
+difetto anche `tests/repro/test_dia_20_88.py`, perche' produceva gli stessi
+dizionari `{"shop_name": "Unknown", ...}`. La causa e' un'altra: il test chiede
+`llama3.1:latest`, che non e' installato (ci sono qwen2.5, llava, moondream,
+granite). `OllamaProcessor` cattura l'errore e restituisce quel dizionario di
+ripiego, cosi' il sintomo si somiglia. Ora il test verifica il modello PRIMA,
+come gia' faceva con l'immagine, e salta dicendo la causa vera invece di
+fallire su "DIA non trovato" mandando a cercare un difetto nell'estrazione.
 
 ## Lo sfasamento nome/prezzo sui formati a peso
 
@@ -421,6 +431,18 @@ telefono e da WhatsApp. I ritagli differiscono di 2 pixel, quindi gli sha256
 sono diversi e "scontrini in comune" li dava per distinti. Il testo li
 riconosce al 93,6%. E' il caso che lo sha non sa vedere.
 
-**Resta aperto**: la rotazione a 90 gradi non e' riconosciuta (distanza 16).
-Gli agenti divergono sull'utilita' di gestirla; non produce perdita di dati ma
-un doppione visibile, quindi non urgente.
+**Chiusa anche la rotazione** (2026-08-30). Gli agenti divergevano, e la
+misura ha deciso: funziona, ma non nel modo ovvio.
+
+Comprimere le 4 rotazioni in un hash solo (il minimo) e' la soluzione che viene
+in mente per prima ed e' sbagliata: il minimo puo' solo ACCORCIARE le distanze,
+e su 58 foto portava le coppie sotto soglia da 0 a 10, cioe' peggiorava proprio
+il difetto appena chiuso. Costo +10,6x (44 -> 470 ms).
+
+Si ruota invece la foto NUOVA e si confronta coi 4 orientamenti, tenendo UN hash
+per foto nel registro. Le distanze fra le foto archiviate restano identiche
+(112 coppie sotto soglia, invariato), il formato del registro non cambia, e il
+costo si paga una volta sola in ingestione.
+
+Provato sul codice vero: la stessa foto a 0, 90 e 180 gradi -> DUPLICATO al 100%
+in tutti e tre i casi. Prima passava per nuova (distanza 29-32).
