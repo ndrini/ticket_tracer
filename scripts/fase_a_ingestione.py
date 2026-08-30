@@ -28,9 +28,16 @@ Due difese contro il doppio lavoro, a due livelli diversi:
    completamente diverso. Serve un hash PERCETTIVO (dhash), che guarda la
    struttura dell'immagine.
 
-   Misurato: la stessa foto ricompressa o ridimensionata resta a distanza 0-2,
-   foto diverse stanno a 23-31. Il registro delle foto viste sta in
-   data/foto_viste.json e fa anche da indice foto -> scontrini.
+   Misurato: la stessa foto ricompressa o ridimensionata resta a distanza 0-2.
+   Ma il dhash NON basta a decidere: guarda la scena (carta chiara su tavolo
+   scuro) e su 6216 coppie del registro ne colloca 112 sotto soglia, comprese
+   foto di negozi e mesi diversi a distanza 0. Percio' da' solo i SOSPETTI, e
+   il verdetto lo dà il testo OCR (conferma_duplicato): due scontrini diversi
+   condividono poche parole, lo stesso scontrino ricompresso quasi tutte.
+   Nel dubbio si elabora e si segnala, non si scarta.
+
+   Il registro delle foto viste sta in data/foto_viste.json e fa anche da
+   indice foto -> scontrini.
 
 Uso:
     uv run python scripts/fase_a_ingestione.py data/2025_scontrini
@@ -42,6 +49,7 @@ import hashlib
 import json
 import logging
 import os
+import re
 import sys
 import time
 import warnings
@@ -68,11 +76,47 @@ REGISTRO_FOTO = "data/foto_viste.json"
 PREFISSO_ESTRATTI = "estratti/"
 PREFISSO_RITAGLI = "ritagli/"
 
-# Distanza di Hamming sotto la quale due foto sono considerate la stessa.
-# Misurata: la stessa foto ricompressa (q80, q50) o ridimensionata (50%, 25%)
-# resta a distanza 0-2, mentre foto diverse stanno a 23-31. La soglia cade in
-# mezzo a un margine vuoto e ampio, non e' una taratura delicata.
+# Distanza di Hamming sotto la quale due foto si SOMIGLIANO abbastanza da
+# meritare un controllo sul testo. Non basta a dirle uguali: vedi sotto.
+#
+# Qui c'era scritto che foto diverse stanno a 23-31 e che la soglia cadeva in
+# un margine ampio. E' falso, e misurarlo e' costato poco: su tutte le 6216
+# coppie del registro (112 foto) la distanza minima fra foto DIVERSE e' 0, e
+# 112 coppie stanno gia' sotto questa soglia. Le due piu' vicine sono scontrini
+# di negozi e mesi diversi.
+#
+# La causa e' che il dhash guarda la SCENA, non lo scontrino: ridotte a 8x8
+# pixel in grigio, due foto di carta chiara sullo stesso tavolo scuro sono
+# identiche. Fotografando sempre allo stesso modo, la collisione e' la norma.
+# Abbassare la soglia non salva: anche a 0 restano 3 collisioni.
 SOGLIA_DUPLICATO = 8
+
+# Quanto testo devono avere in comune due foto per dirle lo stesso scontrino.
+# Il phash da' i sospetti, queste due soglie danno il verdetto:
+#
+#   sopra CONFERMA   duplicato certo   -> si salta, dicendolo
+#   sotto DISTINTE   scontrini diversi -> si elabora, e' una foto nuova
+#   in mezzo         non si sa         -> si elabora COMUNQUE e si segnala
+#
+# La zona di mezzo non e' un difetto: e' il buco dichiarato. Nel dubbio si
+# tiene il dato e lo si marca, perche' un doppione si vede e si toglie, mentre
+# una foto scartata per errore non lascia traccia.
+#
+# Misurate sulle 112 coppie sotto soglia phash del registro:
+#
+#     foto DIVERSE      mediana 7.5%   p95 31.2%   MASSIMO 38.5%
+#     duplicati VERI    93.6%, 100%
+#
+# Fra 38.5% e 93.6% ci sono 55 punti vuoti: la separazione e' larga, non una
+# taratura fine. Le soglie stanno nel vuoto e non sui bordi, cosi' un caso
+# leggermente fuori scala non ribalta il verdetto.
+#
+# Erano 0.50/0.20 prima di misurare: 0.20 mandava in zona grigia 18 coppie di
+# foto palesemente diverse, cioe' 18 avvisi da leggere per nulla. A 0.45/0.40
+# nessuna foto diversa viene segnalata e i due duplicati veri restano
+# riconosciuti con oltre il doppio del margine.
+SOGLIA_CONFERMA = 0.45
+SOGLIA_DISTINTE = 0.40
 
 
 def dhash(img, size=8):
@@ -117,12 +161,65 @@ def carica_registro():
     return {}
 
 
-def gia_vista(registro, phash):
-    """Nome della foto gia' elaborata che coincide con questa, se esiste."""
-    for nome, voce in registro.items():
-        if distanza_hash(voce["phash"], phash) <= SOGLIA_DUPLICATO:
-            return nome
-    return None
+def gia_viste(registro, phash):
+    """Foto gia' elaborate che SOMIGLIANO a questa. Sospetti, non duplicati.
+
+    Restituisce una lista e non il primo che capita: fra piu' candidati il
+    duplicato vero puo' non essere il primo in ordine di dizionario, e sceglierlo
+    per posizione significherebbe confrontare il testo con la foto sbagliata.
+    """
+    return [nome for nome, voce in registro.items()
+            if distanza_hash(voce["phash"], phash) <= SOGLIA_DUPLICATO]
+
+
+def parole(righe_ocr):
+    """Parole di almeno due caratteri, per confrontare due scontrini.
+
+    Un insieme, non una sequenza: l'ordine delle righe qui non conta, e cosi'
+    il confronto regge anche dove la ricomposizione geometrica sbaglia a
+    raggruppare (difetto noto, vedi AGENDA.md).
+    """
+    trovate = set()
+    for riga in righe_ocr:
+        trovate.update(re.findall(r"\w{2,}", (riga.get("testo") or "").lower()))
+    return trovate
+
+
+def somiglianza(a, b):
+    """Quanto due insiemi di parole si sovrappongono: 0 = nulla, 1 = identici."""
+    if not a or not b:
+        return 0.0
+    return len(a & b) / len(a | b)
+
+
+def conferma_duplicato(righe_nuove, sospetti, registro, archivio):
+    """Il testo dice se e' davvero un duplicato. Torna (nome, somiglianza).
+
+    Il phash guarda la SCENA — carta chiara su tavolo scuro — e su foto scattate
+    sempre nello stesso modo collide di continuo: misurate 112 coppie sotto la
+    soglia su 6216, e le due piu' vicine (distanza 0) sono scontrini di negozi e
+    mesi diversi. Scartare su quella base cancellava foto nuove in silenzio.
+    Il testo stampato invece distingue: due scontrini diversi condividono poche
+    parole, lo stesso scontrino ricompresso le condivide quasi tutte.
+    """
+    nostre = parole(righe_nuove)
+    if not nostre:
+        return None, 0.0
+    migliore, punteggio = None, 0.0
+    for nome in sospetti:
+        loro = set()
+        for digest in registro.get(nome, {}).get("scontrini") or []:
+            try:
+                dati = archivio.leggi(PREFISSO_ESTRATTI + digest + ".json")
+                loro |= parole(json.loads(dati).get("righe_ocr") or [])
+            except Exception:
+                # Un estratto illeggibile non deve far passare per nuovo cio'
+                # che nuovo non e': si va avanti con gli altri.
+                continue
+        s = somiglianza(nostre, loro)
+        if s > punteggio:
+            migliore, punteggio = nome, s
+    return migliore, punteggio
 
 
 def sha256_immagine(img):
@@ -182,12 +279,13 @@ def elabora_foto(chiave_foto, pipeline, segmenter, registro, rifai=False,
                           for d in attesi):
             return 0, len(attesi), len(attesi)
 
+    # Il phash da' i SOSPETTI, non il verdetto: da solo scartava foto nuove.
+    # Chi somiglia si porta avanti fino all'OCR, dove il testo decide (vedi
+    # conferma_duplicato).
     phash = dhash(raw)
+    sospetti = []
     if not rifai:
-        originale = gia_vista(registro, phash)
-        if originale is not None and originale != nome:
-            print(f"  DUPLICATO      {nome:<30} = {originale}")
-            return 0, 0, 0
+        sospetti = [n for n in gia_viste(registro, phash) if n != nome]
 
     img = pipeline._resize_safe(raw, 2000)
     img = pipeline._orient_whole_image(img, max_orient_dim=800)
@@ -195,6 +293,7 @@ def elabora_foto(chiave_foto, pipeline, segmenter, registro, rifai=False,
     boxes = segmenter.boxes(img)
     nuovi = saltati = 0
     digests = []
+    incerto = None          # (foto simile, somiglianza) se il testo non decide
 
     for indice, (x, y, w, h) in enumerate(boxes):
         crop = img[y:y + h, x:x + w]
@@ -209,6 +308,24 @@ def elabora_foto(chiave_foto, pipeline, segmenter, registro, rifai=False,
             continue
 
         righe = ocr_righe(pipeline, crop)
+
+        # Il verdetto sui sospetti si da' qui, al primo ritaglio con del testo:
+        # prima non c'era nulla da confrontare. Una volta deciso vale per tutta
+        # la foto, percio' `sospetti` si svuota.
+        if sospetti and righe:
+            simile, punteggio = conferma_duplicato(righe, sospetti, registro,
+                                                   archivio)
+            sospetti = []
+            if punteggio >= SOGLIA_CONFERMA:
+                print(f"  DUPLICATO      {nome:<30} = {simile} "
+                      f"(testo {punteggio:.0%})")
+                return 0, 0, 0
+            if punteggio >= SOGLIA_DISTINTE:
+                # Ne' l'uno ne' l'altro: si tiene il dato e si segnala.
+                incerto = (simile, punteggio)
+                print(f"  DA VERIFICARE  {nome:<30} ~ {simile} "
+                      f"(testo {punteggio:.0%}): elaborata comunque")
+
         record = {
             "sha256": digest,
             "foto_origine": nome,
@@ -219,6 +336,11 @@ def elabora_foto(chiave_foto, pipeline, segmenter, registro, rifai=False,
             "n_righe_ocr": len(righe),
             "estratto_il": time.strftime("%Y-%m-%dT%H:%M:%S"),
         }
+        if incerto:
+            # Marcato nel dato, non solo stampato: un avviso a schermo si perde,
+            # questo resta e da' modo di ritrovare i casi dubbi.
+            record["sospetto_duplicato_di"] = incerto[0]
+            record["somiglianza_testo"] = round(incerto[1], 3)
         archivio.scrivi(chiave_json,
                         json.dumps(record, indent=2,
                                    ensure_ascii=False).encode("utf-8"))

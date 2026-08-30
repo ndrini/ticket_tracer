@@ -283,4 +283,144 @@ Test: `uv run pytest -q` per i moduli, `uv run pytest -m integration` per ciò c
 
 **CAA = cerca accordo con gli altri**: sottoporre il proprio piano a Gemini, Vibe e Perplexity prima di decidere. Serve per le scelte irreversibili o che toccano la semantica dei dati — schema, tassonomia, regole di fusione. Non per soglie e regex, dove bastano la misura e i test. Il criterio non è la difficoltà tecnica ma quanto costa accorgersi tardi dell'errore. E il consenso non è una prova: gli agenti si sono già sbagliati, e una misura li ha corretti.
 
-**`parse_raw_data()` ha due tipi di ritorno, e uno dei due è sbagliato.** Sul ramo normale restituisce `list[str]`, le righe ricostruite — ed è ciò che il suo unico chiamante (`etl_engine.py:81`) si aspetta. Ma sul ramo "OCR vuoto" (riga 908) restituisce un `dict` con `shop_name`/`date`/`total`/`items`, residuo di un contratto precedente. Con una foto illeggibile il chiamante riceve quindi un dizionario dove aspetta una lista di testo. `tests/test_ocr.py::test_pipeline_structure` fallisce da qui, ma per la ragione sbagliata: cerca `"shop_name" in parsed_data`, che su una lista cerca un *elemento*, e il messaggio d'errore non dice che il tipo è cambiato. Preesistente (commit `ee1f2b0`), non toccato dal lavoro su Drive. Da sistemare insieme — il ramo vuoto deve restituire `[]` e il test va riscritto sul contratto vero.
+**`parse_raw_data()` ha due tipi di ritorno, e uno dei due è sbagliato.** Sul ramo normale restituisce `list[str]`, le righe ricostruite — ed è ciò che il suo unico chiamante (`etl_engine.py:81`) si aspetta. Ma sul ramo "OCR vuoto" (riga 908) restituisce un `dict` con `shop_name`/`date`/`total`/`items`, residuo di un contratto precedente. Con una foto illeggibile il chiamante riceve quindi un dizionario dove aspetta una lista di testo. `tests/test_ocr.py::test_pipeline_structure` fallisce da qui, ma per la ragione sbagliata: cerca `"shop_name" in parsed_data`, che su una lista cerca un *elemento*, e il messaggio d'errore non dice che il tipo è cambiato. Preesistente (commit `ee1f2b0`), non toccato dal lavoro su Drive.
+
+Fallisce anche `tests/repro/test_dia_20_88.py`, con lo stesso difetto ma
+sintomo diverso: i risultati sono sette dizionari
+`{'shop_name': 'Unknown', 'date': None, 'total': 0.0, 'items': []}`, cioe'
+proprio il ramo vuoto della riga 908 restituito dove il chiamante aspetta le
+righe di testo. Verificato il 2026-08-30 mettendo da parte le modifiche in
+corso: fallisce comunque, quindi non c'entra la deduplica. Da sistemare insieme — il ramo vuoto deve restituire `[]` e il test va riscritto sul contratto vero.
+
+## Lo sfasamento nome/prezzo sui formati a peso
+
+Misurato il 2026-08-30 su tutti i 325 strutturati, partendo da un caso segnalato
+dall'utente (`5c9a9ede1206e1bb4e0ec35188e6aa34065399ee372c3a0999306ecd8ae0c314`,
+fruttivendolo "Cal Fruitos"). Confrontando la miniatura col JSON, **ogni prezzo
+e' attaccato al prodotto sbagliato**, sfasato di una riga:
+
+| sulla carta | nel JSON |
+|---|---|
+| Poma Royal Gala 1,45 | Taronja -> 1,45 |
+| Taronja 1,62 | "" -> 1,62 |
+| Alvocat 4,00 | Alvocat -> 4,00 |
+| Ous Ecologics 5,90 | "" -> 5,90 |
+
+Causa: su questi formati il nome sta su una riga e quantita'/prezzo unitario su
+quella sotto. L'estrattore le allinea male — a volte le fonde (nome sporco), a
+volte le sfasa (prezzo sul prodotto sbagliato).
+
+**Perche' e' grave: l'aritmetica non puo' accorgersene.** I prezzi sono tutti
+quelli giusti, solo appaiati male, quindi la somma quadra al centesimo (12,97,
+`scarto: 0.0`, `esito: VALIDO`). Questo caso si salva solo perche' ha due nomi
+vuoti e `esamina()` lo ferma per `nomi_mancanti` — motivo giusto, ragione
+sbagliata. Se i nomi fossero stati tutti pieni sarebbe passato per **chiuso** e
+finito nel DB certificato come buono.
+
+### I numeri
+
+    quadra, tutti i nomi        178   <- passerebbero per chiusi
+    non quadra, tutti i nomi     83
+    non quadra, con nomi vuoti   41
+    quadra, con nomi vuoti       23   <- l'aritmetica assolve, il testo accusa
+
+Dei 178 "buoni", **38 (21%) hanno la riga del peso finita dentro il nome del
+prodotto** (`"kg 2,90 EUR/kg"` come nome, `"BANANA 0,650 kg 1,55 EUR/kg"`):
+stessa causa, altra manifestazione. E' un **limite inferiore**, non una stima:
+conta solo i casi con una traccia testuale. Lo sfasamento pulito non lascia
+firma nel JSON e si vede solo contro l'immagine.
+
+Non e' una catena sola: fra i 178 c'e' **un solo** "Cal", e molti hanno
+`shop_name` a `None`. E' trasversale ai formati a peso.
+
+### Conseguenza operativa
+
+**La fase D non va eseguita finche' questo non e' risolto**: verserebbe nel DB
+dati sfasati con lo stato `chiuso` a garantirli. Meglio il buco dichiarato del
+numero inventato.
+
+Da fare: un controllo che riconosca la riga-peso e la usi per verificare
+l'accoppiamento (prezzo ~= quantita' x prezzo_unitario), invece di fidarsi
+della sola somma. Corregge anche il conteggio: oggi non sappiamo quanti dei
+178 siano davvero puliti.
+
+### La causa, trovata nel grezzo OCR (2026-08-30)
+
+`data/estratti/<sha>.json` conserva ogni frammento con testo, confidenza e
+coordinate. Ricomponendo le righe per centro verticale — come fa la fase
+geometrica — si vede il difetto nascere:
+
+     y  conf  testo
+   175  0.85  Sdpto 1  13.05 2025  kg  Poma Royal Gala Extra  Caja 1  EUR/kg
+   236  0.99  0,418  Taronja Extra Cal Fruitos  3,48  1,45
+   272  0.90  0,544  Pza  Alvocat...  Dus Ecologics "M/L"...  2,98  4,00  1,62
+   343  1.00  2  2,95  5,90
+
+`Poma Royal Gala` e' risucchiata nell'INTESTAZIONE. La riga 236 porta il nome
+`Taronja` ma i numeri della Poma (0,418 x 3,48 = 1,45). La riga 272 fonde TRE
+prodotti e QUATTRO numeri. Da qui lo sfasamento di uno nel JSON finale.
+
+**L'OCR non c'entra: confidenza minima 0,85, quasi tutte a 0,99-1,00.** Testo,
+decimali e accenti catalani sono letti perfettamente. Il difetto e' solo nella
+ricomposizione delle righe.
+
+Causa: il raggruppamento usa il **solo centro verticale**. Sulle righe a peso il
+nome e i numeri stanno su due mezze righe sfalsate, e i centri finiscono piu'
+vicini fra righe diverse che dentro la stessa.
+
+**Questo rende il difetto piu' riparabile di quanto sembrasse**: l'informazione
+mancante e' gia' nel file. Le colonne sono nettissime (0,418 a x~0, 3,48 al
+centro, 1,45 a destra) e non vengono usate. Un raggruppamento che consideri
+anche la x — o che riconosca la coppia nome-riga/numeri-riga come UNA voce —
+ricostruirebbe le righe senza toccare l'OCR.
+
+## Chiuso: la deduplica scartava foto nuove in silenzio (2026-08-30)
+
+Nato da una domanda dell'utente: "se ricarico la stessa foto, la duplico?".
+Verificando la risposta (no, viene riconosciuta) e' emerso il rovescio.
+
+**Il difetto.** Il dhash della foto INTERA decideva da solo: sotto soglia 8 ->
+`return 0,0,0`, foto ignorata senza un avviso. Ma il dhash guarda la SCENA, non
+lo scontrino: ridotte a 8x8 pixel in grigio, due foto di carta chiara sullo
+stesso tavolo scuro sono identiche.
+
+Misurato su tutte le 6216 coppie del registro (112 foto):
+
+    distanza minima fra foto DIVERSE: 0     (il commento nel codice diceva 23-31)
+    coppie gia' sotto soglia: 112
+    anche a soglia 0 restano 3 collisioni
+
+Verifica visiva delle due a distanza 0: Consum+Dia di gennaio contro
+Alcampo+Milbby di aprile. Negozi, date e importi diversi. **110 foto nuove su
+112 sarebbero state buttate senza lasciare traccia.**
+
+**La correzione** (CAA: Gemini, Vibe e Perplexity concordi, nessuna riserva):
+il phash non decide piu', da' solo i SOSPETTI; il verdetto lo da' il testo OCR,
+confrontando gli insiemi di parole (Jaccard). Chi non e' certo si elabora
+comunque e si marca `sospetto_duplicato_di` nel JSON: e' la regola del progetto
+— segnalare, non correggere d'ufficio — applicata dove prima non c'era nemmeno
+il buco dichiarato.
+
+Costo nullo nel caso normale: il testo si confronta solo per le poche foto che
+collidono nel phash.
+
+**Le soglie, misurate e non indovinate:**
+
+    foto DIVERSE      mediana 7.5%   p95 31.2%   MASSIMO 38.5%
+    duplicati VERI    93.6%, 100%
+
+55 punti vuoti in mezzo. Poste a 45%/40% (erano 50%/20% prima di misurare: 20%
+segnalava 18 coppie palesemente diverse). Risultato sui dati veri:
+
+    duplicati veri -> scartati    2 / 2
+    foto diverse   -> elaborate 110 / 110
+
+**Un caso che il vecchio criterio sbagliava**: `IMG-20250103-WA0001.jpg` e
+`2025-01-03 10.22.03.jpg` sono lo stesso scontrino eMISFERO arrivato dal
+telefono e da WhatsApp. I ritagli differiscono di 2 pixel, quindi gli sha256
+sono diversi e "scontrini in comune" li dava per distinti. Il testo li
+riconosce al 93,6%. E' il caso che lo sha non sa vedere.
+
+**Resta aperto**: la rotazione a 90 gradi non e' riconosciuta (distanza 16).
+Gli agenti divergono sull'utilita' di gestirla; non produce perdita di dati ma
+un doppione visibile, quindi non urgente.
