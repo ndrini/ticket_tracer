@@ -37,41 +37,13 @@ import shutil
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from app.etl.chiusura import esamina, somma_righe  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 STRUTTURATI = ROOT / "data" / "strutturati_geometrici"
 RITAGLI = ROOT / "data" / "ritagli"
-
-# Due centesimi: assorbe l'arrotondamento, non un prodotto mancante.
-TOLLERANZA = 0.02
-
-
-def esamina(dati):
-    """(stato, motivo) di uno scontrino gia' estratto."""
-    totale = dati.get("total")
-    items = dati.get("items") or []
-
-    if not items:
-        return "da_ripassare", "nessun_prodotto"
-    if totale is None:
-        return "da_ripassare", "totale_illeggibile"
-
-    somma = round(sum(float(i.get("price") or 0) for i in items), 2)
-    scarto = somma - totale
-    if abs(scarto) > TOLLERANZA:
-        # Il verso dello scarto dice cose diverse: mancano righe, oppure ne sono
-        # entrate di troppo (uno sconto sommato invece che sottratto, il totale
-        # di un altro scontrino nello stesso ritaglio).
-        return "da_ripassare", ("somma_in_difetto" if scarto < 0
-                                else "somma_in_eccesso")
-
-    senza_nome = sum(1 for i in items if not (i.get("name") or "").strip())
-    if senza_nome:
-        # I conti tornano ma non so COME si chiama tutto: il totale e' usabile,
-        # il dettaglio per categoria no.
-        return "da_ripassare", "nomi_mancanti"
-
-    return "chiuso", "quadra e ha tutti i nomi"
-
 
 def comprimi(sorgente: Path, destinazione: Path, qualita: int) -> bool:
     """Ricomprime il ritaglio. False se manca Pillow o l'immagine e' illeggibile."""
@@ -108,7 +80,7 @@ def main(argv=None):
         sha = dati.get("sha256") or percorso.stem
         stato, motivo = esamina(dati)
         items = dati.get("items") or []
-        somma = round(sum(float(i.get("price") or 0) for i in items), 2)
+        somma = somma_righe(dati)
 
         chiave = "chiusi" if stato == "chiuso" else f"da_ripassare/{motivo}"
         conteggi[chiave] = conteggi.get(chiave, 0) + 1

@@ -24,6 +24,19 @@ Confronta contro DUE registri:
 Il secondo serve al caso in cui ricompaia il ritaglio di uno scontrino, non la
 foto intera.
 
+## Tre stati, non due
+
+"Gia' vista" non basta a decidere: cio' che conta e' se quella foto ha dato dei
+dati COMPLETI.
+
+    mai vista          -> si elabora
+    vista e CHIUSA     -> non si tocca: quadra e ha tutti i nomi
+    vista NON chiusa   -> vale la pena riprovare
+
+MISURATO il 2026-08-30: solo 15 foto su 112 hanno tutti i loro scontrini chiusi.
+Le altre 97 sono state viste ma non sono finite, e trattarle come duplicati da
+scartare significherebbe rinunciare a migliorarle.
+
 ## Non elabora e non sposta niente
 
 Stampa un rapporto. Con --copia-nuove copia altrove le sole foto mai viste,
@@ -40,8 +53,13 @@ from pathlib import Path
 
 import cv2
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from app.etl.chiusura import e_chiuso  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 REGISTRO = ROOT / "data" / "foto_viste.json"
+STRUTTURATI = ROOT / "data" / "strutturati_geometrici"
 ESTENSIONI = (".jpg", ".jpeg", ".png", ".webp")
 
 # Stessa soglia dell'ingestione: 0-4 per la stessa foto ricompressa, 23-31 per
@@ -65,21 +83,50 @@ def distanza(a, b):
         return 99
 
 
+def sha_chiusi():
+    """Gli scontrini finiti: quadrano col totale e hanno tutti i nomi."""
+    chiusi = set()
+    for percorso in STRUTTURATI.glob("*.json"):
+        try:
+            dati = json.loads(percorso.read_text())
+        except (OSError, json.JSONDecodeError):
+            continue
+        if e_chiuso(dati):
+            chiusi.add(dati.get("sha256") or percorso.stem)
+    return chiusi
+
+
 def impronte_note(db: Path):
-    """(impronta, etichetta) di tutto cio' che e' gia' stato elaborato."""
+    """(impronta, etichetta, chiusa) di tutto cio' che e' gia' stato elaborato.
+
+    `chiusa` dice se quella foto ha dato dati completi: una foto vista ma non
+    chiusa merita un secondo giro, una chiusa no.
+    """
+    chiusi = sha_chiusi()
     note = []
+
     if REGISTRO.is_file():
         registro = json.loads(REGISTRO.read_text(encoding="utf-8"))
         for nome, voce in registro.items():
-            if voce.get("phash"):
-                note.append((voce["phash"], f"foto gia' vista: {nome}"))
+            if not voce.get("phash"):
+                continue
+            scontrini = voce.get("scontrini") or []
+            # Una foto e' chiusa solo se lo sono TUTTI i suoi scontrini: se
+            # anche uno solo zoppica, la foto ha ancora qualcosa da dare.
+            tutta = bool(scontrini) and all(s in chiusi for s in scontrini)
+            quanti = sum(1 for s in scontrini if s in chiusi)
+            note.append((voce["phash"],
+                         f"foto gia' vista: {nome} "
+                         f"({quanti}/{len(scontrini)} scontrini chiusi)",
+                         tutta))
 
     if db.is_file():
         conn = sqlite3.connect(db)
         try:
             for sha, impronta in conn.execute(
                     "SELECT sha256, dhash FROM miniature"):
-                note.append((impronta, f"scontrino gia' estratto: {sha[:12]}"))
+                note.append((impronta, f"scontrino gia' estratto: {sha[:12]}",
+                             sha in chiusi))
         except sqlite3.OperationalError:
             pass  # la tabella non esiste ancora: si confronta solo col registro
         conn.close()
@@ -92,7 +139,9 @@ def main(argv=None):
     p.add_argument("--db", type=Path, default=ROOT / "data" / "spese.db")
     p.add_argument("--elenca", action="store_true", help="elenca le foto nuove")
     p.add_argument("--copia-nuove", type=Path, metavar="DEST",
-                   help="copia le sole foto mai viste in questa cartella")
+                   help="copia le foto mai viste in questa cartella")
+    p.add_argument("--anche-da-riprovare", action="store_true",
+                   help="copia anche le viste che non hanno dato dati completi")
     args = p.parse_args(argv)
 
     if not args.cartella.is_dir():
@@ -106,31 +155,41 @@ def main(argv=None):
     if not foto:
         raise SystemExit(f"nessuna immagine in {args.cartella}")
 
-    nuove, viste, illeggibili = [], [], []
+    nuove, chiuse, da_riprovare, illeggibili = [], [], [], []
     for percorso in foto:
         img = cv2.imread(str(percorso))
         if img is None:
             illeggibili.append(percorso)
             continue
         impronta = dhash(img)
-        somiglianti = [(distanza(impronta, n), e) for n, e in note]
-        vicina = min(somiglianti) if somiglianti else (99, "")
-        if vicina[0] <= SOGLIA:
-            viste.append((percorso, vicina))
-        else:
+        somiglianti = [(distanza(impronta, n), e, c) for n, e, c in note]
+        vicina = min(somiglianti) if somiglianti else (99, "", False)
+        if vicina[0] > SOGLIA:
             nuove.append(percorso)
+        elif vicina[2]:
+            chiuse.append((percorso, vicina))
+        else:
+            da_riprovare.append((percorso, vicina))
 
     n = len(foto)
-    print(f"{n} immagini in {args.cartella}")
-    print(f"  GIA' ELABORATE: {len(viste):>4}  ({len(viste) / n * 100:.0f}%)")
-    print(f"  mai viste:      {len(nuove):>4}  ({len(nuove) / n * 100:.0f}%)")
+    print(f"{n} immagini in {args.cartella}\n")
+    print(f"  mai viste:            {len(nuove):>4}  "
+          f"({len(nuove) / n * 100:>3.0f}%)  da elaborare")
+    print(f"  viste, NON chiuse:    {len(da_riprovare):>4}  "
+          f"({len(da_riprovare) / n * 100:>3.0f}%)  vale la pena riprovare")
+    print(f"  viste e chiuse:       {len(chiuse):>4}  "
+          f"({len(chiuse) / n * 100:>3.0f}%)  gia' finite, non toccarle")
     if illeggibili:
-        print(f"  illeggibili:    {len(illeggibili):>4}")
+        print(f"  illeggibili:          {len(illeggibili):>4}")
 
-    if viste[:3]:
-        print("\n  esempi di riconosciute:")
-        for percorso, (d, etichetta) in viste[:3]:
-            print(f"    {percorso.name[:34]:<36} distanza {d}  {etichetta}")
+    if da_riprovare[:3]:
+        print("\n  esempi da riprovare:")
+        for percorso, (d, etichetta, _) in da_riprovare[:3]:
+            print(f"    {percorso.name[:32]:<34} distanza {d}  {etichetta}")
+    if chiuse[:2]:
+        print("\n  esempi gia' chiuse:")
+        for percorso, (d, etichetta, _) in chiuse[:2]:
+            print(f"    {percorso.name[:32]:<34} distanza {d}  {etichetta}")
 
     if args.elenca and nuove:
         print(f"\n  le {len(nuove)} mai viste:")
@@ -138,10 +197,16 @@ def main(argv=None):
             print(f"    {percorso}")
 
     if args.copia_nuove:
+        # Le mai viste, e su richiesta anche quelle che non hanno ancora dato
+        # dati completi: sono le due categorie che un'elaborazione puo' ancora
+        # migliorare. Le chiuse non si copiano mai.
+        da_copiare = list(nuove)
+        if args.anche_da_riprovare:
+            da_copiare += [p for p, _ in da_riprovare]
         args.copia_nuove.mkdir(parents=True, exist_ok=True)
-        for percorso in nuove:
+        for percorso in da_copiare:
             shutil.copy2(percorso, args.copia_nuove / percorso.name)
-        print(f"\n  copiate {len(nuove)} foto nuove in {args.copia_nuove}/")
+        print(f"\n  copiate {len(da_copiare)} foto in {args.copia_nuove}/")
         print(f"  ora: uv run python scripts/fase_a_ingestione.py "
               f"{args.copia_nuove.name}")
     elif nuove:
