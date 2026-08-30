@@ -46,6 +46,7 @@ import sys
 import time
 import warnings
 
+import numpy as np
 import cv2
 
 warnings.filterwarnings("ignore")
@@ -53,6 +54,7 @@ os.environ.setdefault("GLOG_minloglevel", "3")
 sys.path.insert(0, os.getcwd())
 
 from app.etl.etl_engine import ReceiptPipeline  # noqa: E402
+from app.storage import costruisci_archivio  # noqa: E402
 from app.etl.segmenter import ReceiptSegmenter  # noqa: E402
 
 logging.basicConfig(level=logging.WARNING)
@@ -60,6 +62,11 @@ logging.basicConfig(level=logging.WARNING)
 DIR_ESTRATTI = "data/estratti"
 DIR_RITAGLI = "data/ritagli"
 REGISTRO_FOTO = "data/foto_viste.json"
+
+# Prefissi dentro l'archivio. Non sono percorsi: su S3 diventano prefissi di
+# chiave, in locale sottocartelle di data/. Vedi docs/120_piano_archivio_immagini.md
+PREFISSO_ESTRATTI = "estratti/"
+PREFISSO_RITAGLI = "ritagli/"
 
 # Distanza di Hamming sotto la quale due foto sono considerate la stessa.
 # Misurata: la stessa foto ricompressa (q80, q50) o ridimensionata (50%, 25%)
@@ -90,6 +97,16 @@ def dhash(img, size=8):
 def distanza_hash(a, b):
     """Quanti bit differiscono fra due hash percettivi."""
     return bin(int(a, 16) ^ int(b, 16)).count("1")
+
+
+def decodifica(dati):
+    """Bytes from the archive -> image for OpenCV.
+
+    The archive does not know what an image is: decoding belongs here.
+    """
+    if not dati:
+        return None
+    return cv2.imdecode(np.frombuffer(dati, np.uint8), cv2.IMREAD_COLOR)
 
 
 def carica_registro():
@@ -133,10 +150,17 @@ def ocr_righe(pipeline, crop):
     return righe
 
 
-def elabora_foto(path, pipeline, segmenter, registro, rifai=False):
-    """Orient, segment, OCR. Returns (nuovi, saltati, scontrini_trovati)."""
-    nome = os.path.basename(path)
-    raw = cv2.imread(path)
+def elabora_foto(chiave_foto, pipeline, segmenter, registro, rifai=False,
+                 archivio=None, gia_estratti=None):
+    """Orient, segment, OCR. Returns (nuovi, saltati, scontrini_trovati).
+
+    `archivio` stores crops and extracts; `gia_estratti` is the set of keys
+    already present, pre-scanned once by the caller. Checking membership in a
+    set instead of asking the archive per receipt keeps this cheap on a remote
+    backend, where each check would otherwise be a network round-trip.
+    """
+    nome = os.path.basename(chiave_foto)
+    raw = decodifica(archivio.leggi(chiave_foto))
     if raw is None:
         print(f"  NON LEGGIBILE  {nome}")
         return 0, 0, 0
@@ -154,7 +178,7 @@ def elabora_foto(path, pipeline, segmenter, registro, rifai=False):
     voce = registro.get(nome)
     if voce and not rifai:
         attesi = voce.get("scontrini") or []
-        if attesi and all(os.path.exists(os.path.join(DIR_ESTRATTI, d + ".json"))
+        if attesi and all(PREFISSO_ESTRATTI + d + ".json" in gia_estratti
                           for d in attesi):
             return 0, len(attesi), len(attesi)
 
@@ -178,16 +202,16 @@ def elabora_foto(path, pipeline, segmenter, registro, rifai=False):
             continue
         digest, buf = sha256_immagine(crop)
         digests.append(digest)
-        path_json = os.path.join(DIR_ESTRATTI, digest + ".json")
+        chiave_json = PREFISSO_ESTRATTI + digest + ".json"
 
-        if os.path.exists(path_json) and not rifai:
+        if chiave_json in gia_estratti and not rifai:
             saltati += 1
             continue
 
         righe = ocr_righe(pipeline, crop)
         record = {
             "sha256": digest,
-            "foto_origine": os.path.basename(path),
+            "foto_origine": nome,
             "indice_nella_foto": indice,
             "box": [x, y, w, h],
             "dimensioni_ritaglio": [w, h],
@@ -195,10 +219,11 @@ def elabora_foto(path, pipeline, segmenter, registro, rifai=False):
             "n_righe_ocr": len(righe),
             "estratto_il": time.strftime("%Y-%m-%dT%H:%M:%S"),
         }
-        with open(path_json, "w") as fh:
-            json.dump(record, fh, indent=2, ensure_ascii=False)
-        with open(os.path.join(DIR_RITAGLI, digest + ".jpg"), "wb") as fh:
-            fh.write(buf.tobytes())
+        archivio.scrivi(chiave_json,
+                        json.dumps(record, indent=2,
+                                   ensure_ascii=False).encode("utf-8"))
+        archivio.scrivi(PREFISSO_RITAGLI + digest + ".jpg", buf.tobytes())
+        gia_estratti.add(chiave_json)
         nuovi += 1
 
     # Il registro tiene anche la corrispondenza foto -> scontrini, cosi' serve
@@ -220,13 +245,15 @@ def ricostruisci_registro(sorgente):
     perche' l'hash percettivo non richiede ne' OCR ne' segmentazione.
     """
     registro = carica_registro()
+    archivio = costruisci_archivio()
     aggiunte = 0
-    for nome in sorted(os.listdir(sorgente)):
+    for chiave in sorted(archivio.elenca(sorgente)):
+        nome = os.path.basename(chiave)
         if not nome.lower().endswith((".jpg", ".jpeg", ".png")):
             continue
         if nome in registro:
             continue
-        img = cv2.imread(os.path.join(sorgente, nome))
+        img = decodifica(archivio.leggi(chiave))
         if img is None:
             continue
         registro[nome] = {
@@ -255,13 +282,20 @@ def main(argv):
     if "--limite" in argv:
         limite = int(argv[argv.index("--limite") + 1])
 
-    os.makedirs(DIR_ESTRATTI, exist_ok=True)
-    os.makedirs(DIR_RITAGLI, exist_ok=True)
+    archivio = costruisci_archivio()
 
-    nomi = sorted(f for f in os.listdir(sorgente)
-                  if f.lower().endswith((".jpg", ".jpeg", ".png")))
+    # ONE listing instead of one existence check per receipt. On a remote
+    # backend the per-key form would be a network round-trip each time; the
+    # caller keeps the set explicitly so the network cost stays visible here
+    # rather than hidden in a cache inside the backend.
+    gia_estratti = set(archivio.elenca(PREFISSO_ESTRATTI))
+
+    chiavi = sorted(c for c in archivio.elenca(sorgente)
+                    if c.lower().endswith((".jpg", ".jpeg", ".png")))
+    nomi = chiavi
     if limite:
         nomi = nomi[:limite]
+        chiavi = chiavi[:limite]
 
     print(f"Fase A — {len(nomi)} foto da {sorgente}/")
     print(f"  ritagli  -> {DIR_RITAGLI}/")
@@ -278,12 +312,13 @@ def main(argv):
     for i, nome in enumerate(nomi, 1):
         t0 = time.time()
         nuovi, saltati, trovati = elabora_foto(
-            os.path.join(sorgente, nome), pipeline, segmenter, registro, rifai)
+            nome, pipeline, segmenter, registro, rifai,
+            archivio=archivio, gia_estratti=gia_estratti)
         tot_nuovi += nuovi
         tot_saltati += saltati
         tot_scontrini += trovati
         if trovati:
-            print(f"  [{i:3d}/{len(nomi)}] {nome:<30} "
+            print(f"  [{i:3d}/{len(nomi)}] {os.path.basename(nome):<30} "
                   f"{trovati} scontrini  ({nuovi} nuovi, {saltati} gia' presenti)"
                   f"  {time.time() - t0:.0f}s")
         # Salvataggio a ogni foto: un'interruzione a meta' non perde il lavoro.

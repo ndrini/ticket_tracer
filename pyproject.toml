@@ -14,6 +14,7 @@ dependencies = [
     "scikit-learn",
     "pydantic",
     "kaggle>=2.2.4",
+    "boto3>=1.43.83",
 ]
 authors = [
     { name = "ndrini", email = "aless@ndrini.eu" },
@@ -21,6 +22,7 @@ authors = [
 
 [dependency-groups]
 dev = [
+    "moto>=5.2.3",
     "pytest",
 ]
 

@@ -737,7 +737,7 @@ class ReceiptPipeline:
 
         return result
 
-    def extract_raw_ocr(self, image_path):
+    def extract_raw_ocr(self, image_path, archivio=None):
         """
         Four-stage pipeline for receipt extraction and OCR:
         1. Load and resize image
@@ -746,8 +746,17 @@ class ReceiptPipeline:
         4. OCR on each receipt
 
         Returns: (list of OCR line clusters, list of cropped receipt images)
+
+        With `archivio`, image_path is a key in that archive instead of a path
+        on disk; without it the old filesystem behaviour is kept, so existing
+        callers and the diagnostic scripts keep working unchanged.
         """
-        image = cv2.imread(image_path)
+        if archivio is not None:
+            image = cv2.imdecode(
+                np.frombuffer(archivio.leggi(image_path), np.uint8),
+                cv2.IMREAD_COLOR)
+        else:
+            image = cv2.imread(image_path)
         if image is None:
             raise FileNotFoundError(f"Impossibile leggere: {image_path}")
 
