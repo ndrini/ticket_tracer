@@ -522,3 +522,59 @@ Collegare `righe_logiche.ricomponi()` a `fase_c_geometrica`, o portare in
 359 estratti (costa secondi, i frammenti OCR sono su disco) e rimisurare le
 metriche dichiarate sopra. La fase D resta sospesa fino ad allora.
 
+
+## TODO: due miglioramenti indicati dall'utente (2026-08-31)
+
+Nati guardando lo scontrino #197 nella pagina di revisione: un giustificativo
+BBVA da 8,90 EUR, sbiadito, dentro una foto che ne contiene quattro. Stato
+SOMMA_IN_DIFETTO, scarto -36,70, confidenza 0%, "nessuna riga estratta".
+
+### a. Riconciliare i pagamenti elettronici con gli scontrini d'acquisto
+
+Il giustificativo della carta NON e' uno scontrino della spesa: non ha prodotti,
+ha un solo importo. Oggi finisce fra i "da ripassare" e ci resta per sempre,
+perche' non potra' mai quadrare — non c'e' niente da sommare.
+
+Ma non e' rumore: e' la PROVA DI PAGAMENTO dell'acquisto, e con quello condivide
+DATA e ORA. Vanno riconciliati, non scartati.
+
+Cosa serve prima di implementare:
+  - MISURARE quanti sono. Un primo dato c'e' gia': su 24 foto del 2026-06-21,
+    almeno uno (70d579b7..., "VENDA - OPERACIO CONTACTLESS", 24,44 EUR).
+    Marcatori riconoscibili nel testo: VENDA/VENTA, CONTACTLESS, TARG.:****,
+    AUT, "Visa Credit", ETIQ.APLIC.
+  - Verificare che data+ora bastino davvero come chiave. L'ora del pagamento e
+    quella di stampa dello scontrino differiscono di poco ma differiscono: serve
+    una TOLLERANZA, e va misurata sui casi veri, non scelta a intuito.
+  - Attenzione al caso in cui l'importo del pagamento NON coincide col totale
+    dell'acquisto (pagamento parziale, contante+carta). Segnalare, non fondere.
+
+E' una decisione sulla SEMANTICA dei dati (introduce un tipo di documento nuovo
+e una relazione fra record): vuole il CAA prima di implementare.
+
+### b. Bianco/nero o piu' contrasto prima dell'OCR
+
+Ipotesi dell'utente: gli scontrini sbiaditi (come il BBVA della foto) si
+leggerebbero meglio con una binarizzazione o un aumento di contrasto.
+
+Plausibile, ma NON verificato. Prima di toccare la pipeline va misurato, perche'
+e' esattamente il tipo di intervento che puo' migliorare una metrica e romperne
+un'altra: una soglia troppo aggressiva mangia il testo chiaro sul termico.
+
+Come misurarlo onestamente:
+  - metrica principale: righe OCR lette con confidenza >= 0.8
+  - guardia: numero di frammenti totali (non deve crollare: sarebbe testo perso)
+  - guardia: scontrini che quadrano (non deve calare)
+  - campione: gli scontrini oggi ILLEGGIBILI o a confidenza bassa, non quelli
+    che gia' funzionano — su quelli il margine di miglioramento e' zero e il
+    rischio di peggiorare no.
+  - confronto A/B sullo STESSO ritaglio, non su foto diverse.
+
+Da provare in ordine di invasivita': CLAHE (contrasto locale) < scala di grigi
+semplice < binarizzazione adattiva (Sauvola/Otsu). PaddleOCR e' addestrato su
+immagini a colori: la binarizzazione potrebbe togliergli informazione, non darne.
+Va verificato, non assunto.
+
+Nota: il preprocessing andrebbe applicato al RITAGLIO, non alla foto intera —
+il fondo (tavolo di legno) ha un contrasto diverso dalla carta e falserebbe
+qualunque soglia globale.
