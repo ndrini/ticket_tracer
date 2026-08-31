@@ -1,0 +1,19 @@
+scontrini: 218   addendi totali: 1171
+
+METRICA PRINCIPALE  copertura dei nomi
+  addendi con un nome a sinistra:  972/1171  (83%)
+  addendi senza nessun nome:       199
+
+GUARDIA 1  scontrini COMPLETI (quadrano E nominano tutto)
+  quadrano:                    117
+  di cui nominano tutto:        88   <- confrontabile con i 62 di oggi
+  quadrano ma NON nominano:     29
+
+GUARDIA 2  nomi degeneri (una cifra, due lettere, un simbolo)
+  43/972  (4%)   soglia di fallimento dichiarata: 5%
+
+GUARDIA 3  nomi diversi da quelli estratti oggi
+  87/150 scontrini confrontabili
+
+GUARDIA 4  nomi FUSI (piu' di 30 caratteri)
+  65/929  (6%)   mediana 18 caratteri, massimo 124
