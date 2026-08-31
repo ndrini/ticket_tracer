@@ -53,6 +53,7 @@ from pathlib import Path
 
 sys.path.insert(0, os.getcwd())
 
+from app.etl.nomi import nome_per_addendo  # noqa: E402
 from app.etl.addendi import addendi, confine_somma  # noqa: E402
 from app.etl.geometria import (altezza_riga, centro_x, centro_y,  # noqa: E402
                                colonna_dei_prezzi, valore)
@@ -98,31 +99,6 @@ def carica():
         if d["sha256"] in estratti:
             casi.append((d, estratti[d["sha256"]]))
     return casi
-
-
-def nome_per_addendo(righe_ocr, y_addendo, x_addendo, altezza):
-    """
-    Il nome che sta a SINISTRA dell'addendo, sulla sua stessa riga fisica.
-
-    Nessuna euristica sul contenuto: si prendono i frammenti che stanno sulla
-    stessa riga (la y dista meno di mezza altezza) e piu' a sinistra della
-    cifra, in ordine di x. E' la stessa regola geometrica del resto del
-    modulo: la posizione decide, non le parole.
-    """
-    pezzi = []
-    for r in righe_ocr:
-        y, x = centro_y(r["box"]), centro_x(r["box"])
-        if abs(y - y_addendo) >= 0.5 * altezza:
-            continue
-        if x >= x_addendo:
-            continue
-        pezzi.append((x, r["testo"]))
-    if not pezzi:
-        return None
-    testo = " ".join(t for _, t in sorted(pezzi))
-    testo = IMPORTI_IN_CODA.sub("", testo)
-    testo = PREFISSO_NUMERICO.sub("", testo).strip(" |×x*-–=.,:")
-    return testo.strip() or None
 
 
 def degenere(nome):

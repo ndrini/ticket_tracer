@@ -22,6 +22,7 @@ sys.path.insert(0, os.getcwd())
 
 from app.etl.addendi import addendi, TOLLERANZA_SOMMA  # noqa: E402
 from app.etl.geometria import altezza_riga, centro_x, centro_y, colonna_dei_prezzi  # noqa: E402
+from app.etl.nomi import nomi_di_uno_scontrino, qualita_nome  # noqa: E402
 from app.etl.totale import candidati_totale, trova_totale  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -35,43 +36,6 @@ HA_NOME = re.compile(r"[A-Za-zÀ-ÿ]{3}")
 SOSPETTO_FUSIONE = 30
 PREFISSO_NUMERICO = re.compile(r"^[\d\s.,x×*/€-]+", re.I)
 IMPORTI_IN_CODA = re.compile(r"(\s*-?\d{1,4}[.,]\d{2}\s*(?:€|EUR)?)+$", re.I)
-
-
-def nome_per_addendo(righe_ocr, y_addendo, x_addendo, altezza):
-    """
-    Il nome che sta a SINISTRA dell'addendo, sulla sua stessa riga fisica.
-    """
-    pezzi = []
-    for r in righe_ocr:
-        y, x = centro_y(r["box"]), centro_x(r["box"])
-        if abs(y - y_addendo) >= 0.5 * altezza:
-            continue
-        if x >= x_addendo:
-            continue
-        pezzi.append((x, r["testo"]))
-    if not pezzi:
-        return None
-    testo = " ".join(t for _, t in sorted(pezzi))
-    testo = IMPORTI_IN_CODA.sub("", testo)
-    testo = PREFISSO_NUMERICO.sub("", testo).strip(" |×x*-–=.,:")
-    return testo.strip() or None
-
-
-def qualita_nome(nome):
-    """
-    Categoria di qualità del nome rilevato.
-
-    - complete: il nome c'è ed è credibile
-    - fused: il nome ha ingoiato frammenti di un'altra riga
-    - incomplete: nessun nome trovato (None)
-    """
-    if nome is None:
-        return "incomplete"
-    if len(nome) < 3 or not HA_NOME.search(nome):
-        return "incomplete"
-    if len(nome) > SOSPETTO_FUSIONE:
-        return "fused"
-    return "complete"
 
 
 def estrai_geometrico(righe_ocr, sha256, shop_name, total, date, foto_origine):
@@ -97,8 +61,11 @@ def estrai_geometrico(righe_ocr, sha256, shop_name, total, date, foto_origine):
 
     somma = 0.0
     items = []
-    for v, y in trovati:
-        nome = nome_per_addendo(righe_ocr, y, x_col, altezza)
+    # Tutti insieme: la guardia sul riuso deve sapere cosa hanno gia' preso gli
+    # addendi precedenti, e un ciclo che chiama la funzione una volta per volta
+    # non puo' saperlo.
+    nomi = nomi_di_uno_scontrino(righe_ocr, trovati, x_col, altezza)
+    for (v, y), nome in zip(trovati, nomi):
         quality = qualita_nome(nome)
         somma += v
 
