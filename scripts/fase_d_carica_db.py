@@ -107,12 +107,14 @@ def carica_scontrino(cursore, dati, extraction_method="llm"):
     id_scontrino = cursore.lastrowid
 
     for prodotto in dati.get("items") or []:
+        nome_prod = prodotto.get("name")
         id_prodotto = trova_o_crea_prodotto(
-            cursore, prodotto.get("name"), prodotto.get("original_name"))
-        if id_prodotto is None:
-            continue
+            cursore, nome_prod, prodotto.get("original_name"))
         prezzo = prodotto.get("price")
         name_quality = prodotto.get("name_quality")  # solo per metodo geometrico
+        # Se il nome e' vuoto, forziamo name_quality a 'incomplete' se non gia' impostato
+        if not (nome_prod or "").strip() and not name_quality:
+            name_quality = "incomplete"
         cursore.execute(
             """INSERT INTO receipt_lines
                (receipt_id, product_id, quantity, unity_price, total_price,
