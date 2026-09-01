@@ -35,15 +35,17 @@ DIR_STRUTTURATI_GEOMETRICI = "data/strutturati_geometrici"
 DB_PREDEFINITO = "data/spese.db"
 
 
-def trova_o_crea_commercio(cursore, nome):
-    """L'id del negozio, creandolo se e' la prima volta che si incontra."""
-    nome = (nome or "Sconosciuto").strip() or "Sconosciuto"
-    cursore.execute("SELECT id FROM commerces WHERE name = ?", (nome,))
+def trova_o_crea_commercio(cursore, nome_grezzo):
+    """L'id del negozio canonico, creandolo se e' la prima volta che si incontra."""
+    from app.etl.negozio import normalizza_nome_negozio
+    nome_canonico, nome_originale = normalizza_nome_negozio(nome_grezzo)
+
+    cursore.execute("SELECT id FROM commerces WHERE name = ?", (nome_canonico,))
     riga = cursore.fetchone()
     if riga:
         return riga[0]
     cursore.execute(
-        "INSERT INTO commerces (name, address) VALUES (?, ?)", (nome, ""))
+        "INSERT INTO commerces (name, address) VALUES (?, ?)", (nome_canonico, ""))
     return cursore.lastrowid
 
 
