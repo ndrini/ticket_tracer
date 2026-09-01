@@ -60,6 +60,7 @@ data/foto_viste.json
 data/strutturati
 data/spese.db
 data/strutturati_vecchi
+data/strutturati_geometrici
 
 # Foto girate per la revisione: ricostruibili, non si versionano
 data/cache_revisione_orientate
