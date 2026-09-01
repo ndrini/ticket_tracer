@@ -88,8 +88,17 @@ su righe alte ~30 px. Trovato da Gemini leggendo il codice, non dalle misure.
 4. **Normalizzazione Negozi (Merchants).** COMPLETATO (2026-09-01, Passo 4.a).
    Creato `app/etl/negozio.py` con test in `tests/unit/test_negozio.py` e integrato in `fase_d_carica_db.py`.
    Mappa le varianti e gli errori OCR dei commercianti verso nomi canonici (`Mercadona`, `Consum`, `Cal Fruitos`, `Dia`, `IKEA`, `Lidl`, `Decathlon`, ecc.).
-5. **TODO — Template di Layout per Catena (Passo 4.b).**
-   Parametri geometrici specifici per le 4 catene principali (`Consum`, `Mercadona`, `Cal Fruitos`, `Dia`) che da sole coprono il **49,3% del corpus** (193 scontrini su 392), con ripiego automatico sul metodo generico per la fascia `ALTRO`.
+5. **Template di Layout per Catena (Passo 4.b).** COMPLETATO (2026-09-01, ramo `feat_collega_righe_logiche`).
+   Creato `app/etl/template_catena.py` con test in `tests/unit/test_template_catena.py`.
+   Integrazione delle regole geometriche per le 4 catene principali (`Consum`, `Mercadona`, `Cal Fruitos`, `Dia`) che coprono il **49,3% del corpus**, con tracciamento del campo `template_usato` e fallback automatico sul metodo generico.
+
+### Prossime Priorità Concordate (Piano d'Azione)
+
+1. **Pulizia e Rimozione Codice Morto**: Auditing del codebase, eliminazione di funzioni o vecchi helper inutilizzati/duplicati prima di consolidare il ramo.
+2. **Ripartizione degli Sconti (Sconti di Coda / Promozioni)**: Calcolo ed applicazione della ripartizione proporzionale degli sconti generali sulle righe spesa per far quadrare la contabilità dei prodotti.
+3. **Catalogo Prodotti e Fusione Alias (Fase E)**: Creazione della logica di omogeneizzazione dei nomi prodotto (`products` e `product_aliases` nel DB) per unificare le varianti OCR dello stesso articolo.
+
+
 
 
 ⚠️ Questi numeri sui formati **contraddicono in parte** la nota in fondo a
