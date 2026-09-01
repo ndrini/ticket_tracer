@@ -74,14 +74,14 @@ su righe alte ~30 px. Trovato da Gemini leggendo il codice, non dalle misure.
 
 ### Il prossimo passo, col consenso di Perplexity e Gemini (Vibe non ha risposto)
 
-1. **Collegare `righe_logiche.py` al ramo geometrico.** Codice gia' scritto e
-   testato; i 33 giudizi fanno da metro. ← in corso
-2. **Smettere di scartare le righe senza nome.** Salvarle marcate incomplete,
-   **fuori dal catalogo prodotti** (entrambi gli agenti insistono su questo:
-   nei report come "spesa non classificata", mai come categoria). Da' anche lo
-   strumento per misurare quanto il punto 1 migliora le cose.
-3. **Rendere esplicito il dubbio sul totale stampato** invece di trattarlo come
-   verita': serve un campo di affidabilita', o separare il contante dal totale.
+1. **Collegare `righe_logiche.py` al ramo geometrico.** COMPLETATO (2026-09-01, ramo `feat_collega_righe_logiche`).
+   Ricostruzione con gestione dell'inclinazione e associazione sui formati a peso (es. Cal Fruitos).
+   Misurato su 352 scontrini: **221 VALIDO (62,8%)**, righe senza nome calate dal 14% al **4,6%** (97 righe).
+2. **Smettere di scartare le righe senza nome.** COMPLETATO (2026-09-01, ramo `feat_collega_righe_logiche`).
+   Aggiornata `fase_d_carica_db.py`: le righe prive di nome vengono caricate in `receipt_lines` con `product_id = NULL` e `name_quality = 'incomplete'`, fuori dal catalogo prodotti.
+   Recuperati **1.459,89 EUR** di spesa (18,7% del totale) che prima venivano scartati in silenzio.
+3. **Rendere esplicito il dubbio sul totale stampato / Ricevute di Pagamento Elettronico (BBVA, POS).** ← in corso
+
 4. **TODO — template per catena.** Idea dell'utente: marcare a mano in una
    interfaccia dove stanno il nome della catena, la struttura delle righe, il
    totale e lo sconto; poi riconoscere lo scontrino e applicare il template, con
