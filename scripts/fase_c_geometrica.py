@@ -21,6 +21,7 @@ from pathlib import Path
 sys.path.insert(0, os.getcwd())
 
 from app.etl.addendi import addendi, TOLLERANZA_SOMMA  # noqa: E402
+from app.etl.documento import tipo_documento  # noqa: E402
 from app.etl.geometria import altezza_riga, centro_x, centro_y, colonna_dei_prezzi  # noqa: E402
 from app.etl.nomi import nomi_di_uno_scontrino, qualita_nome  # noqa: E402
 from app.etl.totale import candidati_totale, trova_totale  # noqa: E402
@@ -40,13 +41,32 @@ IMPORTI_IN_CODA = re.compile(r"(\s*-?\d{1,4}[.,]\d{2}\s*(?:€|EUR)?)+$", re.I)
 
 def estrai_geometrico(righe_ocr, sha256, shop_name, total, date, foto_origine):
     """
-    Estrae un scontrino usando il metodo geometrico.
+    Estrae uno scontrino usando il metodo geometrico.
 
     Restituisce un dict strutturato per la serializzazione,
     oppure None se non c'è abbastanza per procedere.
     """
     if not righe_ocr:
         return None
+
+    # Se il documento e' una ricevuta di pagamento POS pura (senza prodotti)
+    tipo_doc = tipo_documento(righe_ocr)
+    if tipo_doc == "PAGAMENTO_ELETTRONICO":
+        importi = [float(imp.replace(",", ".")) for imp in re.findall(r"\d+[.,]\d{2}", " ".join(r.get("testo", "") for r in righe_ocr))]
+        tot_pos = max(importi) if importi else total
+        return {
+            "sha256": sha256,
+            "foto_origine": foto_origine,
+            "shop_name": shop_name,
+            "date": date,
+            "total": tot_pos,
+            "totale_riconosciuto_dalla_somma": False,
+            "items": [],
+            "esito": "PAGAMENTO_ELETTRONICO",
+            "somma_prodotti": 0.0,
+            "scarto": None,
+            "elaborato_il": None
+        }
 
     altezza = altezza_riga(righe_ocr)
     colonna = colonna_dei_prezzi(righe_ocr, altezza)
