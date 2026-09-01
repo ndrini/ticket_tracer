@@ -85,13 +85,12 @@ su righe alte ~30 px. Trovato da Gemini leggendo il codice, non dalle misure.
    Esito misurato su 353 scontrini: 8 scontrini attribuiti a `PAGAMENTO_ELETTRONICO` (2,3%), 220 `VALIDO` (62,3%), `SOMMA_IN_DIFETTO` ridotto dal 17% al 14,7%.
 
 
-4. **TODO — template per catena.** Idea dell'utente: marcare a mano in una
-   interfaccia dove stanno il nome della catena, la struttura delle righe, il
-   totale e lo sconto; poi riconoscere lo scontrino e applicare il template, con
-   ripiego sul metodo generico per i mai visti. Misurato a supporto: 5 formati
-   coprono il 44% del corpus, 10 il 57%, e il layout e' stabile dentro la catena
-   (colonna prezzi al 89% della larghezza da Consum, 96% da Mercadona, dev.st
-   6-7 punti). Da sottoporre agli agenti prima di implementare.
+4. **Normalizzazione Negozi (Merchants).** COMPLETATO (2026-09-01, Passo 4.a).
+   Creato `app/etl/negozio.py` con test in `tests/unit/test_negozio.py` e integrato in `fase_d_carica_db.py`.
+   Mappa le varianti e gli errori OCR dei commercianti verso nomi canonici (`Mercadona`, `Consum`, `Cal Fruitos`, `Dia`, `IKEA`, `Lidl`, `Decathlon`, ecc.).
+5. **TODO — Template di Layout per Catena (Passo 4.b).**
+   Parametri geometrici specifici per le 4 catene principali (`Consum`, `Mercadona`, `Cal Fruitos`, `Dia`) che da sole coprono il **49,3% del corpus** (193 scontrini su 392), con ripiego automatico sul metodo generico per la fascia `ALTRO`.
+
 
 ⚠️ Questi numeri sui formati **contraddicono in parte** la nota in fondo a
 questo file ("quattro catene coprono il 22,5%, il 47% viene da negozi visti una
