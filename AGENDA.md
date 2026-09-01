@@ -80,7 +80,10 @@ su righe alte ~30 px. Trovato da Gemini leggendo il codice, non dalle misure.
 2. **Smettere di scartare le righe senza nome.** COMPLETATO (2026-09-01, ramo `feat_collega_righe_logiche`).
    Aggiornata `fase_d_carica_db.py`: le righe prive di nome vengono caricate in `receipt_lines` con `product_id = NULL` e `name_quality = 'incomplete'`, fuori dal catalogo prodotti.
    Recuperati **1.459,89 EUR** di spesa (18,7% del totale) che prima venivano scartati in silenzio.
-3. **Rendere esplicito il dubbio sul totale stampato / Ricevute di Pagamento Elettronico (BBVA, POS).** ← in corso
+3. **Rendere esplicito il dubbio sul totale stampato / Ricevute di Pagamento Elettronico (BBVA, POS).** COMPLETATO (2026-09-01, ramo `feat_collega_righe_logiche`).
+   Introdotta classificazione deterministica in `app/etl/documento.py`: identifica i documenti che sono ricevute POS pure (senza prodotti), separandoli da `SOMMA_IN_DIFETTO` e `TOTALE_ASSENTE` ed eliminando i falsi errori di quadratura.
+   Esito misurato su 353 scontrini: 8 scontrini attribuiti a `PAGAMENTO_ELETTRONICO` (2,3%), 220 `VALIDO` (62,3%), `SOMMA_IN_DIFETTO` ridotto dal 17% al 14,7%.
+
 
 4. **TODO — template per catena.** Idea dell'utente: marcare a mano in una
    interfaccia dove stanno il nome della catena, la struttura delle righe, il
