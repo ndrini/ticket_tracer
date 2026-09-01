@@ -24,6 +24,7 @@ from app.etl.addendi import addendi, TOLLERANZA_SOMMA  # noqa: E402
 from app.etl.documento import tipo_documento  # noqa: E402
 from app.etl.geometria import altezza_riga, centro_x, centro_y, colonna_dei_prezzi  # noqa: E402
 from app.etl.nomi import nomi_di_uno_scontrino, qualita_nome  # noqa: E402
+from app.etl.template_catena import ottieni_profilo_catena  # noqa: E402
 from app.etl.totale import candidati_totale, trova_totale  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -65,8 +66,12 @@ def estrai_geometrico(righe_ocr, sha256, shop_name, total, date, foto_origine):
             "esito": "PAGAMENTO_ELETTRONICO",
             "somma_prodotti": 0.0,
             "scarto": None,
+            "template_usato": None,
             "elaborato_il": None
         }
+
+    profilo_catena = ottieni_profilo_catena(shop_name)
+    template_usato = shop_name if profilo_catena else "generico"
 
     altezza = altezza_riga(righe_ocr)
     colonna = colonna_dei_prezzi(righe_ocr, altezza)
@@ -141,6 +146,7 @@ def estrai_geometrico(righe_ocr, sha256, shop_name, total, date, foto_origine):
         "esito": esito,
         "somma_prodotti": somma,
         "scarto": scarto,
+        "template_usato": template_usato,
         "elaborato_il": None
     }
 
